@@ -5,9 +5,9 @@ env:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
   - WORKSPACE="QuickSwift.xcworkspace"
-  - SCHEME="QuickSwift"
+  - QSSCHEME="QuickSwift"
   matrix:
-    - DESTINATION="OS=11.1,name=iPhone X"          SCHEME="$IOS_FRAMEWORK_SCHEME"      RUN_TESTS="YES" BUILD_EXAMPLE="YES"
+    - DESTINATION="OS=11.1,name=iPhone X"          SCHEME="$QSSCHEME"      RUN_TESTS="YES" BUILD_EXAMPLE="YES"
 before_install:
   - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
 script:
