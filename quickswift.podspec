@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
   # s.tvos.deployment_target = "9.0"
   s.source   = { :git => "https://github.com/TongCui/quickswift.git", :tag => s.version.to_s }
   # s.source   = { :git => "https://github.com/TongCui/quickswift.git" }
-  s.source_files = "QuickSwift/QuickSwift/*.swift"
+  s.source_files = "QuickSwift/QuickSwift/**/*.swift"
 end
