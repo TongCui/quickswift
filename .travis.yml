@@ -4,13 +4,7 @@ branches:
   only:
     - master
 env:
-  global:
-  - LC_CTYPE=en_US.UTF-8
-  - LANG=en_US.UTF-8
-  - WORKSPACE=QuickSwift.xcworkspace
-  - SCHEME=QuickSwift
-  matrix:
-    - DESTINATION="OS=11.1,name=iPhone X" RUN_TESTS="YES"
+  - ACTION=test  PLATFORM=iOS     DESTINATION='platform=iOS Simulator,name=iPhone 8'
 before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
@@ -21,17 +15,5 @@ script:
   - xcodebuild -version
   - xcodebuild -showsdks
 
-  # Build Framework in Debug and Run Tests if specified
-  - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
-    else
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
-    fi
-
-  # Build Framework in Release and Run Tests if specified
-  - if [ $RUN_TESTS == "YES" ]; then
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
-    else
-      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
-    fi
+  - xcodebuild -workspace QuickSwift.xcworkspace -scheme QuickSwift -destination "$DESTINATION" $ACTION | xcprettys
 
