@@ -12,6 +12,8 @@
 		07F03DD81FCBFD9E006F79C8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DD41FCBFD9E006F79C8 /* ArrayExtensions.swift */; };
 		07F03DD91FCBFD9E006F79C8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DD61FCBFD9E006F79C8 /* Model.swift */; };
 		07F03DDC1FCBFDCA006F79C8 /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DDB1FCBFDC9006F79C8 /* ArrayExtensionsTests.swift */; };
+		07F03DEB1FCD283B006F79C8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F03DE91FCD283A006F79C8 /* Alamofire.framework */; };
+		07F03DEC1FCD283B006F79C8 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F03DEA1FCD283B006F79C8 /* SnapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,8 @@
 		07F03DD41FCBFD9E006F79C8 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		07F03DD61FCBFD9E006F79C8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		07F03DDB1FCBFDC9006F79C8 /* ArrayExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTests.swift; sourceTree = "<group>"; };
+		07F03DE91FCD283A006F79C8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		07F03DEA1FCD283B006F79C8 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = ../Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07F03DEB1FCD283B006F79C8 /* Alamofire.framework in Frameworks */,
+				07F03DEC1FCD283B006F79C8 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +66,7 @@
 				07F03D6D1FCBFBBE006F79C8 /* QuickSwift */,
 				07F03D781FCBFBBE006F79C8 /* QuickSwiftTests */,
 				07F03D6C1FCBFBBE006F79C8 /* Products */,
+				07F03DE81FCD283A006F79C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +131,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		07F03DE81FCD283A006F79C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07F03DE91FCD283A006F79C8 /* Alamofire.framework */,
+				07F03DEA1FCD283B006F79C8 /* SnapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -146,6 +162,8 @@
 				07F03D671FCBFBBE006F79C8 /* Frameworks */,
 				07F03D681FCBFBBE006F79C8 /* Headers */,
 				07F03D691FCBFBBE006F79C8 /* Resources */,
+				07F03DED1FCD2850006F79C8 /* [Carthage] Copy Frameworks */,
+				07F03DEE1FCD28D7006F79C8 /* [Carthage] Check Carthage */,
 			);
 			buildRules = (
 			);
@@ -228,6 +246,41 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07F03DED1FCD2850006F79C8 /* [Carthage] Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+			);
+			name = "[Carthage] Copy Frameworks";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		07F03DEE1FCD28D7006F79C8 /* [Carthage] Check Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[Carthage] Check Carthage";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		07F03D661FCBFBBE006F79C8 /* Sources */ = {
