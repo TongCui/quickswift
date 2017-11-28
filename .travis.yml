@@ -15,5 +15,5 @@ script:
   - xcodebuild -version
   - xcodebuild -showsdks
 
-  - xcodebuild -workspace QuickSwift.xcworkspace -scheme QuickSwift -destination "$DESTINATION" $ACTION | xcprettys
+  - xcodebuild -workspace QuickSwift.xcworkspace -scheme QuickSwift -destination "$DESTINATION" $ACTION | xcpretty
 
