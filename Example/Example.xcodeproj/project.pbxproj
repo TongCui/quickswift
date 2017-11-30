@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07AE23D51FCEB04B00028BC4 /* QuickSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */; };
 		07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */; };
 		07F03D941FCBFBDA006F79C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03D931FCBFBDA006F79C8 /* ViewController.swift */; };
 		07F03D971FCBFBDA006F79C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F03D951FCBFBDA006F79C8 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuickSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F03D8E1FCBFBDA006F79C8 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F03D931FCBFBDA006F79C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +62,6 @@
 		07F03DAD1FCBFBDB006F79C8 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F03DB11FCBFBDB006F79C8 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		07F03DB31FCBFBDB006F79C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		07F03DCB1FCBFCF8006F79C8 /* QuickSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuickSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07AE23D51FCEB04B00028BC4 /* QuickSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +145,7 @@
 		07F03DC91FCBFCF8006F79C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				07F03DCB1FCBFCF8006F79C8 /* QuickSwift.framework */,
+				07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

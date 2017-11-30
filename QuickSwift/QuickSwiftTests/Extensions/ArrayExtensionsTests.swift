@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import QuickSwift
+@testable import QuickSwift
 
 class ArrayExtensionsTests: XCTestCase {
     
@@ -20,6 +20,23 @@ class ArrayExtensionsTests: XCTestCase {
     func testSumEmpty() {
         let array = [Int]()
         XCTAssertEqual(array.sum(), 0)
+    }
+    
+    func testPing() {
+        let model = AnnieModel(age: 12, name: "tcui")
+        print("\(model.greeting())")
+        let expect = expectation(description: "...")
+        
+        model.ping {
+            print("Finish")
+            expect.fulfill()
+        }
+        
+        waitForExpectations(timeout: 40) { (error) in
+            if let error = error {
+                XCTFail(error.localizedDescription)
+            }
+        }
     }
     
 }

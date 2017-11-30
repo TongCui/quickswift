@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0718468B1FCFFF7000545E38 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071846891FCFFF7000545E38 /* SnapKit.framework */; };
+		0718468C1FCFFF7000545E38 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0718468A1FCFFF7000545E38 /* Alamofire.framework */; };
 		07F03D751FCBFBBE006F79C8 /* QuickSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F03D6B1FCBFBBE006F79C8 /* QuickSwift.framework */; };
 		07F03D7C1FCBFBBE006F79C8 /* QuickSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F03D6E1FCBFBBE006F79C8 /* QuickSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07F03DD81FCBFD9E006F79C8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DD41FCBFD9E006F79C8 /* ArrayExtensions.swift */; };
 		07F03DD91FCBFD9E006F79C8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DD61FCBFD9E006F79C8 /* Model.swift */; };
 		07F03DDC1FCBFDCA006F79C8 /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DDB1FCBFDC9006F79C8 /* ArrayExtensionsTests.swift */; };
-		07F03DEB1FCD283B006F79C8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F03DE91FCD283A006F79C8 /* Alamofire.framework */; };
-		07F03DEC1FCD283B006F79C8 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F03DEA1FCD283B006F79C8 /* SnapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		071846891FCFFF7000545E38 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		0718468A1FCFFF7000545E38 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		07F03D6B1FCBFBBE006F79C8 /* QuickSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F03D6E1FCBFBBE006F79C8 /* QuickSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickSwift.h; sourceTree = "<group>"; };
 		07F03D6F1FCBFBBE006F79C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,8 +37,6 @@
 		07F03DD41FCBFD9E006F79C8 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		07F03DD61FCBFD9E006F79C8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		07F03DDB1FCBFDC9006F79C8 /* ArrayExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTests.swift; sourceTree = "<group>"; };
-		07F03DE91FCD283A006F79C8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		07F03DEA1FCD283B006F79C8 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = ../Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F03DEB1FCD283B006F79C8 /* Alamofire.framework in Frameworks */,
-				07F03DEC1FCD283B006F79C8 /* SnapKit.framework in Frameworks */,
+				0718468B1FCFFF7000545E38 /* SnapKit.framework in Frameworks */,
+				0718468C1FCFFF7000545E38 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +85,6 @@
 				07F03D6E1FCBFBBE006F79C8 /* QuickSwift.h */,
 				07F03DD31FCBFD9E006F79C8 /* Extensions */,
 				07F03DD51FCBFD9E006F79C8 /* Model */,
-				07F03DD11FCBFD9E006F79C8 /* Networking */,
 				07F03D6F1FCBFBBE006F79C8 /* Info.plist */,
 			);
 			path = QuickSwift;
@@ -98,13 +97,6 @@
 				07F03D7B1FCBFBBE006F79C8 /* Info.plist */,
 			);
 			path = QuickSwiftTests;
-			sourceTree = "<group>";
-		};
-		07F03DD11FCBFD9E006F79C8 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		07F03DD31FCBFD9E006F79C8 /* Extensions */ = {
@@ -134,8 +126,8 @@
 		07F03DE81FCD283A006F79C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				07F03DE91FCD283A006F79C8 /* Alamofire.framework */,
-				07F03DEA1FCD283B006F79C8 /* SnapKit.framework */,
+				0718468A1FCFFF7000545E38 /* Alamofire.framework */,
+				071846891FCFFF7000545E38 /* SnapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -162,6 +154,7 @@
 				07F03D671FCBFBBE006F79C8 /* Frameworks */,
 				07F03D681FCBFBBE006F79C8 /* Headers */,
 				07F03D691FCBFBBE006F79C8 /* Resources */,
+				07747FD11FCFFAAA0048416C /* [Carthage Local] Copy Frameworks */,
 				07F03DED1FCD2850006F79C8 /* [Carthage] Copy Frameworks */,
 				07F03DEE1FCD28D7006F79C8 /* [Carthage] Check Carthage */,
 			);
@@ -248,6 +241,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		07747FD11FCFFAAA0048416C /* [Carthage Local] Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[Carthage Local] Copy Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#cp -r ${SRCROOT}/../Carthage/Build/iOS/*.framework ${SRCROOT}/Frameworks/\n";
+		};
 		07F03DED1FCD2850006F79C8 /* [Carthage] Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -434,9 +441,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = QuickSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.luckytr.QuickSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -455,9 +466,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = QuickSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.luckytr.QuickSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
