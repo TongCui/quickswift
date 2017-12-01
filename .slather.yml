@@ -1,0 +1,7 @@
+# .slather.yml
+
+xcodeproj: QuickSwift/QuickSwift.xcodeproj
+workspace: QuickSwift.xcworkspace
+scheme: QuickSwift
+ignore:
+ - QuickSwift/QuickSwiftTests/*

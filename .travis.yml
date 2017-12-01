@@ -18,4 +18,5 @@ script:
   - xcodebuild -version
   - xcodebuild -showsdks
   - xcodebuild -workspace QuickSwift.xcworkspace -scheme QuickSwift -destination "$DESTINATION" test | xcpretty
-
+after_success: 
+  - slather
