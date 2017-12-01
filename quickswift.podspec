@@ -14,7 +14,10 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "9.0"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
-  s.source   = { :git => "https://github.com/TongCui/quickswift.git", :tag => s.version.to_s }
+  # s.source   = { :git => "https://github.com/TongCui/quickswift.git", :tag => s.version.to_s }
+  s.source   = { :git => "https://github.com/TongCui/quickswift.git", :branch => "master" }
   # s.source   = { :git => "https://github.com/TongCui/quickswift.git" }
   s.source_files = "QuickSwift/QuickSwift/**/*.swift"
+  s.dependency 'Alamofire', '~> 4.5'
+  s.dependency "SnapKit", "~> 4.0.0"
 end
