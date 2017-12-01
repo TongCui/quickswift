@@ -11,10 +11,10 @@ before_install:
   - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet  
 before_script:
   - cd QuickSwift;carthage bootstrap --platform iOS
+  - cd ..
 script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
-  - xcodebuild -workspace QuickSwift.xcworkspace -scheme QuickSwift -destination "$DESTINATION" build | xcpretty
   - xcodebuild -workspace QuickSwift.xcworkspace -scheme QuickSwift -destination "$DESTINATION" test | xcpretty
 
