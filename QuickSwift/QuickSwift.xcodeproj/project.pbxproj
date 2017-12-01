@@ -157,6 +157,7 @@
 				07747FD11FCFFAAA0048416C /* [Carthage Local] Copy Frameworks */,
 				07F03DED1FCD2850006F79C8 /* [Carthage] Copy Frameworks */,
 				07F03DEE1FCD28D7006F79C8 /* [Carthage] Check Carthage */,
+				07C9DDF61FD14054002AC8B9 /* [SwiftLint] Lint */,
 			);
 			buildRules = (
 			);
@@ -254,6 +255,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#cp -r ${SRCROOT}/../Carthage/Build/iOS/*.framework ${SRCROOT}/Frameworks/\n";
+		};
+		07C9DDF61FD14054002AC8B9 /* [SwiftLint] Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[SwiftLint] Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		07F03DED1FCD2850006F79C8 /* [Carthage] Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 public extension Array where Element :Numeric {
     public func sum() -> Element {
         return self.reduce(0, +)
@@ -19,6 +18,3 @@ public extension Array where Element :Numeric {
         return self.reduce(0, +)
     }
 }
-
-
-
