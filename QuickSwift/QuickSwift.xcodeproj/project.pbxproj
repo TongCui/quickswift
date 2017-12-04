@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0718468B1FCFFF7000545E38 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071846891FCFFF7000545E38 /* SnapKit.framework */; };
 		0718468C1FCFFF7000545E38 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0718468A1FCFFF7000545E38 /* Alamofire.framework */; };
+		07C9DDFB1FD52F2B002AC8B9 /* ArrayExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C9DDFA1FD52F2B002AC8B9 /* ArrayExample.swift */; };
 		07F03D751FCBFBBE006F79C8 /* QuickSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F03D6B1FCBFBBE006F79C8 /* QuickSwift.framework */; };
 		07F03D7C1FCBFBBE006F79C8 /* QuickSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F03D6E1FCBFBBE006F79C8 /* QuickSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07F03DD81FCBFD9E006F79C8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DD41FCBFD9E006F79C8 /* ArrayExtensions.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		071846891FCFFF7000545E38 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		0718468A1FCFFF7000545E38 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		07C9DDFA1FD52F2B002AC8B9 /* ArrayExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExample.swift; sourceTree = "<group>"; };
 		07F03D6B1FCBFBBE006F79C8 /* QuickSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F03D6E1FCBFBBE006F79C8 /* QuickSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickSwift.h; sourceTree = "<group>"; };
 		07F03D6F1FCBFBBE006F79C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				07F03DDB1FCBFDC9006F79C8 /* ArrayExtensionsTests.swift */,
+				07C9DDFA1FD52F2B002AC8B9 /* ArrayExample.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				07F03D701FCBFBBE006F79C8 /* Sources */,
 				07F03D711FCBFBBE006F79C8 /* Frameworks */,
 				07F03D721FCBFBBE006F79C8 /* Resources */,
+				07F714A21FD5364A00A15ADA /* [SwiftLint] Lint */,
 			);
 			buildRules = (
 			);
@@ -268,7 +272,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		07F03DED1FCD2850006F79C8 /* [Carthage] Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -302,6 +306,20 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings";
 		};
+		07F714A21FD5364A00A15ADA /* [SwiftLint] Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[SwiftLint] Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -318,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07C9DDFB1FD52F2B002AC8B9 /* ArrayExample.swift in Sources */,
 				07F03DDC1FCBFDCA006F79C8 /* ArrayExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
