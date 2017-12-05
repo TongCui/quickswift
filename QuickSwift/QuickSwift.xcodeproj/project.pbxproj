@@ -15,6 +15,8 @@
 		07F03DD81FCBFD9E006F79C8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DD41FCBFD9E006F79C8 /* ArrayExtensions.swift */; };
 		07F03DD91FCBFD9E006F79C8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DD61FCBFD9E006F79C8 /* Model.swift */; };
 		07F03DDC1FCBFDCA006F79C8 /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DDB1FCBFDC9006F79C8 /* ArrayExtensionsTests.swift */; };
+		07F714A71FD6335200A15ADA /* Fibonacci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F714A61FD6335200A15ADA /* Fibonacci.swift */; };
+		07F714AA1FD63ADF00A15ADA /* FibonacciTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F714A91FD63ADF00A15ADA /* FibonacciTestCases.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		07F03DD41FCBFD9E006F79C8 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		07F03DD61FCBFD9E006F79C8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		07F03DDB1FCBFDC9006F79C8 /* ArrayExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTests.swift; sourceTree = "<group>"; };
+		07F714A61FD6335200A15ADA /* Fibonacci.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fibonacci.swift; sourceTree = "<group>"; };
+		07F714A91FD63ADF00A15ADA /* FibonacciTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibonacciTestCases.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				07F03D6E1FCBFBBE006F79C8 /* QuickSwift.h */,
+				07F714A51FD6334900A15ADA /* Tools */,
 				07F03DD31FCBFD9E006F79C8 /* Extensions */,
 				07F03DD51FCBFD9E006F79C8 /* Model */,
 				07F03D6F1FCBFBBE006F79C8 /* Info.plist */,
@@ -95,6 +100,7 @@
 		07F03D781FCBFBBE006F79C8 /* QuickSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				07F714A81FD63AD300A15ADA /* Tools */,
 				07F03DDA1FCBFDC9006F79C8 /* Extensions */,
 				07F03D7B1FCBFBBE006F79C8 /* Info.plist */,
 			);
@@ -133,6 +139,22 @@
 				071846891FCFFF7000545E38 /* SnapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		07F714A51FD6334900A15ADA /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				07F714A61FD6335200A15ADA /* Fibonacci.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		07F714A81FD63AD300A15ADA /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				07F714A91FD63ADF00A15ADA /* FibonacciTestCases.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,7 +294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		07F03DED1FCD2850006F79C8 /* [Carthage] Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -318,7 +340,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint autocorrect\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -329,6 +351,7 @@
 			files = (
 				07F03DD91FCBFD9E006F79C8 /* Model.swift in Sources */,
 				07F03DD81FCBFD9E006F79C8 /* ArrayExtensions.swift in Sources */,
+				07F714A71FD6335200A15ADA /* Fibonacci.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +361,7 @@
 			files = (
 				07C9DDFB1FD52F2B002AC8B9 /* ArrayExample.swift in Sources */,
 				07F03DDC1FCBFDCA006F79C8 /* ArrayExtensionsTests.swift in Sources */,
+				07F714AA1FD63ADF00A15ADA /* FibonacciTestCases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

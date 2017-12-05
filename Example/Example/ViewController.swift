@@ -14,15 +14,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let array = [12,13,14]
+        let array = [12, 13, 14]
         print("array \(array) sum is \(array.sum())")
-        
+
         let model = AnnieModel(age: 12, name: "tcui")
         print("\(model.greeting())")
         model.ping {
             print("Hello World!")
         }
-        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +30,4 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
-
