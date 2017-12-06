@@ -1,4 +1,4 @@
-language: Swift
+language: swift
 osx_image: xcode9.1
 branches:
   only:
@@ -20,3 +20,4 @@ script:
   - xcodebuild -workspace QuickSwift.xcworkspace -scheme QuickSwift -destination "$DESTINATION" test | xcpretty
 after_success: 
   - slather
+  - bash <(curl -s https://codecov.io/bash)
