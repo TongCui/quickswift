@@ -28,11 +28,4 @@ class FibonacciTestCases: XCTestCase {
         XCTAssertEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55], fibo)
     }
 
-    func testFibonacciSequencePerformance() {
-        // This is an example of a performance test case.
-        self.measure {
-            _ = Array(FibonacciSequence(startsFromZero: true).prefix(30))
-        }
-    }
-
 }

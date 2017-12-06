@@ -84,10 +84,38 @@ public extension Array {
 
 public extension Array where Element : Equatable {
     public mutating func removeElement(_ element: Element) {
-        guard let idx = index(of: element) else {
-            return
+        self = filter { $0 != element }
+    }
+
+    public mutating func removeElements(_ items: [Element]) {
+        guard !items.isEmpty else { return }
+        self = filter { !items.contains($0) }
+    }
+
+    public mutating func unique() {
+        self = uniqued()
+    }
+
+    public func uniqued() -> [Element] {
+        return reduce(into: [Element]()) {
+            if !$0.contains($1) {
+                $0.append($1)
+            }
         }
-        remove(at: idx)
+    }
+
+    public mutating func shuffle() {
+        guard count > 1 else { return }
+        for index in startIndex..<endIndex - 1 {
+            let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
+            if index != randomIndex { swapAt(index, randomIndex) }
+        }
+    }
+
+    public func shuffled() -> [Element] {
+        var array = self
+        array.shuffle()
+        return array
     }
 
     public mutating func swapElements(_ fromElement: Element, _ toElement: Element) {
@@ -97,8 +125,17 @@ public extension Array where Element : Equatable {
         swapAt(fromIndex, toIndex)
     }
 
-    public mutating func removeElements(_ elements: [Element]) {
-        self = reject { elements.contains($0) }
+    public func contains(_ elements: [Element]) -> Bool {
+        guard !elements.isEmpty else { return true }
+        return elements.all { contains($0) }
+    }
+
+    public func indexes(of item: Element) -> [Int] {
+        var indexs = [Int]()
+        for index in startIndex..<endIndex where self[index] == item {
+            indexs.append(index)
+        }
+        return indexs
     }
 
     static func == (lhs: [[Element]], rhs: [[Element]]) -> Bool {

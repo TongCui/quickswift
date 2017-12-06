@@ -121,6 +121,22 @@ class ArrayExtensionsTests: XCTestCase {
         array.removeElement(1)
         XCTAssertEqual(array, [2, 3, 4, 5])
 
+        array = [1, 2, 3, 4, 5, 2, 3, 4]
+        array.removeElement(3)
+        XCTAssertEqual(array, [1, 2, 4, 5, 2, 4])
+
+        array = [1, 2, 3, 4, 5, 2, 3, 4]
+        array.removeElements([1, 2, 3])
+        XCTAssertEqual(array, [4, 5, 4])
+
+        array = [1, 2, 3, 4, 5, 2, 3, 4]
+        array.removeElements([])
+        XCTAssertEqual(array, [1, 2, 3, 4, 5, 2, 3, 4])
+
+        array = [1, 2, 3, 4, 5, 2, 3, 4]
+        array.removeElements([10, 11])
+        XCTAssertEqual(array, [1, 2, 3, 4, 5, 2, 3, 4])
+
         array = [1, 2, 3, 4, 5]
         array.swapElements(4, 10)
         XCTAssertEqual(array, [1, 2, 3, 4, 5])
@@ -128,7 +144,33 @@ class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(array, [1, 2, 5, 4, 3])
 
         array = [1, 2, 3, 4, 5]
+        XCTAssertTrue(array.contains([1]))
+        XCTAssertTrue(array.contains([1, 2]))
+        XCTAssertFalse(array.contains([1, 10]))
+        XCTAssertTrue(array.contains([]))
 
+        array = [1, 2, 3, 1, 4, 5]
+        XCTAssertEqual(array.indexes(of: 1), [0, 3])
+        XCTAssertEqual(array.indexes(of: 10), [])
+        XCTAssertEqual(array.indexes(of: 5), [5])
+    }
+
+    func testEqualOperator() {
+        var array1 = [[1, 2], [3, 4], [5]]
+        var array2 = [[1, 2], [3, 4], [5]]
+        XCTAssertTrue(array1 == array2)
+
+        array1 = [[1, 2], [3, 4]]
+        array2 = [[1, 2], [3, 4], [5]]
+        XCTAssertFalse(array1 == array2)
+
+        array1 = [[1, 2], [3, 4, 5]]
+        array2 = [[1, 2], [3, 4]]
+        XCTAssertFalse(array1 == array2)
+
+        array1 = []
+        array2 = []
+        XCTAssertTrue(array1 == array2)
     }
 
     func testArrayConditions() {
@@ -283,5 +325,31 @@ class ArrayExtensionsTests: XCTestCase {
         }
         expected = ["0":[3, 6, 9], "1":[1, 4, 7, 10], "2":[2, 5, 8]]
         print("\(res) \(expected)")
+    }
+
+    func testArrayUnique() {
+        var array = [1, 2, 3, 4, 4, 5, 5, 6, 6, 7]
+
+        XCTAssertEqual(array.uniqued(), [1, 2, 3, 4, 5, 6, 7])
+        array.unique()
+        XCTAssertEqual(array, [1, 2, 3, 4, 5, 6, 7])
+
+        array = []
+        XCTAssertEqual(array.uniqued(), [])
+        array.unique()
+        XCTAssertEqual(array, [])
+    }
+
+    func testArrayShuffle() {
+        var array = [1, 2, 3, 4, 5]
+
+        XCTAssertNotEqual(array.shuffled(), [1, 2, 3, 4, 5])
+        array.shuffle()
+        XCTAssertNotEqual(array, [1, 2, 3, 4, 5])
+
+        array = []
+        XCTAssertEqual(array.shuffled(), [])
+        array.shuffle()
+        XCTAssertEqual(array, [])
     }
 }
