@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import QuickSwift
 
 class ArrayExample: XCTestCase {
 
