@@ -19,3 +19,12 @@ public extension Dictionary where Value : Equatable {
         return self.contains { $0.1 == value }
     }
 }
+
+public extension Dictionary where Value : Hashable {
+
+    public func fliped() -> [Value: Key] {
+        return reduce(into: [Value : Key]()) { (result, element) in
+            result[element.value] = element.key
+        }
+    }
+}

@@ -9,43 +9,46 @@
 import Foundation
 
 protocol PrimaryTypeConvertible {
-    var toI: Int { get }
-    var toF: Float { get }
-    var toD: Double { get }
-    var toS: String { get }
-}
-
-protocol PrimaryTypeOptionalConvertible {
     var toI: Int? { get }
     var toF: Float? { get }
     var toD: Double? { get }
     var toS: String? { get }
+    init?(_ description: String)
 }
 
 extension Int: PrimaryTypeConvertible {
-    var toI: Int { return self }
-    var toF: Float { return Float(self) }
-    var toD: Double { return Double(self) }
-    var toS: String { return String(self) }
+    var toI: Int? { return self }
+    var toF: Float? { return Float(self) }
+    var toD: Double? { return Double(self) }
+    var toS: String? { return String(self) }
 }
 
 extension Float: PrimaryTypeConvertible {
-    var toI: Int { return Int(self) }
-    var toF: Float { return self }
-    var toD: Double { return Double(self) }
-    var toS: String { return String(self) }
+    var toI: Int? { return Int(self) }
+    var toF: Float? { return self }
+    var toD: Double? { return Double(self) }
+    var toS: String? { return String(self) }
 }
 
 extension Double: PrimaryTypeConvertible {
-    var toI: Int { return Int(self) }
-    var toF: Float { return Float(self) }
-    var toD: Double { return self }
-    var toS: String { return String(self) }
+    var toI: Int? { return Int(self) }
+    var toF: Float? { return Float(self) }
+    var toD: Double? { return self }
+    var toS: String? { return String(self) }
 }
 
-extension String: PrimaryTypeOptionalConvertible {
+extension String: PrimaryTypeConvertible {
     var toI: Int? { return Int(self) }
     var toF: Float? { return Float(self) }
     var toD: Double? { return Double(self) }
     var toS: String? { return self }
+    init?(_ description: String) { self = description }
+}
+
+extension String {
+    var toData: Data? { return self.data(using: .utf8) }
+}
+
+extension Data {
+    var toS: String? { return String(data: self, encoding: .utf8) }
 }

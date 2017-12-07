@@ -343,9 +343,9 @@ class ArrayExtensionsTests: XCTestCase {
     func testArrayShuffle() {
         var array = [1, 2, 3, 4, 5]
 
-        XCTAssertNotEqual(array.shuffled(), [1, 2, 3, 4, 5])
+        XCTAssertEqual(array.shuffled().sorted(), [1, 2, 3, 4, 5].sorted())
         array.shuffle()
-        XCTAssertNotEqual(array, [1, 2, 3, 4, 5])
+        XCTAssertEqual(array.sorted(), [1, 2, 3, 4, 5].sorted())
 
         array = []
         XCTAssertEqual(array.shuffled(), [])

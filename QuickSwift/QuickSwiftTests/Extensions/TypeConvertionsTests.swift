@@ -115,4 +115,15 @@ class TypeConvertionsTests: XCTestCase {
         XCTAssertEqual(input.toS, "abc")
     }
 
+    func testStringInit() {
+        XCTAssertEqual(String("abc")!, "abc")
+    }
+
+    func testConvertData() {
+        let string = "abc"
+
+        XCTAssertEqual(string.toData?.count, 3)
+        XCTAssertEqual(string.toData?.toS, "abc")
+    }
+
 }

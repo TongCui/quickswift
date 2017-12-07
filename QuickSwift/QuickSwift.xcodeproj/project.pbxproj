@@ -16,6 +16,9 @@
 		074F1D8D1FD7BF8E00303B97 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D8C1FD7BF8E00303B97 /* DictionaryExtensions.swift */; };
 		074F1D931FD7C26200303B97 /* DictionaryExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D911FD7C26200303B97 /* DictionaryExample.swift */; };
 		074F1D941FD7C26200303B97 /* ArrayExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D921FD7C26200303B97 /* ArrayExample.swift */; };
+		074F1D971FD8CEAB00303B97 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D961FD8CEAB00303B97 /* JSON.swift */; };
+		074F1D991FD8E94200303B97 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D981FD8E94200303B97 /* JSONTests.swift */; };
+		074F1D9B1FD94E6C00303B97 /* DictionaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D9A1FD94E6C00303B97 /* DictionaryExtensionsTests.swift */; };
 		07F03D751FCBFBBE006F79C8 /* QuickSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F03D6B1FCBFBBE006F79C8 /* QuickSwift.framework */; };
 		07F03D7C1FCBFBBE006F79C8 /* QuickSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F03D6E1FCBFBBE006F79C8 /* QuickSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07F03DD81FCBFD9E006F79C8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DD41FCBFD9E006F79C8 /* ArrayExtensions.swift */; };
@@ -46,6 +49,9 @@
 		074F1D8C1FD7BF8E00303B97 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		074F1D911FD7C26200303B97 /* DictionaryExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExample.swift; sourceTree = "<group>"; };
 		074F1D921FD7C26200303B97 /* ArrayExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExample.swift; sourceTree = "<group>"; };
+		074F1D961FD8CEAB00303B97 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		074F1D981FD8E94200303B97 /* JSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTests.swift; sourceTree = "<group>"; };
+		074F1D9A1FD94E6C00303B97 /* DictionaryExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensionsTests.swift; sourceTree = "<group>"; };
 		07F03D6B1FCBFBBE006F79C8 /* QuickSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F03D6E1FCBFBBE006F79C8 /* QuickSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickSwift.h; sourceTree = "<group>"; };
 		07F03D6F1FCBFBBE006F79C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				07F03DDB1FCBFDC9006F79C8 /* ArrayExtensionsTests.swift */,
+				074F1D9A1FD94E6C00303B97 /* DictionaryExtensionsTests.swift */,
 				074F1D861FD79C1800303B97 /* TypeConvertionsTests.swift */,
 				074F1D8A1FD79F4F00303B97 /* OperatorsTests.swift */,
 			);
@@ -174,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				07F714A61FD6335200A15ADA /* Fibonacci.swift */,
+				074F1D961FD8CEAB00303B97 /* JSON.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -182,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				07F714A91FD63ADF00A15ADA /* FibonacciTestCases.swift */,
+				074F1D981FD8E94200303B97 /* JSONTests.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -387,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				074F1D851FD7921C00303B97 /* TypeConvertions.swift in Sources */,
+				074F1D971FD8CEAB00303B97 /* JSON.swift in Sources */,
 				074F1D891FD79E5A00303B97 /* Operators.swift in Sources */,
 				07F03DD91FCBFD9E006F79C8 /* Model.swift in Sources */,
 				07F03DD81FCBFD9E006F79C8 /* ArrayExtensions.swift in Sources */,
@@ -404,8 +414,10 @@
 				074F1D931FD7C26200303B97 /* DictionaryExample.swift in Sources */,
 				074F1D941FD7C26200303B97 /* ArrayExample.swift in Sources */,
 				07F714AA1FD63ADF00A15ADA /* FibonacciTestCases.swift in Sources */,
+				074F1D9B1FD94E6C00303B97 /* DictionaryExtensionsTests.swift in Sources */,
 				07F714AD1FD63FD400A15ADA /* ModelTestCases.swift in Sources */,
 				074F1D8B1FD79F4F00303B97 /* OperatorsTests.swift in Sources */,
+				074F1D991FD8E94200303B97 /* JSONTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
