@@ -10,10 +10,10 @@ import Foundation
 
 public extension Bool {
     public var toggled: Bool { return !self }
-    
+
     public mutating func toggle() {
         self = !self
     }
-    
+
 //    public static var random: Bool { return }
 }

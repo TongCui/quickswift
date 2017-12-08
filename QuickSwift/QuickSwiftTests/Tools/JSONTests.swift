@@ -116,7 +116,7 @@ class JSONTests: XCTestCase {
         XCTAssertEqual(JSON.dump(any: intKeyDictionary), nil )
         XCTAssertEqual(JSON.dump(any: stringKeyDictionary), "{\"1\":\"100\",\"2\":\"200\"}" )
     }
-    
+
     func testIsValid() {
         XCTAssertTrue(JSON.isValid(any: intArray))
         XCTAssertTrue(JSON.isValid(any: stringArray))
@@ -126,7 +126,7 @@ class JSONTests: XCTestCase {
         XCTAssertFalse(JSON.isValid(any: "1"))
         XCTAssertFalse(JSON.isValid(any: intKeyDictionary))
     }
-    
+
     func testNested() {
         let nested = ["list":[["1":"100"], ["2":"200"]]]
         XCTAssertEqual(nested.toJSON, "{\"list\":[{\"1\":\"100\"},{\"2\":\"200\"}]}")

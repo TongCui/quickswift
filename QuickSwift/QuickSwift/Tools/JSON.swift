@@ -45,7 +45,7 @@ public struct JSON {
     public static func parseArray<Value>(fromString jsonString: String) -> [Value]? {
         return parseArray(fromData: jsonString.toData)
     }
-    
+
     public static func dump(any: Any, prettify: Bool = false) -> String? {
         guard JSONSerialization.isValidJSONObject(any) else {
             return nil
@@ -56,7 +56,7 @@ public struct JSON {
         }
         return jsonData.toS
     }
-    
+
     public static func isValid(any: Any) -> Bool {
         return JSONSerialization.isValidJSONObject(any)
     }

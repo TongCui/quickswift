@@ -17,14 +17,14 @@ class TypeConvertionsTests: XCTestCase {
         XCTAssertEqual(input.toF, 1.0)
         XCTAssertEqual(input.toD, 1.0)
         XCTAssertEqual(input.toS, "true")
-        
+
         input = false
         XCTAssertEqual(input.toI, 0)
         XCTAssertEqual(input.toF, 0)
         XCTAssertEqual(input.toD, 0)
         XCTAssertEqual(input.toS, "false")
     }
-    
+
     func testConvertFromInt() {
         var input: Int = 1
         XCTAssertEqual(input.toI, 1)
@@ -134,7 +134,7 @@ class TypeConvertionsTests: XCTestCase {
 
         XCTAssertEqual(string.toData.count, 3)
         XCTAssertEqual(string.toData.toS, "abc")
-        
+
         string = "Não, l'été c'est pour bientôt"
         XCTAssertTrue(string.toData.count > 10)
     }
