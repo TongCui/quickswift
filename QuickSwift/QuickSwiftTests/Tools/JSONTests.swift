@@ -24,11 +24,15 @@ class JSONTests: XCTestCase {
 
         XCTAssertEqual(Array(jsonString: "[1,2,3]")!, [1, 2, 3])
         XCTAssertEqual(Array(jsonString: "[1,2,3]")!, [1.0, 2.0, 3.0])
+        let failedIntArray: [Int]? = Array(jsonString: "")
+        XCTAssertNil(failedIntArray)
+        let failedStringArray: [String]? = Array(jsonString: "[1,2,3]")
+        XCTAssertNil(failedStringArray)
         XCTAssertEqual(Dictionary(jsonString: "{\"1\":\"100\",\"2\":\"200\"}")!, ["1":"100", "2":"200"])
-        let intDictionary: [Int: String]? = Dictionary(jsonString: "{1:\"100\",2:\"200\"}")
-        XCTAssertNil(intDictionary)
-        let stringDictionary: [String: String]? = Dictionary(jsonString: "{1:\"100\",2:\"200\"}")
-        XCTAssertNil(stringDictionary)
+        let failedIntDictionary: [Int: String]? = Dictionary(jsonString: "{1:\"100\",2:\"200\"}")
+        XCTAssertNil(failedIntDictionary)
+        let failedStringDictionary: [String: String]? = Dictionary(jsonString: "{1:\"100\",2:\"200\"}")
+        XCTAssertNil(failedStringDictionary)
 
         let intArray: [Int]? = Array(jsonString: "[1,2,3]")
         XCTAssertNotNil(intArray)
@@ -111,6 +115,20 @@ class JSONTests: XCTestCase {
         XCTAssertEqual(JSON.dump(any: stringArray), "[\"1\",\"2\",\"3\"]" )
         XCTAssertEqual(JSON.dump(any: intKeyDictionary), nil )
         XCTAssertEqual(JSON.dump(any: stringKeyDictionary), "{\"1\":\"100\",\"2\":\"200\"}" )
-
+    }
+    
+    func testIsValid() {
+        XCTAssertTrue(JSON.isValid(any: intArray))
+        XCTAssertTrue(JSON.isValid(any: stringArray))
+        XCTAssertTrue(JSON.isValid(any: stringKeyDictionary ))
+        XCTAssertFalse(JSON.isValid(any: ""))
+        XCTAssertFalse(JSON.isValid(any: 1))
+        XCTAssertFalse(JSON.isValid(any: "1"))
+        XCTAssertFalse(JSON.isValid(any: intKeyDictionary))
+    }
+    
+    func testNested() {
+        let nested = ["list":[["1":"100"], ["2":"200"]]]
+        XCTAssertEqual(nested.toJSON, "{\"list\":[{\"1\":\"100\"},{\"2\":\"200\"}]}")
     }
 }

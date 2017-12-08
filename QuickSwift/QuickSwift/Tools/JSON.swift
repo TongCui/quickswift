@@ -31,10 +31,7 @@ public struct JSON {
     }
 
     public static func parseDictionary<Value>(fromString jsonString: String) -> [String: Value]? {
-        guard let data = jsonString.toData else {
-            return nil
-        }
-        return parseDictionary(fromData: data)
+        return parseDictionary(fromData: jsonString.toData)
     }
 
     public static func parseArray<Value>(fromData data: Data) -> [Value]? {
@@ -46,12 +43,9 @@ public struct JSON {
     }
 
     public static func parseArray<Value>(fromString jsonString: String) -> [Value]? {
-        guard let data = jsonString.toData else {
-            return nil
-        }
-        return parseArray(fromData: data)
+        return parseArray(fromData: jsonString.toData)
     }
-
+    
     public static func dump(any: Any, prettify: Bool = false) -> String? {
         guard JSONSerialization.isValidJSONObject(any) else {
             return nil
@@ -61,6 +55,10 @@ public struct JSON {
             return nil
         }
         return jsonData.toS
+    }
+    
+    public static func isValid(any: Any) -> Bool {
+        return JSONSerialization.isValidJSONObject(any)
     }
 }
 

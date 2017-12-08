@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:QuickSwift.playground">
+   </FileRef>
+   <FileRef
       location = "group:QuickSwift/QuickSwift.xcodeproj">
    </FileRef>
    <FileRef
