@@ -22,6 +22,14 @@ class ViewController: UIViewController {
         model.ping {
             print("Hello World!")
         }
+        
+//        let data = try? JSONEncoder().encode(model)
+        
+        let error = TypeConvertError.cannotConvert(String.self, Int.self)
+        
+        print("\(error.toS)")
+        
+        
 
     }
 

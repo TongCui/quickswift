@@ -7,29 +7,51 @@
 //
 
 import XCTest
+@testable import QuickSwift
 
 class IntExtensionsTests: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testIntEven() {
+        XCTAssertTrue(0.isEven)
+        XCTAssertTrue(2.isEven)
+        XCTAssertTrue((-2).isEven)
+        XCTAssertTrue(100.isEven)
+        
+        XCTAssertFalse(1.isEven)
+        XCTAssertFalse((-1).isEven)
+        XCTAssertFalse(101.isEven)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    
+    func testIntOdd() {
+        XCTAssertFalse(0.isOdd)
+        XCTAssertFalse(2.isOdd)
+        XCTAssertFalse((-2).isOdd)
+        XCTAssertFalse(100.isOdd)
+        
+        XCTAssertTrue(1.isOdd)
+        XCTAssertTrue((-1).isOdd)
+        XCTAssertTrue(101.isOdd)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testIntPrime() {
+        XCTAssertTrue(2.isPrime)
+        XCTAssertTrue(3.isPrime)
+        XCTAssertTrue(11.isPrime)
+        XCTAssertTrue(17.isPrime)
+        
+        XCTAssertFalse(1.isPrime)
+        XCTAssertFalse((-5).isPrime)
+        XCTAssertFalse(4.isPrime)
+        XCTAssertFalse(100.isPrime)
+        XCTAssertFalse(261.isPrime)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testIntPrimeList() {
+        XCTAssertEqual(Int.primes(first: -10), [])
+        XCTAssertEqual(Int.primes(first: 0), [])
+        XCTAssertEqual(Int.primes(first: 1), [2])
+        XCTAssertEqual(Int.primes(first: 10), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
+        XCTAssertEqual(Int.primes(first: 100), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541] )
     }
 
 }

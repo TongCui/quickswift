@@ -1,6 +1,11 @@
 //: Playground - noun: a place where people can play
 
 import UIKit
+@testable import QuickSwift
 
-var str = "Hello, playground"
-print("\(str)")
+let a = String.self
+
+a
+
+print("a")
+

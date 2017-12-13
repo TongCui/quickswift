@@ -6,35 +6,63 @@
 //
 
 import Foundation
-import Alamofire
 
-public class AnnieModel {
-    public var age: Int
-    public var name: String
 
-    public init(age: Int, name: String) {
-        self.age = age
-        self.name = name
-    }
-
-    public func greeting() -> String {
-        return "Hello \(name) with age \(age)"
-    }
-
-    public func ping(completion: @escaping () -> Void) {
-        Alamofire.request("https://httpbin.org/get").responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
-            }
-
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
-            completion()
+public enum ModelError: Error {
+    public struct Context {
+        public let debugDescription: String
+        public let underlyingError: Error?
+        
+        public init(debugDescription: String, underlyingError: Error? = nil) {
+            self.debugDescription = debugDescription
+            self.underlyingError = underlyingError
         }
     }
+    
+    case fileSaveFailed(Any, Context)
+    case fileLoadFailed(String, Context)
+    
+    public var userInfo: [String: Any]? {
+        let context: Context
+        switch self {
+        case .fileSaveFailed(_, let c): context = c
+        case .fileLoadFailed(_, let c): context = c
+        }
+        
+        var userInfo: [String : Any] = [
+            "NSDebugDescription": context.debugDescription
+        ]
+        
+        if let underlyingError = context.underlyingError {
+            userInfo["NSUnderlyingError"] = underlyingError
+        }
+        return userInfo
+    }
+    
 }
+
+public protocol Identifiable {
+    var id: String { get set }
+}
+
+public protocol FileSavable {
+    static var fileUrl: URL { get }
+    func save() throws
+}
+
+public protocol FileLoadable {
+    static var fileUrl: URL { get }
+    init(from fileUrl: URL) throws
+}
+
+public typealias FilePersistence = FileSavable & FileLoadable
+
+
+
+
+
+
+
+
+
+
