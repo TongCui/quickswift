@@ -10,7 +10,7 @@ import XCTest
 @testable import QuickSwift
 
 class ModelTestCases: XCTestCase {
-    
+
     func testPing() {
         let model = AnnieModel(age: 12, name: "tcui")
         print("\(model.greeting())")

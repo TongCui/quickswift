@@ -192,6 +192,10 @@ class TypeConvertionsTests: XCTestCase {
         input = "{1:\"100\",\"2\":\"200\"}"
         XCTAssertThrowsError(try input.toUtf8Data().toJSONObject() as [String: Any])
         XCTAssertThrowsError(try input.toUtf8Data().toDictionary() as [String: Int])
+
+        let image = TestBundle.image(name: "swift", type: "png")!
+        let data = image.toPNG()!
+        XCTAssertThrowsError(try data.toUtf8S())
     }
 
     func testConvertCharacter() {

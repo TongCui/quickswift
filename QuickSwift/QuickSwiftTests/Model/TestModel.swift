@@ -10,25 +10,47 @@ import Foundation
 @testable import QuickSwift
 
 struct TestModel {
-    let stringValue : String = "str"
-    let intValue : Int = 1
+    let stringValue: String
+    let intValue: Int
+
+    init() {
+        stringValue = "str"
+        intValue = 1
+    }
 }
 
 struct TestCodableModel: Codable {
-    let stringValue : String = "str"
-    let intValue : Int = 1
+    let stringValue: String
+    let intValue: Int
+
+    init() {
+        stringValue = "str"
+        intValue = 1
+    }
+}
+
+struct TestDateModel: Codable {
+    let dateValue: Date
+
+    init() {
+        dateValue = Date(timeIntervalSince1970: 0)
+    }
 }
 
 struct TestCustomCodableModel: Codable, CustomCodable {
-    
-    let dateValue : Date = Date(timeIntervalSince1970: 0)
-    
+
+    let dateValue: Date
+
+    init() {
+        dateValue = Date(timeIntervalSince1970: 0)
+    }
+
     public static func decodeSettings() -> (JSONDecoder) -> Void {
         return { decoder in
             decoder.dateDecodingStrategy = .secondsSince1970
         }
     }
-    
+
     public static func encodeSettings() -> (JSONEncoder) -> Void {
         return { encoder in
             encoder.outputFormatting = .prettyPrinted
@@ -38,26 +60,36 @@ struct TestCustomCodableModel: Codable, CustomCodable {
 }
 
 struct TestCodingKeysModel: Codable {
-    let stringValue : String = "str"
-    let intValue : Int = 1
-    
+    let stringValue: String
+    let intValue: Int
+
     enum CodingKeys: String, CodingKey {
         case stringValue = "str"
         case intValue = "int"
     }
+
+    init() {
+        stringValue = "str"
+        intValue = 1
+    }
 }
-
-
 
 struct TestComplexModel: Codable {
-    let stringValue : String = "str"
-    let intValue : Int = 1
-    let floatValue : Float = 1.2
-    let doubleValue : Double = 1.2
-    let intArrayValue : [Int] = [1, 2]
-    let stringArrayValue : [String] = ["1", "2"]
-    let intDictionary : [Int : Int] = [1:1, 2:2]
-    let strDictionary : [String : Int] = ["1":1, "2":2]
+    let stringValue: String
+    let intValue: Int
+    let doubleValue: Double
+    let intArrayValue: [Int]
+    let stringArrayValue: [String]
+    let intDictionary: [Int: Int]
+    let strDictionary: [String: Int]
+
+    init() {
+        stringValue = "str"
+        intValue = 1
+        doubleValue = 1.2
+        intArrayValue = [1, 2]
+        stringArrayValue = ["1", "2"]
+        intDictionary = [1:1, 2:2]
+        strDictionary = ["1":1, "2":2]
+    }
 }
-
-

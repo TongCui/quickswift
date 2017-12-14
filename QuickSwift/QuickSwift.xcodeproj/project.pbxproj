@@ -33,6 +33,10 @@
 		07D7ABE41FE2541C002AE482 /* CodableJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABE31FE2541C002AE482 /* CodableJSON.swift */; };
 		07D7ABE61FE2543A002AE482 /* CodableJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABE51FE2543A002AE482 /* CodableJSONTests.swift */; };
 		07D7ABF41FE27A73002AE482 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABF31FE27A73002AE482 /* TestModel.swift */; };
+		07D7ABFA1FE2FCA7002AE482 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABF91FE2FCA7002AE482 /* UIImageExtensions.swift */; };
+		07D7ABFC1FE2FD68002AE482 /* UIImageExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABFB1FE2FD68002AE482 /* UIImageExtensionsTests.swift */; };
+		07D7AC051FE300A4002AE482 /* swift.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D7AC041FE300A4002AE482 /* swift.png */; };
+		07D7AC071FE300D8002AE482 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7AC061FE300D8002AE482 /* Common.swift */; };
 		07E9ADE21FDF9B8B00F3A6B0 /* AnnieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E9ADE11FDF9B8B00F3A6B0 /* AnnieModel.swift */; };
 		07E9ADE81FDFC95500F3A6B0 /* Fibonacci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E9ADE51FDFC95500F3A6B0 /* Fibonacci.swift */; };
 		07E9ADE91FDFC95500F3A6B0 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E9ADE61FDFC95500F3A6B0 /* JSON.swift */; };
@@ -82,6 +86,10 @@
 		07D7ABE31FE2541C002AE482 /* CodableJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableJSON.swift; sourceTree = "<group>"; };
 		07D7ABE51FE2543A002AE482 /* CodableJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableJSONTests.swift; sourceTree = "<group>"; };
 		07D7ABF31FE27A73002AE482 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		07D7ABF91FE2FCA7002AE482 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		07D7ABFB1FE2FD68002AE482 /* UIImageExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensionsTests.swift; sourceTree = "<group>"; };
+		07D7AC041FE300A4002AE482 /* swift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swift.png; sourceTree = "<group>"; };
+		07D7AC061FE300D8002AE482 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		07E9ADE11FDF9B8B00F3A6B0 /* AnnieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnieModel.swift; sourceTree = "<group>"; };
 		07E9ADE51FDFC95500F3A6B0 /* Fibonacci.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fibonacci.swift; sourceTree = "<group>"; };
 		07E9ADE61FDFC95500F3A6B0 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
@@ -127,6 +135,22 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
+		07D7ABF51FE2FC8F002AE482 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				07D7AC011FE2FFD6002AE482 /* images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		07D7AC011FE2FFD6002AE482 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				07D7AC041FE300A4002AE482 /* swift.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		07F03D611FCBFBBE006F79C8 = {
 			isa = PBXGroup;
 			children = (
@@ -160,10 +184,12 @@
 		07F03D781FCBFBBE006F79C8 /* QuickSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				07D7ABF51FE2FC8F002AE482 /* Resources */,
 				074F1D901FD7C26200303B97 /* Example */,
 				07F714AB1FD63FC000A15ADA /* Model */,
 				07F03DDA1FCBFDC9006F79C8 /* Extensions */,
 				07F03D7B1FCBFBBE006F79C8 /* Info.plist */,
+				07D7AC061FE300D8002AE482 /* Common.swift */,
 			);
 			path = QuickSwiftTests;
 			sourceTree = "<group>";
@@ -179,6 +205,7 @@
 				0726A29D1FE109820081F2B8 /* FileManagerExtensions.swift */,
 				07D7ABD51FE1229E002AE482 /* FilePersistence.swift */,
 				0726A29B1FE101660081F2B8 /* StringExtensions.swift */,
+				07D7ABF91FE2FCA7002AE482 /* UIImageExtensions.swift */,
 				074F1D841FD7921C00303B97 /* TypeConvertions.swift */,
 				074F1D881FD79E5A00303B97 /* Operators.swift */,
 				07E9ADE51FDFC95500F3A6B0 /* Fibonacci.swift */,
@@ -207,6 +234,7 @@
 				074F1D861FD79C1800303B97 /* TypeConvertionsTests.swift */,
 				074B08AC1FDA689600D939AD /* IntExtensionsTests.swift */,
 				07D7ABD71FE124D9002AE482 /* BoolExtensionsTests.swift */,
+				07D7ABFB1FE2FD68002AE482 /* UIImageExtensionsTests.swift */,
 				07D7ABDE1FE1297C002AE482 /* FibonacciTestCases.swift */,
 				07D7ABDF1FE1297C002AE482 /* JSONTests.swift */,
 				07D7ABE51FE2543A002AE482 /* CodableJSONTests.swift */,
@@ -340,6 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D7AC051FE300A4002AE482 /* swift.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +465,7 @@
 				07E9ADE21FDF9B8B00F3A6B0 /* AnnieModel.swift in Sources */,
 				07E9ADE81FDFC95500F3A6B0 /* Fibonacci.swift in Sources */,
 				074F1D9D1FDA39A400303B97 /* IntExtensions.swift in Sources */,
+				07D7ABFA1FE2FCA7002AE482 /* UIImageExtensions.swift in Sources */,
 				074F1D891FD79E5A00303B97 /* Operators.swift in Sources */,
 				07F03DD91FCBFD9E006F79C8 /* Model.swift in Sources */,
 				07D7ABE41FE2541C002AE482 /* CodableJSON.swift in Sources */,
@@ -451,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D7AC071FE300D8002AE482 /* Common.swift in Sources */,
 				074F1D871FD79C1800303B97 /* TypeConvertionsTests.swift in Sources */,
 				07F03DDC1FCBFDCA006F79C8 /* ArrayExtensionsTests.swift in Sources */,
 				07D7ABE01FE1297C002AE482 /* RandomTests.swift in Sources */,
@@ -462,6 +493,7 @@
 				07D7ABE11FE1297C002AE482 /* FibonacciTestCases.swift in Sources */,
 				074F1D8B1FD79F4F00303B97 /* OperatorsTests.swift in Sources */,
 				07D7ABE21FE1297C002AE482 /* JSONTests.swift in Sources */,
+				07D7ABFC1FE2FD68002AE482 /* UIImageExtensionsTests.swift in Sources */,
 				07D7ABDC1FE125E9002AE482 /* PrimeTests.swift in Sources */,
 				07D7ABF41FE27A73002AE482 /* TestModel.swift in Sources */,
 				07D7ABE61FE2543A002AE482 /* CodableJSONTests.swift in Sources */,
