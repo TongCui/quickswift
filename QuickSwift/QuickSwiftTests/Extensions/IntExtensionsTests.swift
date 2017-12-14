@@ -16,42 +16,81 @@ class IntExtensionsTests: XCTestCase {
         XCTAssertTrue(2.isEven)
         XCTAssertTrue((-2).isEven)
         XCTAssertTrue(100.isEven)
-        
+
         XCTAssertFalse(1.isEven)
         XCTAssertFalse((-1).isEven)
         XCTAssertFalse(101.isEven)
     }
-    
+
     func testIntOdd() {
         XCTAssertFalse(0.isOdd)
         XCTAssertFalse(2.isOdd)
         XCTAssertFalse((-2).isOdd)
         XCTAssertFalse(100.isOdd)
-        
+
         XCTAssertTrue(1.isOdd)
         XCTAssertTrue((-1).isOdd)
         XCTAssertTrue(101.isOdd)
     }
-    
-    func testIntPrime() {
-        XCTAssertTrue(2.isPrime)
-        XCTAssertTrue(3.isPrime)
-        XCTAssertTrue(11.isPrime)
-        XCTAssertTrue(17.isPrime)
-        
-        XCTAssertFalse(1.isPrime)
-        XCTAssertFalse((-5).isPrime)
-        XCTAssertFalse(4.isPrime)
-        XCTAssertFalse(100.isPrime)
-        XCTAssertFalse(261.isPrime)
-    }
-    
-    func testIntPrimeList() {
-        XCTAssertEqual(Int.primes(first: -10), [])
-        XCTAssertEqual(Int.primes(first: 0), [])
-        XCTAssertEqual(Int.primes(first: 1), [2])
-        XCTAssertEqual(Int.primes(first: 10), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
-        XCTAssertEqual(Int.primes(first: 100), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541] )
+
+    func testTimes() {
+        var array = [Int]()
+
+        1.times { array.append($0) }
+        XCTAssertEqual(array, [0])
+
+        array.removeAll()
+        5.times { array.append($0) }
+        XCTAssertEqual(array, [0, 1, 2, 3, 4])
+
+        array.removeAll()
+        0.times { array.append($0) }
+        XCTAssertEqual(array, [])
     }
 
+    func testUpto() {
+        var array = [Int]()
+
+        0.upto(0) { array.append($0) }
+        XCTAssertEqual(array, [0])
+
+        array.removeAll()
+        0.upto(1) { array.append($0) }
+        XCTAssertEqual(array, [0, 1])
+
+        array.removeAll()
+        1.upto(5) { array.append($0) }
+        XCTAssertEqual(array, [1, 2, 3, 4, 5])
+
+        array.removeAll()
+        (-1).upto(5) { array.append($0) }
+        XCTAssertEqual(array, [-1, 0, 1, 2, 3, 4, 5])
+
+        array.removeAll()
+        (-1).upto(-10) { array.append($0) }
+        XCTAssertEqual(array, [])
+    }
+
+    func testDownto() {
+        var array = [Int]()
+
+        0.downto(0) { array.append($0) }
+        XCTAssertEqual(array, [0])
+
+        array.removeAll()
+        1.downto(0) { array.append($0) }
+        XCTAssertEqual(array, [1, 0])
+
+        array.removeAll()
+        5.downto(1) { array.append($0) }
+        XCTAssertEqual(array, [5, 4, 3, 2, 1])
+
+        array.removeAll()
+        (-1).downto(-5) { array.append($0) }
+        XCTAssertEqual(array, [-1, -2, -3, -4, -5])
+
+        array.removeAll()
+        (-1).downto(10) { array.append($0) }
+        XCTAssertEqual(array, [])
+    }
 }

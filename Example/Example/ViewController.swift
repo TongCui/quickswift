@@ -23,14 +23,21 @@ class ViewController: UIViewController {
             print("Hello World!")
         }
         
-//        let data = try? JSONEncoder().encode(model)
+        print("\(FileManager.directoryURL(for: .documentDirectory))")
+        print("\(FileManager.directoryURL(for: .cachesDirectory))")
         
-        let error = TypeConvertError.cannotConvert(String.self, Int.self)
+        print("\(FileManager.fileURL(fileName: "book.txt", in: .documentDirectory))")
         
-        print("\(error.toS)")
+        do {
+            try FileManager.save(model, intoFile: "book.txt", in: .documentDirectory)
+            let model: AnnieModel = try FileManager.load(fromFile: "book.txt", in: .documentDirectory)
+            
+            print("model is \(try model.toJSON())")
+        } catch {
+            
+            print("error \(error)")
+        }
         
-        
-
     }
 
     override func didReceiveMemoryWarning() {

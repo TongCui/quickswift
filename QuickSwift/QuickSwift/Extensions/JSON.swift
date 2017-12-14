@@ -8,31 +8,50 @@
 
 import Foundation
 
+public enum JSONError: Error, CustomStringConvertible {
+    case invalidObject
+    case invalidType(type: String)
+
+    public var description: String {
+        switch self {
+        case .invalidObject: return "Failed: invalid json object"
+        case .invalidType(let type): return "Failed: invalid type \(type)"
+        }
+    }
+}
+
 public struct JSON {
 
-    public static func parse<T: Decodable>(fromData data: Data, settings: (JSONDecoder) -> Void = {_ in } ) throws -> T {
-        let jsonDecoder = JSONDecoder()
-        settings(jsonDecoder)
-        return try jsonDecoder.decode(T.self, from: data)
-    }
-    
-    public static func parse<T: Decodable>(fromString string: String,  settings: (JSONDecoder) -> Void = {_ in } ) throws -> T {
-        return try parse(fromData: string.toUtf8Data(), settings: settings)
-    }
-
-    public static func dump<T: Encodable>(toData any: T, settings: (JSONEncoder) -> Void = {_ in } ) throws -> Data {
-        let jsonEncoder = JSONEncoder()
-        settings(jsonEncoder)
-        return try jsonEncoder.encode(any)
-    }
-    
-    public static func dump<T: Encodable>(toString any: T, settings: (JSONEncoder) -> Void = {_ in } ) throws -> String {
-        let data = try dump(toData: any, settings: settings)
+    public static func dump(toString object: Any, prettify: Bool = false) throws -> String {
+        let data = try dump(toData: object, prettify: prettify)
         return try data.toUtf8S()
     }
-    
+
+    public static func dump(toData object: Any, prettify: Bool = false) throws -> Data {
+        guard isValid(any: object) else {
+            throw JSONError.invalidObject
+        }
+
+        let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions.sortedKeys
+        return try JSONSerialization.data(withJSONObject: object, options: options)
+    }
+
+    public static func parse<T>(fromString string: String) throws -> T {
+        return try parse(fromData : string.toUtf8Data())
+    }
+
+    public static func parse<T>(fromData data: Data) throws -> T {
+        let any = try JSONSerialization.jsonObject(with: data)
+        guard let object = any as? T else {
+            throw JSONError.invalidType(type: String(describing: T.self) )
+        }
+        return object
+    }
+
+    ///
+    /// Dictionary [Key: Value], Key must be String
+    ///
     public static func isValid(any: Any) -> Bool {
         return JSONSerialization.isValidJSONObject(any)
     }
 }
-

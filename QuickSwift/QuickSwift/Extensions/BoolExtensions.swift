@@ -14,6 +14,4 @@ public extension Bool {
     public mutating func toggle() {
         self = !self
     }
-
-//    public static var random: Bool { return }
 }

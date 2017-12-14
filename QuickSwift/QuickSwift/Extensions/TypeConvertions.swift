@@ -10,7 +10,7 @@ import Foundation
 
 public enum TypeConvertError<From, To>: Error, CustomStringConvertible {
     case cannotConvert(From.Type, To.Type)
-    
+
     public var description: String {
         switch self {
         case .cannotConvert(let from, let to):
@@ -58,34 +58,38 @@ public extension String {
         }
         return value
     }
-    
+
     public func toF() throws -> Float {
         guard let value = Float(self) else {
             throw TypeConvertError.cannotConvert(String.self, Float.self)
         }
         return value
     }
-    
+
     public func toD() throws -> Double {
         guard let value = Double(self) else {
             throw TypeConvertError.cannotConvert(String.self, Double.self)
         }
         return value
     }
-    
+
     public func toUtf8Data() -> Data { return data(using: .utf8)! }
-    
+
+    public func toJSONObject<T>() throws -> T {
+        return try JSON.parse(fromString: self)
+    }
+
     public func toArray<Value>() throws -> [Value] {
         do {
-            return try JSON.parse(fromString: self)
+            return try CodableJSON.parse(fromString: self)
         } catch {
             throw TypeConvertError.cannotConvert(String.self, [Value].self)
         }
     }
-    
+
     public func toDictionary<Key, Value>() throws -> [Key: Value] {
         do {
-            return try JSON.parse(fromString: self)
+            return try CodableJSON.parse(fromString: self)
         } catch {
             throw TypeConvertError.cannotConvert(String.self, [Key: Value].self)
         }
@@ -93,22 +97,26 @@ public extension String {
 }
 
 public extension Data {
+    public func toJSONObject<T>() throws -> T {
+        return try JSON.parse(fromData: self)
+    }
+
     public func toArray<Value>() throws -> [Value] {
         do {
-            return try JSON.parse(fromData: self)
+            return try CodableJSON.parse(fromData: self)
         } catch {
             throw TypeConvertError.cannotConvert(Data.self, [Value].self)
         }
     }
-    
+
     public func toDictionary<Key, Value>() throws -> [Key: Value] {
         do {
-            return try JSON.parse(fromData: self)
+            return try CodableJSON.parse(fromData: self)
         } catch {
             throw TypeConvertError.cannotConvert(Data.self, [Key: Value].self)
         }
     }
-    
+
     public func toUtf8S() throws -> String {
         guard let value = String(data: self, encoding: .utf8) else {
             throw TypeConvertError.cannotConvert(Data.self, String.self)
@@ -123,49 +131,3 @@ public extension Character {
         return Int(s[s.startIndex].value)
     }
 }
-
-public extension Encodable {
-    public func toJSON() throws -> String {
-        return try JSON.dump(toString: self)
-    }
-    
-    public func toData() throws -> Data {
-        return try JSON.dump(toData: self)
-    }
-}
-
-public extension Decodable {
-    init(fromData data: Data) throws {
-        self = try JSON.parse(fromData: data)
-    }
-
-    init(fromString string: String) throws {
-        self = try JSON.parse(fromString: string)
-    }
-}
-
-public protocol CustomCodable {
-    static func encodeSettings() -> (JSONEncoder) -> Void
-    static func decodeSettings() -> (JSONDecoder) -> Void
-}
-
-public extension Encodable where Self : CustomCodable {
-    public func toJSON() throws -> String {
-        return try JSON.dump(toString: self, settings: Self.encodeSettings())
-    }
-    
-    public func toData() throws -> Data {
-        return try JSON.dump(toData: self, settings: Self.encodeSettings())
-    }
-}
-
-public extension Decodable where Self : CustomCodable {
-    init(fromData data: Data) throws {
-        self = try JSON.parse(fromData: data, settings: Self.decodeSettings())
-    }
-    
-    init(fromString string: String) throws {
-        self = try JSON.parse(fromString: string, settings: Self.decodeSettings())
-    }
-}
-
