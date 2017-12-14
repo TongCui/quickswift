@@ -22,6 +22,7 @@ public struct CodableJSON {
 
     public static func dump<T: Encodable>(toData any: T, settings: (JSONEncoder) -> Void = {_ in }) throws -> Data {
         let jsonEncoder = JSONEncoder()
+        jsonEncoder.outputFormatting = .sortedKeys
         settings(jsonEncoder)
         return try jsonEncoder.encode(any)
     }

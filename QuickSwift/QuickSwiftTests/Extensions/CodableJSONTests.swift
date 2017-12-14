@@ -7,19 +7,40 @@
 //
 
 import XCTest
+@testable import QuickSwift
 
 class CodableJSONTests: XCTestCase {
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testDump() {
+        XCTAssertEqual(try CodableJSON.dump(toString: [1, 2, 3]), "[1,2,3]")
+        XCTAssertEqual(try CodableJSON.dump(toString: ["1", "2", "3"]), "[\"1\",\"2\",\"3\"]")
+        XCTAssertEqual(try CodableJSON.dump(toString: [1:"100", 2:"200"]), "{\"1\":\"100\",\"2\":\"200\"}")
+        XCTAssertEqual(try CodableJSON.dump(toString: ["1":"100", "2":"200"]), "{\"1\":\"100\",\"2\":\"200\"}")
+    }
+    
+    func testParse() {
+        XCTAssertEqual(try CodableJSON.parse(fromString: "[1,2,3]"), [1, 2, 3])
+        XCTAssertEqual(try CodableJSON.parse(fromString: "[\"1\",\"2\",\"3\"]"), ["1", "2", "3"])
+        XCTAssertEqual(try CodableJSON.parse(fromString: "{\"1\":\"100\",\"2\":\"200\"}"), [1:"100", 2:"200"])
+        XCTAssertEqual(try CodableJSON.parse(fromString: "{\"1\":\"100\",\"2\":\"200\"}"), ["1":"100", "2":"200"])
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testCodableModel() {
+        let testModel = TestCodableModel()
+        
+        do {
+            let jsonString = try CodableJSON.dump(toString: testModel)
+            print("\(jsonString)")
+            
+            let newModel: TestCodableModel = try CodableJSON.parse(fromString: jsonString)
+            
+            print("\(newModel)")
+            
+            
+        } catch {
+            
         }
+        
     }
-
 }
