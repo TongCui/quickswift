@@ -9,7 +9,7 @@
 import Foundation
 
 public extension FileManager {
-    public static func directoryURL(for directory: SearchPathDirectory = .documentDirectory) -> URL {
+    public static func directoryURL(for directory: SearchPathDirectory) -> URL {
         if let url = FileManager.default.urls(for: directory, in: .userDomainMask).first {
             return url
         } else {
@@ -17,7 +17,7 @@ public extension FileManager {
         }
     }
 
-    public static func fileURL(fileName: String, in directory: SearchPathDirectory = .documentDirectory) -> URL {
+    public static func fileURL(fileName: String, in directory: SearchPathDirectory) -> URL {
         return directoryURL(for: directory).appendingPathComponent(fileName, isDirectory: false)
     }
 
@@ -26,22 +26,20 @@ public extension FileManager {
         return FileManager.default.fileExists(atPath: url.path)
     }
 
-    @discardableResult public static func touch(fileName: String, in directory: SearchPathDirectory = .documentDirectory) throws -> Bool {
+    static func touch(fileName: String, in directory: SearchPathDirectory) throws {
         let url = fileURL(fileName: fileName, in: directory)
         return try touch(url: url)
     }
 
-    @discardableResult public static func touch(url: URL) throws -> Bool {
-        let exists = FileManager.default.fileExists(atPath: url.path)
-        if !exists {
+    public static func touch(url: URL) throws {
+        if !FileManager.default.fileExists(atPath: url.path) {
             let directoryUrl = url.deletingLastPathComponent()
             try FileManager.default.createDirectory(at: directoryUrl, withIntermediateDirectories: true, attributes: nil)
             FileManager.default.createFile(atPath: url.path, contents: nil, attributes: nil)
         }
-        return exists
     }
 
-    public static func clear(directory: SearchPathDirectory = .documentDirectory) throws {
+    public static func clear(directory: SearchPathDirectory) throws {
         let url = directoryURL(for: directory)
         let contents = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: [])
         try contents.forEach { (url) in
@@ -49,14 +47,15 @@ public extension FileManager {
         }
     }
 
-    public static func save<T: Encodable>(_ object: T, intoFile fileName: String, in directory: SearchPathDirectory = .documentDirectory) throws {
+    //  TODO: handle array int dictionary
+    public static func save<T: Encodable>(_ object: T, intoFile fileName: String, in directory: SearchPathDirectory ) throws {
         let url = fileURL(fileName: fileName, in: directory)
-        let data = try object.toData()
         try touch(fileName: fileName, in: directory)
+        let data = try object.toData()
         try data.write(to: url, options: Data.WritingOptions.atomic)
     }
 
-    public static func load<T: Decodable>(fromFile fileName: String, in directory: SearchPathDirectory = .documentDirectory) throws -> T {
+    public static func load<T: Decodable>(fromFile fileName: String, in directory: SearchPathDirectory ) throws -> T {
         let url = fileURL(fileName: fileName, in: directory)
 
         guard fileExists(fileName: fileName, in: directory) else {
@@ -68,11 +67,24 @@ public extension FileManager {
         return model
     }
 
-    public static func remove(fileName: String, in directory: SearchPathDirectory = .documentDirectory) throws {
+    public static func remove(fileName: String, in directory: SearchPathDirectory ) throws {
         let url = fileURL(fileName: fileName, in: directory)
 
         if FileManager.default.fileExists(atPath: url.path) {
             try FileManager.default.removeItem(at: url)
         }
+    }
+
+    public static func fileURLs(in directory: SearchPathDirectory ) -> [URL] {
+        do {
+            let urls = try FileManager.default.contentsOfDirectory(at: directoryURL(for: directory), includingPropertiesForKeys: nil, options: [])
+            return urls
+        } catch {
+            return []
+        }
+    }
+
+    public static func files(in directory: SearchPathDirectory ) -> [String] {
+        return fileURLs(in: directory).map { $0.lastPathComponent }
     }
 }

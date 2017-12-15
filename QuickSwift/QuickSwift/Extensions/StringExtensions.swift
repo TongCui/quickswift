@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+public extension String {
+    var fileName: String {
+        return URL(fileURLWithPath: self).deletingPathExtension().lastPathComponent
+    }
+
+    var fileExtension: String {
+        return URL(fileURLWithPath: self).pathExtension
+    }
+}

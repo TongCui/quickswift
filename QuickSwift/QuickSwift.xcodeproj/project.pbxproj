@@ -23,6 +23,11 @@
 		074F1D9B1FD94E6C00303B97 /* DictionaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D9A1FD94E6C00303B97 /* DictionaryExtensionsTests.swift */; };
 		074F1D9D1FDA39A400303B97 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D9C1FDA39A400303B97 /* IntExtensions.swift */; };
 		074F1D9F1FDA3A4E00303B97 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D9E1FDA3A4E00303B97 /* BoolExtensions.swift */; };
+		07656F391FE37D130058E2D9 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F381FE37D130058E2D9 /* Regex.swift */; };
+		07656F3B1FE3800B0058E2D9 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F3A1FE3800B0058E2D9 /* RegexTests.swift */; };
+		07656F3D1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F3C1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift */; };
+		07656F3F1FE3A5040058E2D9 /* FilePersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F3E1FE3A5040058E2D9 /* FilePersistenceTests.swift */; };
+		07656F411FE3AB2D0058E2D9 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F401FE3AB2D0058E2D9 /* StringExtensionsTests.swift */; };
 		07D7ABD61FE1229E002AE482 /* FilePersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABD51FE1229E002AE482 /* FilePersistence.swift */; };
 		07D7ABD81FE124D9002AE482 /* BoolExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABD71FE124D9002AE482 /* BoolExtensionsTests.swift */; };
 		07D7ABDA1FE1259C002AE482 /* Prime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABD91FE1259C002AE482 /* Prime.swift */; };
@@ -76,6 +81,11 @@
 		074F1D9A1FD94E6C00303B97 /* DictionaryExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtensionsTests.swift; sourceTree = "<group>"; };
 		074F1D9C1FDA39A400303B97 /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		074F1D9E1FDA3A4E00303B97 /* BoolExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtensions.swift; sourceTree = "<group>"; };
+		07656F381FE37D130058E2D9 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		07656F3A1FE3800B0058E2D9 /* RegexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
+		07656F3C1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensionsTests.swift; sourceTree = "<group>"; };
+		07656F3E1FE3A5040058E2D9 /* FilePersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePersistenceTests.swift; sourceTree = "<group>"; };
+		07656F401FE3AB2D0058E2D9 /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
 		07D7ABD51FE1229E002AE482 /* FilePersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilePersistence.swift; sourceTree = "<group>"; };
 		07D7ABD71FE124D9002AE482 /* BoolExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtensionsTests.swift; sourceTree = "<group>"; };
 		07D7ABD91FE1259C002AE482 /* Prime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prime.swift; sourceTree = "<group>"; };
@@ -213,6 +223,7 @@
 				07D7ABE31FE2541C002AE482 /* CodableJSON.swift */,
 				07D7ABD91FE1259C002AE482 /* Prime.swift */,
 				07E9ADE71FDFC95500F3A6B0 /* Random.swift */,
+				07656F381FE37D130058E2D9 /* Regex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -233,14 +244,18 @@
 				074F1D9A1FD94E6C00303B97 /* DictionaryExtensionsTests.swift */,
 				074F1D861FD79C1800303B97 /* TypeConvertionsTests.swift */,
 				074B08AC1FDA689600D939AD /* IntExtensionsTests.swift */,
+				07656F401FE3AB2D0058E2D9 /* StringExtensionsTests.swift */,
 				07D7ABD71FE124D9002AE482 /* BoolExtensionsTests.swift */,
 				07D7ABFB1FE2FD68002AE482 /* UIImageExtensionsTests.swift */,
 				07D7ABDE1FE1297C002AE482 /* FibonacciTestCases.swift */,
 				07D7ABDF1FE1297C002AE482 /* JSONTests.swift */,
+				07656F3C1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift */,
+				07656F3E1FE3A5040058E2D9 /* FilePersistenceTests.swift */,
 				07D7ABE51FE2543A002AE482 /* CodableJSONTests.swift */,
 				07D7ABDD1FE1297C002AE482 /* RandomTests.swift */,
 				074F1D8A1FD79F4F00303B97 /* OperatorsTests.swift */,
 				07D7ABDB1FE125E9002AE482 /* PrimeTests.swift */,
+				07656F3A1FE3800B0058E2D9 /* RegexTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -469,6 +484,7 @@
 				074F1D891FD79E5A00303B97 /* Operators.swift in Sources */,
 				07F03DD91FCBFD9E006F79C8 /* Model.swift in Sources */,
 				07D7ABE41FE2541C002AE482 /* CodableJSON.swift in Sources */,
+				07656F391FE37D130058E2D9 /* Regex.swift in Sources */,
 				07F03DD81FCBFD9E006F79C8 /* ArrayExtensions.swift in Sources */,
 				074F1D9F1FDA3A4E00303B97 /* BoolExtensions.swift in Sources */,
 				074F1D8D1FD7BF8E00303B97 /* DictionaryExtensions.swift in Sources */,
@@ -482,16 +498,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				07D7AC071FE300D8002AE482 /* Common.swift in Sources */,
+				07656F3F1FE3A5040058E2D9 /* FilePersistenceTests.swift in Sources */,
 				074F1D871FD79C1800303B97 /* TypeConvertionsTests.swift in Sources */,
+				07656F411FE3AB2D0058E2D9 /* StringExtensionsTests.swift in Sources */,
 				07F03DDC1FCBFDCA006F79C8 /* ArrayExtensionsTests.swift in Sources */,
 				07D7ABE01FE1297C002AE482 /* RandomTests.swift in Sources */,
 				074F1D931FD7C26200303B97 /* DictionaryExample.swift in Sources */,
 				074F1D941FD7C26200303B97 /* ArrayExample.swift in Sources */,
 				074B08AD1FDA689600D939AD /* IntExtensionsTests.swift in Sources */,
+				07656F3B1FE3800B0058E2D9 /* RegexTests.swift in Sources */,
 				074F1D9B1FD94E6C00303B97 /* DictionaryExtensionsTests.swift in Sources */,
 				07F714AD1FD63FD400A15ADA /* ModelTestCases.swift in Sources */,
 				07D7ABE11FE1297C002AE482 /* FibonacciTestCases.swift in Sources */,
 				074F1D8B1FD79F4F00303B97 /* OperatorsTests.swift in Sources */,
+				07656F3D1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift in Sources */,
 				07D7ABE21FE1297C002AE482 /* JSONTests.swift in Sources */,
 				07D7ABFC1FE2FD68002AE482 /* UIImageExtensionsTests.swift in Sources */,
 				07D7ABDC1FE125E9002AE482 /* PrimeTests.swift in Sources */,
