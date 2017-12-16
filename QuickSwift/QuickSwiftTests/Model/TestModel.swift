@@ -19,7 +19,7 @@ struct TestModel {
     }
 }
 
-struct TestCodableModel: Codable {
+struct TestCodableModel: Codable, FilePersistence {
     let stringValue: String
     let intValue: Int
 

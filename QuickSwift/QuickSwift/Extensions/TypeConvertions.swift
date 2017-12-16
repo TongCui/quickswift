@@ -79,7 +79,7 @@ public extension String {
         return try JSON.parse(fromString: self)
     }
 
-    public func toArray<Value>() throws -> [Value] {
+    public func toArray<Value: Encodable>() throws -> [Value] {
         do {
             return try CodableJSON.parse(fromString: self)
         } catch {
@@ -87,7 +87,7 @@ public extension String {
         }
     }
 
-    public func toDictionary<Key, Value>() throws -> [Key: Value] {
+    public func toDictionary<Key: Encodable, Value: Encodable>() throws -> [Key: Value] {
         do {
             return try CodableJSON.parse(fromString: self)
         } catch {
@@ -101,7 +101,7 @@ public extension Data {
         return try JSON.parse(fromData: self)
     }
 
-    public func toArray<Value>() throws -> [Value] {
+    public func toArray<Value: Decodable>() throws -> [Value] {
         do {
             return try CodableJSON.parse(fromData: self)
         } catch {
@@ -109,7 +109,7 @@ public extension Data {
         }
     }
 
-    public func toDictionary<Key, Value>() throws -> [Key: Value] {
+    public func toDictionary<Key: Decodable, Value: Decodable>() throws -> [Key: Value] {
         do {
             return try CodableJSON.parse(fromData: self)
         } catch {
