@@ -35,6 +35,20 @@ extension Style where Element : Stylable {
     }
 }
 
+extension Style {
+    @discardableResult
+    public func with<T: StyleFactory>(_ styles: T...) -> Style where T.Element == Element {
+        styles.forEach { $0.styleItem.apply(on: element) }
+        return self
+    }
+
+    @discardableResult
+    public func with<T: StyleFactory>(_ type: T.Type, _ styles: T...) -> Style where T.Element == Element {
+        styles.forEach { $0.styleItem.apply(on: element) }
+        return self
+    }
+}
+
 public struct StyleItem<Element> {
     let operation: (Element) -> Void
 

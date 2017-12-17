@@ -14,11 +14,21 @@ public protocol Stylable {
     func copyStyle(_ another: Element)
 }
 
+extension Stylable where Self : UIView {
+    func copyCommonView(_ another: UIView) {
+        backgroundColor = another.backgroundColor
+        alpha = another.alpha
+        tintColor = another.tintColor
+    }
+}
+
 // MARK: - UILabel
 extension UILabel: Stylable {
     public var style: Style<UILabel> { return Style(element: self) }
 
     public func copyStyle(_ another: UILabel) {
+        copyCommonView(another)
+
         font = another.font
         textColor = another.textColor
         textAlignment = another.textAlignment
@@ -39,6 +49,7 @@ extension UIButton: Stylable {
     public var style: Style<UIButton> { return Style(element: self) }
 
     public func copyStyle(_ another: UIButton) {
+        copyCommonView(another)
 
         adjustsImageWhenHighlighted = another.adjustsImageWhenHighlighted
         adjustsImageWhenDisabled = another.adjustsImageWhenDisabled
@@ -69,21 +80,13 @@ extension UIImageView: Stylable {
     public var style: Style<UIImageView> { return Style(element: self) }
 
     public func copyStyle(_ another: UIImageView) {
+        copyCommonView(another)
+
         image = another.image
         highlightedImage = another.highlightedImage
         animationImages = another.animationImages
         highlightedAnimationImages = another.highlightedAnimationImages
         animationDuration = another.animationDuration
         animationRepeatCount = another.animationRepeatCount
-        tintColor = another.tintColor
-    }
-}
-
-// MARK: - UIImage
-extension UIImage: Stylable {
-    public var style: Style<UIImage> { return Style(element: self) }
-
-    public func copyStyle(_ another: UIImage) {
-
     }
 }
