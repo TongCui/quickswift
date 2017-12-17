@@ -9,6 +9,12 @@
 import UIKit
 
 public extension UIImage {
+    public var width: CGFloat { return self.size.width }
+
+    public var height: CGFloat { return self.size.height }
+}
+
+public extension UIImage {
     func toJPEG() -> Data? { return UIImageJPEGRepresentation(self, 1) }
     func toPNG() -> Data? { return UIImagePNGRepresentation(self)}
 }

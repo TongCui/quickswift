@@ -38,3 +38,8 @@ desc "Open workspace"
 task :open do
   sh "open #{PROJECT}.xcworkspace"
 end
+
+desc "App Transport Security"
+task :ats do
+  puts ">> TODO"
+end

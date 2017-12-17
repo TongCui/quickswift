@@ -10,10 +10,6 @@ import Foundation
 
 public extension Int {
 
-    public var isEven: Bool { return self % 2 == 0 }
-
-    public var isOdd: Bool { return self % 2 != 0 }
-
     public func times(body: (Int) -> Void) {
         guard self > 0 else {
             return
@@ -34,4 +30,5 @@ public extension Int {
         }
         (down...self).reversed().forEach { body($0) }
     }
+
 }
