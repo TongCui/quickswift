@@ -43,3 +43,7 @@ public enum ModelError: Error {
 public protocol Identifiable {
     var id: String { get set }
 }
+
+public protocol FileIdentifiable {
+    var fileName: String { get }
+}

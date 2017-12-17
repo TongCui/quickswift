@@ -1,5 +1,5 @@
 //
-//  StyleFactoryTests.swift
+//  StyleFactoryDemo.swift
 //  QuickSwiftTests
 //
 //  Created by tcui on 17/12/2017.

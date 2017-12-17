@@ -7,29 +7,55 @@
 //
 
 import XCTest
+@testable import QuickSwift
 
 class FilePersistenceTests: XCTestCase {
 
+    var fileModel = TestCodableModel()
+    var uniqeFileModel = TestCodingKeysModel()
+
+    func clear() {
+        try? FileManager.clear(directory: .documentDirectory)
+        try? FileManager.clear(directory: .cachesDirectory)
+    }
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        clear()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        clear()
         super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testFilePersistence() {
+        fileModel.intValue = 100
+
+        try! fileModel.save(to: "aaa.txt", in: .documentDirectory)
+        XCTAssertTrue(FileManager.fileExists(fileName: "aaa.txt", in: .documentDirectory))
+
+        try! fileModel.save(to: "bbb.txt", in: .cachesDirectory)
+        XCTAssertTrue(FileManager.fileExists(fileName: "bbb.txt", in: .cachesDirectory))
+
+        var model = try! TestCodableModel.load(from: "aaa.txt", in: .documentDirectory)
+        XCTAssertEqual(model.intValue, 100)
+
+        model = try! TestCodableModel.load(from: "bbb.txt", in: .cachesDirectory)
+        XCTAssertEqual(model.intValue, 100)
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    func testUniqueFilePersistence() {
+        let fileName = "model.txt"
+        XCTAssertEqual(TestCodingKeysModel.fileName, fileName)
 
+        uniqeFileModel.intValue = 100
+
+        try! uniqeFileModel.save()
+        XCTAssertTrue(FileManager.fileExists(fileName: fileName, in: .documentDirectory))
+
+        let model = try! TestCodingKeysModel.load()
+        XCTAssertEqual(model.intValue, 100)
+
+    }
 }

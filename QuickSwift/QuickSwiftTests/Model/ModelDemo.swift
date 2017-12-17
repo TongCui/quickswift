@@ -10,8 +10,8 @@ import Foundation
 @testable import QuickSwift
 
 struct TestModel {
-    let stringValue: String
-    let intValue: Int
+    var stringValue: String
+    var intValue: Int
 
     init() {
         stringValue = "str"
@@ -20,8 +20,8 @@ struct TestModel {
 }
 
 struct TestCodableModel: Codable, FilePersistence {
-    let stringValue: String
-    let intValue: Int
+    var stringValue: String
+    var intValue: Int
 
     init() {
         stringValue = "str"
@@ -30,7 +30,7 @@ struct TestCodableModel: Codable, FilePersistence {
 }
 
 struct TestDateModel: Codable {
-    let dateValue: Date
+    var dateValue: Date
 
     init() {
         dateValue = Date(timeIntervalSince1970: 0)
@@ -39,7 +39,7 @@ struct TestDateModel: Codable {
 
 struct TestCustomCodableModel: Codable, CustomCodable {
 
-    let dateValue: Date
+    var dateValue: Date
 
     init() {
         dateValue = Date(timeIntervalSince1970: 0)
@@ -59,9 +59,12 @@ struct TestCustomCodableModel: Codable, CustomCodable {
     }
 }
 
-struct TestCodingKeysModel: Codable {
-    let stringValue: String
-    let intValue: Int
+struct TestCodingKeysModel: Codable, UniqueFilePersistence {
+    static let fileName = "model.txt"
+    static let fileDirectory: FileManager.SearchPathDirectory = .documentDirectory
+
+    var stringValue: String
+    var intValue: Int
 
     enum CodingKeys: String, CodingKey {
         case stringValue = "str"
@@ -75,13 +78,13 @@ struct TestCodingKeysModel: Codable {
 }
 
 struct TestComplexModel: Codable {
-    let stringValue: String
-    let intValue: Int
-    let doubleValue: Double
-    let intArrayValue: [Int]
-    let stringArrayValue: [String]
-    let intDictionary: [Int: Int]
-    let strDictionary: [String: Int]
+    var stringValue: String
+    var intValue: Int
+    var doubleValue: Double
+    var intArrayValue: [Int]
+    var stringArrayValue: [String]
+    var intDictionary: [Int: Int]
+    var strDictionary: [String: Int]
 
     init() {
         stringValue = "str"
