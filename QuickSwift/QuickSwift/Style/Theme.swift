@@ -13,36 +13,28 @@ import Foundation
 //
 
 enum LabelStyles: StyleFactory {
-
-    case mainLabel
-    case subLabel
+    case leftLabel
+    case centerLabel
+    case rightLabel
 
     var styleItem: StyleItem<UILabel> {
         switch self {
-        case .mainLabel:
+        case .leftLabel:
             return StyleItem { label in
-                label.font = UIFont.systemFont(ofSize: 12)
-                label.textAlignment = .center
-                print("!!!!!!!!main label!!!!!!!!!")
+                label.textAlignment = .left
             }
-        case .subLabel:
+        case .centerLabel:
             return StyleItem { label in
-                label.font = UIFont.systemFont(ofSize: 12)
                 label.textAlignment = .center
-                print("!!!!!!!!sub label!!!!!!!!!")
+            }
+        case .rightLabel:
+            return StyleItem { label in
+                label.textAlignment = .right
             }
         }
 
     }
 
-}
-
-extension CombinedStyleItem where Element == UILabel {
-    @discardableResult
-    func and(_ style: LabelStyles ) -> CombinedStyleItem {
-        styles.append(style.styleItem)
-        return self
-    }
 }
 
 extension Style where Element == UILabel {
@@ -55,15 +47,22 @@ extension Style where Element == UILabel {
 
 enum ButtonStyles: StyleFactory {
 
-    case largeButton
+    case redButton
+    case greenButton
 
     var styleItem: StyleItem<UIButton> {
         switch self {
-        case .largeButton:
+        case .redButton:
             return StyleItem { button in
-                button.backgroundColor = UIColor.red
+                button.setTitleColor(UIColor.red, for: .normal)
+            }
+        case .greenButton:
+            return StyleItem { button in
                 button.setTitleColor(UIColor.green, for: .normal)
             }
         }
     }
 }
+
+
+

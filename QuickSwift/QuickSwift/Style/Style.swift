@@ -25,14 +25,6 @@ public struct Style<Element> {
         custom(element)
         return self
     }
-
-    @discardableResult
-    public func make(_ make: (CombinedStyleItem<Element>) -> Void) -> Style {
-        let combinedItem = CombinedStyleItem<Element>()
-        make(combinedItem)
-        with(combinedItem.styles)
-        return self
-    }
 }
 
 extension Style where Element : Stylable {
@@ -52,22 +44,6 @@ public struct StyleItem<Element> {
 
     public func apply(on element: Element) {
         operation(element)
-    }
-}
-
-final public class CombinedStyleItem<Element> {
-    var styles = [StyleItem<Element>]()
-
-    @discardableResult
-    func and(_ style: StyleItem<Element> ) -> CombinedStyleItem {
-        styles.append(style)
-        return self
-    }
-
-    @discardableResult
-    func and<T: StyleFactory>(_ style: T ) -> CombinedStyleItem where T.Element == Element {
-        styles.append(style.styleItem)
-        return self
     }
 }
 

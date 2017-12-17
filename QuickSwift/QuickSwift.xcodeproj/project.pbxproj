@@ -56,6 +56,7 @@
 		07F03DD91FCBFD9E006F79C8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DD61FCBFD9E006F79C8 /* Model.swift */; };
 		07F03DDC1FCBFDCA006F79C8 /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DDB1FCBFDC9006F79C8 /* ArrayExtensionsTests.swift */; };
 		07F714AD1FD63FD400A15ADA /* ModelTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F714AC1FD63FD400A15ADA /* ModelTestCases.swift */; };
+		07F978891FE60928000C8A75 /* StyleFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F978881FE60928000C8A75 /* StyleFactoryTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		07F03DD61FCBFD9E006F79C8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		07F03DDB1FCBFDC9006F79C8 /* ArrayExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTests.swift; sourceTree = "<group>"; };
 		07F714AC1FD63FD400A15ADA /* ModelTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTestCases.swift; sourceTree = "<group>"; };
+		07F978881FE60928000C8A75 /* StyleFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleFactoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				07656F4A1FE51D870058E2D9 /* StyleTests.swift */,
+				07F978881FE60928000C8A75 /* StyleFactoryTests.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				07656F3D1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift in Sources */,
 				07D7ABE21FE1297C002AE482 /* JSONTests.swift in Sources */,
 				07D7ABFC1FE2FD68002AE482 /* UIImageExtensionsTests.swift in Sources */,
+				07F978891FE60928000C8A75 /* StyleFactoryTests.swift in Sources */,
 				07D7ABDC1FE125E9002AE482 /* PrimeTests.swift in Sources */,
 				07D7ABF41FE27A73002AE482 /* TestModel.swift in Sources */,
 				07D7ABE61FE2543A002AE482 /* CodableJSONTests.swift in Sources */,

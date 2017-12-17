@@ -23,16 +23,9 @@ class StyleTests: XCTestCase {
 
     func testStyle() {
         var label = UILabel()
-
-        label.style.with([LabelStyles.mainLabel.styleItem, LabelStyles.subLabel.styleItem])
-
+        label.style.with([LabelStyles.leftLabel.styleItem, LabelStyles.rightLabel.styleItem])
         label = UILabel()
-        label.style.make { (make) in
-//            make.and(LabelStyles.mainLabel).and(LabelStyles.subLabel)
-            make.and(.mainLabel).and(.subLabel)
-        }
-
-        label.style.with(.mainLabel, .subLabel)
+        label.style.with(.leftLabel, .rightLabel, .centerLabel)
     }
 
 }
