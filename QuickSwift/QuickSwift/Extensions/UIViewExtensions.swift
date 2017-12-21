@@ -73,7 +73,7 @@ extension UIView {
         }
     }
 
-    var middleX: CGFloat {
+    var midX: CGFloat {
         get {
             return self.frame.midX
         }
@@ -84,7 +84,7 @@ extension UIView {
         }
     }
 
-    var middleY: CGFloat {
+    var midY: CGFloat {
         get {
             return self.frame.midY
         }

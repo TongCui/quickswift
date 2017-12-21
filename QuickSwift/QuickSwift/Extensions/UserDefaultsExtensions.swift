@@ -1,5 +1,5 @@
 //
-//  UserDefaultsExtension.swift
+//  UserDefaultsExtensions.swift
 //  QuickSwift
 //
 //  Created by tcui on 17/12/2017.
@@ -10,9 +10,9 @@ import Foundation
 
 public extension UserDefaults {
 
-    public subscript(key: String) -> Any? {
+    public subscript<T>(key: String) -> T? {
         get {
-            return object(forKey: key)
+            return object(forKey: key) as? T
         }
         set {
             set(newValue, forKey: key)

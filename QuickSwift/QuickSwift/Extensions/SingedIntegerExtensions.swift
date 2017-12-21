@@ -1,5 +1,5 @@
 //
-//  SingedInteger.swift
+//  SingedIntegerExtensions.swift
 //  QuickSwift
 //
 //  Created by tcui on 17/12/2017.
@@ -45,27 +45,6 @@ public extension SignedInteger {
     public var digitsCount: Int {
         return description.flatMap({Int(String($0))}).count
     }
-
-    /// SwifterSwift: String of format (XXh XXm) from seconds Int.
-    public var timeString: String {
-        guard self > 0 else {
-            return "0 sec"
-        }
-        if self < 60 {
-            return "\(self) sec"
-        }
-        if self < 3600 {
-            return "\(self / 60) min"
-        }
-        let hours = self / 3600
-        let mins = (self % 3600) / 60
-
-        if hours != 0 && mins == 0 {
-            return "\(hours)h"
-        }
-        return "\(hours)h \(mins)m"
-    }
-
 }
 
 // MARK: - Methods

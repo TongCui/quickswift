@@ -10,7 +10,7 @@ import Foundation
 
 public extension Dictionary {
     public func has(key: Key) -> Bool {
-        return self.contains { $0.0 == key }
+        return contains { $0.0 == key }
     }
 
     public mutating func removeAll(keys: [Key]) {
@@ -20,7 +20,17 @@ public extension Dictionary {
 
 public extension Dictionary where Value : Equatable {
     public func has(value: Value) -> Bool {
-        return self.contains { $0.1 == value }
+        return contains { $0.1 == value }
+    }
+
+    public mutating func removeValue(forValue value: Value) {
+        let keys = self.filter { value == $0.1 } .map { $0.0 }
+        removeAll(keys: keys)
+    }
+
+    public mutating func removeAll(values: [Value]) {
+        let keys = filter { values.contains($0.1) } .map { $0.0 }
+        removeAll(keys: keys)
     }
 }
 
@@ -45,14 +55,19 @@ public extension Dictionary {
         rhs.forEach { lhs[$0] = $1}
     }
 
-    public static func - (lhs: [Key: Value], keys: [Key]) -> [Key: Value] {
+    public static func - (lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
         var result = lhs
-        result.removeAll(keys: keys)
+        rhs.forEach { (key, value) in
+            result[key] = nil
+        }
+
         return result
     }
 
-    public static func -= (lhs: inout [Key: Value], keys: [Key]) {
-        lhs.removeAll(keys: keys)
+    public static func -= (lhs: inout [Key: Value], rhs: [Key: Value]) {
+        rhs.forEach { (key, value) in
+            lhs[key] = nil
+        }
     }
 
 }

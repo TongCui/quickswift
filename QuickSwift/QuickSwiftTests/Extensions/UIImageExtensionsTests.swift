@@ -28,4 +28,9 @@ class UIImageExtensionsTests: XCTestCase {
         XCTAssertNotNil(data?.toImage())
     }
 
+    func testSize() {
+        XCTAssertEqual(image.width, 40)
+        XCTAssertEqual(image.height, 40)
+    }
+
 }
