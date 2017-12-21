@@ -34,12 +34,16 @@ public struct CodableJSON {
 }
 
 public extension Encodable {
-    public func toJSON() throws -> String {
+    public func toJSONString() throws -> String {
         return try CodableJSON.dump(toString: self)
     }
 
     public func toData() throws -> Data {
         return try CodableJSON.dump(toData: self)
+    }
+
+    public func toJSON() throws -> [String: Any] {
+        return try JSON.parse(fromData: try toData())
     }
 }
 
@@ -51,6 +55,10 @@ public extension Decodable {
     init(fromString string: String) throws {
         self = try CodableJSON.parse(fromString: string)
     }
+
+    init(fromJSON json: [String: Any]) throws {
+        self = try CodableJSON.parse(fromData: try json.toData())
+    }
 }
 
 public protocol CustomCodable {
@@ -59,7 +67,7 @@ public protocol CustomCodable {
 }
 
 public extension Encodable where Self : CustomCodable {
-    public func toJSON() throws -> String {
+    public func toJSONString() throws -> String {
         return try CodableJSON.dump(toString: self, settings: Self.encodeSettings())
     }
 

@@ -52,6 +52,7 @@
 		07E013641FEB76FF00609DAB /* SignedIntegerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E013631FEB76FF00609DAB /* SignedIntegerExtensionsTests.swift */; };
 		07E013661FEB82C600609DAB /* UserDefaultsExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E013651FEB82C600609DAB /* UserDefaultsExtensionsTests.swift */; };
 		07E013681FEB84B500609DAB /* UIViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E013671FEB84B500609DAB /* UIViewExtensionsTests.swift */; };
+		07E0136A1FEBAD4E00609DAB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07E013691FEBAD4E00609DAB /* SwiftyJSON.framework */; };
 		07E9ADE21FDF9B8B00F3A6B0 /* AnnieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E9ADE11FDF9B8B00F3A6B0 /* AnnieModel.swift */; };
 		07E9ADE81FDFC95500F3A6B0 /* Fibonacci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E9ADE51FDFC95500F3A6B0 /* Fibonacci.swift */; };
 		07E9ADE91FDFC95500F3A6B0 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E9ADE61FDFC95500F3A6B0 /* JSON.swift */; };
@@ -129,6 +130,7 @@
 		07E013631FEB76FF00609DAB /* SignedIntegerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedIntegerExtensionsTests.swift; sourceTree = "<group>"; };
 		07E013651FEB82C600609DAB /* UserDefaultsExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensionsTests.swift; sourceTree = "<group>"; };
 		07E013671FEB84B500609DAB /* UIViewExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensionsTests.swift; sourceTree = "<group>"; };
+		07E013691FEBAD4E00609DAB /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		07E9ADE11FDF9B8B00F3A6B0 /* AnnieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnieModel.swift; sourceTree = "<group>"; };
 		07E9ADE51FDFC95500F3A6B0 /* Fibonacci.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fibonacci.swift; sourceTree = "<group>"; };
 		07E9ADE61FDFC95500F3A6B0 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			files = (
 				0718468B1FCFFF7000545E38 /* SnapKit.framework in Frameworks */,
 				0718468C1FCFFF7000545E38 /* Alamofire.framework in Frameworks */,
+				07E0136A1FEBAD4E00609DAB /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +339,7 @@
 		07F03DE81FCD283A006F79C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07E013691FEBAD4E00609DAB /* SwiftyJSON.framework */,
 				0718468A1FCFFF7000545E38 /* Alamofire.framework */,
 				071846891FCFFF7000545E38 /* SnapKit.framework */,
 			);
@@ -499,11 +503,13 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			name = "[Carthage] Copy Frameworks";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapKit.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

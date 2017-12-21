@@ -23,36 +23,36 @@ class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(view.midX, 60)
         XCTAssertEqual(view.midY, 110)
     }
-    
+
     func testPositionsSet() {
         view.frame = CGRect.zero
         view.top = 10
         XCTAssertEqual(view.frame, CGRect(x: 0, y: 10, width: 0, height: 0))
-        
+
         view.frame = CGRect.zero
         view.bottom = 10
         XCTAssertEqual(view.frame, CGRect(x: 0, y: 10, width: 0, height: 0))
-        
+
         view.frame = CGRect.zero
         view.left = 10
         XCTAssertEqual(view.frame, CGRect(x: 10, y: 0, width: 0, height: 0))
-        
+
         view.frame = CGRect.zero
         view.right = 10
         XCTAssertEqual(view.frame, CGRect(x: 10, y: 0, width: 0, height: 0))
-        
+
         view.frame = CGRect.zero
         view.width = 10
         XCTAssertEqual(view.frame, CGRect(x: 0, y: 0, width: 10, height: 0))
-        
+
         view.frame = CGRect.zero
         view.height = 10
         XCTAssertEqual(view.frame, CGRect(x: 0, y: 0, width: 0, height: 10))
-        
+
         view.frame = CGRect.zero
         view.midX = 10
         XCTAssertEqual(view.frame, CGRect(x: 10, y: 0, width: 0, height: 0))
-        
+
         view.frame = CGRect.zero
         view.midY = 10
         XCTAssertEqual(view.frame, CGRect(x: 0, y: 10, width: 0, height: 0))

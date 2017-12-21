@@ -91,23 +91,23 @@ class CodableJSONTests: XCTestCase {
         XCTAssertThrowsError(try CodableJSON.parse(fromString: jsonString) as TestDateModel)
     }
 
-    func testModelToJSON() {
+    func testModeltoJSONString() {
         let codableModel = TestCodableModel()
         //  let dateModel = TestDateModel()
         let customCodableModel = TestCustomCodableModel()
         let codingKeysModel = TestCodingKeysModel()
         let complexModel = TestComplexModel()
 
-        XCTAssertEqual(try codableModel.toJSON(), "{\"intValue\":1,\"stringValue\":\"str\"}")
+        XCTAssertEqual(try codableModel.toJSONString(), "{\"intValue\":1,\"stringValue\":\"str\"}")
         //  TODO: regex
-        //  XCTAssertEqual(try dateModel.toJSON(), "{\"dateValue\":0}")
-        XCTAssertEqual(try customCodableModel.toJSON(), "{\n  \"dateValue\" : 0\n}")
-        XCTAssertEqual(try codingKeysModel.toJSON(), "{\"int\":1,\"str\":\"str\"}")
-        XCTAssertEqual(try complexModel.toJSON(), "{\"doubleValue\":1.2,\"intArrayValue\":[1,2],\"intDictionary\":{\"1\":1,\"2\":2},\"intValue\":1,\"strDictionary\":{\"1\":1,\"2\":2},\"stringArrayValue\":[\"1\",\"2\"],\"stringValue\":\"str\"}")
+        //  XCTAssertEqual(try dateModel.toJSONString(), "{\"dateValue\":0}")
+        XCTAssertEqual(try customCodableModel.toJSONString(), "{\n  \"dateValue\" : 0\n}")
+        XCTAssertEqual(try codingKeysModel.toJSONString(), "{\"int\":1,\"str\":\"str\"}")
+        XCTAssertEqual(try complexModel.toJSONString(), "{\"doubleValue\":1.2,\"intArrayValue\":[1,2],\"intDictionary\":{\"1\":1,\"2\":2},\"intValue\":1,\"strDictionary\":{\"1\":1,\"2\":2},\"stringArrayValue\":[\"1\",\"2\"],\"stringValue\":\"str\"}")
 
         XCTAssertEqual(try codableModel.toData(), "{\"intValue\":1,\"stringValue\":\"str\"}".toUtf8Data())
         //  TODO: regex
-        //  XCTAssertEqual(try dateModel.toJSON(), "{\"dateValue\":0}")
+        //  XCTAssertEqual(try dateModel.toJSONString(), "{\"dateValue\":0}")
         XCTAssertEqual(try customCodableModel.toData(), "{\n  \"dateValue\" : 0\n}".toUtf8Data())
         XCTAssertEqual(try codingKeysModel.toData(), "{\"int\":1,\"str\":\"str\"}".toUtf8Data())
         XCTAssertEqual(try complexModel.toData(), "{\"doubleValue\":1.2,\"intArrayValue\":[1,2],\"intDictionary\":{\"1\":1,\"2\":2},\"intValue\":1,\"strDictionary\":{\"1\":1,\"2\":2},\"stringArrayValue\":[\"1\",\"2\"],\"stringValue\":\"str\"}".toUtf8Data())

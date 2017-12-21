@@ -94,6 +94,10 @@ public extension String {
             throw TypeConvertError.cannotConvert(String.self, [Key: Value].self)
         }
     }
+
+    public func toJSON<Key: Encodable, Value: Encodable>() throws -> [Key: Value] {
+        return try toDictionary()
+    }
 }
 
 public extension Data {
@@ -115,6 +119,10 @@ public extension Data {
         } catch {
             throw TypeConvertError.cannotConvert(Data.self, [Key: Value].self)
         }
+    }
+
+    public func toJSON<Key: Decodable, Value: Decodable>() throws -> [Key: Value] {
+        return try toDictionary()
     }
 
     public func toUtf8S() throws -> String {
