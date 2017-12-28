@@ -20,3 +20,10 @@ public extension Collection where Index == Int, IndexDistance == Int {
         return self[index]
     }
 }
+
+
+public extension RangeReplaceableCollection where Iterator.Element : Equatable {
+    public mutating func removeElement(_ element: Element) {
+        self = filter { $0 != element }
+    }
+}

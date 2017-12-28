@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct CellSettings {
+public class CellSettings {
+    
     public var seperatorHidden = false
     public var cellHeight = UITableViewAutomaticDimension
 
@@ -16,14 +17,26 @@ public struct CellSettings {
     public var indexPath: IndexPath?
     public weak var tableView: UITableView?
     public weak var cell: UITableViewCell?
+    
+    public init() {
+        
+    }
 }
 
-public struct SectionSettings {
-
-    public var headerHeight: CGFloat?
-    public var footerHeight: CGFloat?
+public class SectionSettings {
+    public init() {
+        
+    }
 }
 
-public struct TableSettings {
+public class TableSettings {
+    
     public var tableViewDidScrollHandler: ((UITableView) -> Void)?
+    
+    public var registeredCellIds = [String]()
+    public var registeredHeaderFooterIds = [String]()
+    
+    public init() {
+        
+    }
 }

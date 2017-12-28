@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ErrorCellItem: CellItemProtocol {
+class ErrorCellItem: CellItemProtocol {
     var identifier: String = "error_cell"
 
     var raw: Any?
@@ -17,6 +17,10 @@ struct ErrorCellItem: CellItemProtocol {
 
     init() {
 
+    }
+    
+    func register(tableView: UITableView) {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier )
     }
 
     func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {

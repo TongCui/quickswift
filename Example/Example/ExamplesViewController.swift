@@ -8,21 +8,28 @@
 
 import UIKit
 import QuickSwift
-import SnapKit
-
 
 
 class ExamplesViewController: UIViewController {
     
-    let tableView = UITableView(frame: CGRect.zero, style: .plain)
+    @IBOutlet weak var tableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.addSubview(tableView)
-        view.snp.makeConstraints { (make) in
-//            make.edges.equalTo(self.view.safeAreaLayoutGuide.snp.edges)
-            
+    lazy var adapter: TableViewAdapter = {
+        let adapter = TableViewAdapter(tableView: tableView)
+        adapter.builder = {
+            var sectionItem = PlainSectionItem()
+            sectionItem.append(OneLineTextCellItem(text: "This is a OneLineTextCellItem"))
+            sectionItem.append(OneLineTextCellItem(text: "This is a OneLineTextCellItem"))
+            sectionItem.append(OneLineTextCellItem(text: "This is a OneLineTextCellItem"))
+            sectionItem.append(OneLineTextCellItem(text: "This is a OneLineTextCellItem"))
+            sectionItem.append(LoadingCellItem())
+            return [sectionItem]
         }
-        
+        return adapter
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()        
+        adapter.reloadData()
     }
 }

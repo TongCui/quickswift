@@ -8,17 +8,21 @@
 
 import SnapKit
 
-struct OneLineTextCellItem: CellItemProtocol {
+public class OneLineTextCellItem: CellItemProtocol {
 
-    var text: String?
-    var identifier: String = "oneline_cell"
-    var settings: CellSettings = CellSettings()
+    public var text: String?
+    public var identifier: String = "oneline_cell"
+    public var settings: CellSettings = CellSettings()
 
-    init(text: String) {
+    public init(text: String) {
         self.text = text
     }
+    
+    public func register(tableView: UITableView) {
+        tableView.register(OneLineTextCell.self, forCellReuseIdentifier: identifier)
+    }
 
-    func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    public func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         if let cell = tableCell as? OneLineTextCell {
@@ -30,11 +34,11 @@ struct OneLineTextCellItem: CellItemProtocol {
 
 }
 
-class OneLineTextCell: BuiltInCell {
+public class OneLineTextCell: BuiltInCell {
 
-    lazy var oneLineLabel = UILabel()
+    public lazy var oneLineLabel = UILabel()
 
-    override func commonInit() {
+    public override func commonInit() {
         super.commonInit()
         contentView.addSubview(oneLineLabel)
         let margin: CGFloat = 20
