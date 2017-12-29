@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0712AEB31FF5E15E0053A59F /* file.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0712AEB21FF5E15E0053A59F /* file.txt */; };
 		07AE23D51FCEB04B00028BC4 /* QuickSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */; };
 		07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */; };
 		07F03D941FCBFBDA006F79C8 /* ExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03D931FCBFBDA006F79C8 /* ExamplesViewController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0712AEB21FF5E15E0053A59F /* file.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = file.txt; sourceTree = "<group>"; };
 		07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuickSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F03D8E1FCBFBDA006F79C8 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0712AEAA1FF5DFE10053A59F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0712AEB11FF5E15E0053A59F /* files */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0712AEB11FF5E15E0053A59F /* files */ = {
+			isa = PBXGroup;
+			children = (
+				0712AEB21FF5E15E0053A59F /* file.txt */,
+			);
+			path = files;
+			sourceTree = "<group>";
+		};
 		07F03D851FCBFBDA006F79C8 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +138,7 @@
 				07F03D981FCBFBDA006F79C8 /* Assets.xcassets */,
 				07F03D9A1FCBFBDA006F79C8 /* LaunchScreen.storyboard */,
 				07F03D9D1FCBFBDA006F79C8 /* Info.plist */,
+				0712AEAA1FF5DFE10053A59F /* Resources */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -260,6 +279,7 @@
 			files = (
 				07F03D9C1FCBFBDA006F79C8 /* LaunchScreen.storyboard in Resources */,
 				07F03D991FCBFBDA006F79C8 /* Assets.xcassets in Resources */,
+				0712AEB31FF5E15E0053A59F /* file.txt in Resources */,
 				07F03D971FCBFBDA006F79C8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

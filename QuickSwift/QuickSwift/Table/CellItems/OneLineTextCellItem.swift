@@ -9,7 +9,6 @@
 import SnapKit
 
 public class OneLineTextCellItem: CellItemProtocol {
-
     public var text: String?
     public var identifier: String = "oneline_cell"
     public var settings: CellSettings = CellSettings()
@@ -17,7 +16,7 @@ public class OneLineTextCellItem: CellItemProtocol {
     public init(text: String) {
         self.text = text
     }
-    
+
     public func register(tableView: UITableView) {
         tableView.register(OneLineTextCell.self, forCellReuseIdentifier: identifier)
     }
@@ -30,6 +29,10 @@ public class OneLineTextCellItem: CellItemProtocol {
         }
 
         return tableCell
+    }
+
+    public func cell(tableView: UITableView, didSelectRowAt index: IndexPath) {
+        print("OneLineTextCellItem \(text ?? "") did selectect at \(index)")
     }
 
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-public let kDefaultCellHeight : CGFloat = 45
+public let kDefaultCellHeight: CGFloat = 45
 
 public protocol BuiltInCellCustomizable {
     func builtInCellCustomSettings()

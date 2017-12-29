@@ -10,20 +10,17 @@ import Foundation
 
 class ErrorCellItem: CellItemProtocol {
     var identifier: String = "error_cell"
-
-    var raw: Any?
-
     var settings = CellSettings()
 
-    init() {
-
-    }
-    
     func register(tableView: UITableView) {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: identifier )
     }
 
     func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell(style: .default, reuseIdentifier: identifier)
+    }
+
+    public func cell(tableView: UITableView, didSelectRowAt index: IndexPath) {
+
     }
 }

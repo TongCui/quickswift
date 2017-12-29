@@ -10,12 +10,12 @@ import XCTest
 
 class TestBundle {
 
-    static func bundle() -> Bundle {
+    static var bundle: Bundle {
         return Bundle(for: TestBundle.self)
     }
 
     static func image(name: String, type: String?) -> UIImage? {
-        guard let path = bundle().path(forResource: name, ofType: type) else {
+        guard let path = bundle.path(forResource: name, ofType: type) else {
             return nil
         }
 

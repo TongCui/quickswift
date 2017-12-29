@@ -9,19 +9,6 @@ import Foundation
 
 // MARK: - Math
 
-public extension Array where Element : Numeric {
-    public func sum() -> Element {
-        return self.reduce(0, +)
-    }
-
-    public func product() -> Element {
-        guard !isEmpty else {
-            return 0
-        }
-        return self.reduce(1, *)
-    }
-}
-
 public extension Array where Element : FloatingPoint {
     public func average() -> Element {
         guard !isEmpty else { return 0 }
@@ -33,7 +20,6 @@ public extension Array where Element : FloatingPoint {
 // MARK: - Handle
 
 public extension Array {
-
     public mutating func push(_ newElement: Element) {
         append(newElement)
     }
@@ -143,54 +129,6 @@ public extension Array where Element : Equatable {
             return false
         }
         return !zip(lhs, rhs).contains { $0.0 != $0.1 }
-    }
-}
-
-// MARK: - Conditions
-
-public extension Array {
-    public func all(where predicate: (Element) throws -> Bool) rethrows -> Bool {
-        return try !contains { try !predicate($0) }
-    }
-
-    public func none(where predicate: (Element) throws -> Bool) rethrows -> Bool {
-        return try !contains { try predicate($0) }
-    }
-
-    public func any(where predicate: (Element) throws -> Bool) rethrows -> Bool {
-        return try contains(where: predicate)
-    }
-
-    public func reject(where condition: (Element) throws -> Bool) rethrows -> [Element] {
-        return try filter { try !condition($0) }
-    }
-}
-
-// MARK: - For Loop
-
-public extension Array {
-    public func forEach(where condition: (Element) throws -> Bool, body: (Element) throws -> Void) rethrows {
-        for element in self where try condition(element) {
-            try body(element)
-        }
-    }
-
-    //  (element, index)
-    public func forEachWithIndex(_ body: (Int, Element) throws -> Void) rethrows {
-        for (index, element) in self.enumerated() {
-            try body(index, element)
-        }
-    }
-
-    public func forEachReversed(_ body: (Element) throws -> Void) rethrows {
-        try reversed().forEach { try body($0) }
-    }
-
-    //  (element, index)
-    public func forEachReversedWithIndex(_ body: (Int, Element) throws -> Void) rethrows {
-        for (index, element) in self.enumerated().reversed() {
-            try body(index, element)
-        }
     }
 }
 

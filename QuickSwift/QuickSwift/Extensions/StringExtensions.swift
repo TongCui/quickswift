@@ -13,7 +13,15 @@ public extension String {
         return URL(fileURLWithPath: self).deletingPathExtension().lastPathComponent
     }
 
-    var fileExtension: String {
-        return URL(fileURLWithPath: self).pathExtension
+    var fileExtension: String? {
+        let ext = URL(fileURLWithPath: self).pathExtension
+
+        return ext.isEmpty ? nil : ext
+    }
+}
+
+public extension String {
+    func trim() -> String {
+        return trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

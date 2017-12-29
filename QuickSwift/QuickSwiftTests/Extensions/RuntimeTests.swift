@@ -8,11 +8,10 @@
 
 import XCTest
 
-
 class RuntimeTests: XCTestCase {
-    
+
     func testExtensionStoreProperty() {
-        
+
         let demo = AssociatedObjectDemo()
         XCTAssertEqual(demo.name, "name")
         XCTAssertEqual(demo.age, 0)

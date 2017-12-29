@@ -9,27 +9,67 @@
 import UIKit
 import QuickSwift
 
+class ExamplesAdapter: TableViewAdapterProtocol {
+    weak var tableView: UITableView?
+    var sections: SectionItemCollection = []
+    var settings: TableSettings = TableSettings()
+    
+    lazy var dataSourceHandler: TableViewDataSourceHandler? = {
+        return TableViewDataSourceHandler(adapter: self)
+    }()
+    lazy var delegateHandler: TableViewDelegateHandler? = {
+        return TableViewDelegateHandler(adapter: self)
+    }()
+    
+    required init() {
+        append(section: PlainSectionItem.self) { [weak self] in
+            [
+                [
+                    OneButtonCellItem(title: "button") {button in
+                        print("ok")
+                        self?.testAppend()
+                    },
+                ],
+                [
+                    OneLineTextCellItem(text: "Section - 0"),
+                    OneLineTextCellItem(text: "Section - 0"),
+                    LoadingCellItem()
+                ],
+                [
+                    OneLineTextCellItem(text: "This is a OneLineTextCellItem"),
+                    OneLineTextCellItem(text: "This is a OneLineTextCellItem"),
+                    OneLineTextCellItem(text: "This is a OneLineTextCellItem"),
+                    OneLineTextCellItem(text: "This is a OneLineTextCellItem"),
+                    LoadingCellItem()
+                ],
+            ]
+        }
+    }
+    
+    func testAppend() {
+        sections.first?.append(OneLineTextCellItem(text: "New CellItem"))
+        reloadData()
+        
+    }
+}
 
 class ExamplesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    let button = UIButton(type: .roundedRect)
     
-    lazy var adapter: TableViewAdapter = {
-        let adapter = TableViewAdapter(tableView: tableView)
-        adapter.builder = {
-            var sectionItem = PlainSectionItem()
-            sectionItem.append(OneLineTextCellItem(text: "This is a OneLineTextCellItem"))
-            sectionItem.append(OneLineTextCellItem(text: "This is a OneLineTextCellItem"))
-            sectionItem.append(OneLineTextCellItem(text: "This is a OneLineTextCellItem"))
-            sectionItem.append(OneLineTextCellItem(text: "This is a OneLineTextCellItem"))
-            sectionItem.append(LoadingCellItem())
-            return [sectionItem]
-        }
-        return adapter
-    }()
-
+    lazy var adapter = ExamplesAdapter(tableView: tableView)
+    
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        
+        super.viewDidLoad()
         adapter.reloadData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        button.sendActions(for: .touchUpInside)
+    }
+    
+    
 }

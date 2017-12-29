@@ -6,7 +6,7 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-private struct TableViewPropertyKeys {
+private struct UITableViewPropertyKeys {
     static var cellIdsKey: UInt8 = 0
     static var headerFooterIdsKey: UInt8 = 1
 }
@@ -14,31 +14,26 @@ private struct TableViewPropertyKeys {
 extension UITableView {
     private var cellIds: [String] {
         get {
-            return getAssociatedObject(self, key: &TableViewPropertyKeys.cellIdsKey, default: [])
+            return getAssociatedObject(self, key: &UITableViewPropertyKeys.cellIdsKey, default: [])
         }
         set {
-            setAssociatedObject(self, key: &TableViewPropertyKeys.cellIdsKey, newValue: newValue)
+            setAssociatedObject(self, key: &UITableViewPropertyKeys.cellIdsKey, newValue: newValue)
         }
     }
-    
+
     private var headerFooterIds: [String] {
         get {
-            return getAssociatedObject(self, key: &TableViewPropertyKeys.headerFooterIdsKey, default: [])
+            return getAssociatedObject(self, key: &UITableViewPropertyKeys.headerFooterIdsKey, default: [])
         }
         set {
-            setAssociatedObject(self, key: &TableViewPropertyKeys.headerFooterIdsKey, newValue: newValue)
+            setAssociatedObject(self, key: &UITableViewPropertyKeys.headerFooterIdsKey, newValue: newValue)
         }
     }
-    
-    func register(cell: TableViewRegisterable) {
-        if !cellIds.contains(cell.identifier) {
-            cell.register(tableView: self)
+
+    func register(_ registerable: TableViewRegisterable) {
+        if !cellIds.contains(registerable.identifier) {
+            registerable.register(tableView: self)
         }
     }
-    
-    func register(headerOrFooter view: TableViewRegisterable) {
-        if !headerFooterIds.contains(view.identifier) {
-            view.register(tableView: self)
-        }
-    }
+
 }

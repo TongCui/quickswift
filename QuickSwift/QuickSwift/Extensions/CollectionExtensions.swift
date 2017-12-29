@@ -9,21 +9,29 @@
 import Foundation
 
 public extension Collection {
-    public subscript(safe index: Index) -> Iterator.Element? {
+    public subscript(safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
 }
 
 public extension Collection where Index == Int, IndexDistance == Int {
-    public var randomItem: Iterator.Element {
+    public var randomItem: Element {
         let index = Int(arc4random_uniform(UInt32(count)))
         return self[index]
     }
 }
 
+// MARK: - Math
 
-public extension RangeReplaceableCollection where Iterator.Element : Equatable {
-    public mutating func removeElement(_ element: Element) {
-        self = filter { $0 != element }
+public extension Collection where Element : Numeric {
+    public func sum() -> Element {
+        return self.reduce(0, +)
+    }
+
+    public func product() -> Element {
+        guard !isEmpty else {
+            return 0
+        }
+        return self.reduce(1, *)
     }
 }

@@ -34,7 +34,28 @@ class StringExtensionsTests: XCTestCase {
 
         file = "image"
         XCTAssertEqual(file.fileName, "image")
-        XCTAssertEqual(file.fileExtension, "")
+        XCTAssertNil(file.fileExtension)
     }
 
+    func testTrim() {
+        var string = ""
+
+        string = "tcui"
+        XCTAssertEqual(string.trim(), "tcui")
+
+        string = "  tcui"
+        XCTAssertEqual(string.trim(), "tcui")
+
+        string = "  tcui  "
+        XCTAssertEqual(string.trim(), "tcui")
+
+        string = "  tcui  \n\n"
+        XCTAssertEqual(string.trim(), "tcui")
+
+        string = "\n\n  tcui  \n\n"
+        XCTAssertEqual(string.trim(), "tcui")
+
+        string = "\n\n  t c ui  \n\n"
+        XCTAssertEqual(string.trim(), "t c ui")
+    }
 }

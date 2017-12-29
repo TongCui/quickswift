@@ -19,4 +19,3 @@ func getAssociatedObject<ObjectType, PropertyType>(_ object: ObjectType, key: Un
 func setAssociatedObject<ObjectType, PropertyType>(_ object: ObjectType, key: UnsafeRawPointer, newValue: PropertyType) {
     objc_setAssociatedObject(object, key, newValue, .OBJC_ASSOCIATION_RETAIN)
 }
-

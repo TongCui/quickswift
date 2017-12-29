@@ -8,20 +8,8 @@
 
 import Foundation
 
-
 public class PlainSectionItem: SectionItemProtocol {
-    public var cellItems: CellItemCollection = CellItemCollection(cellItems: [])
-    
-    public func removeCellItem(_ cellItem: CellItemProtocol) {
-        
-    }
-    
-    public var footer: SectionHeaderFooterProtocol?
-    public var header: SectionHeaderFooterProtocol?
-
+    public var cellItems: CellItemCollection = []
     public var settings: SectionSettings = SectionSettings()
-    
-    public init() {
-        
-    }
+    public required init() {}
 }

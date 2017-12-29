@@ -11,31 +11,31 @@ import Foundation
 public struct MultiSet<T: Hashable> {
     public typealias MultiSetType = [T: Int]
     private var contents: MultiSetType = [:]
-    
+
     var elements: [T] {
         return contents.map { $0.key }
     }
-    
+
     public init(contents: MultiSetType) {
         self.contents = contents
     }
-    
+
     public init<C: Collection>(_ elements: C) where C.Element == T {
         elements.forEach { add($0) }
     }
-    
+
     public var uniqueCount: Int {
         return contents.count
     }
-    
+
     public var totalCount: Int {
         return contents.values.reduce(0) { $0 + $1 }
     }
-    
+
     public mutating func add(_ element: T) {
         contents[element, default: 0] += 1
     }
-    
+
     public mutating func remove(_ element: T) {
         if let currentCount = contents[element] {
             if currentCount > 1 {
@@ -77,18 +77,18 @@ extension MultiSet: Equatable {
 extension MultiSet: Collection {
     public typealias Index = MultiSetType.Index
     public typealias Element = MultiSetType.Element
-    
+
     public var startIndex: Index { return contents.startIndex }
     public var endIndex: Index { return contents.endIndex }
-    
+
     public subscript(index: Index) -> Iterator.Element {
         get { return contents[index] }
     }
-    
-    public func index(after i: MultiSet.MultiSetType.Index) -> MultiSet.MultiSetType.Index {
+
+    public func index(after i: Index) -> Index {
         return contents.index(after: i)
     }
-    
+
     public subscript(element: T) -> Int {
         get {
             return contents[element] ?? 0
@@ -105,7 +105,7 @@ extension MultiSet: Collection {
 
 extension MultiSet: ExpressibleByArrayLiteral {
     public typealias ArrayLiteralElement = T
-    
+
     public init(arrayLiteral elements: T...) {
         self.init(elements)
     }
@@ -114,7 +114,7 @@ extension MultiSet: ExpressibleByArrayLiteral {
 extension MultiSet: ExpressibleByDictionaryLiteral {
     public typealias Key = T
     public typealias Value = Int
-    
+
     public init(dictionaryLiteral elements: (T, Int)...) {
         let contents = elements.reduce(into: [T: Int]()) { (result, element) in
             let (key, value) = element
@@ -122,10 +122,7 @@ extension MultiSet: ExpressibleByDictionaryLiteral {
                 result[key] = value
             }
         }
-        
+
         self.init(contents: contents)
     }
 }
-
-
-

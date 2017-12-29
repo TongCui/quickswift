@@ -9,34 +9,33 @@
 import Foundation
 
 public class CellSettings {
-    
+
     public var seperatorHidden = false
     public var cellHeight = UITableViewAutomaticDimension
 
-    //  Runtime Variables
-    public var indexPath: IndexPath?
-    public weak var tableView: UITableView?
-    public weak var cell: UITableViewCell?
-    
     public init() {
-        
+
     }
 }
 
 public class SectionSettings {
+    public var indexTitle: String?
+    public var footer: SectionHeaderFooterProtocol?
+    public var header: SectionHeaderFooterProtocol?
+
     public init() {
-        
+
     }
 }
 
 public class TableSettings {
-    
+
     public var tableViewDidScrollHandler: ((UITableView) -> Void)?
-    
+
     public var registeredCellIds = [String]()
     public var registeredHeaderFooterIds = [String]()
-    
+
     public init() {
-        
+
     }
 }
