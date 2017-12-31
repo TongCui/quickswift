@@ -11,7 +11,7 @@ import QuickSwift
 
 class ExamplesAdapter: TableViewAdapterProtocol {
     weak var tableView: UITableView?
-    var sections: SectionItemCollection = []
+    var sections: [SectionItemProtocol] = []
     var settings: TableSettings = TableSettings()
     
     lazy var dataSourceHandler: TableViewDataSourceHandler? = {
@@ -47,7 +47,7 @@ class ExamplesAdapter: TableViewAdapterProtocol {
     }
     
     func testAppend() {
-        sections.first?.append(OneLineTextCellItem(text: "New CellItem"))
+        sections.first?.cellItems.append(OneLineTextCellItem(text: "New CellItem"))
         reloadData()
         
     }

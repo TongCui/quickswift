@@ -6,10 +6,10 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-import Foundation
-
 public class PlainSectionItem: SectionItemProtocol {
-    public var cellItems: CellItemCollection = []
+
+    public var cellItems: [CellItemProtocol] = []
     public var settings: SectionSettings = SectionSettings()
+
     public required init() {}
 }

@@ -10,12 +10,16 @@ import UIKit
 
 let defaultCellHeight: CGFloat = 44
 
+public protocol DataSourceElement: AnyObject {
+
+}
+
 public protocol TableViewRegisterable {
     var identifier: String { get set }
     func register(tableView: UITableView)
 }
 
-public protocol CellItemProtocol: AnyObject, TableViewRegisterable {
+public protocol CellItemProtocol: TableViewRegisterable, DataSourceElement {
     var settings: CellSettings { get set }
 
     func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
@@ -23,7 +27,6 @@ public protocol CellItemProtocol: AnyObject, TableViewRegisterable {
     func cell(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
 }
 
-// MARK: - Default Implementation
 public extension CellItemProtocol {
     func cell(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {}
 }
@@ -34,56 +37,30 @@ public protocol SectionHeaderFooterProtocol: TableViewRegisterable {
     var height: CGFloat { get set }
 }
 
-public protocol SectionItemProtocol: AnyObject {
-    var cellItems: CellItemCollection { get set }
+public protocol SectionItemProtocol: DataSourceElement {
+    var cellItems: [CellItemProtocol] { get set }
     var settings: SectionSettings { get set }
 
     init()
-
-    func append(_ cellItem: CellItemProtocol)
-    func append(contentsOf contents: () -> [CellItemProtocol])
-    func safeRemove(_ cellItem: CellItemProtocol)
-    func safeRemove(row: Int)
-    func removeAll()
-    func removeLast()
-    func safeInsert(_ cellItem: CellItemProtocol, row: Int)
 }
 
-public extension SectionItemProtocol {
+class TestSection: SectionItemProtocol {
+    required init() {
 
-    public func append(_ cellItem: CellItemProtocol) {
-        cellItems.append(cellItem)
     }
+    var cellItems: [CellItemProtocol] = []
 
-    func append(contentsOf contents: () -> [CellItemProtocol]) {
-        cellItems.append(contentsOf: contents())
-    }
-
-    public func safeRemove(_ cellItem: CellItemProtocol) {
-        if let index = cellItems.index(where: { $0 === cellItem}) {
-            cellItems.safeRemove(at: index)
-        }
-    }
-
-    public func safeRemove(row: Int) {
-        cellItems.safeRemove(at: row)
-    }
-
-    public func removeAll() {
-        cellItems.removeAll()
-    }
-
-    public func removeLast() {
-        cellItems.removeLast()
-    }
-
-    public func safeInsert(_ cellItem: CellItemProtocol, row: Int) {
-        cellItems.safeInsert(cellItem, at: row)
-    }
+    var settings: SectionSettings = SectionSettings()
 }
 
-public protocol TableViewAdapterProtocol: class {
-    var sections: SectionItemCollection { get set }
+func test() {
+    let section = TestSection()
+
+    print("section \(section)")
+}
+
+public protocol TableViewAdapterProtocol: AnyObject {
+    var sections: [SectionItemProtocol] { get set }
     var settings: TableSettings { get set }
 
     weak var tableView: UITableView? { get set }
@@ -101,7 +78,26 @@ public protocol TableViewAdapterProtocol: class {
     var delegateHandler: TableViewDelegateHandler? { get set }
 }
 
+class TestAdapter: TableViewAdapterProtocol {
+    var dataSourceHandler: TableViewDataSourceHandler?
+
+    var delegateHandler: TableViewDelegateHandler?
+
+    var sections: [SectionItemProtocol] = []
+
+    required init() {
+
+    }
+
+    var settings: TableSettings = TableSettings()
+
+    var tableView: UITableView?
+
+}
+
 public extension TableViewAdapterProtocol {
+    typealias TableElement = SectionItemProtocol
+
     init(tableView: UITableView?) {
         self.init()
         if let tableView = tableView {
@@ -128,17 +124,15 @@ public extension TableViewAdapterProtocol {
     }
 
     func append<T: SectionItemProtocol>(section type: T.Type, cellItems: () -> [CellItemProtocol]) {
-        let sectionItem = T.init()
-        sectionItem.append { cellItems() }
-        sections.append(sectionItem)
+        let section = T.init()
+        section.cellItems.append(contentsOf: cellItems())
+        sections.append(section)
     }
 
     func append<T: SectionItemProtocol>(section type: T.Type, dataSource: () -> [[CellItemProtocol]]) {
-        let sectionItems = dataSource().map { cellItems -> T in
-            let sectionItem = T.init()
-            sectionItem.append { cellItems }
-            return sectionItem
+
+        dataSource().forEach { (cellItems) in
+            append(section: type) { cellItems }
         }
-        sections.append(contentsOf: sectionItems)
     }
 }

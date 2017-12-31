@@ -6,8 +6,6 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-import Foundation
-
 class ErrorCellItem: CellItemProtocol {
     var identifier: String = "error_cell"
     var settings = CellSettings()

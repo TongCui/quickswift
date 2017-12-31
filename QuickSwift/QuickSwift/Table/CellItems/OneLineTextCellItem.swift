@@ -6,8 +6,6 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-import SnapKit
-
 public class OneLineTextCellItem: CellItemProtocol {
     public var text: String?
     public var identifier: String = "oneline_cell"

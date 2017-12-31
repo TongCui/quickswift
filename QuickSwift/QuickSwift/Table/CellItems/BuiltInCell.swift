@@ -6,6 +6,8 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
+import SnapKit
+
 public let kDefaultCellHeight: CGFloat = 45
 
 public protocol BuiltInCellCustomizable {
