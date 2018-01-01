@@ -33,11 +33,6 @@ public class OneButtonCellItem: CellItemProtocol {
 
         return tableCell
     }
-
-    public func cell(tableView: UITableView, didSelectRowAt index: IndexPath) {
-        print("OneButtonCellItem \(title) did selectect at \(index)")
-    }
-
 }
 
 public class OneButtonCell: BuiltInCell {

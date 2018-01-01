@@ -8,19 +8,22 @@
 
 import Foundation
 
+public let kTableEmptyHeight: CGFloat = 0.01
+
 public protocol TableHandlerProtocol {
     var adapter: TableViewAdapterProtocol { get }
     init(adapter: TableViewAdapterProtocol)
 }
 
-public class TableViewDataSourceHandler: NSObject, TableHandlerProtocol {
+public protocol TableDataSourceHandlerProtocol: TableHandlerProtocol, UITableViewDataSource {
+
+}
+
+public class TableViewDataSourceHandler: NSObject, TableDataSourceHandlerProtocol {
     public var adapter: TableViewAdapterProtocol
     public required init(adapter: TableViewAdapterProtocol) {
         self.adapter = adapter
     }
-}
-
-extension TableViewDataSourceHandler: UITableViewDataSource {
 
     // MARK: - Configuring a Table View
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,7 +36,11 @@ extension TableViewDataSourceHandler: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellItem = adapter.cellItem(indexPath: indexPath)
-        tableView.register(cellItem)
+
+        tableView.registerIfNeeded(cell: cellItem)
+        cellItem.settings.tableView = tableView
+        cellItem.settings.indexPath = indexPath
+
         return cellItem.cell(tableView: tableView, indexPath: indexPath)
     }
 
@@ -61,25 +68,80 @@ extension TableViewDataSourceHandler: UITableViewDataSource {
     }
 }
 
-public class TableViewDelegateHandler: NSObject, TableHandlerProtocol {
+public protocol TableDelegateHandlerProtocol: TableHandlerProtocol, UITableViewDelegate {
+
+}
+
+public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProtocol {
     public var adapter: TableViewAdapterProtocol
     public required init(adapter: TableViewAdapterProtocol) {
         self.adapter = adapter
     }
-}
 
-extension TableViewDelegateHandler: UITableViewDelegate {
     // MARK: - Configuring Rows for the Table View
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return adapter.cellItem(indexPath: indexPath).settings.cellHeight
     }
 
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        adapter.cellItem(indexPath: indexPath).cell(tableView: tableView, didSelectRowAt: indexPath)
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cellItem = adapter.cellItem(indexPath: indexPath)
+        let params = TableParams { (make) in
+            make.cellItem = cellItem
+            make.cell = cell
+            make.tableView = tableView
+            make.indexPath = indexPath
+        }
+
+        cellItem.actionHandler(.cellWillDisplay)?(params)
     }
 
-    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        adapter.cellItem(indexPath: indexPath).cell(tableView: tableView, willDisplay: cell, forRowAt: indexPath)
+    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cellItem = adapter.cellItem(indexPath: indexPath)
+        let params = TableParams { (make) in
+            make.cellItem = cellItem
+            make.cell = cell
+            make.tableView = tableView
+            make.indexPath = indexPath
+        }
+
+        cellItem.actionHandler(.cellDidEndDisplaying)?(params)
     }
+
+    // MARK: - Managing Selections
+
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let cellItem = adapter.cellItem(indexPath: indexPath)
+        let params = TableParams { (make) in
+            make.cellItem = cellItem
+            make.tableView = tableView
+            make.indexPath = indexPath
+        }
+
+        cellItem.actionHandler(.cellDidSelect)?(params)
+    }
+
+    // MARK: - Modifying the Header and Footer of Sections
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionItem = adapter.sections[safe: section]
+        return sectionItem?.settings.header?.view(tableView: tableView, section: section)
+    }
+
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let sectionItem = adapter.sections[safe: section]
+        return sectionItem?.settings.header?.height ?? 0
+    }
+
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let sectionItem = adapter.sections[safe: section]
+        return sectionItem?.settings.footer?.view(tableView: tableView, section: section)
+    }
+
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        let sectionItem = adapter.sections[safe: section]
+        return sectionItem?.settings.footer?.height ?? 0
+    }
+
 }

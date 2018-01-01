@@ -23,12 +23,43 @@ public protocol CellItemProtocol: TableViewRegisterable, DataSourceElement {
     var settings: CellSettings { get set }
 
     func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
-    func cell(tableView: UITableView, didSelectRowAt index: IndexPath)
-    func cell(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    var cellHeight: CGFloat {get set}
+    func actionHandler(_ action: CellSettings.Actions) -> ((TableParams) -> Void)?
 }
 
 public extension CellItemProtocol {
+    var tableView: UITableView? {
+        return settings.tableView
+    }
+
+    var indexPath: IndexPath? {
+        return settings.indexPath
+    }
+
+    func parentViewController<T: UIViewController>() -> T? {
+        return self.tableView?.parentViewController()
+    }
+
+    var cellHeight: CGFloat {
+        get {
+            return settings.cellHeight
+        }
+        set {
+            settings.cellHeight = newValue
+        }
+    }
+
     func cell(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {}
+
+    @discardableResult
+    func add(action: CellSettings.Actions, handler: @escaping (TableParams) -> Void) -> Self {
+        settings.actions[action] = handler
+        return self
+    }
+
+    func actionHandler(_ action: CellSettings.Actions) -> ((TableParams) -> Void)? {
+        return settings.actions[action]
+    }
 }
 
 public protocol SectionHeaderFooterProtocol: TableViewRegisterable {
@@ -44,75 +75,46 @@ public protocol SectionItemProtocol: DataSourceElement {
     init()
 }
 
-class TestSection: SectionItemProtocol {
-    required init() {
-
-    }
-    var cellItems: [CellItemProtocol] = []
-
-    var settings: SectionSettings = SectionSettings()
-}
-
-func test() {
-    let section = TestSection()
-
-    print("section \(section)")
-}
-
 public protocol TableViewAdapterProtocol: AnyObject {
     var sections: [SectionItemProtocol] { get set }
     var settings: TableSettings { get set }
 
-    weak var tableView: UITableView? { get set }
-
     init()
-    init(tableView: UITableView?)
+    init(tableView: UITableView, viewController: UIViewController)
 
     func link(tableView: UITableView)
     func reloadData()
 
     func cellItem(section: Int, row: Int) -> CellItemProtocol
     func cellItem(indexPath: IndexPath) -> CellItemProtocol
+    func firstCellItem<T>(in section: Int) -> T?
+    func lastCellItem<T>(in section: Int) -> T?
 
-    var dataSourceHandler: TableViewDataSourceHandler? { get set }
-    var delegateHandler: TableViewDelegateHandler? { get set }
-}
-
-class TestAdapter: TableViewAdapterProtocol {
-    var dataSourceHandler: TableViewDataSourceHandler?
-
-    var delegateHandler: TableViewDelegateHandler?
-
-    var sections: [SectionItemProtocol] = []
-
-    required init() {
-
-    }
-
-    var settings: TableSettings = TableSettings()
-
-    var tableView: UITableView?
-
+    var dataSourceHandler: TableDataSourceHandlerProtocol? { get set }
+    var delegateHandler: TableDelegateHandlerProtocol? { get set }
 }
 
 public extension TableViewAdapterProtocol {
     typealias TableElement = SectionItemProtocol
 
-    init(tableView: UITableView?) {
+    init(tableView: UITableView, viewController: UIViewController) {
         self.init()
-        if let tableView = tableView {
-            link(tableView: tableView)
-        }
+        link(tableView: tableView)
+        link(viewController: viewController)
     }
 
     public func reloadData() {
-        self.tableView?.reloadData()
+        self.settings.tableView?.reloadData()
     }
 
     public func link(tableView: UITableView) {
         tableView.dataSource = dataSourceHandler
         tableView.delegate = delegateHandler
-        self.tableView = tableView
+        self.settings.tableView = tableView
+    }
+
+    public func link(viewController: UIViewController) {
+        self.settings.viewController = viewController
     }
 
     func cellItem(section: Int, row: Int) -> CellItemProtocol {
@@ -121,6 +123,14 @@ public extension TableViewAdapterProtocol {
 
     func cellItem(indexPath: IndexPath) -> CellItemProtocol {
         return cellItem(section: indexPath.section, row: indexPath.row)
+    }
+
+    func firstCellItem<T>(in section: Int) -> T? {
+        return sections[safe: section]?.cellItems.first { $0 is T } as? T
+    }
+
+    func lastCellItem<T>(in section: Int) -> T? {
+        return sections[safe: section]?.cellItems.reversed().first { $0 is T } as? T
     }
 
     func append<T: SectionItemProtocol>(section type: T.Type, cellItems: () -> [CellItemProtocol]) {

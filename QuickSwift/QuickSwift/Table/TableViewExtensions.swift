@@ -30,10 +30,21 @@ extension UITableView {
         }
     }
 
-    func register(_ registerable: TableViewRegisterable) {
-        if !cellIds.contains(registerable.identifier) {
-            registerable.register(tableView: self)
+    func registerIfNeeded(cell registerable: TableViewRegisterable) {
+        guard !cellIds.contains(registerable.identifier) else {
+            return
         }
+
+        cellIds.append(registerable.identifier)
+        registerable.register(tableView: self)
     }
 
+    func registerIfNeeded(headerFooter registerable: TableViewRegisterable) {
+        guard !headerFooterIds.contains(registerable.identifier) else {
+            return
+        }
+
+        headerFooterIds.append(registerable.identifier)
+        registerable.register(tableView: self)
+    }
 }

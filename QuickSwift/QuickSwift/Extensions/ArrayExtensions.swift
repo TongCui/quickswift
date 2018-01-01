@@ -38,6 +38,7 @@ public extension Array {
         }
         return removeFirst()
     }
+
 }
 
 // MARK: - Safe

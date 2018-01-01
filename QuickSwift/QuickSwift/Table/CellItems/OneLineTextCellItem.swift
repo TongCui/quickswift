@@ -29,10 +29,6 @@ public class OneLineTextCellItem: CellItemProtocol {
         return tableCell
     }
 
-    public func cell(tableView: UITableView, didSelectRowAt index: IndexPath) {
-        print("OneLineTextCellItem \(text ?? "") did selectect at \(index)")
-    }
-
 }
 
 public class OneLineTextCell: BuiltInCell {
@@ -43,6 +39,7 @@ public class OneLineTextCell: BuiltInCell {
         super.commonInit()
         contentView.addSubview(oneLineLabel)
         let margin: CGFloat = 20
+        oneLineLabel.numberOfLines = 0
         oneLineLabel.snp.makeConstraints { (make) in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin))
         }

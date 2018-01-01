@@ -31,11 +31,6 @@ public class LoadingCellItem: CellItemProtocol {
 
         return tableCell
     }
-
-    public func cell(tableView: UITableView, didSelectRowAt index: IndexPath) {
-
-    }
-
 }
 
 public class LoadingCell: BuiltInCell {

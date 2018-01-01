@@ -18,7 +18,4 @@ class ErrorCellItem: CellItemProtocol {
         return UITableViewCell(style: .default, reuseIdentifier: identifier)
     }
 
-    public func cell(tableView: UITableView, didSelectRowAt index: IndexPath) {
-
-    }
 }

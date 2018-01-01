@@ -12,4 +12,5 @@ public class PlainSectionItem: SectionItemProtocol {
     public var settings: SectionSettings = SectionSettings()
 
     public required init() {}
+
 }

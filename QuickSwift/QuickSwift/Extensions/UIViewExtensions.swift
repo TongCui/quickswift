@@ -6,8 +6,8 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-extension UIView {
-    var top: CGFloat {
+public extension UIView {
+    public var top: CGFloat {
         get {
             return self.frame.origin.y
         }
@@ -18,7 +18,7 @@ extension UIView {
         }
     }
 
-    var bottom: CGFloat {
+    public var bottom: CGFloat {
         get {
             return self.frame.maxY
         }
@@ -29,7 +29,7 @@ extension UIView {
         }
     }
 
-    var left: CGFloat {
+    public var left: CGFloat {
         get {
             return self.frame.origin.x
         }
@@ -40,7 +40,7 @@ extension UIView {
         }
     }
 
-    var right: CGFloat {
+    public var right: CGFloat {
         get {
             return self.frame.maxX
         }
@@ -51,7 +51,7 @@ extension UIView {
         }
     }
 
-    var width: CGFloat {
+    public var width: CGFloat {
         get {
             return self.frame.size.width
         }
@@ -62,7 +62,7 @@ extension UIView {
         }
     }
 
-    var height: CGFloat {
+    public var height: CGFloat {
         get {
             return self.frame.size.height
         }
@@ -73,7 +73,7 @@ extension UIView {
         }
     }
 
-    var midX: CGFloat {
+    public var midX: CGFloat {
         get {
             return self.frame.midX
         }
@@ -84,7 +84,7 @@ extension UIView {
         }
     }
 
-    var midY: CGFloat {
+    public var midY: CGFloat {
         get {
             return self.frame.midY
         }
@@ -97,9 +97,22 @@ extension UIView {
 
 }
 
-extension UIView {
-    var isVisible: Bool {
+public extension UIView {
+    public var isVisible: Bool {
         return self.window != nil
+    }
+
+    public func allSubViews() -> [UIView] {
+        var views = [UIView]()
+        addSubViews(into: &views)
+        return views
+    }
+
+    private func addSubViews(into array: inout [UIView]) {
+        array.append(contentsOf: subviews)
+        subviews.forEach { (view) in
+            view.addSubViews(into: &array)
+        }
     }
 }
 
@@ -121,6 +134,20 @@ extension UIView {
 
             if let targetFirstResponder = findFirstResponderInView(topView: subView) {
                 return targetFirstResponder
+            }
+        }
+
+        return nil
+    }
+
+    func parentViewController<T>() -> T? {
+        var parentResponder: UIResponder? = self
+
+        while let responder = parentResponder {
+            parentResponder = responder.next
+
+            if let parentResponder = parentResponder as? T {
+                return parentResponder
             }
         }
 
