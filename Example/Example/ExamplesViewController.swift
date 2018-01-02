@@ -53,7 +53,7 @@ class ExamplesAdapter: TableViewAdapterProtocol {
                     OneLineTextCellItem(text: "This is a OneLineTextCellItem"),
                     LoadingCellItem()
                 ],
-                ]
+            ]
         }
     }
     

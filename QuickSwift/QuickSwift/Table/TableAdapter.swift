@@ -85,8 +85,7 @@ public protocol TableViewAdapterProtocol: AnyObject {
     func link(tableView: UITableView)
     func reloadData()
 
-    func cellItem(section: Int, row: Int) -> CellItemProtocol
-    func cellItem(indexPath: IndexPath) -> CellItemProtocol
+    func cellItem<T>(at indexPath: IndexPath) -> T?
     func firstCellItem<T>(in section: Int) -> T?
     func lastCellItem<T>(in section: Int) -> T?
 
@@ -125,21 +124,25 @@ public extension TableViewAdapterProtocol {
         return cellItem(section: indexPath.section, row: indexPath.row)
     }
 
-    func firstCellItem<T>(in section: Int) -> T? {
+    public func cellItem<T>(at indexPath: IndexPath) -> T? {
+        return cellItem(indexPath: indexPath) as? T
+    }
+
+    public func firstCellItem<T>(in section: Int) -> T? {
         return sections[safe: section]?.cellItems.first { $0 is T } as? T
     }
 
-    func lastCellItem<T>(in section: Int) -> T? {
+    public func lastCellItem<T>(in section: Int) -> T? {
         return sections[safe: section]?.cellItems.reversed().first { $0 is T } as? T
     }
 
-    func append<T: SectionItemProtocol>(section type: T.Type, cellItems: () -> [CellItemProtocol]) {
+    public func append<T: SectionItemProtocol>(section type: T.Type, cellItems: () -> [CellItemProtocol]) {
         let section = T.init()
         section.cellItems.append(contentsOf: cellItems())
         sections.append(section)
     }
 
-    func append<T: SectionItemProtocol>(section type: T.Type, dataSource: () -> [[CellItemProtocol]]) {
+    public func append<T: SectionItemProtocol>(section type: T.Type, dataSource: () -> [[CellItemProtocol]]) {
 
         dataSource().forEach { (cellItems) in
             append(section: type) { cellItems }
