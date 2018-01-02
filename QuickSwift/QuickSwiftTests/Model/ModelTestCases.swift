@@ -518,6 +518,32 @@ class ModelTestCases: XCTestCase {
         XCTAssertEqual(try model?.toJSONString(), "{\"model\":{\"model\":{\"age\":12,\"name\":\"model0\"},\"name\":\"model13\"}}")
 
     }
+    
+    func testModel18() {
+        print("Test Model - \(Model18.modelDescription())")
+        
+        //  Model
+        var model: Model18?
+        
+        model = Model18()
+        model?.age = 10
+        model?.fakeAge = 20
+        XCTAssertEqual(try model?.toJSONString(), "{\"age\":10}")
+        model?.fakeAge = 100
+        XCTAssertEqual(try model?.toJSONString(), "{\"age\":10}")
+        
+        var string = "{\"age\":2}"
+        model = try? Model18(fromString: string)
+        XCTAssertNotNil(model)
+        XCTAssertEqual(model!.age, 2)
+        XCTAssertEqual(model!.fakeAge, 0)
+        
+        string = "{\"age\":2,\"fakeAge\":2}"
+        model = try? Model18(fromString: string)
+        XCTAssertNotNil(model)
+        XCTAssertEqual(model!.age, 2)
+        XCTAssertEqual(model!.fakeAge, 0)
+    }
 
     func testParseFromArray() {
         var array = [Model0]()
