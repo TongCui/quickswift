@@ -356,13 +356,13 @@ class Model18: ModelDescriptionExpressible, Codable {
     class func modelDescription() -> String {
         return "Class with non-json property"
     }
-    
+
     init() {
     }
-    
+
     var age: Int = 0
     var fakeAge: Int = 0
-    
+
     enum CodingKeys: String, CodingKey {
         case age
     }

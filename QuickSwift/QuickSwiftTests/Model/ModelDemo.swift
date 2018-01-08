@@ -19,7 +19,8 @@ struct TestModel {
     }
 }
 
-struct TestCodableModel: Codable, FilePersistence {
+struct TestCodableModel: Codable {
+
     var stringValue: String
     var intValue: Int
 
@@ -59,7 +60,8 @@ struct TestCustomCodableModel: Codable, CustomCodable {
     }
 }
 
-struct TestCodingKeysModel: Codable, UniqueFilePersistence {
+struct TestCodingKeysModel: Codable {
+
     static let fileName = "model.txt"
     static let fileDirectory: FileManager.SearchPathDirectory = .documentDirectory
 

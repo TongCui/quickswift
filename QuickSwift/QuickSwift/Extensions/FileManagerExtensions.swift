@@ -68,24 +68,3 @@ public extension FileManager {
         return fileURLs(in: directory).map { $0.lastPathComponent }
     }
 }
-
-public extension FileManager {
-    public static func save<T: Encodable & FilePersistence>(_ object: T, intoFile fileName: String, in directory: SearchPathDirectory ) throws {
-        let url = fileURL(fileName: fileName, in: directory)
-        try touch(fileName: fileName, in: directory)
-        let data = try object.toData()
-        try data.write(to: url, options: Data.WritingOptions.atomic)
-    }
-
-    public static func load<T: Decodable & FilePersistence>(fromFile fileName: String, in directory: SearchPathDirectory ) throws -> T {
-        let url = fileURL(fileName: fileName, in: directory)
-
-        guard fileExists(fileName: fileName, in: directory) else {
-            fatalError("File at path \(url.path) does not exist!")
-        }
-
-        let data = try Data(contentsOf: url)
-        let model = try T(fromData:data)
-        return model
-    }
-}

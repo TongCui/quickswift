@@ -92,22 +92,6 @@ class FileManagerExtensionsTests: XCTestCase {
         XCTAssertEqual(files, [1, 2, 3, 4, 5])
     }
 
-    func testSave() {
-        let model = TestCodableModel()
-        try! FileManager.save(model, intoFile: "a.txt", in : .documentDirectory)
-        let url = FileManager.fileURLs(in: .documentDirectory).first!
-        let content = try! String(contentsOf: url, encoding: .utf8)
-        XCTAssertEqual(content, "{\"intValue\":1,\"stringValue\":\"str\"}")
-    }
-
-    func testLoad() {
-        let model = TestCodableModel()
-        try! FileManager.save(model, intoFile: "a.txt", in : .documentDirectory)
-        let newModel: TestCodableModel = try! FileManager.load(fromFile: "a.txt", in: .documentDirectory)
-        XCTAssertEqual(model.intValue, newModel.intValue)
-        XCTAssertEqual(model.stringValue, newModel.stringValue)
-    }
-
     func testRemove() {
         let file = "a.txt"
         try! FileManager.touch(fileName: file, in : .documentDirectory)
