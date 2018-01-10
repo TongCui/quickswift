@@ -9,7 +9,6 @@
 import UIKit
 import QuickSwift
 
-
 final class ExamplesAdapter: TableViewAdapterProtocol {
     
     weak var tableView: UITableView?

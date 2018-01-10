@@ -36,8 +36,11 @@ final class BuiltInCellAdapter: TableViewAdapterProtocol {
                 LoadingCellItem { print("Trigger loading...") },
                 LoadingCellItem { print("Trigger loading...") }
                     .updateSettings { $0.cellHeight = 100 }
-                    .uiSettings { $0.contentView.backgroundColor = UIColor.yellow.withAlphaComponent(0.5) }
             ]
+        }
+        
+        append(section: { TitleHeaderSectionItem(header: "OneButtonCellItem")}) {
+            [ OneButtonCellItem(title: "Button", action: { _ in print("button pressed")})]
         }
         
     }

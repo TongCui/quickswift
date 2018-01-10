@@ -17,6 +17,12 @@ public protocol TableViewRegisterable {
     func register(tableView: UITableView)
 }
 
+public extension TableViewRegisterable {
+    mutating func updateIdentifier(suffix: String) {
+        identifier = "\(identifier)_\(suffix)"
+    }
+}
+
 public protocol CellItemProtocol: TableViewRegisterable, DataSourceElement {
     var settings: CellSettings { get set }
     func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell

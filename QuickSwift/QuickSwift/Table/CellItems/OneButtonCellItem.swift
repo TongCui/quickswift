@@ -15,7 +15,7 @@ public class OneButtonCellItem: CellItemProtocol {
     public init(title: String, action:@escaping (UIButton) -> Void) {
         self.title = title
         self.action = action
-        settings.cellHeight = kDefaultCellHeight * 2
+        settings.cellHeight = kDefaultCellHeight
     }
 
     public func register(tableView: UITableView) {
@@ -42,9 +42,9 @@ public class OneButtonCell: BuiltInCell {
     public override func commonInit() {
         super.commonInit()
         contentView.addSubview(button)
-        let margin: CGFloat = 20
+
         button.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin))
+            make.edges.equalToSuperview()
         }
     }
 }
