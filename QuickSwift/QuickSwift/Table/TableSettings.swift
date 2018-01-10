@@ -13,15 +13,18 @@ public class TableParams {
     public var cellItem: CellItemProtocol?
     public var cell: UITableViewCell?
     public var tableView: UITableView?
-    public var viewController: UIViewController?
     public var sender: Any?
 
     init(builder: (TableParams) -> Void) {
         builder(self)
     }
+
+    public func viewController<T: UIViewController>() -> T? {
+        return tableView?.parentViewController()
+    }
 }
 
-public class CellSettings {
+final public class CellSettings {
 
     public enum Actions: Hashable {
         public var hashValue: Int {return self.toS().hashValue }
@@ -45,18 +48,19 @@ public class CellSettings {
         }
     }
 
-    public weak var tableView: UITableView?
-    public var indexPath: IndexPath?
+    weak var tableView: UITableView?
+    var indexPath: IndexPath?
     public var seperatorHidden = false
     public var cellHeight = UITableViewAutomaticDimension
-    public var actions: [Actions: (TableParams) -> Void] = [:]
+    var cellUISettings: ((UITableViewCell) -> Void)?
+    var actions: [Actions: (TableParams) -> Void] = [:]
 
     public init() {
 
     }
 }
 
-public class SectionSettings {
+final public class SectionSettings {
     public var indexTitle: String?
     public var footer: SectionHeaderFooterProtocol?
     public var header: SectionHeaderFooterProtocol?
@@ -66,15 +70,14 @@ public class SectionSettings {
     }
 }
 
-public class TableSettings {
-
+final public class TableSettings {
     weak var tableView: UITableView?
     weak var viewController: UIViewController?
 
     public var tableViewDidScrollHandler: ((UITableView) -> Void)?
 
-    public var registeredCellIds = [String]()
-    public var registeredHeaderFooterIds = [String]()
+    var registeredCellIds = [String]()
+    var registeredHeaderFooterIds = [String]()
 
     public init() {
 

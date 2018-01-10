@@ -8,11 +8,9 @@
 
 import UIKit
 
-let defaultCellHeight: CGFloat = 44
+public let defaultCellHeight: CGFloat = 44
 
-public protocol DataSourceElement: AnyObject {
-
-}
+public protocol DataSourceElement: AnyObject {}
 
 public protocol TableViewRegisterable {
     var identifier: String { get set }
@@ -21,26 +19,25 @@ public protocol TableViewRegisterable {
 
 public protocol CellItemProtocol: TableViewRegisterable, DataSourceElement {
     var settings: CellSettings { get set }
-
     func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell
     var cellHeight: CGFloat {get set}
-    func actionHandler(_ action: CellSettings.Actions) -> ((TableParams) -> Void)?
+    func handler(for action: CellSettings.Actions) -> ((TableParams) -> Void)?
 }
 
 public extension CellItemProtocol {
-    var tableView: UITableView? {
+    public var tableView: UITableView? {
         return settings.tableView
     }
 
-    var indexPath: IndexPath? {
+    public var indexPath: IndexPath? {
         return settings.indexPath
     }
 
-    func parentViewController<T: UIViewController>() -> T? {
+    public func parentViewController<T: UIViewController>() -> T? {
         return self.tableView?.parentViewController()
     }
 
-    var cellHeight: CGFloat {
+    public var cellHeight: CGFloat {
         get {
             return settings.cellHeight
         }
@@ -49,15 +46,25 @@ public extension CellItemProtocol {
         }
     }
 
-    func cell(tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {}
+    @discardableResult
+    public func updateSettings(_ customSettings: (CellSettings) -> Void) -> Self {
+        customSettings(settings)
+        return self
+    }
 
     @discardableResult
-    func add(action: CellSettings.Actions, handler: @escaping (TableParams) -> Void) -> Self {
+    public func uiSettings(_ customUISettings: @escaping (UITableViewCell) -> Void) -> Self {
+        settings.cellUISettings = customUISettings
+        return self
+    }
+
+    @discardableResult
+    public func add(action: CellSettings.Actions, handler: @escaping (TableParams) -> Void) -> Self {
         settings.actions[action] = handler
         return self
     }
 
-    func actionHandler(_ action: CellSettings.Actions) -> ((TableParams) -> Void)? {
+    public func handler(for action: CellSettings.Actions) -> ((TableParams) -> Void)? {
         return settings.actions[action]
     }
 }
@@ -71,8 +78,20 @@ public protocol SectionHeaderFooterProtocol: TableViewRegisterable {
 public protocol SectionItemProtocol: DataSourceElement {
     var cellItems: [CellItemProtocol] { get set }
     var settings: SectionSettings { get set }
+}
 
-    init()
+public extension SectionItemProtocol {
+    @discardableResult
+    public func append(cellItems:() -> [CellItemProtocol]) -> Self {
+        self.cellItems.append(contentsOf: cellItems())
+        return self
+    }
+
+    @discardableResult
+    public func append(_ cellItem: CellItemProtocol) -> Self {
+        self.cellItems.append(cellItem)
+        return self
+    }
 }
 
 public protocol TableViewAdapterProtocol: AnyObject {
@@ -82,7 +101,6 @@ public protocol TableViewAdapterProtocol: AnyObject {
     init()
     init(tableView: UITableView, viewController: UIViewController)
 
-    func link(tableView: UITableView)
     func reloadData()
 
     func cellItem<T>(at indexPath: IndexPath) -> T?
@@ -94,9 +112,8 @@ public protocol TableViewAdapterProtocol: AnyObject {
 }
 
 public extension TableViewAdapterProtocol {
-    typealias TableElement = SectionItemProtocol
 
-    init(tableView: UITableView, viewController: UIViewController) {
+    public init(tableView: UITableView, viewController: UIViewController) {
         self.init()
         link(tableView: tableView)
         link(viewController: viewController)
@@ -136,16 +153,32 @@ public extension TableViewAdapterProtocol {
         return sections[safe: section]?.cellItems.reversed().first { $0 is T } as? T
     }
 
-    public func append<T: SectionItemProtocol>(section type: T.Type, cellItems: () -> [CellItemProtocol]) {
-        let section = T.init()
+    @discardableResult
+    public func append<T: SectionItemProtocol>(section: () -> T, cellItems: () -> [CellItemProtocol]) -> Self {
+        let section = section()
         section.cellItems.append(contentsOf: cellItems())
         sections.append(section)
+        return self
     }
 
-    public func append<T: SectionItemProtocol>(section type: T.Type, dataSource: () -> [[CellItemProtocol]]) {
+    @discardableResult
+    public func append<T: SectionItemProtocol>(section: () -> T, dataSource: () -> [[CellItemProtocol]]) -> Self {
 
         dataSource().forEach { (cellItems) in
-            append(section: type) { cellItems }
+            append(section: section) { cellItems }
         }
+        return self
+    }
+
+    @discardableResult
+    public func append(_ sectionItem: SectionItemProtocol) -> Self {
+        self.sections.append(sectionItem)
+        return self
+    }
+
+    @discardableResult
+    public func append(sectionItems: () -> [SectionItemProtocol]) -> Self {
+        self.sections.append(contentsOf: sectionItems())
+        return self
     }
 }

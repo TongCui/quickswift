@@ -41,7 +41,9 @@ public class TableViewDataSourceHandler: NSObject, TableDataSourceHandlerProtoco
         cellItem.settings.tableView = tableView
         cellItem.settings.indexPath = indexPath
 
-        return cellItem.cell(tableView: tableView, indexPath: indexPath)
+        let cell = cellItem.cell(tableView: tableView, indexPath: indexPath)
+        cellItem.settings.cellUISettings?(cell)
+        return cell
     }
 
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -92,7 +94,7 @@ public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProt
             make.indexPath = indexPath
         }
 
-        cellItem.actionHandler(.cellWillDisplay)?(params)
+        cellItem.handler(for: .cellWillDisplay)?(params)
     }
 
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -104,7 +106,7 @@ public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProt
             make.indexPath = indexPath
         }
 
-        cellItem.actionHandler(.cellDidEndDisplaying)?(params)
+        cellItem.handler(for: .cellDidEndDisplaying)?(params)
     }
 
     // MARK: - Managing Selections
@@ -120,7 +122,7 @@ public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProt
             make.indexPath = indexPath
         }
 
-        cellItem.actionHandler(.cellDidSelect)?(params)
+        cellItem.handler(for: .cellDidSelect)?(params)
     }
 
     // MARK: - Modifying the Header and Footer of Sections

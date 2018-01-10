@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuickSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

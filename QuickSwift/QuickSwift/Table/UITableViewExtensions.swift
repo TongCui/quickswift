@@ -1,5 +1,5 @@
 //
-//  TableViewExtensions.swift
+//  UITableViewExtensions.swift
 //  QuickSwift
 //
 //  Created by tcui on 28/12/2017.
@@ -46,5 +46,22 @@ extension UITableView {
 
         headerFooterIds.append(registerable.identifier)
         registerable.register(tableView: self)
+    }
+
+    public func reloadData(_ completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0, animations: {
+            self.reloadData()
+        }, completion: { _ in
+            completion()
+        })
+    }
+
+    public func scrollToBottom(animated: Bool = true) {
+        let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height)
+        setContentOffset(bottomOffset, animated: animated)
+    }
+
+    public func scrollToTop(animated: Bool = true) {
+        setContentOffset(CGPoint.zero, animated: animated)
     }
 }

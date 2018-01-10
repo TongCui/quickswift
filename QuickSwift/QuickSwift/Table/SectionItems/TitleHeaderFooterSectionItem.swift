@@ -37,10 +37,6 @@ public class TitleHeaderFooterSectionItem: SectionItemProtocol {
         return settings
     }()
 
-    public required convenience init() {
-        self.init(header: "", footer: "")
-    }
-
     public init(header: String, footer: String) {
         self.headerTitle = header
         self.footerTitle = footer

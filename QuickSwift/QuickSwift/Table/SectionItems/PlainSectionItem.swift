@@ -11,6 +11,6 @@ public class PlainSectionItem: SectionItemProtocol {
     public var cellItems: [CellItemProtocol] = []
     public var settings: SectionSettings = SectionSettings()
 
-    public required init() {}
+    public init() {}
 
 }

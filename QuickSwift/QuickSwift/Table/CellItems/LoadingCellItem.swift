@@ -8,12 +8,15 @@
 
 public class LoadingCellItem: CellItemProtocol {
 
+    public var timeout: TimeInterval = 3
     public var isLoading: Bool = false
     public var identifier: String = "loading_cell"
     public var settings: CellSettings = CellSettings()
+    public var loadingAction: () -> Void
 
-    public init() {
+    public init(loadingAction:@escaping () -> Void ) {
         settings.cellHeight = kDefaultCellHeight
+        self.loadingAction = loadingAction
     }
 
     public func register(tableView: UITableView) {
@@ -26,7 +29,13 @@ public class LoadingCellItem: CellItemProtocol {
         if let cell = tableCell as? LoadingCell {
             cell.selectionStyle = .none
             cell.spinner.startAnimating()
-            self.isLoading = true
+            if !isLoading {
+                Timer.scheduledTimer(withTimeInterval: timeout, repeats: false) { [weak self] _ in
+                    self?.isLoading = false
+                }
+                loadingAction()
+                isLoading = true
+            }
         }
 
         return tableCell
