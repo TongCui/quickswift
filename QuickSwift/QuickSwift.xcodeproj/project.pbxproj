@@ -63,6 +63,7 @@
 		078EE9592004B70000DF554C /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE9582004B70000DF554C /* UITableViewCellExtensions.swift */; };
 		078EE95B2004B90600DF554C /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE95A2004B90600DF554C /* UIColorExtensions.swift */; };
 		079445AD1FE79023007E3F0A /* Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079445AC1FE79023007E3F0A /* Swizzle.swift */; };
+		07D4E235200611090069AAE3 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D4E234200611090069AAE3 /* RequestModel.swift */; };
 		07D7ABD81FE124D9002AE482 /* BoolExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABD71FE124D9002AE482 /* BoolExtensionsTests.swift */; };
 		07D7ABDA1FE1259C002AE482 /* Prime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABD91FE1259C002AE482 /* Prime.swift */; };
 		07D7ABDC1FE125E9002AE482 /* PrimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABDB1FE125E9002AE482 /* PrimeTests.swift */; };
@@ -178,6 +179,7 @@
 		078EE9582004B70000DF554C /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
 		078EE95A2004B90600DF554C /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		079445AC1FE79023007E3F0A /* Swizzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swizzle.swift; sourceTree = "<group>"; };
+		07D4E234200611090069AAE3 /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		07D7ABD71FE124D9002AE482 /* BoolExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtensionsTests.swift; sourceTree = "<group>"; };
 		07D7ABD91FE1259C002AE482 /* Prime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prime.swift; sourceTree = "<group>"; };
 		07D7ABDB1FE125E9002AE482 /* PrimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeTests.swift; sourceTree = "<group>"; };
@@ -307,6 +309,14 @@
 			path = Style;
 			sourceTree = "<group>";
 		};
+		07D4E233200610F50069AAE3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				07D4E234200611090069AAE3 /* RequestModel.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		07D7ABF51FE2FC8F002AE482 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				07F03D6E1FCBFBBE006F79C8 /* QuickSwift.h */,
+				07D4E233200610F50069AAE3 /* Networking */,
 				07E0136B1FEBAE2400609DAB /* Table */,
 				07656F421FE4C8160058E2D9 /* Style */,
 				07F03DD31FCBFD9E006F79C8 /* Extensions */,
@@ -726,6 +737,7 @@
 				07F978901FE6C717000C8A75 /* UserDefaultsExtensions.swift in Sources */,
 				07E013801FECE4BB00609DAB /* CommonInit.swift in Sources */,
 				07E013841FECF19900609DAB /* BuiltInCell.swift in Sources */,
+				07D4E235200611090069AAE3 /* RequestModel.swift in Sources */,
 				074F1D9D1FDA39A400303B97 /* IntExtensions.swift in Sources */,
 				0712AE971FF51D680053A59F /* UITableViewExtensions.swift in Sources */,
 				078EE9592004B70000DF554C /* UITableViewCellExtensions.swift in Sources */,
