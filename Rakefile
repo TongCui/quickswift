@@ -40,6 +40,14 @@ task :open do
 end
 
 desc "App Transport Security"
-task :ats do
-  puts ">> TODO"
+task :ats, [:command] do |task, args|
+  command = args[:command]
+  if command == "add"
+    puts ">> add ATS"  
+  else
+    puts ">> remove ATS"
+  end
+  ruby "./scripts/ats/ats.rb #{command}"
 end
+
+
