@@ -8,17 +8,8 @@
 
 import XCTest
 
-class TestBundle {
-
-    static var bundle: Bundle {
-        return Bundle(for: TestBundle.self)
-    }
-
-    static func image(name: String, type: String?) -> UIImage? {
-        guard let path = bundle.path(forResource: name, ofType: type) else {
-            return nil
-        }
-
-        return UIImage(contentsOfFile: path)
-    }
+extension Bundle {
+    class var test: Bundle { return Bundle(for: Common.self) }
 }
+
+class Common {}

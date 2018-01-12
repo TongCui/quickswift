@@ -26,12 +26,12 @@ class FileTests: XCTestCase {
     }
 
     func testNonExistFile() {
-        let file = File(name: "no_such_file.txt", bundle: TestBundle.bundle)
+        let file = File(name: "no_such_file.txt", bundle: Bundle.test)
         XCTAssertNil(file)
     }
 
     func testBundleValidFile() {
-        let bundleValidFile = File(name: "file.txt", bundle: TestBundle.bundle)
+        let bundleValidFile = File(name: "file.txt", bundle: Bundle.test)
 
         XCTAssertNotNil(bundleValidFile)
         XCTAssertNotNil(bundleValidFile?.content)
@@ -40,7 +40,7 @@ class FileTests: XCTestCase {
     }
 
     func testBundleInvalidFile() {
-        let bundleInvalidFile = File(name: "plist.plist", bundle: TestBundle.bundle)
+        let bundleInvalidFile = File(name: "plist.plist", bundle: Bundle.test)
 
         XCTAssertNotNil(bundleInvalidFile)
         XCTAssertTrue(bundleInvalidFile!.content.isEmpty)

@@ -51,6 +51,7 @@ final class ExamplesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         adapter.reloadData()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

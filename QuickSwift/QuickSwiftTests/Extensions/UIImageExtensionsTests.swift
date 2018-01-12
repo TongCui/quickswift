@@ -11,7 +11,7 @@ import XCTest
 
 class UIImageExtensionsTests: XCTestCase {
 
-    let image: UIImage = TestBundle.image(name: "swift", type: "png")!
+    let image: UIImage = Bundle.test.image(name: "swift", type: "png")!
 
     func testToData() {
         XCTAssertNotNil(image.toPNG())

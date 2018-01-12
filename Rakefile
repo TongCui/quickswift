@@ -39,6 +39,17 @@ task :open do
   sh "open #{PROJECT}.xcworkspace"
 end
 
+desc "Playground tips"
+task :playground do
+  tips = """
+    ======async call=======
+    PlaygroundPage.current.needsIndefiniteExecution = true
+    PlaygroundPage.current.finishExecution()
+    =========
+  """
+  puts tips
+end
+
 desc "App Transport Security"
 task :ats, [:command] do |task, args|
   command = args[:command]
