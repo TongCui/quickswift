@@ -19,14 +19,22 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
     lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
     
     required init() {
-        let tableSection = TitleHeaderSectionItem(header: "tableview").append {
+        
+        self.append {
             [
-                cellItem(title: "SystemDefaultCell", goto: "go_system_cell_vc"),
-                cellItem(title: "BuiltInCell", goto: "go_builtin_cell_vc")
+                TitleHeaderSectionItem(header: "tableview").append {
+                    [
+                        cellItem(title: "SystemDefaultCell", goto: "go_system_cell_vc"),
+                        cellItem(title: "BuiltInCell", goto: "go_builtin_cell_vc")
+                    ]
+                },
+                TitleHeaderSectionItem(header: "networking").append {
+                    [
+                        cellItem(title: "Networking", goto: "go_networking_vc")
+                    ]
+                }
             ]
         }
-    
-        self.append(tableSection)
     }
     
     func cellItem(title: String, goto segue:String) -> OneLineTextCellItem {
@@ -46,7 +54,7 @@ final class ExamplesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    lazy var adapter = ExamplesAdapter(tableView: tableView, viewController: self)
+    lazy var adapter = ExamplesAdapter(tableView: tableView)
     
     override func viewDidLoad() {
         super.viewDidLoad()

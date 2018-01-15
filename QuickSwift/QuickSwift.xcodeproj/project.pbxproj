@@ -51,6 +51,7 @@
 		0728656C200893BD00C3C368 /* stub-persons.json in Resources */ = {isa = PBXBuildFile; fileRef = 0728656B200893BD00C3C368 /* stub-persons.json */; };
 		0728656E2008994400C3C368 /* OAuth2Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0728656D2008994400C3C368 /* OAuth2Handler.swift */; };
 		0728657220089B2800C3C368 /* BundleExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0728657120089B2800C3C368 /* BundleExtensionsTests.swift */; };
+		0728657420089DC800C3C368 /* PageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0728657320089DC800C3C368 /* PageLoader.swift */; };
 		074B08AD1FDA689600D939AD /* IntExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074B08AC1FDA689600D939AD /* IntExtensionsTests.swift */; };
 		074F1D851FD7921C00303B97 /* TypeConvertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D841FD7921C00303B97 /* TypeConvertions.swift */; };
 		074F1D871FD79C1800303B97 /* TypeConvertionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D861FD79C1800303B97 /* TypeConvertionsTests.swift */; };
@@ -189,6 +190,7 @@
 		0728656B200893BD00C3C368 /* stub-persons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stub-persons.json"; sourceTree = "<group>"; };
 		0728656D2008994400C3C368 /* OAuth2Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Handler.swift; sourceTree = "<group>"; };
 		0728657120089B2800C3C368 /* BundleExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensionsTests.swift; sourceTree = "<group>"; };
+		0728657320089DC800C3C368 /* PageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLoader.swift; sourceTree = "<group>"; };
 		074B08AC1FDA689600D939AD /* IntExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensionsTests.swift; sourceTree = "<group>"; };
 		074F1D841FD7921C00303B97 /* TypeConvertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConvertions.swift; sourceTree = "<group>"; };
 		074F1D861FD79C1800303B97 /* TypeConvertionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConvertionsTests.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				07D4E234200611090069AAE3 /* Networking.swift */,
+				0728657320089DC800C3C368 /* PageLoader.swift */,
 				0728656D2008994400C3C368 /* OAuth2Handler.swift */,
 			);
 			path = Networking;
@@ -814,6 +817,7 @@
 				0712AE991FF521890053A59F /* Runtime.swift in Sources */,
 				0712AEA31FF5D1EA0053A59F /* File.swift in Sources */,
 				07656F391FE37D130058E2D9 /* Regex.swift in Sources */,
+				0728657420089DC800C3C368 /* PageLoader.swift in Sources */,
 				0712AECC1FFA6BF60053A59F /* TitleFooter.swift in Sources */,
 				0712AE911FF4E24A0053A59F /* TableHandler.swift in Sources */,
 				07F03DD81FCBFD9E006F79C8 /* ArrayExtensions.swift in Sources */,

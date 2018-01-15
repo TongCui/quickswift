@@ -72,7 +72,6 @@ final public class SectionSettings {
 
 final public class TableSettings {
     weak var tableView: UITableView?
-    weak var viewController: UIViewController?
 
     public var tableViewDidScrollHandler: ((UITableView) -> Void)?
 

@@ -40,7 +40,7 @@ public extension CellItemProtocol {
     }
 
     public func parentViewController<T: UIViewController>() -> T? {
-        return self.tableView?.parentViewController()
+        return tableView?.parentViewController()
     }
 
     public var cellHeight: CGFloat {
@@ -105,13 +105,7 @@ public protocol TableViewAdapterProtocol: AnyObject {
     var settings: TableSettings { get set }
 
     init()
-    init(tableView: UITableView, viewController: UIViewController)
-
-    func reloadData()
-
-    func cellItem<T>(at indexPath: IndexPath) -> T?
-    func firstCellItem<T>(in section: Int) -> T?
-    func lastCellItem<T>(in section: Int) -> T?
+    init(tableView: UITableView)
 
     var dataSourceHandler: TableDataSourceHandlerProtocol? { get set }
     var delegateHandler: TableDelegateHandlerProtocol? { get set }
@@ -119,24 +113,36 @@ public protocol TableViewAdapterProtocol: AnyObject {
 
 public extension TableViewAdapterProtocol {
 
-    public init(tableView: UITableView, viewController: UIViewController) {
+    public var tableView: UITableView? {
+        return settings.tableView
+    }
+
+    public func parentViewController<T: UIViewController>() -> T? {
+        return self.tableView?.parentViewController()
+    }
+
+    public init(tableView: UITableView) {
         self.init()
         link(tableView: tableView)
-        link(viewController: viewController)
+    }
+
+    private func reloadTableView() {
+        self.settings.tableView?.reloadData()
     }
 
     public func reloadData() {
-        self.settings.tableView?.reloadData()
+        reloadTableView()
+    }
+
+    public func clear() {
+        self.sections.removeAll()
+        reloadTableView()
     }
 
     public func link(tableView: UITableView) {
         tableView.dataSource = dataSourceHandler
         tableView.delegate = delegateHandler
         self.settings.tableView = tableView
-    }
-
-    public func link(viewController: UIViewController) {
-        self.settings.viewController = viewController
     }
 
     func cellItem(section: Int, row: Int) -> CellItemProtocol {
@@ -187,4 +193,45 @@ public extension TableViewAdapterProtocol {
         self.sections.append(contentsOf: sectionItems())
         return self
     }
+
+}
+
+/** Animations */
+public extension TableViewAdapterProtocol {
+    public func append(cellItem: CellItemProtocol, animated: UITableViewRowAnimation = .none) {
+        guard let sectionItem = sections.last else {
+            return
+        }
+
+        sectionItem.append(cellItem)
+    }
+
+    public func append(cellItems: [CellItemProtocol], animated: UITableViewRowAnimation = .none) {
+
+    }
+
+    public func insert(cellItem: CellItemProtocol, at indexPath: IndexPath, animated: UITableViewRowAnimation = .none) {
+
+    }
+
+    public func insert(cellItems: [CellItemProtocol], at indexPath: IndexPath, animated: UITableViewRowAnimation = .none) {
+
+    }
+
+    public func remove(cellItem: CellItemProtocol, animated: UITableViewRowAnimation = .none) {
+
+    }
+
+    public func remove(cellItems: [CellItemProtocol], animated: UITableViewRowAnimation = .none) {
+
+    }
+
+    public func remove(at indexPath: IndexPath, animated: UITableViewRowAnimation = .none) {
+
+    }
+
+    public func remove(at indexPaths: [IndexPath], animated: UITableViewRowAnimation = .none) {
+
+    }
+
 }

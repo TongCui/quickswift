@@ -19,7 +19,6 @@ final class BuiltInCellAdapter: TableViewAdapterProtocol {
     lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
     
     required init() {
-        
         let strings = [
             "OneLineTextCellItem",
             "short",
@@ -42,7 +41,6 @@ final class BuiltInCellAdapter: TableViewAdapterProtocol {
         append(section: { TitleHeaderSectionItem(header: "OneButtonCellItem")}) {
             [ OneButtonCellItem(title: "Button", action: { _ in print("button pressed")})]
         }
-        
     }
     
 }
@@ -52,7 +50,7 @@ final class BuiltInCellViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    lazy var adapter = BuiltInCellAdapter(tableView: tableView, viewController: self)
+    lazy var adapter = BuiltInCellAdapter(tableView: tableView)
     
     override func viewDidLoad() {
         

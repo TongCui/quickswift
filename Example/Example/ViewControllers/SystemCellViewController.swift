@@ -19,7 +19,6 @@ final class SystemCellAdapter: TableViewAdapterProtocol {
     lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
     
     required init() {
-        
         let selectionStyles: [(UITableViewCellSelectionStyle, String)] = [(.none, ".none"), (.blue, ".blue"), (.gray, ".gray"), (.default, ".default")]
         append(section: { TitleHeaderSectionItem(header: "Default Cell (SelectionStyle)") }) {
             selectionStyles.map { (style, name) in
@@ -77,8 +76,8 @@ final class SystemCellAdapter: TableViewAdapterProtocol {
                 }
             ]
         }
-        
     }
+    
     
 }
 
@@ -87,15 +86,12 @@ final class SystemCellViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
 
-    lazy var adapter = SystemCellAdapter(tableView: tableView, viewController: self)
+    lazy var adapter = SystemCellAdapter(tableView: tableView)
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         adapter.reloadData()
-        
     }
-    
     
 }
 

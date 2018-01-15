@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-enum ResponseType {
+public enum ResponseType {
     case none
     case data
     case string
@@ -17,44 +17,44 @@ enum ResponseType {
     case plist
 }
 
-enum EncodingType {
+public enum EncodingType {
     case queryString
     case body
     case jsonBody
 }
 
-enum URLScheme {
+public enum URLScheme {
     case http
     case https
 }
 
-protocol RequestFactory: URLRequestConvertible {
+public protocol RequestFactory: URLRequestConvertible {
     var host: String {get}
     func toRequestModel() -> RequestModel
 }
 
-extension RequestFactory {
-    func asURLRequest() throws -> URLRequest {
+public extension RequestFactory {
+    public func asURLRequest() throws -> URLRequest {
         return try toRequestModel().toURLRequest()
     }
 }
 
-struct RequestModel {
-    var method: HTTPMethod
-    var scheme: URLScheme
-    var path: String
-    var host: String
-    var params: Parameters = [:]
-    var encodingType: EncodingType = .queryString
+public struct RequestModel {
+    public var method: HTTPMethod
+    public var scheme: URLScheme
+    public var path: String
+    public var host: String
+    public var params: Parameters = [:]
+    public var encodingType: EncodingType = .queryString
 
-    init(_ method: HTTPMethod = .get, _ scheme: URLScheme = .https, _ host: String, _ path: String) {
+    public init(_ method: HTTPMethod = .get, _ scheme: URLScheme = .https, _ host: String, _ path: String) {
         self.method = method
         self.scheme = scheme
         self.host = host
         self.path = path
     }
 
-    init(_ method: HTTPMethod = .get, _ scheme: URLScheme = .https, _ host: String, _ path: String, _ params: Parameters, _ encodingType: EncodingType = .queryString) {
+    public init(_ method: HTTPMethod = .get, _ scheme: URLScheme = .https, _ host: String, _ path: String, _ params: Parameters, _ encodingType: EncodingType = .queryString) {
         self.method = method
         self.scheme = scheme
         self.host = host
@@ -63,24 +63,25 @@ struct RequestModel {
         self.encodingType = encodingType
     }
 
-    func toURLRequest() throws -> URLRequest {
+    public func toURLRequest() throws -> URLRequest {
         let url = try host.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
         return try parameterEncoding().encode(urlRequest, with: params)
     }
 
-    func parameterEncoding() -> ParameterEncoding {
+    public func parameterEncoding() -> ParameterEncoding {
         switch encodingType {
         case .queryString:          return URLEncoding.queryString
         case .body:                 return URLEncoding.httpBody
         case .jsonBody:             return JSONEncoding.default
         }
     }
+
 }
 
-extension Request {
-    static func serializeResponseModel<T: Codable>(
+public extension Request {
+    public static func serializeResponseModel<T: Codable>(
         response: HTTPURLResponse?,
         data: Data?,
         error: Error?)
@@ -100,7 +101,7 @@ extension Request {
     }
 }
 
-extension DataRequest {
+public extension DataRequest {
 
     public static func modelResponseSerializer<T: Codable>()
         -> DataResponseSerializer<T> {

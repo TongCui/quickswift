@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0712AEB31FF5E15E0053A59F /* file.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0712AEB21FF5E15E0053A59F /* file.txt */; };
+		072865762008A03E00C3C368 /* NetworkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072865752008A03E00C3C368 /* NetworkingViewController.swift */; };
+		0728657D2008A40C00C3C368 /* QuickSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		072865882008A6DC00C3C368 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 072865862008A6DC00C3C368 /* Alamofire.framework */; };
+		072865892008A6DC00C3C368 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 072865872008A6DC00C3C368 /* OHHTTPStubs.framework */; };
+		0728658A2008A73D00C3C368 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 072865872008A6DC00C3C368 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0728658B2008A74200C3C368 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 072865862008A6DC00C3C368 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0728658E2008AAD400C3C368 /* stub-students.json in Resources */ = {isa = PBXBuildFile; fileRef = 0728658D2008AAD400C3C368 /* stub-students.json */; };
 		078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE9542004945C00DF554C /* ExamplesViewController.swift */; };
 		078EE9572004946D00DF554C /* SystemCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE9562004946D00DF554C /* SystemCellViewController.swift */; };
 		078EE95D2005BB3C00DF554C /* BuiltInCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE95C2005BB3C00DF554C /* BuiltInCellViewController.swift */; };
@@ -44,6 +51,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0728658B2008A74200C3C368 /* Alamofire.framework in Embed Frameworks */,
+				0728658A2008A73D00C3C368 /* OHHTTPStubs.framework in Embed Frameworks */,
+				0728657D2008A40C00C3C368 /* QuickSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,6 +62,10 @@
 
 /* Begin PBXFileReference section */
 		0712AEB21FF5E15E0053A59F /* file.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = file.txt; sourceTree = "<group>"; };
+		072865752008A03E00C3C368 /* NetworkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingViewController.swift; sourceTree = "<group>"; };
+		072865862008A6DC00C3C368 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Example/Frameworks/Alamofire.framework; sourceTree = "<group>"; };
+		072865872008A6DC00C3C368 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Example/Frameworks/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		0728658D2008AAD400C3C368 /* stub-students.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stub-students.json"; sourceTree = "<group>"; };
 		078EE9542004945C00DF554C /* ExamplesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesViewController.swift; sourceTree = "<group>"; };
 		078EE9562004946D00DF554C /* SystemCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCellViewController.swift; sourceTree = "<group>"; };
 		078EE95C2005BB3C00DF554C /* BuiltInCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuiltInCellViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +89,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				072865892008A6DC00C3C368 /* OHHTTPStubs.framework in Frameworks */,
 				07AE23D51FCEB04B00028BC4 /* QuickSwift.framework in Frameworks */,
+				072865882008A6DC00C3C368 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +115,7 @@
 		0712AEAA1FF5DFE10053A59F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0728658C2008AAD400C3C368 /* jsons */,
 				0712AEB11FF5E15E0053A59F /* files */,
 			);
 			path = Resources;
@@ -112,12 +129,21 @@
 			path = files;
 			sourceTree = "<group>";
 		};
+		0728658C2008AAD400C3C368 /* jsons */ = {
+			isa = PBXGroup;
+			children = (
+				0728658D2008AAD400C3C368 /* stub-students.json */,
+			);
+			path = jsons;
+			sourceTree = "<group>";
+		};
 		078EE9532004945C00DF554C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				078EE9542004945C00DF554C /* ExamplesViewController.swift */,
 				078EE9562004946D00DF554C /* SystemCellViewController.swift */,
 				078EE95C2005BB3C00DF554C /* BuiltInCellViewController.swift */,
+				072865752008A03E00C3C368 /* NetworkingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -178,6 +204,8 @@
 		07F03DC91FCBFCF8006F79C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				072865862008A6DC00C3C368 /* Alamofire.framework */,
+				072865872008A6DC00C3C368 /* OHHTTPStubs.framework */,
 				07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */,
 			);
 			name = Frameworks;
@@ -292,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07F03D9C1FCBFBDA006F79C8 /* LaunchScreen.storyboard in Resources */,
+				0728658E2008AAD400C3C368 /* stub-students.json in Resources */,
 				07F03D991FCBFBDA006F79C8 /* Assets.xcassets in Resources */,
 				0712AEB31FF5E15E0053A59F /* file.txt in Resources */,
 				07F03D971FCBFBDA006F79C8 /* Main.storyboard in Resources */,
@@ -319,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				072865762008A03E00C3C368 /* NetworkingViewController.swift in Sources */,
 				078EE95D2005BB3C00DF554C /* BuiltInCellViewController.swift in Sources */,
 				07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */,
 				078EE9572004946D00DF554C /* SystemCellViewController.swift in Sources */,
@@ -490,6 +520,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ENF6RU9UQS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Example/Frameworks",
+				);
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -506,6 +540,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ENF6RU9UQS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Example/Frameworks",
+				);
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

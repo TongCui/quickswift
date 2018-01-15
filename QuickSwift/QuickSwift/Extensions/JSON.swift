@@ -32,7 +32,12 @@ public struct JSON {
             throw JSONError.invalidObject
         }
 
-        let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions.sortedKeys
+        let options: JSONSerialization.WritingOptions
+        if #available(iOS 11.0, *) {
+            options = (prettify == true) ? .prettyPrinted : .sortedKeys
+        } else {
+            options = .prettyPrinted
+        }
         return try JSONSerialization.data(withJSONObject: object, options: options)
     }
 
