@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   # s.osx.deployment_target = "10.9"
-  s.ios.deployment_target = "9.0"
+  s.ios.deployment_target = "10.0"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
   # s.source   = { :git => "https://github.com/TongCui/quickswift.git", :tag => s.version.to_s }

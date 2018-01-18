@@ -50,13 +50,17 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
     }
 }
 
-final class ExamplesViewController: UIViewController {
+final class ExamplesViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     lazy var adapter = ExamplesAdapter(tableView: tableView)
     
     override func viewDidLoad() {
+        if let handler = adapter.delegateHandler as? TableViewDefaultDelegateHandler {
+            handler.scrollDelegate = self
+        }
+        
         super.viewDidLoad()
         adapter.reloadData()
         
@@ -64,7 +68,10 @@ final class ExamplesViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset)
     }
     
 }

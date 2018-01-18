@@ -71,11 +71,12 @@ public class TableViewDataSourceHandler: NSObject, TableDataSourceHandlerProtoco
 }
 
 public protocol TableDelegateHandlerProtocol: TableHandlerProtocol, UITableViewDelegate {
-
+    var scrollDelegate: UIScrollViewDelegate? { get set }
 }
 
 public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProtocol {
     public var adapter: TableViewAdapterProtocol
+    public var scrollDelegate: UIScrollViewDelegate?
     public required init(adapter: TableViewAdapterProtocol) {
         self.adapter = adapter
     }
@@ -144,6 +145,41 @@ public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProt
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let sectionItem = adapter.sections[safe: section]
         return sectionItem?.settings.footer?.height ?? 0
+    }
+}
+
+public extension TableViewDefaultDelegateHandler {
+
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollDelegate?.scrollViewDidScroll?(scrollView)
+    }
+
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        scrollDelegate?.scrollViewWillBeginDragging?(scrollView)
+    }
+
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        scrollDelegate?.scrollViewWillEndDragging?(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
+    }
+
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        scrollDelegate?.scrollViewDidEndDragging?(scrollView, willDecelerate: decelerate)
+    }
+
+    public func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        return scrollDelegate?.scrollViewShouldScrollToTop?(scrollView) ?? true
+    }
+
+    public func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
+        scrollDelegate?.scrollViewDidScrollToTop?(scrollView)
+    }
+
+    public func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        scrollDelegate?.scrollViewWillBeginDecelerating?(scrollView)
+    }
+
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        scrollDelegate?.scrollViewDidEndDecelerating?(scrollView)
     }
 
 }
