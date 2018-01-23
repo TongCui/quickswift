@@ -14,7 +14,7 @@ public class SystemStyleCellItem: CellItemProtocol {
     public init(style: UITableViewCellStyle) {
         self.identifier = "system_style_cell_\(style.rawValue) "
         self.style = style
-        settings.cellHeight = kDefaultCellHeight
+        settings.cellHeight = .defaultCellHeight
     }
 
     public func register(tableView: UITableView) {

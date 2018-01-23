@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0712AEB31FF5E15E0053A59F /* file.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0712AEB21FF5E15E0053A59F /* file.txt */; };
+		0725BF0720170E7000DA1E3C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0725BF0620170E6F00DA1E3C /* SnapKit.framework */; };
+		0725BF0820170E7800DA1E3C /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0725BF0620170E6F00DA1E3C /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		072865762008A03E00C3C368 /* NetworkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072865752008A03E00C3C368 /* NetworkingViewController.swift */; };
 		0728657D2008A40C00C3C368 /* QuickSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		072865882008A6DC00C3C368 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 072865862008A6DC00C3C368 /* Alamofire.framework */; };
@@ -51,6 +53,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0725BF0820170E7800DA1E3C /* SnapKit.framework in Embed Frameworks */,
 				0728658B2008A74200C3C368 /* Alamofire.framework in Embed Frameworks */,
 				0728658A2008A73D00C3C368 /* OHHTTPStubs.framework in Embed Frameworks */,
 				0728657D2008A40C00C3C368 /* QuickSwift.framework in Embed Frameworks */,
@@ -62,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		0712AEB21FF5E15E0053A59F /* file.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = file.txt; sourceTree = "<group>"; };
+		0725BF0620170E6F00DA1E3C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Example/Frameworks/SnapKit.framework; sourceTree = "<group>"; };
 		072865752008A03E00C3C368 /* NetworkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingViewController.swift; sourceTree = "<group>"; };
 		072865862008A6DC00C3C368 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Example/Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		072865872008A6DC00C3C368 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Example/Frameworks/OHHTTPStubs.framework; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 				072865892008A6DC00C3C368 /* OHHTTPStubs.framework in Frameworks */,
 				07AE23D51FCEB04B00028BC4 /* QuickSwift.framework in Frameworks */,
 				072865882008A6DC00C3C368 /* Alamofire.framework in Frameworks */,
+				0725BF0720170E7000DA1E3C /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +209,7 @@
 		07F03DC91FCBFCF8006F79C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0725BF0620170E6F00DA1E3C /* SnapKit.framework */,
 				072865862008A6DC00C3C368 /* Alamofire.framework */,
 				072865872008A6DC00C3C368 /* OHHTTPStubs.framework */,
 				07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */,

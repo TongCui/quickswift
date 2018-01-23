@@ -18,13 +18,16 @@ final class BuiltInCellAdapter: TableViewAdapterProtocol {
     lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
     lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
     
+    let strings = [
+        "OneLineTextCellItem",
+        "short",
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "line1\nline2\nline3\nlint4"
+    ]
+    
+    let colors: [UIColor] = [.red, .green, .blue, .purple]
+    
     required init() {
-        let strings = [
-            "OneLineTextCellItem",
-            "short",
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "line1\nline2\nline3\nlint4"
-        ]
         
         append(section: { TitleHeaderSectionItem(header: "OneLineTextCellItem") }) {
             strings.map { OneLineTextCellItem(text: $0)}
@@ -39,7 +42,17 @@ final class BuiltInCellAdapter: TableViewAdapterProtocol {
         }
         
         append(section: { TitleHeaderSectionItem(header: "OneButtonCellItem")}) {
-            [ OneButtonCellItem(title: "Button", action: { _ in print("button pressed")})]
+            [ OneButtonCellItem(title: "The whole cell is a button", action: { _ in print("button pressed")}) ]
+        }
+        
+        append(section: { TitleHeaderSectionItem(header: "SwitchCellItem")}) {
+            colors.map { color in
+                SwitchCellItem(title: "Switch Title") { (isOn) in print("current value is \(isOn)") }.uiSettings{ (cell) in
+                    if let cell = cell as? SwitchCell {
+                        cell.switch.onTintColor = color
+                    }
+                }
+            }
         }
     }
     

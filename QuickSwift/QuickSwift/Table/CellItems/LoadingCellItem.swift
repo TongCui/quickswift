@@ -15,7 +15,7 @@ public class LoadingCellItem: CellItemProtocol {
     public var loadingAction: () -> Void
 
     public init(loadingAction:@escaping () -> Void ) {
-        settings.cellHeight = kDefaultCellHeight
+        settings.cellHeight = .defaultCellHeight
         self.loadingAction = loadingAction
     }
 

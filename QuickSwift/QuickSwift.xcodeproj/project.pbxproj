@@ -37,6 +37,7 @@
 		0718468C1FCFFF7000545E38 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0718468A1FCFFF7000545E38 /* Alamofire.framework */; };
 		071D2F001FEB732200193763 /* CollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071D2EFF1FEB732200193763 /* CollectionExtensionsTests.swift */; };
 		072121711FF0A71200C7221B /* PlainSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072121701FF0A71200C7221B /* PlainSectionItem.swift */; };
+		0725BF05201709D500DA1E3C /* SwitchCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725BF04201709D500DA1E3C /* SwitchCellItem.swift */; };
 		0726A29A1FE1015E0081F2B8 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726A2991FE1015E0081F2B8 /* URLExtensions.swift */; };
 		0726A29C1FE101660081F2B8 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726A29B1FE101660081F2B8 /* StringExtensions.swift */; };
 		0726A29E1FE109820081F2B8 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726A29D1FE109820081F2B8 /* FileManagerExtensions.swift */; };
@@ -92,7 +93,6 @@
 		07E013641FEB76FF00609DAB /* SignedIntegerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E013631FEB76FF00609DAB /* SignedIntegerExtensionsTests.swift */; };
 		07E013661FEB82C600609DAB /* UserDefaultsExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E013651FEB82C600609DAB /* UserDefaultsExtensionsTests.swift */; };
 		07E013681FEB84B500609DAB /* UIViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E013671FEB84B500609DAB /* UIViewExtensionsTests.swift */; };
-		07E0136A1FEBAD4E00609DAB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07E013691FEBAD4E00609DAB /* SwiftyJSON.framework */; };
 		07E0136D1FEBAE8000609DAB /* TableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E0136C1FEBAE8000609DAB /* TableAdapter.swift */; };
 		07E0136F1FECD9C600609DAB /* TableSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E0136E1FECD9C600609DAB /* TableSettings.swift */; };
 		07E013741FECE34500609DAB /* LoadingCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E013731FECE34500609DAB /* LoadingCellItem.swift */; };
@@ -179,6 +179,7 @@
 		0718468A1FCFFF7000545E38 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		071D2EFF1FEB732200193763 /* CollectionExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensionsTests.swift; sourceTree = "<group>"; };
 		072121701FF0A71200C7221B /* PlainSectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainSectionItem.swift; sourceTree = "<group>"; };
+		0725BF04201709D500DA1E3C /* SwitchCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellItem.swift; sourceTree = "<group>"; };
 		0726A2991FE1015E0081F2B8 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		0726A29B1FE101660081F2B8 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		0726A29D1FE109820081F2B8 /* FileManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
@@ -231,7 +232,6 @@
 		07E013631FEB76FF00609DAB /* SignedIntegerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedIntegerExtensionsTests.swift; sourceTree = "<group>"; };
 		07E013651FEB82C600609DAB /* UserDefaultsExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensionsTests.swift; sourceTree = "<group>"; };
 		07E013671FEB84B500609DAB /* UIViewExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensionsTests.swift; sourceTree = "<group>"; };
-		07E013691FEBAD4E00609DAB /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		07E0136C1FEBAE8000609DAB /* TableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapter.swift; sourceTree = "<group>"; };
 		07E0136E1FECD9C600609DAB /* TableSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSettings.swift; sourceTree = "<group>"; };
 		07E013731FECE34500609DAB /* LoadingCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCellItem.swift; sourceTree = "<group>"; };
@@ -273,7 +273,6 @@
 			files = (
 				0718468B1FCFFF7000545E38 /* SnapKit.framework in Frameworks */,
 				0718468C1FCFFF7000545E38 /* Alamofire.framework in Frameworks */,
-				07E0136A1FEBAD4E00609DAB /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +407,7 @@
 				07E013751FECE35D00609DAB /* OneLineTextCellItem.swift */,
 				07E0137B1FECE3DE00609DAB /* OneImageCellItem.swift */,
 				07E0137D1FECE3EA00609DAB /* OneButtonCellItem.swift */,
+				0725BF04201709D500DA1E3C /* SwitchCellItem.swift */,
 			);
 			path = CellItems;
 			sourceTree = "<group>";
@@ -553,7 +553,6 @@
 			isa = PBXGroup;
 			children = (
 				0728655E2008885D00C3C368 /* OHHTTPStubs.framework */,
-				07E013691FEBAD4E00609DAB /* SwiftyJSON.framework */,
 				0718468A1FCFFF7000545E38 /* Alamofire.framework */,
 				071846891FCFFF7000545E38 /* SnapKit.framework */,
 			);
@@ -723,13 +722,11 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			name = "[Carthage] Copy Frameworks";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapKit.framework",
-				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -796,6 +793,7 @@
 				07E013841FECF19900609DAB /* BuiltInCell.swift in Sources */,
 				07D4E235200611090069AAE3 /* Networking.swift in Sources */,
 				074F1D9D1FDA39A400303B97 /* IntExtensions.swift in Sources */,
+				0725BF05201709D500DA1E3C /* SwitchCellItem.swift in Sources */,
 				0712AE971FF51D680053A59F /* UITableViewExtensions.swift in Sources */,
 				078EE9592004B70000DF554C /* UITableViewCellExtensions.swift in Sources */,
 				0712AEA11FF542A50053A59F /* ErrorCellItem.swift in Sources */,

@@ -8,7 +8,9 @@
 
 import SnapKit
 
-public let kDefaultCellHeight: CGFloat = 45
+extension CGFloat {
+    static var defaultCellHeight: CGFloat { return 45 }
+}
 
 public protocol BuiltInCellCustomizable {
     func builtInCellCustomSettings()

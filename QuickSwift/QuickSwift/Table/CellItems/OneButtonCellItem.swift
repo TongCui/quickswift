@@ -15,7 +15,7 @@ public class OneButtonCellItem: CellItemProtocol {
     public init(title: String, action:@escaping (UIButton) -> Void) {
         self.title = title
         self.action = action
-        settings.cellHeight = kDefaultCellHeight
+        settings.cellHeight = .defaultCellHeight
     }
 
     public func register(tableView: UITableView) {
