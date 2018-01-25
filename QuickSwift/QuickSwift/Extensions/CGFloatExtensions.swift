@@ -9,6 +9,7 @@
 import Foundation
 
 public extension CGFloat {
+    public static var defaultMargin: CGFloat { return 15 }
     public static var defaultCellHeight: CGFloat { return 45 }
     public static var defaultBorderWidth: CGFloat { return 0.5 }
     public static var automaticDimension: CGFloat { return UITableViewAutomaticDimension }

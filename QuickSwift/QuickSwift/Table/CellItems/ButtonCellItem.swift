@@ -7,16 +7,16 @@
 //
 
 public class ButtonCellItem: CellItemProtocol {
-    public var title: String
+    public var title: String?
+    public var imageName: String?
     public var action: (UIButton) -> Void
-    private let edgeInsets: UIEdgeInsets
     public var identifier: String = "button_cell"
     public var settings: CellSettings = CellSettings()
 
-    public init(title: String, edgeInsets: UIEdgeInsets = UIEdgeInsets.zero, action:@escaping (UIButton) -> Void) {
+    public init(title: String?, imageName: String? = nil, action:@escaping (UIButton) -> Void) {
         self.title = title
+        self.imageName = imageName
         self.action = action
-        self.edgeInsets = edgeInsets
         cellHeight = .defaultCellHeight
     }
 
@@ -29,10 +29,15 @@ public class ButtonCellItem: CellItemProtocol {
 
         if let cell = tableCell as? ButtonCell {
             cell.button.snp.updateConstraints { (make) in
-                make.edges.equalToSuperview().inset(edgeInsets)
+                make.edges.equalToSuperview().inset(cellContentEdges)
             }
             cell.selectionStyle = .none
+
             cell.button.setTitle(title, for: .normal)
+            if let imageName = self.imageName {
+                cell.button.setImage(UIImage(named: imageName), for: .normal)
+            }
+
             cell.button.addHandler(for: .touchUpInside, handler: action)
         }
 

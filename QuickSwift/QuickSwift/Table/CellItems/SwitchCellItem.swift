@@ -34,6 +34,12 @@ public class SwitchCellItem: CellItemProtocol {
                 self?.isOn = theSwitch.isOn
                 self?.action(theSwitch.isOn)
             }
+            cell.switch.snp.updateConstraints { make in
+                make.trailing.equalToSuperview().offset(-cellContentEdges.right)
+            }
+            cell.switchLabel.snp.updateConstraints { make in
+                make.leading.equalToSuperview().offset(cellContentEdges.left)
+            }
         }
 
         return tableCell
@@ -44,23 +50,22 @@ public class SwitchCell: BuiltInCell {
 
     public lazy var switchLabel = UILabel()
     public lazy var `switch` = UISwitch()
-    var margin: CGFloat = 15
 
     public override func commonInit() {
         super.commonInit()
         contentView.addSubview(`switch`)
         contentView.addSubview(switchLabel)
 
-        let margin = self.margin
+        let margin = CGFloat.defaultMargin
 
         `switch`.snp.makeConstraints { (make) in
-            make.centerY.equalTo(contentView)
-            make.trailing.equalTo(contentView).offset(-margin)
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-margin)
         }
 
         switchLabel.snp.makeConstraints { (make) in
-            make.centerY.equalTo(contentView)
-            make.leading.equalTo(contentView).offset(margin)
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(margin)
             make.trailing.equalTo(`switch`).offset(margin)
         }
     }

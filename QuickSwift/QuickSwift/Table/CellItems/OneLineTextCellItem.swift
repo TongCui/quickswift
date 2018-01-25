@@ -7,7 +7,7 @@
 //
 
 public class OneLineTextCellItem: CellItemProtocol {
-    public var text: String?
+    public var text: String
     public var identifier: String = "oneline_cell"
     public var settings: CellSettings = CellSettings()
 
@@ -23,6 +23,9 @@ public class OneLineTextCellItem: CellItemProtocol {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         if let cell = tableCell as? OneLineTextCell {
+            cell.oneLineLabel.snp.updateConstraints { (make) in
+                make.edges.equalToSuperview().inset(cellContentEdges)
+            }
             cell.oneLineLabel.text = text
         }
 
@@ -38,10 +41,9 @@ public class OneLineTextCell: BuiltInCell {
     public override func commonInit() {
         super.commonInit()
         contentView.addSubview(oneLineLabel)
-        let margin: CGFloat = 20
         oneLineLabel.numberOfLines = 0
         oneLineLabel.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(margin: .defaultMargin))
         }
     }
 }

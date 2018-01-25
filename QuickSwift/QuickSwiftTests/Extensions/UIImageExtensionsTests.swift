@@ -33,4 +33,18 @@ class UIImageExtensionsTests: XCTestCase {
         XCTAssertEqual(image.height, 40)
     }
 
+    func testAssociatedProperties() {
+        var size = image.preferredSize
+        XCTAssertEqual(size.width, 40)
+        XCTAssertEqual(size.height, 40)
+        image.preferredSize = CGSize(side: 100)
+        size = image.preferredSize
+        XCTAssertEqual(size.width, 100)
+        XCTAssertEqual(size.height, 100)
+
+        XCTAssertNil(image.preferredColor)
+        image.preferredColor = .red
+        XCTAssertEqual(image.preferredColor, .red)
+    }
+
 }

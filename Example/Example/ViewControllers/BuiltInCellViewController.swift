@@ -54,11 +54,16 @@ final class BuiltInCellAdapter: TableViewAdapterProtocol {
             "OneLineTextCellItem",
             "short",
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        ]
+            ]
         
         strings.append(contentsOf: (1...100).map {"line \($0)"} )
+        
         append(section: { TitleHeaderSectionItem(header: "OneLineTextCellItem") }) {
-            strings.map { OneLineTextCellItem(text: $0)}
+            zip(strings, (0..<strings.count)).map { (string, idx) in
+                OneLineTextCellItem(text: string).settings { cellItem in
+                    cellItem.cellContentEdges = UIEdgeInsets(top: .defaultMargin, left: 10 + idx.toCGF())
+                }
+            }
         }
     }
     
@@ -66,8 +71,9 @@ final class BuiltInCellAdapter: TableViewAdapterProtocol {
         append(section: { TitleHeaderSectionItem(header: "LoadingCellItem")}) {
             [
                 LoadingCellItem { print("Trigger loading...") },
-                LoadingCellItem { print("Trigger loading...") }
-                    .updateSettings { $0.cellHeight = 100 }
+                LoadingCellItem { print("Trigger loading...") }.settings{ cellItem in
+                    cellItem.cellHeight = 100
+                }
             ]
         }
     }
@@ -78,13 +84,17 @@ final class BuiltInCellAdapter: TableViewAdapterProtocol {
         
         append(section: { TitleHeaderSectionItem(header: "ButtonCellItem")}) {
             margins.map { (color, margin) -> ButtonCellItem in
-                let cellItem = ButtonCellItem(title: "Button cell with margin \(margin)", edgeInsets: UIEdgeInsetsMake(margin, margin, margin, margin), action: { _ in print("button pressed")}).uiSettings{ (cell) in
-                    if let cell = cell as? ButtonCell {
-                        cell.button.layer.borderWidth = .defaultBorderWidth
-                        cell.button.layer.borderColor = color.cgColor
-                        cell.button.setTitleColor(color, for: .normal)
+                let cellItem = ButtonCellItem(title: "Button cell with margin \(margin)") { _ in print("button pressed") }
+                    .settings{ (cellItem) in
+                        cellItem.cellContentEdges = UIEdgeInsets(top: .defaultMargin, left: margin)
                     }
-                }
+                    .uiSettings { (cell) in
+                        if let cell = cell as? ButtonCell {
+                            cell.button.layer.borderWidth = .defaultBorderWidth
+                            cell.button.layer.borderColor = color.cgColor
+                            cell.button.setTitleColor(color, for: .normal)
+                        }
+                    }
                 
                 cellItem.cellHeight = CGFloat.defaultCellHeight + 2 * margin
                 return cellItem
@@ -95,13 +105,13 @@ final class BuiltInCellAdapter: TableViewAdapterProtocol {
     func initLocalImageCell() {
         append(section: { TitleHeaderSectionItem(header: "LocalImageCellItem (Ratio Height)")}) {
             [1, 2, 3].map { "shop\($0)"}.map {
-                LocalImageCellItem(imageName: $0, imageHeight: .imageRatio, margin: 10)
+                LocalImageCellItem(imageName: $0, imageHeight: .imageRatio)
             }
         }
         
         append(section: { TitleHeaderSectionItem(header: "LocalImageCellItem (Fixed Height)")}) {
             [1, 2, 3].map { "shop\($0)"}.map {
-                LocalImageCellItem(imageName: $0, imageHeight: .height(300), margin: 10)
+                LocalImageCellItem(imageName: $0, imageHeight: .height(300))
             }
         }
     }
@@ -109,7 +119,7 @@ final class BuiltInCellAdapter: TableViewAdapterProtocol {
     func initSwitchCell() {
         append(section: { TitleHeaderSectionItem(header: "SwitchCellItem")}) {
             colors.map { color in
-                SwitchCellItem(title: "Switch Title") { (isOn) in print("current value is \(isOn)") }.uiSettings{ (cell) in
+                SwitchCellItem(title: "Switch Title") { (isOn) in print("current value is \(isOn)") }.uiSettings { (cell) in
                     if let cell = cell as? SwitchCell {
                         cell.switch.onTintColor = color
                     }

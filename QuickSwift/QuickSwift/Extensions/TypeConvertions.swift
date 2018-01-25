@@ -27,6 +27,7 @@ public extension Bool {
     public func toI() -> Int { return self ? 1 : 0 }
     public func toF() -> Float { return self ? 1 : 0 }
     public func toD() -> Double { return self ? 1 : 0 }
+    public func toS() -> String { return self ? "true" : "false" }
 }
 
 public extension Int {

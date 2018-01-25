@@ -40,6 +40,9 @@
 		0725BF05201709D500DA1E3C /* SwitchCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725BF04201709D500DA1E3C /* SwitchCellItem.swift */; };
 		0725BF0A20185A5D00DA1E3C /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725BF0920185A5D00DA1E3C /* CGFloatExtensions.swift */; };
 		0725BF0C2019692700DA1E3C /* UIImageViewHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725BF0B2019692700DA1E3C /* UIImageViewHeight.swift */; };
+		0725BF0E201988DC00DA1E3C /* OptionCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725BF0D201988DC00DA1E3C /* OptionCellItem.swift */; };
+		0725BF102019B8BE00DA1E3C /* UIEdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725BF0F2019B8BE00DA1E3C /* UIEdgeInsetsExtensions.swift */; };
+		0725BF122019D2E200DA1E3C /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725BF112019D2E200DA1E3C /* CGSizeExtensions.swift */; };
 		0726A29A1FE1015E0081F2B8 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726A2991FE1015E0081F2B8 /* URLExtensions.swift */; };
 		0726A29C1FE101660081F2B8 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726A29B1FE101660081F2B8 /* StringExtensions.swift */; };
 		0726A29E1FE109820081F2B8 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726A29D1FE109820081F2B8 /* FileManagerExtensions.swift */; };
@@ -184,6 +187,9 @@
 		0725BF04201709D500DA1E3C /* SwitchCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellItem.swift; sourceTree = "<group>"; };
 		0725BF0920185A5D00DA1E3C /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 		0725BF0B2019692700DA1E3C /* UIImageViewHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewHeight.swift; sourceTree = "<group>"; };
+		0725BF0D201988DC00DA1E3C /* OptionCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCellItem.swift; sourceTree = "<group>"; };
+		0725BF0F2019B8BE00DA1E3C /* UIEdgeInsetsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtensions.swift; sourceTree = "<group>"; };
+		0725BF112019D2E200DA1E3C /* CGSizeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
 		0726A2991FE1015E0081F2B8 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		0726A29B1FE101660081F2B8 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		0726A29D1FE109820081F2B8 /* FileManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
@@ -412,6 +418,7 @@
 				07E0137B1FECE3DE00609DAB /* LocalImageCellItem.swift */,
 				07E0137D1FECE3EA00609DAB /* ButtonCellItem.swift */,
 				0725BF04201709D500DA1E3C /* SwitchCellItem.swift */,
+				0725BF0D201988DC00DA1E3C /* OptionCellItem.swift */,
 			);
 			path = CellItems;
 			sourceTree = "<group>";
@@ -472,7 +479,9 @@
 				074F1D8C1FD7BF8E00303B97 /* DictionaryExtensions.swift */,
 				074F1D9E1FDA3A4E00303B97 /* BoolExtensions.swift */,
 				074F1D9C1FDA39A400303B97 /* IntExtensions.swift */,
+				0725BF0F2019B8BE00DA1E3C /* UIEdgeInsetsExtensions.swift */,
 				0725BF0920185A5D00DA1E3C /* CGFloatExtensions.swift */,
+				0725BF112019D2E200DA1E3C /* CGSizeExtensions.swift */,
 				07F9788B1FE6C439000C8A75 /* CollectionExtensions.swift */,
 				0712AE9E1FF52D170053A59F /* SequenceExtensions.swift */,
 				07F9788D1FE6C65B000C8A75 /* SingedIntegerExtensions.swift */,
@@ -795,6 +804,7 @@
 				07F9788E1FE6C65B000C8A75 /* SingedIntegerExtensions.swift in Sources */,
 				07E0137A1FECE3D300609DAB /* PlaceholderCellItem.swift in Sources */,
 				07E9ADE81FDFC95500F3A6B0 /* Fibonacci.swift in Sources */,
+				0725BF122019D2E200DA1E3C /* CGSizeExtensions.swift in Sources */,
 				07F978901FE6C717000C8A75 /* UserDefaultsExtensions.swift in Sources */,
 				07E013801FECE4BB00609DAB /* CommonInit.swift in Sources */,
 				07E013841FECF19900609DAB /* BuiltInCell.swift in Sources */,
@@ -826,8 +836,10 @@
 				0728657420089DC800C3C368 /* PageLoader.swift in Sources */,
 				0712AECC1FFA6BF60053A59F /* TitleFooter.swift in Sources */,
 				0712AE911FF4E24A0053A59F /* TableHandler.swift in Sources */,
+				0725BF102019B8BE00DA1E3C /* UIEdgeInsetsExtensions.swift in Sources */,
 				07F03DD81FCBFD9E006F79C8 /* ArrayExtensions.swift in Sources */,
 				0712AECA1FFA6BEA0053A59F /* TitleHeaderFooterSectionItem.swift in Sources */,
+				0725BF0E201988DC00DA1E3C /* OptionCellItem.swift in Sources */,
 				074F1D9F1FDA3A4E00303B97 /* BoolExtensions.swift in Sources */,
 				074F1D8D1FD7BF8E00303B97 /* DictionaryExtensions.swift in Sources */,
 				0726A29C1FE101660081F2B8 /* StringExtensions.swift in Sources */,

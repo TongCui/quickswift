@@ -33,7 +33,7 @@ public extension UIImageView {
                 return
             }
             snp.makeConstraints { (make) in
-                make.width.equalTo(snp.height).multipliedBy(image.width / image.height)
+                make.height.equalTo(snp.width).multipliedBy(image.height / image.width)
             }
         }
     }

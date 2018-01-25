@@ -61,14 +61,41 @@ public extension CellItemProtocol {
         }
     }
 
+    public var cellContentEdges: UIEdgeInsets {
+        get {
+            return settings.cellContentEdges
+        }
+        set {
+            settings.cellContentEdges = newValue
+        }
+    }
+
+    public var cellContentMargin: CGFloat? {
+        get {
+            guard settings.cellContentEdges.isSameMargin else {
+                return nil
+            }
+
+            return settings.cellContentEdges.left
+        }
+        set {
+            guard let margin = newValue else {
+                settings.cellContentEdges = UIEdgeInsets(margin: .defaultMargin)
+                return
+            }
+
+            settings.cellContentEdges = UIEdgeInsets(margin: margin)
+        }
+    }
+
     @discardableResult
-    public func updateSettings(_ customSettings: (CellSettings) -> Void) -> Self {
-        customSettings(settings)
+    public func settings(_ customSettings: (Self) -> Void) -> Self {
+        customSettings(self)
         return self
     }
 
     @discardableResult
-    public func uiSettings(_ customUISettings: @escaping (UITableViewCell) -> Void) -> Self {
+    public func uiSettings(customUISettings: @escaping (UITableViewCell) -> Void) -> Self {
         settings.cellUISettings = customUISettings
         return self
     }

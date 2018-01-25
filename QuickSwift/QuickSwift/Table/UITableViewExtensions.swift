@@ -6,27 +6,27 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-private struct UITableViewPropertyKeys {
-    static var cellIdsKey: UInt8 = 0
-    static var headerFooterIdsKey: UInt8 = 1
-}
-
 extension UITableView {
+    private struct AssociatedKey {
+        static var cellIds = "cellIds"
+        static var headerFooterIds = "headerFooterIds"
+    }
+
     private var cellIds: [String] {
         get {
-            return getAssociatedObject(self, key: &UITableViewPropertyKeys.cellIdsKey, default: [])
+            return getAssociatedObject(self, key: &AssociatedKey.cellIds, default: [])
         }
         set {
-            setAssociatedObject(self, key: &UITableViewPropertyKeys.cellIdsKey, newValue: newValue)
+            setAssociatedObject(self, key: &AssociatedKey.cellIds, newValue: newValue)
         }
     }
 
     private var headerFooterIds: [String] {
         get {
-            return getAssociatedObject(self, key: &UITableViewPropertyKeys.headerFooterIdsKey, default: [])
+            return getAssociatedObject(self, key: &AssociatedKey.headerFooterIds, default: [])
         }
         set {
-            setAssociatedObject(self, key: &UITableViewPropertyKeys.headerFooterIdsKey, newValue: newValue)
+            setAssociatedObject(self, key: &AssociatedKey.headerFooterIds, newValue: newValue)
         }
     }
 

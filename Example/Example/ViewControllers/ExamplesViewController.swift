@@ -44,7 +44,7 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
     
     func cellItem(title: String, goto segue:String, sender: Any? = nil) -> OneLineTextCellItem {
         return OneLineTextCellItem(text: title)
-            .uiSettings{ (cell) in
+            .uiSettings { (cell) in
                 cell.accessoryType = .disclosureIndicator
             }
             .add(action: .cellDidSelect) { params in

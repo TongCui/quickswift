@@ -8,19 +8,13 @@
 
 public class LocalImageCellItem: CellItemProtocol {
     public var imageName: String
-    private let edgeInsets: UIEdgeInsets
     public var imageHeight: UIImageView.ImageHeight
     public var identifier: String
     public var settings: CellSettings = CellSettings()
 
-    public convenience init(imageName: String, imageHeight: UIImageView.ImageHeight, margin: CGFloat) {
-        self.init(imageName: imageName, imageHeight: imageHeight, edgeInsets: UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin))
-    }
-
-    public init(imageName: String, imageHeight: UIImageView.ImageHeight, edgeInsets: UIEdgeInsets) {
-        self.identifier = "local_image_cell_\(imageHeight) "
+    public init(imageName: String, imageHeight: UIImageView.ImageHeight) {
+        self.identifier = "local_image_cell_\(imageHeight)"
         self.imageName = imageName
-        self.edgeInsets = edgeInsets
         self.imageHeight = imageHeight
         cellHeight = .automaticDimension
     }
@@ -35,8 +29,11 @@ public class LocalImageCellItem: CellItemProtocol {
         if let cell = tableCell as? LocalImageCell {
             cell.selectionStyle = .none
             cell.localImageView.image = UIImage(named: imageName)
-            cell.localImageView.snp.updateConstraints { (make) in
-                make.edges.equalToSuperview().inset(edgeInsets)
+            cell.localImageView.snp.makeConstraints { (make) in
+                make.top.equalToSuperview().offset(cellContentEdges.top)
+                make.leading.equalToSuperview().offset(cellContentEdges.left)
+                make.trailing.equalToSuperview().offset(-cellContentEdges.right)
+                make.bottom.equalToSuperview().offset(-cellContentEdges.bottom).priority(.medium)
             }
 
             cell.localImageView.updateAutolayout(imageHeight: imageHeight)
@@ -58,8 +55,5 @@ public class LocalImageCell: BuiltInCell {
         localImageView.contentMode = .scaleAspectFill
         localImageView.clipsToBounds = true
 
-        localImageView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
     }
 }
