@@ -7,3 +7,33 @@
 //
 
 import Foundation
+
+public extension UITableViewCell {
+    enum SeparatorLineStyle {
+        case `default`
+        case none
+        case full
+        case leftMargin(CGFloat)
+        case margins(CGFloat, CGFloat)
+    }
+
+    func setSeparatorLineStyle(_ style: SeparatorLineStyle) {
+        switch style {
+        case .default:
+            break
+        case .none:
+            separatorInset = UIEdgeInsets(top: 0, left: bounds.size.width, bottom: 0, right: 0)
+        case .full:
+            separatorInset = UIEdgeInsets.zero
+        case .leftMargin(let left):
+            separatorInset = UIEdgeInsets(top: 0, left: left, bottom: 0, right: 0)
+        case .margins(let left, let right):
+            separatorInset = UIEdgeInsets(top: 0, left: left, bottom: 0, right: right)
+        }
+    }
+
+    func update(with settings: CellSettings) {
+        settings.cellUISettings?(self)
+        setSeparatorLineStyle(settings.cellSeperatorStyle)
+    }
+}

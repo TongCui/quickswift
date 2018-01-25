@@ -42,7 +42,8 @@ public class TableViewDataSourceHandler: NSObject, TableDataSourceHandlerProtoco
         cellItem.settings.indexPath = indexPath
 
         let cell = cellItem.cell(tableView: tableView, indexPath: indexPath)
-        cellItem.settings.cellUISettings?(cell)
+        cell.update(with: cellItem.settings)
+
         return cell
     }
 

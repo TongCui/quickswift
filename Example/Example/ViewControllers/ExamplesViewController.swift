@@ -25,7 +25,12 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
                 TitleHeaderSectionItem(header: "tableview").append {
                     [
                         cellItem(title: "SystemDefaultCell", goto: "go_system_cell_vc"),
-                        cellItem(title: "BuiltInCell", goto: "go_builtin_cell_vc")
+                        cellItem(title: "OneLineTextCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.oneLineText),
+                        cellItem(title: "LoadingCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.loading),
+                        cellItem(title: "ButtonCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.button),
+                        cellItem(title: "LocalImageCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.localImage),
+                        cellItem(title: "SwitchCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.switch),
+                        cellItem(title: "PlaceholderCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.placeholder)
                     ]
                 },
                 TitleHeaderSectionItem(header: "networking").append {
@@ -37,14 +42,14 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
         }
     }
     
-    func cellItem(title: String, goto segue:String) -> OneLineTextCellItem {
+    func cellItem(title: String, goto segue:String, sender: Any? = nil) -> OneLineTextCellItem {
         return OneLineTextCellItem(text: title)
             .uiSettings{ (cell) in
                 cell.accessoryType = .disclosureIndicator
             }
             .add(action: .cellDidSelect) { params in
                 if let viewController = params.viewController() as? ExamplesViewController {
-                    viewController.performSegue(withIdentifier: segue, sender: nil)
+                    viewController.performSegue(withIdentifier: segue, sender: sender)
                 }
             }
     }
@@ -63,7 +68,6 @@ final class ExamplesViewController: UIViewController, UIScrollViewDelegate {
         
         super.viewDidLoad()
         adapter.reloadData()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,7 +75,13 @@ final class ExamplesViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? BuiltInCellViewController, let sender = sender as? BuiltInCellType {
+            vc.cellType = sender
+        }
     }
     
 }

@@ -52,6 +52,15 @@ public extension CellItemProtocol {
         }
     }
 
+    public var cellSeparatorStyle: UITableViewCell.SeparatorLineStyle {
+        get {
+            return settings.cellSeperatorStyle
+        }
+        set {
+            settings.cellSeperatorStyle = newValue
+        }
+    }
+
     @discardableResult
     public func updateSettings(_ customSettings: (CellSettings) -> Void) -> Self {
         customSettings(settings)

@@ -15,8 +15,8 @@ public class LoadingCellItem: CellItemProtocol {
     public var loadingAction: () -> Void
 
     public init(loadingAction:@escaping () -> Void ) {
-        settings.cellHeight = .defaultCellHeight
         self.loadingAction = loadingAction
+        cellHeight = .defaultCellHeight
     }
 
     public func register(tableView: UITableView) {

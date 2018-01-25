@@ -16,7 +16,7 @@ public class SwitchCellItem: CellItemProtocol {
     public init(title: String, action:@escaping (Bool) -> Void) {
         self.title = title
         self.action = action
-        settings.cellHeight = .defaultCellHeight
+        cellHeight = .defaultCellHeight
     }
 
     public func register(tableView: UITableView) {

@@ -31,6 +31,7 @@ public extension Bool {
 
 public extension Int {
     public func toF() -> Float { return Float(self) }
+    public func toCGF() -> CGFloat { return CGFloat(self) }
     public func toD() -> Double { return Double(self) }
     public func toB() -> Bool { return self == 1 ? true : false }
     public func toChr() throws -> Character {
@@ -44,11 +45,13 @@ public extension Int {
 public extension Float {
     public func toI() -> Int { return Int(self) }
     public func toD() -> Double { return Double(self) }
+    public func toCGF() -> CGFloat { return CGFloat(self) }
 }
 
 public extension Double {
     public func toI() -> Int { return Int(self) }
     public func toF() -> Float { return Float(self) }
+    public func toCGF() -> CGFloat { return CGFloat(self) }
 }
 
 public extension String {

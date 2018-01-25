@@ -50,8 +50,8 @@ final public class CellSettings {
 
     weak var tableView: UITableView?
     var indexPath: IndexPath?
-    public var seperatorHidden = false
-    public var cellHeight = UITableViewAutomaticDimension
+    public var cellSeperatorStyle: UITableViewCell.SeparatorLineStyle = .default
+    public var cellHeight = CGFloat.automaticDimension
     var cellUISettings: ((UITableViewCell) -> Void)?
     var actions: [Actions: (TableParams) -> Void] = [:]
 
