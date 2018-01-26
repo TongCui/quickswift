@@ -35,9 +35,11 @@ public class TableViewDataSourceHandler: NSObject, TableDataSourceHandlerProtoco
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellItem = adapter.cellItem(indexPath: indexPath)
+        guard let cellItem = adapter.cellItem(indexPath: indexPath) else {
+            return ErrorCellItem().cell(tableView:tableView, indexPath:indexPath)
+        }
 
-        tableView.registerIfNeeded(cell: cellItem)
+        tableView.registerIfNeeded(forCell: cellItem)
         cellItem.settings.tableView = tableView
         cellItem.settings.indexPath = indexPath
 
@@ -48,16 +50,16 @@ public class TableViewDataSourceHandler: NSObject, TableDataSourceHandlerProtoco
     }
 
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return adapter.sections[safe: section]?.settings.header?.title
+        return adapter.sections[safe: section]?.header?.title
     }
 
     public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return adapter.sections[safe: section]?.settings.footer?.title
+        return adapter.sections[safe: section]?.footer?.title
     }
 
     // MARK: - Configuring an Index
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        let titles = adapter.sections.flatMap { $0.settings.indexTitle }
+        let titles = adapter.sections.flatMap { $0.indexTitle }
 
         guard titles.count > 0 else {
             return nil
@@ -75,6 +77,19 @@ public protocol TableDelegateHandlerProtocol: TableHandlerProtocol, UITableViewD
     var scrollDelegate: UIScrollViewDelegate? { get set }
 }
 
+extension TableDelegateHandlerProtocol {
+    func tableParams(tableView: UITableView, indexPath: IndexPath, cell: UITableViewCell?) -> TableParams {
+        let params = TableParams { (make) in
+            make.cellItem = adapter.cellItem(indexPath: indexPath)
+            make.sectionItem = adapter.sectionItem(indexPath: indexPath)
+            make.cell = cell
+            make.tableView = tableView
+            make.indexPath = indexPath
+        }
+        return params
+    }
+}
+
 public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProtocol {
     public var adapter: TableViewAdapterProtocol
     public var scrollDelegate: UIScrollViewDelegate?
@@ -84,68 +99,46 @@ public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProt
 
     // MARK: - Configuring Rows for the Table View
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return adapter.cellItem(indexPath: indexPath).settings.cellHeight
+        return adapter.cellItem(indexPath: indexPath)?.cellHeight ?? .defaultCellHeight
     }
 
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cellItem = adapter.cellItem(indexPath: indexPath)
-        let params = TableParams { (make) in
-            make.cellItem = cellItem
-            make.cell = cell
-            make.tableView = tableView
-            make.indexPath = indexPath
-        }
-
-        cellItem.handler(for: .cellWillDisplay)?(params)
+        let params = tableParams(tableView: tableView, indexPath: indexPath, cell: cell)
+        params.cellItem?.handler(for: .cellWillDisplay)?(params)
     }
 
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cellItem = adapter.cellItem(indexPath: indexPath)
-        let params = TableParams { (make) in
-            make.cellItem = cellItem
-            make.cell = cell
-            make.tableView = tableView
-            make.indexPath = indexPath
-        }
-
-        cellItem.handler(for: .cellDidEndDisplaying)?(params)
+        let params = tableParams(tableView: tableView, indexPath: indexPath, cell: cell)
+        params.cellItem?.handler(for: .cellDidEndDisplaying)?(params)
     }
 
     // MARK: - Managing Selections
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         tableView.deselectRow(at: indexPath, animated: true)
-
-        let cellItem = adapter.cellItem(indexPath: indexPath)
-        let params = TableParams { (make) in
-            make.cellItem = cellItem
-            make.tableView = tableView
-            make.indexPath = indexPath
-        }
-
-        cellItem.handler(for: .cellDidSelect)?(params)
+        let params = tableParams(tableView: tableView, indexPath: indexPath, cell: tableView.cellForRow(at: indexPath))
+        params.cellItem?.handler(for: .cellDidSelect)?(params)
     }
 
     // MARK: - Modifying the Header and Footer of Sections
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionItem = adapter.sections[safe: section]
-        return sectionItem?.settings.header?.view(tableView: tableView, section: section)
+        return sectionItem?.header?.view(tableView: tableView, section: section)
     }
 
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let sectionItem = adapter.sections[safe: section]
-        return sectionItem?.settings.header?.height ?? 0
+        return sectionItem?.header?.height ?? 0
     }
 
     public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let sectionItem = adapter.sections[safe: section]
-        return sectionItem?.settings.footer?.view(tableView: tableView, section: section)
+        return sectionItem?.footer?.view(tableView: tableView, section: section)
     }
 
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let sectionItem = adapter.sections[safe: section]
-        return sectionItem?.settings.footer?.height ?? 0
+        return sectionItem?.footer?.height ?? 0
     }
 }
 

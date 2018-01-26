@@ -7,9 +7,10 @@
 //
 
 public class PlainSectionItem: SectionItemProtocol {
-
+    public var indexTitle: String?
+    public var footer: SectionHeaderFooterProtocol?
+    public var header: SectionHeaderFooterProtocol?
     public var cellItems: [CellItemProtocol] = []
-    public var settings: SectionSettings = SectionSettings()
 
     public init() {}
 

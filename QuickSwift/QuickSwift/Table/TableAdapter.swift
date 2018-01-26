@@ -119,7 +119,10 @@ public protocol SectionHeaderFooterProtocol: TableViewRegisterable {
 
 public protocol SectionItemProtocol: DataSourceElement {
     var cellItems: [CellItemProtocol] { get set }
-    var settings: SectionSettings { get set }
+
+    var indexTitle: String? { get set }
+    var footer: SectionHeaderFooterProtocol? { get set }
+    var header: SectionHeaderFooterProtocol? { get set }
 }
 
 public extension SectionItemProtocol {
@@ -138,7 +141,7 @@ public extension SectionItemProtocol {
 
 public protocol TableViewAdapterProtocol: AnyObject {
     var sections: [SectionItemProtocol] { get set }
-    
+    weak var tableView: UITableView? { get set }
 
     init()
     init(tableView: UITableView)
@@ -149,12 +152,8 @@ public protocol TableViewAdapterProtocol: AnyObject {
 
 public extension TableViewAdapterProtocol {
 
-    public var tableView: UITableView? {
-        return settings.tableView
-    }
-
     public func parentViewController<T: UIViewController>() -> T? {
-        return self.tableView?.parentViewController()
+        return tableView?.parentViewController()
     }
 
     public init(tableView: UITableView) {
@@ -163,7 +162,7 @@ public extension TableViewAdapterProtocol {
     }
 
     private func reloadTableView() {
-        self.settings.tableView?.reloadData()
+        tableView?.reloadData()
     }
 
     public func reloadData() {
@@ -178,15 +177,19 @@ public extension TableViewAdapterProtocol {
     public func link(tableView: UITableView) {
         tableView.dataSource = dataSourceHandler
         tableView.delegate = delegateHandler
-        self.settings.tableView = tableView
+        self.tableView = tableView
     }
 
-    func cellItem(section: Int, row: Int) -> CellItemProtocol {
-        return sections[safe: section]?.cellItems[safe: row] ?? ErrorCellItem()
+    func cellItem(section: Int, row: Int) -> CellItemProtocol? {
+        return sections[safe: section]?.cellItems[safe: row]
     }
 
-    func cellItem(indexPath: IndexPath) -> CellItemProtocol {
+    func cellItem(indexPath: IndexPath) -> CellItemProtocol? {
         return cellItem(section: indexPath.section, row: indexPath.row)
+    }
+
+    func sectionItem(indexPath: IndexPath) -> SectionItemProtocol? {
+        return sections[safe: indexPath.section]
     }
 
     public func cellItem<T>(at indexPath: IndexPath) -> T? {

@@ -30,7 +30,7 @@ extension UITableView {
         }
     }
 
-    func registerIfNeeded(cell registerable: TableViewRegisterable) {
+    func registerIfNeeded(forCell registerable: TableViewRegisterable) {
         guard !cellIds.contains(registerable.identifier) else {
             return
         }
@@ -39,7 +39,7 @@ extension UITableView {
         registerable.register(tableView: self)
     }
 
-    func registerIfNeeded(headerFooter registerable: TableViewRegisterable) {
+    func registerIfNeeded(forHeaderFooter registerable: TableViewRegisterable) {
         guard !headerFooterIds.contains(registerable.identifier) else {
             return
         }
@@ -54,6 +54,12 @@ extension UITableView {
         }, completion: { _ in
             completion()
         })
+    }
+
+    public func reloadData(after delay: Double) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
+            self?.reloadData()
+        }
     }
 
     public func scrollToBottom(animated: Bool = true) {

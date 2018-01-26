@@ -7,29 +7,12 @@
 //
 
 public class TitleHeaderSectionItem: SectionItemProtocol {
-
-    public var headerTitle: String {
-        get {
-            return settings.header?.title ?? ""
-        }
-        set {
-            settings.header?.title = newValue
-        }
-    }
-
+    public var indexTitle: String?
+    public var footer: SectionHeaderFooterProtocol?
+    public var header: SectionHeaderFooterProtocol?
     public var cellItems: [CellItemProtocol] = []
 
-    public var settings: SectionSettings = {
-       let settings = SectionSettings()
-        settings.header = TitleHeader()
-        return settings
-    }()
-
-    public required convenience init() {
-        self.init(header: "")
-    }
-
     public init(header: String) {
-        self.headerTitle = header
+        self.header = TitleHeader(title: header)
     }
 }

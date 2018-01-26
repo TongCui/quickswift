@@ -9,12 +9,12 @@
 import Foundation
 
 public class TableParams {
-    public var indexPath: IndexPath?
-    public var sectionItem: SectionItemProtocol?
     public var cellItem: CellItemProtocol?
+    public var sectionItem: SectionItemProtocol?
+
+    public var indexPath: IndexPath?
     public var cell: UITableViewCell?
     public var tableView: UITableView?
-    public var sender: Any?
 
     init(builder: (TableParams) -> Void) {
         builder(self)
@@ -56,29 +56,6 @@ final public class CellSettings {
     var cellContentEdges = UIEdgeInsets(margin: .defaultMargin)
     var cellUISettings: ((UITableViewCell) -> Void)?
     var actions: [Actions: (TableParams) -> Void] = [:]
-
-    public init() {
-
-    }
-}
-
-final public class SectionSettings {
-    public var indexTitle: String?
-    public var footer: SectionHeaderFooterProtocol?
-    public var header: SectionHeaderFooterProtocol?
-
-    public init() {
-
-    }
-}
-
-final public class TableSettings {
-    weak var tableView: UITableView?
-
-    public var tableViewDidScrollHandler: ((UITableView) -> Void)?
-
-    var registeredCellIds = [String]()
-    var registeredHeaderFooterIds = [String]()
 
     public init() {
 

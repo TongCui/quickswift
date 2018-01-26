@@ -21,4 +21,9 @@ class TitleFooter: SectionHeaderFooterProtocol {
     func view(tableView: UITableView, section: Int) -> UIView? {
         return nil
     }
+
+    init(title: String? = nil, height: CGFloat = 30) {
+        self.title = title
+        self.height = height
+    }
 }

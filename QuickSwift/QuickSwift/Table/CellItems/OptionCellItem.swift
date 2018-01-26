@@ -6,7 +6,7 @@
 //  Copyright © 2018 LuckyTR. All rights reserved.
 //
 
-public class OptionCellItem: CellItemProtocol {
+public class OptionCellItem<Key: Equatable>: CellItemProtocol {
 
     public enum SelectionIconType: CustomStringConvertible {
         case `default`
@@ -31,23 +31,51 @@ public class OptionCellItem: CellItemProtocol {
         }
     }
 
-    public var text: String
-    public var image: UIImage?
+    public private(set) var key: Key
+    public private(set) var text: String
+    public private(set) var image: UIImage?
+    public private(set) var isMultiSelectable: Bool
+    public private(set) var selectionIconType: SelectionIconType
+
     public var textIconSpace: CGFloat = .defaultMargin
-    public var isMultiSelectable: Bool
     public var isSelected: Bool
-    public var selectionIconType: SelectionIconType
+
     public var identifier: String = ""
     public var settings: CellSettings = CellSettings()
 
-    public init(text: String, image: UIImage? = nil, isMultiSelectable: Bool = false, selectionIconType: SelectionIconType = .default) {
+    public init(key: Key, text: String, image: UIImage? = nil, isMultiSelectable: Bool = false, selectionIconType: SelectionIconType = .default, optionDidSelected: @escaping (Key) -> Void) {
         self.identifier = "option_cell_image\(image.isNil.toI())_\(selectionIconType) "
+        self.key = key
         self.text = text
         self.image = image
         self.isMultiSelectable = isMultiSelectable
         self.isSelected = false
         self.selectionIconType = selectionIconType
         cellHeight = .automaticDimension
+        add(action: .cellDidSelect) { [unowned self] (params) in
+            if let sectionItem = params.sectionItem, let cell = params.cell {
+                self.updateSelections(section: sectionItem)
+                if cell.selectionStyle == .none {
+                    params.tableView?.reloadData()
+                } else {    //  Delay 0.1s for deselecting cell animation
+                    params.tableView?.reloadData(after: 0.1)
+                }
+            }
+            optionDidSelected(self.key)
+        }
+    }
+
+    private func updateSelections(section: SectionItemProtocol) {
+        if isMultiSelectable {
+            isSelected = isSelected.toggled
+        } else {
+            section.cellItems.forEach { (cellItem) in
+                if let cellItem = cellItem as? OptionCellItem {
+                    cellItem.isSelected = false
+                }
+            }
+            isSelected = true
+        }
     }
 
     public func register(tableView: UITableView) {
@@ -59,7 +87,6 @@ public class OptionCellItem: CellItemProtocol {
 
         if let cell = tableCell as? OptionTextCell {
             cell.optionLabel.text = text
-            print("\(self.identifier) - \(indexPath)")
             if let image = self.image {
                 cell.iconImageView.isHidden = false
                 cell.iconImageView.image = image
@@ -92,7 +119,7 @@ public class OptionCellItem: CellItemProtocol {
             cell.selectionImageView.image = isSelected ? image : nil
             cell.selectionImageView.updateToPreferred(image)
         case .images(let normalImage, let selectedImage):
-            let image = isSelected ? selectedImage : normalImage;
+            let image = isSelected ? selectedImage : normalImage
             cell.selectionImageView.image = image
             cell.selectionImageView.updateToPreferred(image)
         }
@@ -115,7 +142,7 @@ public class OptionTextCell: BuiltInCell {
         selectionImageView.contentMode = .scaleAspectFit
         iconImageView.clipsToBounds = true
         selectionImageView.clipsToBounds = true
-        
+
         let margin: CGFloat = .defaultMargin
 
         iconImageView.snp.makeConstraints { (make) in

@@ -37,12 +37,12 @@ public extension UIImageView {
             }
         }
     }
-    
+
     func updateToPreferred(_ image: UIImage) {
         if let preferredColor = image.preferredColor {
             self.tintColor = preferredColor
         }
-        
+
         self.snp.makeConstraints { (make) in
             make.size.equalTo(image.preferredSize)
         }

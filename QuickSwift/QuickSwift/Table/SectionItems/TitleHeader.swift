@@ -9,7 +9,7 @@
 class TitleHeader: SectionHeaderFooterProtocol {
 
     var title: String?
-    var height: CGFloat = 30
+    var height: CGFloat
     var identifier: String = "title_header"
 
     func register(tableView: UITableView) {
@@ -18,5 +18,10 @@ class TitleHeader: SectionHeaderFooterProtocol {
 
     func view(tableView: UITableView, section: Int) -> UIView? {
         return nil
+    }
+
+    init(title: String?, height: CGFloat = 30) {
+        self.title = title
+        self.height = height
     }
 }

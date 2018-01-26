@@ -13,7 +13,6 @@ final class SystemCellAdapter: TableViewAdapterProtocol {
     
     weak var tableView: UITableView?
     var sections: [SectionItemProtocol] = []
-    var settings: TableSettings = TableSettings()
     
     lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
     lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
