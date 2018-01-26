@@ -1,5 +1,5 @@
 //
-//  UIImageViewHeight.swift
+//  UIImageViewExtensions.swift
 //  QuickSwift
 //
 //  Created by tcui on 25/1/2018.
@@ -35,6 +35,16 @@ public extension UIImageView {
             snp.makeConstraints { (make) in
                 make.height.equalTo(snp.width).multipliedBy(image.height / image.width)
             }
+        }
+    }
+    
+    func updateToPreferred(_ image: UIImage) {
+        if let preferredColor = image.preferredColor {
+            self.tintColor = preferredColor
+        }
+        
+        self.snp.makeConstraints { (make) in
+            make.size.equalTo(image.preferredSize)
         }
     }
 }

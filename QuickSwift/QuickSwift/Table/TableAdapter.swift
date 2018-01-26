@@ -138,7 +138,7 @@ public extension SectionItemProtocol {
 
 public protocol TableViewAdapterProtocol: AnyObject {
     var sections: [SectionItemProtocol] { get set }
-    var settings: TableSettings { get set }
+    
 
     init()
     init(tableView: UITableView)

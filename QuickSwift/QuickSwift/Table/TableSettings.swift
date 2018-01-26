@@ -10,6 +10,7 @@ import Foundation
 
 public class TableParams {
     public var indexPath: IndexPath?
+    public var sectionItem: SectionItemProtocol?
     public var cellItem: CellItemProtocol?
     public var cell: UITableViewCell?
     public var tableView: UITableView?

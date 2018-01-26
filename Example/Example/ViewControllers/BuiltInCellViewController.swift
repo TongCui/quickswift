@@ -17,6 +17,7 @@ enum BuiltInCellType {
     case localImage
     case `switch`
     case placeholder
+    case option
 }
 
 final class BuiltInCellAdapter: TableViewAdapterProtocol {
@@ -40,6 +41,8 @@ final class BuiltInCellAdapter: TableViewAdapterProtocol {
                 initSwitchCell()
             case .placeholder:
                 initPlaceholderCell()
+            case .option:
+                initOptionCell()
             }
         }
     }
@@ -137,6 +140,61 @@ final class BuiltInCellAdapter: TableViewAdapterProtocol {
         sectionItem.append(PlaceholderCellItem(height: 100))
         
         append(sectionItem)
+    }
+    
+    func initOptionCell() {
+        
+        append(section: { TitleHeaderSectionItem(header: "NoIcon + Radio Button + defaultSelection") }) {
+            (1..<5).map { idx -> OptionCellItem in
+                let cellItem = OptionCellItem(text: "Option \(idx)")
+                cellItem.isSelected = idx == 1
+                return cellItem
+            }
+        }
+        
+        append(section: { TitleHeaderSectionItem(header: "Icon + Radio Button + defaultSelection") }) {
+            (1..<5).map { idx -> OptionCellItem in
+                let image = UIImage(named: "icon_star_full")?.toTemplateImage()
+                image?.preferredSize = CGSize(side: 20)
+                image?.preferredColor = colors[idx % colors.count]
+                let cellItem = OptionCellItem(text: "Option \(idx)", image: image)
+                cellItem.isSelected = idx == 1
+                return cellItem
+            }
+        }
+        
+        append(section: { TitleHeaderSectionItem(header: "NoIcon + Radio Button + checkmark(green)") }) {
+            (1..<5).map { idx -> OptionCellItem in
+                let cellItem = OptionCellItem(text: "Option \(idx)",  selectionIconType: .checkmark(.green))
+                cellItem.isSelected = idx == 1
+                return cellItem
+            }
+        }
+        
+        append(section: { TitleHeaderSectionItem(header: "Icon + Radio Button + image") }) {
+            (1..<5).map { idx -> OptionCellItem in
+                let image = UIImage(named: "icon_star_full")?.toTemplateImage()
+                image?.preferredSize = CGSize(side: 20)
+                image?.preferredColor = colors[idx % colors.count]
+                let selectionImage = UIImage(named: "icon_checkmark")!
+                selectionImage.preferredSize = CGSize(side: 20)
+                let cellItem = OptionCellItem(text: "Option \(idx)", image:image, selectionIconType: .image(selectionImage))
+                cellItem.isSelected = idx == 1
+                return cellItem
+            }
+        }
+        
+        append(section: { TitleHeaderSectionItem(header: "NoIcon + Radio Button + images") }) {
+            (1..<5).map { idx -> OptionCellItem in
+                let normalImage = UIImage(named: "icon_option_empty")!.toTemplateImage()
+                normalImage.preferredColor = .gray
+                let selectedImage = UIImage(named: "icon_option_radio")!.toTemplateImage()
+                selectedImage.preferredColor = .purple
+                let cellItem = OptionCellItem(text: "Option \(idx)",  selectionIconType: .images(normalImage, selectedImage))
+                cellItem.isSelected = idx == 1
+                return cellItem
+            }
+        }
     }
     
     required init() {}

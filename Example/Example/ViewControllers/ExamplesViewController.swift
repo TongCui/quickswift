@@ -30,7 +30,8 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
                         cellItem(title: "ButtonCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.button),
                         cellItem(title: "LocalImageCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.localImage),
                         cellItem(title: "SwitchCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.switch),
-                        cellItem(title: "PlaceholderCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.placeholder)
+                        cellItem(title: "PlaceholderCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.placeholder),
+                        cellItem(title: "OptionCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.option),
                     ]
                 },
                 TitleHeaderSectionItem(header: "networking").append {

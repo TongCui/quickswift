@@ -114,6 +114,11 @@ public extension UIView {
             view.addSubViews(into: &array)
         }
     }
+    
+    public func addBorder(color: UIColor) {
+        layer.borderColor = color.cgColor
+        layer.borderWidth = .defaultBorderWidth
+    }
 }
 
 extension UIView {

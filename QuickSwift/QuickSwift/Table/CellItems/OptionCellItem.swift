@@ -33,6 +33,7 @@ public class OptionCellItem: CellItemProtocol {
 
     public var text: String
     public var image: UIImage?
+    public var textIconSpace: CGFloat = .defaultMargin
     public var isMultiSelectable: Bool
     public var isSelected: Bool
     public var selectionIconType: SelectionIconType
@@ -40,16 +41,17 @@ public class OptionCellItem: CellItemProtocol {
     public var settings: CellSettings = CellSettings()
 
     public init(text: String, image: UIImage? = nil, isMultiSelectable: Bool = false, selectionIconType: SelectionIconType = .default) {
-        self.identifier = "option_cell_\(image.isNil.toI())_\(selectionIconType) "
+        self.identifier = "option_cell_image\(image.isNil.toI())_\(selectionIconType) "
         self.text = text
         self.image = image
         self.isMultiSelectable = isMultiSelectable
         self.isSelected = false
         self.selectionIconType = selectionIconType
+        cellHeight = .automaticDimension
     }
 
     public func register(tableView: UITableView) {
-        tableView.register(OneLineTextCell.self, forCellReuseIdentifier: identifier)
+        tableView.register(OptionTextCell.self, forCellReuseIdentifier: identifier)
     }
 
     public func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
@@ -57,12 +59,13 @@ public class OptionCellItem: CellItemProtocol {
 
         if let cell = tableCell as? OptionTextCell {
             cell.optionLabel.text = text
-
+            print("\(self.identifier) - \(indexPath)")
             if let image = self.image {
                 cell.iconImageView.isHidden = false
                 cell.iconImageView.image = image
-                cell.iconImageView.snp.makeConstraints { (make) in
-                    make.size.equalTo(image.preferredSize)
+                cell.iconImageView.updateToPreferred(image)
+                cell.optionLabel.snp.makeConstraints { (make) in
+                    make.left.equalTo(cell.iconImageView.snp.right).offset(textIconSpace)
                 }
             } else {
                 cell.iconImageView.isHidden = true
@@ -81,16 +84,17 @@ public class OptionCellItem: CellItemProtocol {
         switch selectionIconType {
         case .default:
             cell.accessoryType = isSelected ? .checkmark : .none
-            break
         case .checkmark(let tintColor):
             cell.tintColor = tintColor
             cell.accessoryType = isSelected ? .checkmark : .none
-            break
         case .image(let image):
             cell.accessoryType = .none
-            break
+            cell.selectionImageView.image = isSelected ? image : nil
+            cell.selectionImageView.updateToPreferred(image)
         case .images(let normalImage, let selectedImage):
-            break
+            let image = isSelected ? selectedImage : normalImage;
+            cell.selectionImageView.image = image
+            cell.selectionImageView.updateToPreferred(image)
         }
     }
 
@@ -107,7 +111,11 @@ public class OptionTextCell: BuiltInCell {
         contentView.addSubview(iconImageView)
         contentView.addSubview(optionLabel)
         contentView.addSubview(selectionImageView)
-
+        iconImageView.contentMode = .scaleAspectFit
+        selectionImageView.contentMode = .scaleAspectFit
+        iconImageView.clipsToBounds = true
+        selectionImageView.clipsToBounds = true
+        
         let margin: CGFloat = .defaultMargin
 
         iconImageView.snp.makeConstraints { (make) in
@@ -117,13 +125,11 @@ public class OptionTextCell: BuiltInCell {
 
         optionLabel.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(iconImageView).offset(margin)
         }
 
         selectionImageView.snp.makeConstraints { (make) in
-            make.leading.equalTo(optionLabel).offset(margin)
+            make.left.equalTo(optionLabel.snp.right).offset(margin).priority(.medium)
             make.centerY.equalToSuperview()
-            make.width.height.equalTo(margin)
             make.trailing.equalToSuperview().offset(-margin)
         }
     }

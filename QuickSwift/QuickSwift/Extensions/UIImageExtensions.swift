@@ -16,6 +16,7 @@ public extension UIImage {
 public extension UIImage {
     func toJPEG() -> Data? { return UIImageJPEGRepresentation(self, 1) }
     func toPNG() -> Data? { return UIImagePNGRepresentation(self)}
+    func toTemplateImage() -> UIImage { return withRenderingMode(.alwaysTemplate)}
 }
 
 public extension Data {
