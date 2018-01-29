@@ -61,4 +61,7 @@ task :ats, [:command] do |task, args|
   ruby "./scripts/ats/ats.rb #{command}"
 end
 
-
+desc "Generate Segue Enum"
+task :segue do
+  ruby 'scripts/xcode/xcode_find_segue.rb'
+end

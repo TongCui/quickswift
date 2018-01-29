@@ -23,35 +23,41 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
             [
                 TitleHeaderSectionItem(header: "tableview").append {
                     [
-                        cellItem(title: "SystemDefaultCell", goto: "go_system_cell_vc"),
-                        cellItem(title: "OneLineTextCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.oneLineText),
-                        cellItem(title: "LoadingCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.loading),
-                        cellItem(title: "ButtonCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.button),
-                        cellItem(title: "LocalImageCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.localImage),
-                        cellItem(title: "SwitchCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.switch),
-                        cellItem(title: "PlaceholderCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.placeholder),
-                        cellItem(title: "OptionCell", goto: "go_builtin_cell_vc", sender: BuiltInCellType.option),
-                    ]
+                        cellItem(title: "SystemDefaultCell", goto: .goSystemCellVC),
+                        cellItem(title: "OneLineTextCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.oneLineText),
+                        cellItem(title: "LoadingCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.loading),
+                        cellItem(title: "ButtonCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.button),
+                        cellItem(title: "LocalImageCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.localImage),
+                        cellItem(title: "SwitchCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.switch),
+                        cellItem(title: "PlaceholderCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.placeholder),
+                        cellItem(title: "OptionCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.option),
+                        ]
                 },
                 TitleHeaderSectionItem(header: "networking").append {
                     [
-                        cellItem(title: "Networking", goto: "go_networking_vc")
+                        cellItem(title: "Networking", goto: .goNetworkingVC)
+                    ]
+                },
+                TitleHeaderSectionItem(header: "view controller").append {
+                    [
+                        cellItem(title: "LifeCycle", goto: .goLifecycleVC),
+                        cellItem(title: "NavigationBar", goto: .goNavigationBarVC),
                     ]
                 }
             ]
         }
     }
     
-    func cellItem(title: String, goto segue:String, sender: Any? = nil) -> OneLineTextCellItem {
+    func cellItem(title: String, goto segue: SegueIds, sender: Any? = nil) -> OneLineTextCellItem {
         return OneLineTextCellItem(text: title)
             .uiSettings { (cell) in
                 cell.accessoryType = .disclosureIndicator
             }
             .add(action: .cellDidSelect) { params in
                 if let viewController = params.viewController() as? ExamplesViewController {
-                    viewController.performSegue(withIdentifier: segue, sender: sender)
+                    viewController.performSegue(withIdentifier: segue.rawValue, sender: sender)
                 }
-            }
+        }
     }
 }
 
@@ -68,10 +74,11 @@ final class ExamplesViewController: UIViewController, UIScrollViewDelegate {
         
         super.viewDidLoad()
         adapter.reloadData()
+        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -81,6 +88,16 @@ final class ExamplesViewController: UIViewController, UIScrollViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? BuiltInCellViewController, let sender = sender as? BuiltInCellType {
             vc.cellType = sender
+        }
+        
+        if let vc = segue.destination as? LifeCycleDemoViewController {
+            vc.lifeCycleManager
+                .addAction(.viewDidLoad) { _ in
+                    vc.appendInfo("LifeCycleManager - viewDidLoad")
+                }
+                .addAction(.viewWillAppear) { (animated) in
+                    vc.appendInfo("LifeCycleManager - viewWillAppear - \(animated)")
+            }
         }
     }
     

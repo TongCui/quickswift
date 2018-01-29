@@ -21,6 +21,9 @@
 		078EE9572004946D00DF554C /* SystemCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE9562004946D00DF554C /* SystemCellViewController.swift */; };
 		078EE95D2005BB3C00DF554C /* BuiltInCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE95C2005BB3C00DF554C /* BuiltInCellViewController.swift */; };
 		07AE23D51FCEB04B00028BC4 /* QuickSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */; };
+		07D14898201DA72C005F630A /* LifeCycleDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D14897201DA72C005F630A /* LifeCycleDemoViewController.swift */; };
+		07D1489A201DEACC005F630A /* NavigationBarDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D14899201DEACC005F630A /* NavigationBarDemoViewController.swift */; };
+		07D148A0201EC81A005F630A /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1489F201EC81A005F630A /* Consts.swift */; };
 		07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */; };
 		07F03D971FCBFBDA006F79C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F03D951FCBFBDA006F79C8 /* Main.storyboard */; };
 		07F03D991FCBFBDA006F79C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F03D981FCBFBDA006F79C8 /* Assets.xcassets */; };
@@ -74,6 +77,9 @@
 		078EE9562004946D00DF554C /* SystemCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCellViewController.swift; sourceTree = "<group>"; };
 		078EE95C2005BB3C00DF554C /* BuiltInCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuiltInCellViewController.swift; sourceTree = "<group>"; };
 		07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuickSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07D14897201DA72C005F630A /* LifeCycleDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCycleDemoViewController.swift; sourceTree = "<group>"; };
+		07D14899201DEACC005F630A /* NavigationBarDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarDemoViewController.swift; sourceTree = "<group>"; };
+		07D1489F201EC81A005F630A /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		07F03D8E1FCBFBDA006F79C8 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F03D961FCBFBDA006F79C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -149,6 +155,8 @@
 				078EE9562004946D00DF554C /* SystemCellViewController.swift */,
 				078EE95C2005BB3C00DF554C /* BuiltInCellViewController.swift */,
 				072865752008A03E00C3C368 /* NetworkingViewController.swift */,
+				07D14897201DA72C005F630A /* LifeCycleDemoViewController.swift */,
+				07D14899201DEACC005F630A /* NavigationBarDemoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -178,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */,
+				07D1489F201EC81A005F630A /* Consts.swift */,
 				078EE9532004945C00DF554C /* ViewControllers */,
 				07F03D951FCBFBDA006F79C8 /* Main.storyboard */,
 				07F03D981FCBFBDA006F79C8 /* Assets.xcassets */,
@@ -355,9 +364,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				072865762008A03E00C3C368 /* NetworkingViewController.swift in Sources */,
+				07D148A0201EC81A005F630A /* Consts.swift in Sources */,
 				078EE95D2005BB3C00DF554C /* BuiltInCellViewController.swift in Sources */,
+				07D14898201DA72C005F630A /* LifeCycleDemoViewController.swift in Sources */,
 				07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */,
 				078EE9572004946D00DF554C /* SystemCellViewController.swift in Sources */,
+				07D1489A201DEACC005F630A /* NavigationBarDemoViewController.swift in Sources */,
 				078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

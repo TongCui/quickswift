@@ -137,6 +137,10 @@ public extension SectionItemProtocol {
         self.cellItems.append(cellItem)
         return self
     }
+
+    public func clear() {
+        self.cellItems.removeAll()
+    }
 }
 
 public protocol TableViewAdapterProtocol: AnyObject {
@@ -161,7 +165,7 @@ public extension TableViewAdapterProtocol {
         link(tableView: tableView)
     }
 
-    private func reloadTableView() {
+    func reloadTableView() {
         tableView?.reloadData()
     }
 
