@@ -13,7 +13,7 @@ public protocol LifeCycleManaged {
 }
 
 public extension UIViewController {
-    public enum LifeCycle: Hashable {
+    public enum LifeCycle: String, Hashable {
         public var hashValue: Int {return self.toS().hashValue }
 
         public static func ==(lhs: UIViewController.LifeCycle, rhs: UIViewController.LifeCycle) -> Bool {
@@ -26,22 +26,11 @@ public extension UIViewController {
         case viewWillDisappear
         case viewDidDisappear
         case `deinit`
+        case scrollViewDidScroll
+        case viewWillTransition
 
         private func toS() -> String {
-            switch self {
-            case .viewDidLoad:
-                return "viewDidLoad"
-            case .viewWillAppear:
-                return "viewWillAppear"
-            case .viewDidAppear:
-                return "viewDidAppear"
-            case .viewWillDisappear:
-                return "viewWillDisappear"
-            case .viewDidDisappear:
-                return "viewDidDisappear"
-            case .deinit:
-                return "deinit"
-            }
+            return rawValue
         }
     }
 }
@@ -49,12 +38,12 @@ public extension UIViewController {
 public class LifeCycleManager {
     public typealias LifeCycleType = UIViewController.LifeCycle
 
-    var actions: [LifeCycleType: [(Bool) -> Void]] = [:]
+    var actions: [LifeCycleType: [(Any?) -> Void]] = [:]
 
     @discardableResult
-    public func addAction(_ type: LifeCycleType, action: @escaping (Bool) -> Void) -> Self {
-        if var values = actions[type] {
-            values.append(action)
+    public func addAction(_ type: LifeCycleType, action: @escaping (Any?) -> Void) -> Self {
+        if actions.has(key: type) {
+            actions[type]?.append(action)
         } else {
             actions[type] = [action]
         }
@@ -66,15 +55,16 @@ public class LifeCycleManager {
         actions.removeValue(forKey: type)
     }
 
-    public func performAction(_ type: LifeCycleType, animated: Bool) {
+    public func performAction(_ type: LifeCycleType, param: Any?) {
         guard let values = actions[type] else {
             return
         }
 
         values.forEach { (action) in
-            action(animated)
+            action(param)
         }
     }
+
 }
 
 open class LifeCycleManagedViewController: UIViewController, LifeCycleManaged {
@@ -82,35 +72,44 @@ open class LifeCycleManagedViewController: UIViewController, LifeCycleManaged {
     public var lifeCycleManager = LifeCycleManager()
 
     deinit {
-        lifeCycleManager.performAction(.deinit, animated: false)
+        lifeCycleManager.performAction(.deinit, param: nil)
     }
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        lifeCycleManager.performAction(.viewDidLoad, animated: false)
+        lifeCycleManager.performAction(.viewDidLoad, param: nil)
     }
 
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        lifeCycleManager.performAction(.viewWillAppear, animated: animated)
+        lifeCycleManager.performAction(.viewWillAppear, param: animated)
     }
 
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        lifeCycleManager.performAction(.viewDidAppear, animated: animated)
+        lifeCycleManager.performAction(.viewDidAppear, param: animated)
     }
 
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        lifeCycleManager.performAction(.viewWillDisappear, animated: animated)
+        lifeCycleManager.performAction(.viewWillDisappear, param: animated)
     }
 
     open override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        lifeCycleManager.performAction(.viewDidDisappear, animated: animated)
+        lifeCycleManager.performAction(.viewDidDisappear, param: animated)
     }
 }
 
-//extension UIScrollViewDelegate where Self : LifeCycleManaged {
-//    
-//}
+extension LifeCycleManagedViewController {
+    open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        lifeCycleManager.performAction(.viewWillTransition, param: size)
+    }
+}
+
+extension LifeCycleManagedViewController: UIScrollViewDelegate {
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        lifeCycleManager.performAction(.scrollViewDidScroll, param: scrollView)
+    }
+}

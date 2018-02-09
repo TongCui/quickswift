@@ -25,3 +25,11 @@ public extension String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
+
+public extension String {
+    var language: String? {
+        let tagger = NSLinguisticTagger(tagSchemes: [NSLinguisticTagScheme.language], options: 0)
+        tagger.string = self
+        return tagger.tag(at: 0, scheme: .language, tokenRange: nil, sentenceRange: nil)?.rawValue
+    }
+}

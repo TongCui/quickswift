@@ -35,13 +35,15 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
                 },
                 TitleHeaderSectionItem(header: "networking").append {
                     [
-                        cellItem(title: "Networking", goto: .goNetworkingVC)
+                        cellItem(title: "Networking", goto: .goNetworkingVC),
+                        cellItem(title: "IPAddressDemo", goto: .goIPAddressVC)
                     ]
                 },
                 TitleHeaderSectionItem(header: "view controller").append {
                     [
                         cellItem(title: "LifeCycle", goto: .goLifecycleVC),
-                        cellItem(title: "NavigationBar", goto: .goNavigationBarVC),
+                        cellItem(title: "NavigationBar1", goto: .goNavigationBar1VC),
+                        cellItem(title: "NavigationBar2", goto: .goNavigationBar2VC),
                     ]
                 }
             ]
@@ -91,12 +93,20 @@ final class ExamplesViewController: UIViewController, UIScrollViewDelegate {
         }
         
         if let vc = segue.destination as? LifeCycleDemoViewController {
+            vc.showNumber = true
             vc.lifeCycleManager
                 .addAction(.viewDidLoad) { _ in
-                    vc.appendInfo("LifeCycleManager - viewDidLoad")
+                    vc.append(line: "LifeCycleManager - viewDidLoad")
                 }
-                .addAction(.viewWillAppear) { (animated) in
-                    vc.appendInfo("LifeCycleManager - viewWillAppear - \(animated)")
+                .addAction(.viewWillAppear) { animated in
+                    if let animated = animated as? Bool {
+                        vc.append(line: "LifeCycleManager - viewWillAppear (action1) - \(animated)")
+                    }
+                }
+                .addAction(.viewWillAppear) { animated in
+                    if let animated = animated as? Bool {
+                        vc.append(line: "LifeCycleManager - viewWillAppear (action2)- \(animated)")
+                    }
             }
         }
     }

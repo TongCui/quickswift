@@ -209,6 +209,12 @@ public extension TableViewAdapterProtocol {
     }
 
     @discardableResult
+    public func append(sectionItem: SectionItemProtocol) -> Self {
+        sections.append(sectionItem)
+        return self
+    }
+
+    @discardableResult
     public func append<T: SectionItemProtocol>(section: () -> T, cellItems: () -> [CellItemProtocol]) -> Self {
         let section = section()
         section.cellItems.append(contentsOf: cellItems())

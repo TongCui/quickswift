@@ -85,6 +85,7 @@
 		07C50F88201D6E54006B224B /* BarButtonAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50F87201D6E54006B224B /* BarButtonAnimator.swift */; };
 		07C50F8A201D6E7A006B224B /* ViewControllerLifecycleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50F89201D6E7A006B224B /* ViewControllerLifecycleHandler.swift */; };
 		07D1489E201DEC8B005F630A /* LinesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1489D201DEC8B005F630A /* LinesAdapter.swift */; };
+		07D148A220201126005F630A /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D148A120201126005F630A /* UIDeviceExtensions.swift */; };
 		07D4E235200611090069AAE3 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D4E234200611090069AAE3 /* Networking.swift */; };
 		07D7ABD81FE124D9002AE482 /* BoolExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABD71FE124D9002AE482 /* BoolExtensionsTests.swift */; };
 		07D7ABDA1FE1259C002AE482 /* Prime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABD91FE1259C002AE482 /* Prime.swift */; };
@@ -99,6 +100,7 @@
 		07D7ABFC1FE2FD68002AE482 /* UIImageExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABFB1FE2FD68002AE482 /* UIImageExtensionsTests.swift */; };
 		07D7AC051FE300A4002AE482 /* swift.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D7AC041FE300A4002AE482 /* swift.png */; };
 		07D7AC071FE300D8002AE482 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7AC061FE300D8002AE482 /* Common.swift */; };
+		07DF3A27202C3A1500652032 /* LogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DF3A26202C3A1500652032 /* LogListViewController.swift */; };
 		07E013641FEB76FF00609DAB /* SignedIntegerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E013631FEB76FF00609DAB /* SignedIntegerExtensionsTests.swift */; };
 		07E013661FEB82C600609DAB /* UserDefaultsExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E013651FEB82C600609DAB /* UserDefaultsExtensionsTests.swift */; };
 		07E013681FEB84B500609DAB /* UIViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E013671FEB84B500609DAB /* UIViewExtensionsTests.swift */; };
@@ -233,6 +235,7 @@
 		07C50F87201D6E54006B224B /* BarButtonAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarButtonAnimator.swift; sourceTree = "<group>"; };
 		07C50F89201D6E7A006B224B /* ViewControllerLifecycleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLifecycleHandler.swift; sourceTree = "<group>"; };
 		07D1489D201DEC8B005F630A /* LinesAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesAdapter.swift; sourceTree = "<group>"; };
+		07D148A120201126005F630A /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
 		07D4E234200611090069AAE3 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		07D7ABD71FE124D9002AE482 /* BoolExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtensionsTests.swift; sourceTree = "<group>"; };
 		07D7ABD91FE1259C002AE482 /* Prime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prime.swift; sourceTree = "<group>"; };
@@ -247,6 +250,7 @@
 		07D7ABFB1FE2FD68002AE482 /* UIImageExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensionsTests.swift; sourceTree = "<group>"; };
 		07D7AC041FE300A4002AE482 /* swift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swift.png; sourceTree = "<group>"; };
 		07D7AC061FE300D8002AE482 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		07DF3A26202C3A1500652032 /* LogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListViewController.swift; sourceTree = "<group>"; };
 		07E013631FEB76FF00609DAB /* SignedIntegerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedIntegerExtensionsTests.swift; sourceTree = "<group>"; };
 		07E013651FEB82C600609DAB /* UserDefaultsExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensionsTests.swift; sourceTree = "<group>"; };
 		07E013671FEB84B500609DAB /* UIViewExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensionsTests.swift; sourceTree = "<group>"; };
@@ -378,6 +382,7 @@
 			children = (
 				07C50F87201D6E54006B224B /* BarButtonAnimator.swift */,
 				07C50F89201D6E7A006B224B /* ViewControllerLifecycleHandler.swift */,
+				07DF3A26202C3A1500652032 /* LogListViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -518,6 +523,7 @@
 				0726A29B1FE101660081F2B8 /* StringExtensions.swift */,
 				07F9788F1FE6C717000C8A75 /* UserDefaultsExtensions.swift */,
 				07F978911FE6C8C1000C8A75 /* NSObjectExtensions.swift */,
+				07D148A120201126005F630A /* UIDeviceExtensions.swift */,
 				07F978971FE6CC55000C8A75 /* UIViewExtensions.swift */,
 				0725BF1B201B7BD400DA1E3C /* UIViewControllerExtensions.swift */,
 				07D7ABF91FE2FCA7002AE482 /* UIImageExtensions.swift */,
@@ -845,6 +851,7 @@
 				078EE9592004B70000DF554C /* UITableViewCellExtensions.swift in Sources */,
 				0712AEA11FF542A50053A59F /* ErrorCellItem.swift in Sources */,
 				07F9789C1FE6CFD0000C8A75 /* Security.swift in Sources */,
+				07D148A220201126005F630A /* UIDeviceExtensions.swift in Sources */,
 				07E0137C1FECE3DE00609DAB /* LocalImageCellItem.swift in Sources */,
 				07D7ABFA1FE2FCA7002AE482 /* UIImageExtensions.swift in Sources */,
 				07D1489E201DEC8B005F630A /* LinesAdapter.swift in Sources */,
@@ -876,6 +883,7 @@
 				074F1D8D1FD7BF8E00303B97 /* DictionaryExtensions.swift in Sources */,
 				0726A29C1FE101660081F2B8 /* StringExtensions.swift in Sources */,
 				07E013781FECE3CA00609DAB /* SystemStyleCellItem.swift in Sources */,
+				07DF3A27202C3A1500652032 /* LogListViewController.swift in Sources */,
 				07F9788C1FE6C439000C8A75 /* CollectionExtensions.swift in Sources */,
 				07E9ADEA1FDFC95500F3A6B0 /* Random.swift in Sources */,
 				0712AEC81FFA55ED0053A59F /* TitleHeader.swift in Sources */,

@@ -58,4 +58,16 @@ class StringExtensionsTests: XCTestCase {
         string = "\n\n  t c ui  \n\n"
         XCTAssertEqual(string.trim(), "t c ui")
     }
+
+    func testLanguage() {
+        var string = ""
+        string = "Today is Monday."
+        XCTAssertEqual("en", string.language)
+
+        string = "今天是星期一"
+        XCTAssertEqual("zh-Hant", string.language)
+
+        string = "今日は月曜日です"
+        XCTAssertEqual("ja", string.language)
+    }
 }

@@ -8,55 +8,105 @@
 
 import UIKit
 
-class BarButtonAnimator {
-    let imageView: UIImageView
+private protocol BarButtonAnimatorConst {
+    var imageSizeLarge: CGFloat { get set }
+    var imageSizeSmall: CGFloat { get set }
+    var imageRightMargin: CGFloat { get set }
+    var imageBottomMarginLarge: CGFloat { get set }
+    var imageBottomMarginSmall: CGFloat { get set }
+    var navBarHeightLarge: CGFloat { get set }
+    var navBarHeightSmall: CGFloat { get set }
+}
 
-    /// WARNING: Change these constants according to your project's design
-    private struct Const {
-        /// Image height/width for Large NavBar state
-        static let ImageSizeForLargeState: CGFloat = 40
-        /// Margin from right anchor of safe area to right anchor of Image
-        static let ImageRightMargin: CGFloat = 16
-        /// Margin from bottom anchor of NavBar to bottom anchor of Image for Large NavBar state
-        static let ImageBottomMarginForLargeState: CGFloat = 12
-        /// Margin from bottom anchor of NavBar to bottom anchor of Image for Small NavBar state
-        static let ImageBottomMarginForSmallState: CGFloat = 6
-        /// Image height/width for Small NavBar state
-        static let ImageSizeForSmallState: CGFloat = 32
-        /// Height of NavBar for Small state. Usually it's just 44
-        static let NavBarHeightSmallState: CGFloat = 44
-        /// Height of NavBar for Large state. Usually it's just 96.5 but if you have a custom font for the title, please make sure to edit this value since it changes the height for Large state of NavBar
-        static let NavBarHeightLargeState: CGFloat = 96.5
+public class BarButtonAnimator {
+    public let view: UIView
+
+    private var portraitConst = PortraitConst()
+    private var landscapeConst = LandscapeConst()
+    public var size: CGSize
+
+    private struct PortraitConst: BarButtonAnimatorConst {
+        var imageSizeLarge: CGFloat = 40
+        var imageSizeSmall: CGFloat = 32
+        var imageRightMargin: CGFloat = 16
+        var imageBottomMarginLarge: CGFloat = 12
+        var imageBottomMarginSmall: CGFloat = 6
+        var navBarHeightLarge: CGFloat = 96.5
+        var navBarHeightSmall: CGFloat = 44
     }
 
-    init(target imageView: UIImageView, navigationBar: UINavigationBar) {
-        self.imageView = imageView
-
-        navigationBar.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView.rightAnchor.constraint(equalTo: navigationBar.rightAnchor, constant: -Const.ImageRightMargin),
-            imageView.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -Const.ImageBottomMarginForLargeState),
-            imageView.heightAnchor.constraint(equalToConstant: Const.ImageSizeForLargeState),
-            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
-            ])
-
+    private struct LandscapeConst: BarButtonAnimatorConst {
+        var imageSizeLarge: CGFloat = 26
+        var imageSizeSmall: CGFloat = 26
+        var imageRightMargin: CGFloat = 16
+        var imageBottomMarginLarge: CGFloat = 3
+        var imageBottomMarginSmall: CGFloat = 3
+        var navBarHeightLarge: CGFloat = 32
+        var navBarHeightSmall: CGFloat = 32
     }
 
-    func showImage(_ show: Bool) {
-        UIView.animate(withDuration: 0.2) {
-            self.imageView.alpha = show ? 1.0 : 0.0
+    var imageRight: NSLayoutConstraint!
+    var imageBottom: NSLayoutConstraint!
+    var imageHeight: NSLayoutConstraint!
+    var imageWidth: NSLayoutConstraint!
+
+    public init(target view: UIView, viewController: UIViewController) {
+        self.view = view
+        self.size = viewController.view.frame.size
+        view.alpha = 0
+        if let navigationBar = viewController.navigationController?.navigationBar {
+            navigationBar.addSubview(view)
+            updateAutoLayout(on:navigationBar)
+
+            navigationBar.setNeedsLayout()
+            navigationBar.layoutIfNeeded()
         }
     }
 
-    func moveAndResizeImage(for height: CGFloat) {
+    public func updateAutoLayout(on navigationBar: UINavigationBar) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        imageRight = view.rightAnchor.constraint(equalTo: navigationBar.safeAreaLayoutGuide.rightAnchor, constant: -portraitConst.imageRightMargin)
+        imageBottom = view.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -portraitConst.imageBottomMarginLarge)
+        imageHeight = view.heightAnchor.constraint(equalToConstant: portraitConst.imageSizeLarge)
+        imageWidth = view.widthAnchor.constraint(equalTo: view.heightAnchor)
+
+        NSLayoutConstraint.activate([
+            imageRight,
+            imageBottom,
+            imageHeight,
+            imageWidth
+            ])
+    }
+
+    private func currentConst() -> BarButtonAnimatorConst {
+        return self.size.isPortrait ? portraitConst : landscapeConst
+    }
+
+    public func updateOritention(size: CGSize) {
+        self.size = size
+        let const = currentConst()
+        imageRight.constant = -const.imageRightMargin
+        imageBottom.constant = -const.imageBottomMarginLarge
+        imageHeight.constant = const.imageSizeLarge
+        moveAndResizeImage(for: const.navBarHeightSmall)
+    }
+
+    public func showImage(_ show: Bool, _ animated: Bool) {
+        UIView.animate(withDuration:animated ? 0.12 : 0) {
+            self.view.alpha = show ? 1.0 : 0.0
+        }
+    }
+
+    public func moveAndResizeImage(for height: CGFloat) {
+        let const = currentConst()
         let coeff: CGFloat = {
-            let delta = height - Const.NavBarHeightSmallState
-            let heightDifferenceBetweenStates = (Const.NavBarHeightLargeState - Const.NavBarHeightSmallState)
+            let delta = height - const.navBarHeightSmall
+            let heightDifferenceBetweenStates = (const.navBarHeightLarge - const.navBarHeightSmall)
             return delta / heightDifferenceBetweenStates
         }()
 
-        let factor = Const.ImageSizeForSmallState / Const.ImageSizeForLargeState
+        let factor = const.imageSizeSmall / const.imageSizeLarge
 
         let scale: CGFloat = {
             let sizeAddendumFactor = coeff * (1.0 - factor)
@@ -64,18 +114,51 @@ class BarButtonAnimator {
         }()
 
         // Value of difference between icons for large and small states
-        let sizeDiff = Const.ImageSizeForLargeState * (1.0 - factor) // 8.0
+        let sizeDiff = const.imageSizeLarge * (1.0 - factor) // 8.0
 
         let yTranslation: CGFloat = {
             /// This value = 14. It equals to difference of 12 and 6 (bottom margin for large and small states). Also it adds 8.0 (size difference when the image gets smaller size)
-            let maxYTranslation = Const.ImageBottomMarginForLargeState - Const.ImageBottomMarginForSmallState + sizeDiff
-            return max(0, min(maxYTranslation, (maxYTranslation - coeff * (Const.ImageBottomMarginForSmallState + sizeDiff))))
+            let maxYTranslation = const.imageBottomMarginLarge - const.imageBottomMarginSmall + sizeDiff
+            return max(0, min(maxYTranslation, (maxYTranslation - coeff * (const.imageBottomMarginSmall + sizeDiff))))
         }()
 
         let xTranslation = max(0, sizeDiff - coeff * sizeDiff)
 
-        imageView.transform = CGAffineTransform.identity
+        // print("height \(height) - yTranslation \(yTranslation) - scale \(scale)===")
+        // print([imageRight?.constant, imageBottom?.constant, imageHeight?.constant])
+        view.transform = CGAffineTransform.identity
             .scaledBy(x: scale, y: scale)
             .translatedBy(x: xTranslation, y: yTranslation)
+    }
+}
+
+public protocol BarButtonAnimating {
+    var barAnimator: BarButtonAnimator { get }
+}
+
+extension BarButtonAnimating where Self : LifeCycleManagedViewController {
+    public func setupBarAnimator() {
+        self.lifeCycleManager
+            .addAction(.viewWillAppear) { [weak self] animated in
+                if let animated = animated as? Bool {
+                    self?.barAnimator.showImage(true, animated)
+                }
+            }
+            .addAction(.viewWillDisappear) { [weak self] animated in
+                if let animated = animated as? Bool {
+                    self?.barAnimator.showImage(false, animated)
+                }
+            }
+            .addAction(.viewWillTransition) { [weak self] size in
+                if let size = size as? CGSize {
+                    self?.barAnimator.updateOritention(size: size)
+                }
+            }
+            .addAction(.scrollViewDidScroll) { [weak self] _ in
+                if let height = self?.navigationController?.navigationBar.frame.height {
+                    self?.barAnimator.moveAndResizeImage(for: height)
+                }
+            }
+
     }
 }

@@ -17,6 +17,7 @@
 		0728658A2008A73D00C3C368 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 072865872008A6DC00C3C368 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0728658B2008A74200C3C368 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 072865862008A6DC00C3C368 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0728658E2008AAD400C3C368 /* stub-students.json in Resources */ = {isa = PBXBuildFile; fileRef = 0728658D2008AAD400C3C368 /* stub-students.json */; };
+		0778CDDE202989DA00952A23 /* IPAddressDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778CDDD202989DA00952A23 /* IPAddressDemoViewController.swift */; };
 		078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE9542004945C00DF554C /* ExamplesViewController.swift */; };
 		078EE9572004946D00DF554C /* SystemCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE9562004946D00DF554C /* SystemCellViewController.swift */; };
 		078EE95D2005BB3C00DF554C /* BuiltInCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE95C2005BB3C00DF554C /* BuiltInCellViewController.swift */; };
@@ -73,6 +74,7 @@
 		072865862008A6DC00C3C368 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Example/Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		072865872008A6DC00C3C368 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Example/Frameworks/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		0728658D2008AAD400C3C368 /* stub-students.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stub-students.json"; sourceTree = "<group>"; };
+		0778CDDD202989DA00952A23 /* IPAddressDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddressDemoViewController.swift; sourceTree = "<group>"; };
 		078EE9542004945C00DF554C /* ExamplesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesViewController.swift; sourceTree = "<group>"; };
 		078EE9562004946D00DF554C /* SystemCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCellViewController.swift; sourceTree = "<group>"; };
 		078EE95C2005BB3C00DF554C /* BuiltInCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuiltInCellViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				078EE9562004946D00DF554C /* SystemCellViewController.swift */,
 				078EE95C2005BB3C00DF554C /* BuiltInCellViewController.swift */,
 				072865752008A03E00C3C368 /* NetworkingViewController.swift */,
+				0778CDDD202989DA00952A23 /* IPAddressDemoViewController.swift */,
 				07D14897201DA72C005F630A /* LifeCycleDemoViewController.swift */,
 				07D14899201DEACC005F630A /* NavigationBarDemoViewController.swift */,
 			);
@@ -371,6 +374,7 @@
 				078EE9572004946D00DF554C /* SystemCellViewController.swift in Sources */,
 				07D1489A201DEACC005F630A /* NavigationBarDemoViewController.swift in Sources */,
 				078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */,
+				0778CDDE202989DA00952A23 /* IPAddressDemoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

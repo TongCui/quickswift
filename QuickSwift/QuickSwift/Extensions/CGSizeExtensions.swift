@@ -13,3 +13,17 @@ public extension CGSize {
         self.init(width: side, height: side)
     }
 }
+
+public extension CGSize {
+    public var isPortrait: Bool {
+        return self.width < self.height
+    }
+
+    public var isSquare: Bool {
+        return self.width == self.height
+    }
+
+    public var isLandscape: Bool {
+        return self.width > self.height
+    }
+}

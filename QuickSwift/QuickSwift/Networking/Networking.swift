@@ -86,18 +86,18 @@ public extension Request {
         data: Data?,
         error: Error?)
         -> Result<T> {
-        guard error == nil else { return .failure(error!) }
+            guard error == nil else { return .failure(error!) }
 
-        guard let validData = data, validData.count > 0 else {
-            return .failure(AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength))
-        }
+            guard let validData = data, validData.count > 0 else {
+                return .failure(AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength))
+            }
 
-        do {
-            let model = try T(fromData: validData)
-            return .success(model)
-        } catch {
-            return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: error)))
-        }
+            do {
+                let model = try T(fromData: validData)
+                return .success(model)
+            } catch {
+                return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: error)))
+            }
     }
 }
 
@@ -105,9 +105,9 @@ public extension DataRequest {
 
     public static func modelResponseSerializer<T: Codable>()
         -> DataResponseSerializer<T> {
-        return DataResponseSerializer { _, response, data, error in
-            return Request.serializeResponseModel(response: response, data: data, error: error) as Result<T>
-        }
+            return DataResponseSerializer { _, response, data, error in
+                return Request.serializeResponseModel(response: response, data: data, error: error) as Result<T>
+            }
     }
 
     @discardableResult
@@ -116,10 +116,37 @@ public extension DataRequest {
         type: T.Type,
         completionHandler: @escaping (DataResponse<T>) -> Void)
         -> Self {
-        return response(
-            queue: queue,
-            responseSerializer: DataRequest.modelResponseSerializer(),
-            completionHandler: completionHandler
-        )
+            return response(
+                queue: queue,
+                responseSerializer: DataRequest.modelResponseSerializer(),
+                completionHandler: completionHandler
+            )
+    }
+}
+
+public struct Networking {
+    // Return IP address of WiFi interface (en0) as a String, or `nil`
+    public static func getIPAddress() -> String? {
+        var address: String?
+        var ifaddr: UnsafeMutablePointer<ifaddrs>? = nil
+        if getifaddrs(&ifaddr) == 0 {
+            var ptr = ifaddr
+            while ptr != nil {
+                defer { ptr = ptr?.pointee.ifa_next }
+
+                let interface = ptr?.pointee
+                let addrFamily = interface?.ifa_addr.pointee.sa_family
+                if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
+                    if let interface = interface, String(cString: interface.ifa_name) == "en0" {
+
+                        var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                        getnameinfo(interface.ifa_addr, socklen_t((interface.ifa_addr.pointee.sa_len)), &hostname, socklen_t(hostname.count), nil, socklen_t(0), NI_NUMERICHOST)
+                        address = String(cString: hostname)
+                    }
+                }
+            }
+            freeifaddrs(ifaddr)
+        }
+        return address
     }
 }
