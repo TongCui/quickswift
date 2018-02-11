@@ -30,8 +30,8 @@ class NetworkingTests: XCTestCase {
         let expect = expectation(description: "Waiting for response")
         Alamofire.request("http://localhost/teststub")
             .responseString { (response) in
-                let fileContent = File(name: "stub.json", bundle: Bundle.test)?.content
-                XCTAssertEqual(response.result.value, fileContent)
+                let content = String(file: "stub.json", bundle: Bundle.test)!
+                XCTAssertEqual(response.result.value, content)
                 expect.fulfill()
         }
 

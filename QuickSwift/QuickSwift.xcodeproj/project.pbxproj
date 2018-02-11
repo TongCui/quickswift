@@ -16,8 +16,6 @@
 		0712AE9D1FF526DB0053A59F /* AssociatedObjectDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0712AE9C1FF526DB0053A59F /* AssociatedObjectDemo.swift */; };
 		0712AE9F1FF52D170053A59F /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0712AE9E1FF52D170053A59F /* SequenceExtensions.swift */; };
 		0712AEA11FF542A50053A59F /* ErrorCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0712AEA01FF542A40053A59F /* ErrorCellItem.swift */; };
-		0712AEA31FF5D1EA0053A59F /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0712AEA21FF5D1E90053A59F /* File.swift */; };
-		0712AEA51FF5D7A70053A59F /* FileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0712AEA41FF5D7A70053A59F /* FileTests.swift */; };
 		0712AEB01FF5E0CF0053A59F /* file.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0712AEAF1FF5E0CF0053A59F /* file.txt */; };
 		0712AEB71FF5E3D40053A59F /* plist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0712AEB61FF5E3D40053A59F /* plist.plist */; };
 		0712AEBA1FF5E7DF0053A59F /* CellItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0712AEB91FF5E7DF0053A59F /* CellItemTests.swift */; };
@@ -93,8 +91,7 @@
 		07D7ABE01FE1297C002AE482 /* RandomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABDD1FE1297C002AE482 /* RandomTests.swift */; };
 		07D7ABE11FE1297C002AE482 /* FibonacciTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABDE1FE1297C002AE482 /* FibonacciTestCases.swift */; };
 		07D7ABE21FE1297C002AE482 /* JSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABDF1FE1297C002AE482 /* JSONTests.swift */; };
-		07D7ABE41FE2541C002AE482 /* CodableJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABE31FE2541C002AE482 /* CodableJSON.swift */; };
-		07D7ABE61FE2543A002AE482 /* CodableJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABE51FE2543A002AE482 /* CodableJSONTests.swift */; };
+		07D7ABE41FE2541C002AE482 /* CodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABE31FE2541C002AE482 /* CodableExtensions.swift */; };
 		07D7ABF41FE27A73002AE482 /* ModelDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABF31FE27A73002AE482 /* ModelDemo.swift */; };
 		07D7ABFA1FE2FCA7002AE482 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABF91FE2FCA7002AE482 /* UIImageExtensions.swift */; };
 		07D7ABFC1FE2FD68002AE482 /* UIImageExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7ABFB1FE2FD68002AE482 /* UIImageExtensionsTests.swift */; };
@@ -169,8 +166,6 @@
 		0712AE9C1FF526DB0053A59F /* AssociatedObjectDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedObjectDemo.swift; sourceTree = "<group>"; };
 		0712AE9E1FF52D170053A59F /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
 		0712AEA01FF542A40053A59F /* ErrorCellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCellItem.swift; sourceTree = "<group>"; };
-		0712AEA21FF5D1E90053A59F /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		0712AEA41FF5D7A70053A59F /* FileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTests.swift; sourceTree = "<group>"; };
 		0712AEAF1FF5E0CF0053A59F /* file.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = file.txt; sourceTree = "<group>"; };
 		0712AEB61FF5E3D40053A59F /* plist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = plist.plist; sourceTree = "<group>"; };
 		0712AEB91FF5E7DF0053A59F /* CellItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemTests.swift; sourceTree = "<group>"; };
@@ -243,8 +238,7 @@
 		07D7ABDD1FE1297C002AE482 /* RandomTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomTests.swift; sourceTree = "<group>"; };
 		07D7ABDE1FE1297C002AE482 /* FibonacciTestCases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FibonacciTestCases.swift; sourceTree = "<group>"; };
 		07D7ABDF1FE1297C002AE482 /* JSONTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTests.swift; sourceTree = "<group>"; };
-		07D7ABE31FE2541C002AE482 /* CodableJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableJSON.swift; sourceTree = "<group>"; };
-		07D7ABE51FE2543A002AE482 /* CodableJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableJSONTests.swift; sourceTree = "<group>"; };
+		07D7ABE31FE2541C002AE482 /* CodableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableExtensions.swift; sourceTree = "<group>"; };
 		07D7ABF31FE27A73002AE482 /* ModelDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDemo.swift; sourceTree = "<group>"; };
 		07D7ABF91FE2FCA7002AE482 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		07D7ABFB1FE2FD68002AE482 /* UIImageExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensionsTests.swift; sourceTree = "<group>"; };
@@ -538,7 +532,7 @@
 				07E9ADE51FDFC95500F3A6B0 /* Fibonacci.swift */,
 				07E9ADE61FDFC95500F3A6B0 /* JSON.swift */,
 				07F9789B1FE6CFD0000C8A75 /* Security.swift */,
-				07D7ABE31FE2541C002AE482 /* CodableJSON.swift */,
+				07D7ABE31FE2541C002AE482 /* CodableExtensions.swift */,
 				07D7ABD91FE1259C002AE482 /* Prime.swift */,
 				07E9ADE71FDFC95500F3A6B0 /* Random.swift */,
 				07656F381FE37D130058E2D9 /* Regex.swift */,
@@ -546,7 +540,6 @@
 				07E0137F1FECE4BB00609DAB /* CommonInit.swift */,
 				0712AE801FF141650053A59F /* MultiSet.swift */,
 				0712AE981FF521890053A59F /* Runtime.swift */,
-				0712AEA21FF5D1E90053A59F /* File.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -583,7 +576,6 @@
 				07D7ABDF1FE1297C002AE482 /* JSONTests.swift */,
 				07656F3C1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift */,
 				0728657120089B2800C3C368 /* BundleExtensionsTests.swift */,
-				07D7ABE51FE2543A002AE482 /* CodableJSONTests.swift */,
 				07D7ABDD1FE1297C002AE482 /* RandomTests.swift */,
 				074F1D8A1FD79F4F00303B97 /* OperatorsTests.swift */,
 				07D7ABDB1FE125E9002AE482 /* PrimeTests.swift */,
@@ -593,7 +585,6 @@
 				0712AE8C1FF4D1900053A59F /* MultiSetTests.swift */,
 				0712AE9A1FF523B40053A59F /* RuntimeTests.swift */,
 				0712AE9C1FF526DB0053A59F /* AssociatedObjectDemo.swift */,
-				0712AEA41FF5D7A70053A59F /* FileTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -865,11 +856,10 @@
 				0712AECE1FFB2B310053A59F /* Error.swift in Sources */,
 				07F03DD91FCBFD9E006F79C8 /* Model.swift in Sources */,
 				07F978981FE6CC55000C8A75 /* UIViewExtensions.swift in Sources */,
-				07D7ABE41FE2541C002AE482 /* CodableJSON.swift in Sources */,
+				07D7ABE41FE2541C002AE482 /* CodableExtensions.swift in Sources */,
 				0725BF0A20185A5D00DA1E3C /* CGFloatExtensions.swift in Sources */,
 				0712AEBC1FF5E8820053A59F /* EquatableExtensions.swift in Sources */,
 				0712AE991FF521890053A59F /* Runtime.swift in Sources */,
-				0712AEA31FF5D1EA0053A59F /* File.swift in Sources */,
 				07656F391FE37D130058E2D9 /* Regex.swift in Sources */,
 				0728657420089DC800C3C368 /* PageLoader.swift in Sources */,
 				0712AECC1FFA6BF60053A59F /* TitleFooter.swift in Sources */,
@@ -916,7 +906,6 @@
 				071D2F001FEB732200193763 /* CollectionExtensionsTests.swift in Sources */,
 				074F1D931FD7C26200303B97 /* DictionaryExample.swift in Sources */,
 				075B6FD51FE8E80B00DC3FFD /* SwizzleDemo.swift in Sources */,
-				0712AEA51FF5D7A70053A59F /* FileTests.swift in Sources */,
 				0712AEBA1FF5E7DF0053A59F /* CellItemTests.swift in Sources */,
 				074F1D941FD7C26200303B97 /* ArrayExample.swift in Sources */,
 				074B08AD1FDA689600D939AD /* IntExtensionsTests.swift in Sources */,
@@ -934,7 +923,6 @@
 				07F978891FE60928000C8A75 /* StyleFactoryDemo.swift in Sources */,
 				07D7ABDC1FE125E9002AE482 /* PrimeTests.swift in Sources */,
 				07D7ABF41FE27A73002AE482 /* ModelDemo.swift in Sources */,
-				07D7ABE61FE2543A002AE482 /* CodableJSONTests.swift in Sources */,
 				07D7ABD81FE124D9002AE482 /* BoolExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

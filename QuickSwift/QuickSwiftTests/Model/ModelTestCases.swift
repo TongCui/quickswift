@@ -23,14 +23,14 @@ class ModelTestCases: XCTestCase {
 
         //  Test Parse from valid string
         var string = "{\"age\":20,\"name\":\"appannie\"}"
-        model = try? Model0(fromString: string)
+        model = try? Model0(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model?.age, 20)
         XCTAssertEqual(model?.name, "appannie")
 
         //  Test Parse from invalid string
         string = "{\"age\":\"20\",\"name\":\"appannie\"}"
-        model = try? Model0(fromString: string)
+        model = try? Model0(fromJSONString: string)
         XCTAssertNil(model)
     }
 
@@ -48,14 +48,14 @@ class ModelTestCases: XCTestCase {
 
         //  Test Parse from valid string
         var string = "{\"age\":20,\"name\":\"appannie\"}"
-        model = try? Model1(fromString: string)
+        model = try? Model1(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model?.age, 20)
         XCTAssertEqual(model?.name, "appannie")
 
         //  Test Parse from invalid string
         string = "{\"age\":\"20\",\"name\":\"appannie\"}"
-        model = try? Model1(fromString: string)
+        model = try? Model1(fromJSONString: string)
         XCTAssertNil(model)
     }
 
@@ -73,17 +73,17 @@ class ModelTestCases: XCTestCase {
 
         //  Test Parse from valid string
         var string = "{\"date\":-978307100}"
-        model = try? Model2(fromString: string)
+        model = try? Model2(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model?.date, Date(timeIntervalSince1970: 100))
 
         //  Test Parse from invalid string
         string = "{\"date\":\"-978307100\"}"
-        model = try? Model2(fromString: string)
+        model = try? Model2(fromJSONString: string)
         XCTAssertNil(model)
 
         string = "{\"date\":\"2018-01-01\"}"
-        model = try? Model2(fromString: string)
+        model = try? Model2(fromJSONString: string)
         XCTAssertNil(model)
     }
 
@@ -100,17 +100,17 @@ class ModelTestCases: XCTestCase {
 
         //  Test Parse from valid string
         var string = "{\"date\":100}"
-        model = try? Model3(fromString: string)
+        model = try? Model3(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model?.date, Date(timeIntervalSince1970: 100))
 
         //  Test Parse from invalid string
         string = "{\"date\":\"100\"}"
-        model = try? Model3(fromString: string)
+        model = try? Model3(fromJSONString: string)
         XCTAssertNil(model)
 
         string = "{\"date\":\"2018-01-01\"}"
-        model = try? Model3(fromString: string)
+        model = try? Model3(fromJSONString: string)
         XCTAssertNil(model)
     }
 
@@ -127,17 +127,17 @@ class ModelTestCases: XCTestCase {
 
         //  Test Parse from valid string
         var string = "{\"date\":\"1970-01-02\"}"
-        model = try? Model4(fromString: string)
+        model = try? Model4(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model?.date, Model4.formatter.date(from: "1970-01-02"))
 
         //  Test Parse from invalid string
         string = "{\"date\":\"100\"}"
-        model = try? Model4(fromString: string)
+        model = try? Model4(fromJSONString: string)
         XCTAssertNil(model)
 
         string = "{\"date\":1000}"
-        model = try? Model4(fromString: string)
+        model = try? Model4(fromJSONString: string)
         XCTAssertNil(model)
     }
 
@@ -154,17 +154,17 @@ class ModelTestCases: XCTestCase {
         XCTAssertTrue(match)
 
         var string = "{\"names\":[\"a\",\"b\",\"c\"],\"weights\":[1.1, 2.2, 3.3]}"
-        model = try? Model5(fromString: string)
+        model = try? Model5(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.names, ["a", "b", "c"])
         XCTAssertEqual(model!.weights, [1.1, 2.2, 3.3])
 
         string = "{\"wrong_names\":[\"a\",\"b\",\"c\"],\"weights\":[1.1, 2.2, 3.3]}"
-        model = try? Model5(fromString: string)
+        model = try? Model5(fromJSONString: string)
         XCTAssertNil(model)
 
         string = "{\"wrong_names\":[\"a\",\"b\",\"c\"],\"weights\":[\"1\"]}"
-        model = try? Model5(fromString: string)
+        model = try? Model5(fromJSONString: string)
         XCTAssertNil(model)
     }
 
@@ -185,7 +185,7 @@ class ModelTestCases: XCTestCase {
 //        XCTAssertEqual(try! model?.toJSONString(), "{\"birthdays\":[\"1999-12-31T16:00:00Z\",\"2009-12-31T16:00:00Z\"],\"counts\":[1,2]}")
 
         let string = "{\"birthdays\":[\"1999-12-31T16:00:00Z\",\"2009-12-31T16:00:00Z\"],\"counts\":[]}"
-        model = try? Model6(fromString: string)
+        model = try? Model6(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.counts, [])
         XCTAssertEqual(model!.birthdays.count, 2)
@@ -211,22 +211,22 @@ class ModelTestCases: XCTestCase {
         XCTAssertEqual(try! model?.toJSONString(), "{}")
 
         var string = "{\"age\":100}"
-        model = try? Model7(fromString: string)
+        model = try? Model7(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.age, 100)
 
         string = "{}"
-        model = try? Model7(fromString: string)
+        model = try? Model7(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertNil(model?.age)
 
         string = "{\"age\":null}"
-        model = try? Model7(fromString: string)
+        model = try? Model7(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertNil(model?.age)
 
         string = "{\"age\":\"12\"}"
-        model = try? Model7(fromString: string)
+        model = try? Model7(fromJSONString: string)
         XCTAssertNil(model)
     }
 
@@ -242,13 +242,13 @@ class ModelTestCases: XCTestCase {
         XCTAssertEqual(try! model?.toJSONString(), "{\"custom_name\":\"custom\",\"defaultName\":\"default\"}")
 
         var string = "{\"custom_name\":\"custom\", \"defaultName\":\"default\"}"
-        model = try? Model8(fromString: string)
+        model = try? Model8(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.defaultName, "default")
         XCTAssertEqual(model!.customName, "custom")
 
         string = "{\"customName\":\"custom\", \"defaultName\":\"default\"}"
-        model = try? Model8(fromString: string)
+        model = try? Model8(fromJSONString: string)
         XCTAssertNil(model)
     }
 
@@ -273,22 +273,22 @@ class ModelTestCases: XCTestCase {
         XCTAssertEqual(try model?.toJSONString(), "{\"value\":\"-inf\"}")
 
         var string = "{\"value\":1.2}"
-        model = try? Model9(fromString: string)
+        model = try? Model9(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.value, 1.2, accuracy: 0.001)
 
         string = "{\"value\":\"nan\"}"
-        model = try? Model9(fromString: string)
+        model = try? Model9(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertTrue(model!.value.isNaN)
 
         string = "{\"value\":\"+inf\"}"
-        model = try? Model9(fromString: string)
+        model = try? Model9(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertTrue(model!.value.isInfinite)
 
         string = "{\"value\":\"-inf\"}"
-        model = try? Model9(fromString: string)
+        model = try? Model9(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.value, -.infinity)
 
@@ -308,13 +308,13 @@ class ModelTestCases: XCTestCase {
         XCTAssertEqual(try model?.toJSONString(), "{\"url\":\"http:\\/\\/www.google.com\",\"urlString\":\"http:\\/\\/www.google.com\"}")
 
         var string = "{\"url\":\"http:\\/\\/www.google.com\",\"urlString\":\"http:\\/\\/www.google.com\"}"
-        model = try? Model10(fromString: string)
+        model = try? Model10(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.urlString, "http://www.google.com")
         XCTAssertEqual(model!.url!.absoluteString, "http://www.google.com")
 
         string = "{\"urlString\":\"invalid url string\",\"url\":\"invalid url\"}"
-        model = try? Model10(fromString: string)
+        model = try? Model10(fromJSONString: string)
         XCTAssertNil(model)
     }
 
@@ -333,14 +333,14 @@ class ModelTestCases: XCTestCase {
         XCTAssertEqual(try model?.toJSONString(), "{\"info\":{\"age\":18,\"value\":12},\"name\":\"name\"}")
 
         var string = "{\"info\":{\"age\":18,\"value\":12},\"name\":\"name\"}"
-        model = try? Model11(fromString: string)
+        model = try? Model11(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.name, "name")
         XCTAssertEqual(model!.age, 18)
         XCTAssertEqual(model!.value, 12)
 
         string = "{\"name\":\"name\"}"
-        model = try? Model11(fromString: string)
+        model = try? Model11(fromJSONString: string)
         XCTAssertNil(model)
     }
 
@@ -359,28 +359,28 @@ class ModelTestCases: XCTestCase {
         XCTAssertEqual(try model?.toJSONString(), "{\"info\":{\"age\":18,\"value\":20},\"name\":\"name\"}")
 
         var string = "{}"
-        model = try? Model12(fromString: string)
+        model = try? Model12(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertNil(model?.name)
         XCTAssertNil(model?.age)
         XCTAssertNil(model?.value)
 
         string = "{\"name\":\"name\"}"
-        model = try? Model12(fromString: string)
+        model = try? Model12(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertNotNil(model?.name)
         XCTAssertNil(model?.age)
         XCTAssertNil(model?.value)
 
         string = "{\"info\":{\"age\":18},\"name\":\"name\"}"
-        model = try? Model12(fromString: string)
+        model = try? Model12(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertNotNil(model?.name)
         XCTAssertNotNil(model?.age)
         XCTAssertNil(model?.value)
 
         string = "{\"info\":{\"age\":20,\"value\":12},\"name\":\"name\"}"
-        model = try? Model12(fromString: string)
+        model = try? Model12(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertNotNil(model?.name)
         XCTAssertNotNil(model?.age)
@@ -401,19 +401,19 @@ class ModelTestCases: XCTestCase {
         XCTAssertEqual(try model?.toJSONString(), "{\"model\":{\"age\":10,\"name\":\"name\"},\"name\":\"name\"}")
 
         var string = "{}"
-        model = try? Model13(fromString: string)
+        model = try? Model13(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertNil(model?.name)
         XCTAssertNil(model?.model)
 
         string = "{\"name\":\"name\"}"
-        model = try? Model13(fromString: string)
+        model = try? Model13(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertNotNil(model?.name)
         XCTAssertNil(model?.model)
 
         string = "{\"model\":{\"age\":10,\"name\":\"name\"},\"name\":\"name\"}"
-        model = try? Model13(fromString: string)
+        model = try? Model13(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertNotNil(model?.name)
         XCTAssertNotNil(model?.model)
@@ -434,16 +434,16 @@ class ModelTestCases: XCTestCase {
         XCTAssertEqual(try model?.toJSONString(), "{\"models\":[{\"age\":1,\"name\":\"name1\"},{\"age\":2,\"name\":\"name2\"}]}")
 
         var string = "{}"
-        model = try? Model14(fromString: string)
+        model = try? Model14(fromJSONString: string)
         XCTAssertNil(model)
 
         string = "{\"models\":[]}"
-        model = try? Model14(fromString: string)
+        model = try? Model14(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertTrue(model!.models.isEmpty)
 
         string = "{\"models\":[{\"age\":1,\"name\":\"name1\"},{\"age\":2,\"name\":\"name2\"}]}"
-        model = try? Model14(fromString: string)
+        model = try? Model14(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.models.count, 2)
 
@@ -463,16 +463,16 @@ class ModelTestCases: XCTestCase {
         XCTAssertEqual(try model?.toJSONString(), "{\"models\":{\"1\":{\"age\":1,\"name\":\"name1\"},\"2\":{\"age\":2,\"name\":\"name2\"}}}")
 
         var string = "{}"
-        model = try? Model15(fromString: string)
+        model = try? Model15(fromJSONString: string)
         XCTAssertNil(model)
 
         string = "{\"models\":{}}"
-        model = try? Model15(fromString: string)
+        model = try? Model15(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertTrue(model!.models.isEmpty)
 
         string = "{\"models\":{\"1\":{\"age\":1,\"name\":\"name1\"},\"2\":{\"age\":2,\"name\":\"name2\"}}}"
-        model = try? Model15(fromString: string)
+        model = try? Model15(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.models.count, 2)
         XCTAssertEqual(model!.models["1"]!.name, "name1")
@@ -492,13 +492,13 @@ class ModelTestCases: XCTestCase {
         XCTAssertEqual(try model?.toJSONString(), "{\"value\":2}")
 
         var string = "{\"value\":2}"
-        model = try? Model16(fromString: string)
+        model = try? Model16(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.value, 2)
         XCTAssertEqual(model!.title, "2")
 
         string = "{\"value\":2,\"title\":\"100\"}"
-        model = try? Model16(fromString: string)
+        model = try? Model16(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.value, 2)
         XCTAssertEqual(model!.title, "2")
@@ -533,13 +533,13 @@ class ModelTestCases: XCTestCase {
         XCTAssertEqual(try model?.toJSONString(), "{\"age\":10}")
 
         var string = "{\"age\":2}"
-        model = try? Model18(fromString: string)
+        model = try? Model18(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.age, 2)
         XCTAssertEqual(model!.fakeAge, 0)
 
         string = "{\"age\":2,\"fakeAge\":2}"
-        model = try? Model18(fromString: string)
+        model = try? Model18(fromJSONString: string)
         XCTAssertNotNil(model)
         XCTAssertEqual(model!.age, 2)
         XCTAssertEqual(model!.fakeAge, 0)
@@ -556,7 +556,7 @@ class ModelTestCases: XCTestCase {
 
         let string = "[{\"age\":1,\"name\":\"name1\"},{\"age\":2,\"name\":\"name2\"},{\"age\":3,\"name\":\"name3\"}]"
 
-        let models: [Model0]? = try? CodableJSON.parse(fromString: string)
+        let models: [Model0]? = try? Array(fromJSONString: string)
         XCTAssertNotNil(models)
         XCTAssertEqual(models!.count, 3)
 
@@ -576,7 +576,7 @@ class ModelTestCases: XCTestCase {
 
         let string = "{\"1\":{\"age\":1,\"name\":\"name1\"},\"2\":{\"age\":2,\"name\":\"name2\"},\"3\":{\"age\":3,\"name\":\"name3\"}}"
 
-        let models: [String: Model0]? = try? CodableJSON.parse(fromString: string)
+        let models: [String: Model0]? = try? Dictionary(fromJSONString: string)
         XCTAssertNotNil(models)
         XCTAssertEqual(models!.count, 3)
 
@@ -596,7 +596,7 @@ class ModelTestCases: XCTestCase {
 
         let string = "{\"1\":[{\"age\":1,\"name\":\"name1\"},{\"age\":1,\"name\":\"name1\"}],\"2\":[{\"age\":2,\"name\":\"name2\"},{\"age\":2,\"name\":\"name2\"}],\"3\":[{\"age\":3,\"name\":\"name3\"},{\"age\":3,\"name\":\"name3\"}]}"
 
-        let models: [String: [Model0]]? = try? CodableJSON.parse(fromString: string)
+        let models: [String: [Model0]]? = try? Dictionary(fromJSONString: string)
         XCTAssertNotNil(models)
         XCTAssertEqual(models!.count, 3)
 
@@ -611,7 +611,7 @@ class ModelTestCases: XCTestCase {
     func testParseFromFlatterningDictionary() {
         let string = "{\"data\":[{\"age\":1,\"name\":\"name1\"},{\"age\":2,\"name\":\"name2\"}]}"
 
-        let response: [String: [Model0]]? = try? CodableJSON.parse(fromString: string)
+        let response: [String: [Model0]]? = try? Dictionary(fromJSONString: string)
         XCTAssertNotNil(response)
         XCTAssertEqual(response!.count, 1)
 

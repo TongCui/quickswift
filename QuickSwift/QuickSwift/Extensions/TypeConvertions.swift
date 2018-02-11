@@ -85,21 +85,23 @@ public extension String {
 
     public func toArray<Value: Encodable>() throws -> [Value] {
         do {
-            return try CodableJSON.parse(fromString: self)
+            let valueArray: [Value] = try Array(fromJSONString: self)
+            return valueArray
         } catch {
             throw TypeConvertError.cannotConvert(String.self, [Value].self)
         }
     }
 
-    public func toDictionary<Key: Encodable, Value: Encodable>() throws -> [Key: Value] {
+    public func toDictionary<Value: Encodable>() throws -> [String: Value] {
         do {
-            return try CodableJSON.parse(fromString: self)
+            let valueDictionary: [String: Value] = try Dictionary(fromJSONString: self)
+            return valueDictionary
         } catch {
-            throw TypeConvertError.cannotConvert(String.self, [Key: Value].self)
+            throw TypeConvertError.cannotConvert(String.self, [String: Value].self)
         }
     }
 
-    public func toJSON<Key: Encodable, Value: Encodable>() throws -> [Key: Value] {
+    public func toJSON<Value: Encodable>() throws -> [String: Value] {
         return try toDictionary()
     }
 }
@@ -111,21 +113,23 @@ public extension Data {
 
     public func toArray<Value: Decodable>() throws -> [Value] {
         do {
-            return try CodableJSON.parse(fromData: self)
+            let valueArray: [Value] = try Array(fromData: self)
+            return valueArray
         } catch {
             throw TypeConvertError.cannotConvert(Data.self, [Value].self)
         }
     }
 
-    public func toDictionary<Key: Decodable, Value: Decodable>() throws -> [Key: Value] {
+    public func toDictionary<Value: Decodable>() throws -> [String: Value] {
         do {
-            return try CodableJSON.parse(fromData: self)
+            let valueDictionary: [String: Value] = try Dictionary(fromData: self)
+            return valueDictionary
         } catch {
-            throw TypeConvertError.cannotConvert(Data.self, [Key: Value].self)
+            throw TypeConvertError.cannotConvert(Data.self, [String: Value].self)
         }
     }
 
-    public func toJSON<Key: Decodable, Value: Decodable>() throws -> [Key: Value] {
+    public func toJSON<Value: Decodable>() throws -> [String: Value] {
         return try toDictionary()
     }
 

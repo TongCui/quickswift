@@ -26,7 +26,7 @@ public extension FileManager {
         return FileManager.default.fileExists(atPath: url.path)
     }
 
-    static func touch(fileName: String, in directory: SearchPathDirectory) throws {
+    public static func touch(fileName: String, in directory: SearchPathDirectory) throws {
         let url = fileURL(fileName: fileName, in: directory)
         return try touch(url: url)
     }
