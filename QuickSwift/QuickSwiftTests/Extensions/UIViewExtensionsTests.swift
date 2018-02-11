@@ -154,4 +154,31 @@ class UIViewExtensionsTests: XCTestCase {
         }
     }
 
+    func testAddBorder() {
+        view.addBorder(color: .red)
+        XCTAssertEqual(view.layer.borderColor, UIColor.red.cgColor)
+        XCTAssertEqual(view.layer.borderWidth, .defaultBorderWidth)
+    }
+
+    func testFindFirstResponder() {
+        let input = UITextField()
+        view.addSubview(input)
+
+        let viewController = UIViewController()
+        viewController.view.addSubview(view)
+
+        let window = UIWindow()
+        window.addSubview(viewController.view)
+
+        XCTAssertNil(input.findFirstResponder())
+        XCTAssertNil(viewController.view.findFirstResponder())
+        XCTAssertNil(window.findFirstResponder())
+
+        input.becomeFirstResponder()
+
+        XCTAssertEqual(input, input.findFirstResponder())
+        XCTAssertEqual(input, viewController.view.findFirstResponder())
+        XCTAssertEqual(input, window.findFirstResponder())
+    }
+
 }

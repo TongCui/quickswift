@@ -111,16 +111,6 @@ public extension Date {
 
 }
 
-public extension UIColor {
-    public static func random(includingAlpha randomAlpha: Bool = false) -> UIColor {
-        let randomRed = CGFloat.random()
-        let randomGreen = CGFloat.random()
-        let randomBlue = CGFloat.random()
-        let alpha = randomAlpha ? CGFloat.random() : 1.0
-        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: alpha)
-    }
-}
-
 public extension Array {
     public func randomItem() -> Element? {
         guard !self.isEmpty else {

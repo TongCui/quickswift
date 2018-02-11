@@ -26,9 +26,6 @@ class RandomTests: XCTestCase {
         XCTAssertNotNil(CGFloat.random())
         XCTAssertNotNil(Float.random())
         XCTAssertNotNil(Double.random())
-        XCTAssertNotNil(UIColor.random())
-        XCTAssertNotNil(UIColor.random(includingAlpha:true))
-        XCTAssertNotNil(UIColor.random(includingAlpha:false))
         XCTAssertNotNil([1, 2, 3].randomItem())
         XCTAssertNil([].randomItem())
     }

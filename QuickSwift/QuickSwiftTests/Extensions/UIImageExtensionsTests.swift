@@ -28,6 +28,10 @@ class UIImageExtensionsTests: XCTestCase {
         XCTAssertNotNil(data?.toImage())
     }
 
+    func testToTemplateImage() {
+        XCTAssertEqual(image.toTemplateImage().renderingMode, .alwaysTemplate)
+    }
+
     func testSize() {
         XCTAssertEqual(image.width, 40)
         XCTAssertEqual(image.height, 40)

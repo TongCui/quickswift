@@ -11,12 +11,12 @@ import XCTest
 
 class UIControlExtensionsTests: XCTestCase {
 
-    func testExample() {
+    func testAddHandler() {
         let button = UIButton(frame: CGRect.zero)
         XCTAssertTrue(button.allTargets.isEmpty)
-        button.addHandler(for: .touchUpInside) { (sender: UIButton) in
-            print("button did press \(sender)")
-        }
+        button.addHandler(for: .touchUpInside) { _ in }
+        XCTAssertFalse(button.allTargets.isEmpty)
+        button.addHandler(for: .touchUpInside) { _ in }
         XCTAssertFalse(button.allTargets.isEmpty)
     }
 
