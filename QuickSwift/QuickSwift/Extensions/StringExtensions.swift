@@ -24,6 +24,10 @@ public extension String {
     func trim() -> String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
     }
+
+    func `repeat`(_ times: Int) -> String {
+        return Array(repeating: self, count: times).joined(separator: "")
+    }
 }
 
 public extension String {

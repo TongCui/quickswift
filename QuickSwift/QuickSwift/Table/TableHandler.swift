@@ -128,7 +128,7 @@ public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProt
 
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let sectionItem = adapter.sections[safe: section]
-        return sectionItem?.header?.height ?? 0
+        return sectionItem?.header?.height ?? defaultHeaderHeight(tableView:tableView, section:section)
     }
 
     public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -139,6 +139,15 @@ public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProt
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let sectionItem = adapter.sections[safe: section]
         return sectionItem?.footer?.height ?? 0
+    }
+
+    private func defaultHeaderHeight(tableView: UITableView, section: Int) -> CGFloat {
+        switch tableView.style {
+        case .plain:
+            return 0
+        case .grouped:
+            return section == 0 ? .tableHeaderDefaultHeight : 0
+        }
     }
 }
 

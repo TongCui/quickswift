@@ -12,7 +12,8 @@ public class TitleHeaderSectionItem: SectionItemProtocol {
     public var header: SectionHeaderFooterProtocol?
     public var cellItems: [CellItemProtocol] = []
 
-    public init(header: String) {
+    public init(header: String, height: CGFloat? = nil) {
         self.header = TitleHeader(title: header)
+        self.header?.height = height
     }
 }

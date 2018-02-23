@@ -14,8 +14,10 @@ public class TitleHeaderFooterSectionItem: SectionItemProtocol {
     public var header: SectionHeaderFooterProtocol?
     public var cellItems: [CellItemProtocol] = []
 
-    public init(header: String, footer: String) {
+    public init(header: String, footer: String, headerHeight: CGFloat? = nil, footerHeight: CGFloat? = nil) {
         self.header = TitleHeader(title: header)
+        self.header?.height = headerHeight
         self.footer = TitleFooter(title: footer)
+        self.footer?.height = footerHeight
     }
 }

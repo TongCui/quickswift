@@ -16,4 +16,7 @@ enum SegueIds: String {
     case goLifecycleVC = "go_lifecycle_vc"
     case goNavigationBar1VC = "go_navigation_bar_1_vc"
     case goNavigationBar2VC = "go_navigation_bar_2_vc"
+    case goCellInsertDeleteVC = "go_cell_insert_delete_vc"
+    case goHeaderVC = "go_header_vc"
+    case goPlainVC = "go_plain_vc"
 }

@@ -143,4 +143,14 @@ class StringExtensionsTests: XCTestCase {
         lines.readLines(file: fileName, in: .documentDirectory)
         XCTAssertEqual(expected, lines)
     }
+
+    func testRepeat() {
+        let str = "str"
+
+        //  str.repeat(0) # fatal error
+        XCTAssertEqual("", str.repeat(0))
+        XCTAssertEqual("str", str.repeat(1))
+        XCTAssertEqual("strstrstr", str.repeat(3))
+        XCTAssertEqual("strstrstrstr", str.repeat(4))
+    }
 }

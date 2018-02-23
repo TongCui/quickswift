@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0701BE6320302ECE0076B062 /* CellInsertDeleteDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0701BE6220302ECE0076B062 /* CellInsertDeleteDemoViewController.swift */; };
 		0712AEB31FF5E15E0053A59F /* file.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0712AEB21FF5E15E0053A59F /* file.txt */; };
 		0725BF0720170E7000DA1E3C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0725BF0620170E6F00DA1E3C /* SnapKit.framework */; };
 		0725BF0820170E7800DA1E3C /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0725BF0620170E6F00DA1E3C /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -17,6 +18,8 @@
 		0728658A2008A73D00C3C368 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 072865872008A6DC00C3C368 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0728658B2008A74200C3C368 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 072865862008A6DC00C3C368 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0728658E2008AAD400C3C368 /* stub-students.json in Resources */ = {isa = PBXBuildFile; fileRef = 0728658D2008AAD400C3C368 /* stub-students.json */; };
+		0735FD87203E6F0D00BE1342 /* HeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735FD86203E6F0D00BE1342 /* HeadersViewController.swift */; };
+		0735FD89203FBFB000BE1342 /* PlainTableDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735FD88203FBFB000BE1342 /* PlainTableDemoViewController.swift */; };
 		0778CDDE202989DA00952A23 /* IPAddressDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778CDDD202989DA00952A23 /* IPAddressDemoViewController.swift */; };
 		078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE9542004945C00DF554C /* ExamplesViewController.swift */; };
 		078EE9572004946D00DF554C /* SystemCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE9562004946D00DF554C /* SystemCellViewController.swift */; };
@@ -68,12 +71,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0701BE6220302ECE0076B062 /* CellInsertDeleteDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellInsertDeleteDemoViewController.swift; sourceTree = "<group>"; };
 		0712AEB21FF5E15E0053A59F /* file.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = file.txt; sourceTree = "<group>"; };
 		0725BF0620170E6F00DA1E3C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Example/Frameworks/SnapKit.framework; sourceTree = "<group>"; };
 		072865752008A03E00C3C368 /* NetworkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingViewController.swift; sourceTree = "<group>"; };
 		072865862008A6DC00C3C368 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Example/Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		072865872008A6DC00C3C368 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Example/Frameworks/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		0728658D2008AAD400C3C368 /* stub-students.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stub-students.json"; sourceTree = "<group>"; };
+		0735FD86203E6F0D00BE1342 /* HeadersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadersViewController.swift; sourceTree = "<group>"; };
+		0735FD88203FBFB000BE1342 /* PlainTableDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTableDemoViewController.swift; sourceTree = "<group>"; };
 		0778CDDD202989DA00952A23 /* IPAddressDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddressDemoViewController.swift; sourceTree = "<group>"; };
 		078EE9542004945C00DF554C /* ExamplesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesViewController.swift; sourceTree = "<group>"; };
 		078EE9562004946D00DF554C /* SystemCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCellViewController.swift; sourceTree = "<group>"; };
@@ -154,12 +160,15 @@
 			isa = PBXGroup;
 			children = (
 				078EE9542004945C00DF554C /* ExamplesViewController.swift */,
+				0735FD88203FBFB000BE1342 /* PlainTableDemoViewController.swift */,
+				0735FD86203E6F0D00BE1342 /* HeadersViewController.swift */,
 				078EE9562004946D00DF554C /* SystemCellViewController.swift */,
 				078EE95C2005BB3C00DF554C /* BuiltInCellViewController.swift */,
 				072865752008A03E00C3C368 /* NetworkingViewController.swift */,
 				0778CDDD202989DA00952A23 /* IPAddressDemoViewController.swift */,
 				07D14897201DA72C005F630A /* LifeCycleDemoViewController.swift */,
 				07D14899201DEACC005F630A /* NavigationBarDemoViewController.swift */,
+				0701BE6220302ECE0076B062 /* CellInsertDeleteDemoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -367,11 +376,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				072865762008A03E00C3C368 /* NetworkingViewController.swift in Sources */,
+				0701BE6320302ECE0076B062 /* CellInsertDeleteDemoViewController.swift in Sources */,
 				07D148A0201EC81A005F630A /* Consts.swift in Sources */,
 				078EE95D2005BB3C00DF554C /* BuiltInCellViewController.swift in Sources */,
 				07D14898201DA72C005F630A /* LifeCycleDemoViewController.swift in Sources */,
+				0735FD89203FBFB000BE1342 /* PlainTableDemoViewController.swift in Sources */,
 				07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */,
 				078EE9572004946D00DF554C /* SystemCellViewController.swift in Sources */,
+				0735FD87203E6F0D00BE1342 /* HeadersViewController.swift in Sources */,
 				07D1489A201DEACC005F630A /* NavigationBarDemoViewController.swift in Sources */,
 				078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */,
 				0778CDDE202989DA00952A23 /* IPAddressDemoViewController.swift in Sources */,

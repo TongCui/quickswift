@@ -31,8 +31,17 @@ open class LogListViewController: LifeCycleManagedViewController {
         super.viewDidLoad()
     }
 
-    open func append(line: String) {
+    private func appendLineCellItem(line: String) {
         adapter.append(line: showNumber ? "\((adapter.sections.last?.cellItems.count ?? 0) + 1)) \(line)" : line)
+    }
+
+    open func append(line: String) {
+        appendLineCellItem(line: line)
+        adapter.reloadData()
+    }
+
+    open func append(lines: [String]) {
+        lines.forEach { appendLineCellItem(line: $0) }
         adapter.reloadData()
     }
 }

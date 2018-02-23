@@ -114,7 +114,7 @@ public extension CellItemProtocol {
 public protocol SectionHeaderFooterProtocol: TableViewRegisterable {
     func view(tableView: UITableView, section: Int) -> UIView?
     var title: String? { get set }
-    var height: CGFloat { get set }
+    var height: CGFloat? { get set }
 }
 
 public protocol SectionItemProtocol: DataSourceElement {
@@ -134,12 +134,20 @@ public extension SectionItemProtocol {
 
     @discardableResult
     public func append(_ cellItem: CellItemProtocol) -> Self {
-        self.cellItems.append(cellItem)
+        cellItems.append(cellItem)
         return self
     }
 
     public func clear() {
-        self.cellItems.removeAll()
+        cellItems.removeAll()
+    }
+
+    public func setHeaderHeight(_ height: CGFloat?) {
+        header?.height = height
+    }
+
+    public func setFooterHeight(_ height: CGFloat?) {
+        footer?.height = height
     }
 }
 
@@ -174,7 +182,7 @@ public extension TableViewAdapterProtocol {
     }
 
     public func clear() {
-        self.sections.removeAll()
+        sections.removeAll()
         reloadTableView()
     }
 
@@ -233,13 +241,13 @@ public extension TableViewAdapterProtocol {
 
     @discardableResult
     public func append(_ sectionItem: SectionItemProtocol) -> Self {
-        self.sections.append(sectionItem)
+        sections.append(sectionItem)
         return self
     }
 
     @discardableResult
     public func append(sectionItems: () -> [SectionItemProtocol]) -> Self {
-        self.sections.append(contentsOf: sectionItems())
+        sections.append(contentsOf: sectionItems())
         return self
     }
 

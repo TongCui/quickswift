@@ -41,6 +41,9 @@
                         <segue destination="bkd-2O-aty" kind="show" identifier="go_lifecycle_vc" id="P5B-Ol-A9t"/>
                         <segue destination="jn3-jX-jr8" kind="show" identifier="go_ipaddress_vc" id="9Mq-Ft-PwC"/>
                         <segue destination="9kF-qp-tHE" kind="show" identifier="go_navigation_bar_2_vc" id="CKT-FA-gIo"/>
+                        <segue destination="l0V-RC-fP3" kind="show" identifier="go_cell_insert_delete_vc" id="ouT-sj-AcI"/>
+                        <segue destination="szR-2d-Mg1" kind="show" identifier="go_header_vc" id="Gv6-aC-dbj"/>
+                        <segue destination="Nni-Px-CFa" kind="show" identifier="go_plain_vc" id="Igi-VI-63u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -227,6 +230,99 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJA-Bb-bAe" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3332" y="484"/>
+        </scene>
+        <!--Cell Insert Delete-->
+        <scene sceneID="60u-v0-gwt">
+            <objects>
+                <viewController id="l0V-RC-fP3" customClass="CellInsertDeleteDemoViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uNI-qO-iXA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="5Ag-jj-gzE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5Ag-jj-gzE" firstAttribute="top" secondItem="uNI-qO-iXA" secondAttribute="top" id="1ZM-1C-rbB"/>
+                            <constraint firstItem="5Ag-jj-gzE" firstAttribute="leading" secondItem="uNI-qO-iXA" secondAttribute="leading" id="2Uo-PU-o7q"/>
+                            <constraint firstAttribute="trailing" secondItem="5Ag-jj-gzE" secondAttribute="trailing" id="FAa-SN-8me"/>
+                            <constraint firstItem="5Ag-jj-gzE" firstAttribute="bottom" secondItem="uNI-qO-iXA" secondAttribute="bottom" id="Ix8-Pc-AuM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="joB-Qr-oDT"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cell Insert Delete" id="5Kj-cw-aRP"/>
+                    <connections>
+                        <outlet property="tableView" destination="5Ag-jj-gzE" id="9VV-Po-Ufe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ecq-ur-LLt" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2657" y="-903"/>
+        </scene>
+        <!--Headers-->
+        <scene sceneID="aNq-ys-8jv">
+            <objects>
+                <viewController id="szR-2d-Mg1" customClass="HeadersViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lZv-SV-i8b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="JSY-Ba-kuD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JSY-Ba-kuD" firstAttribute="top" secondItem="lZv-SV-i8b" secondAttribute="top" id="ErB-mC-W37"/>
+                            <constraint firstAttribute="trailing" secondItem="JSY-Ba-kuD" secondAttribute="trailing" id="MfR-6R-aQt"/>
+                            <constraint firstItem="JSY-Ba-kuD" firstAttribute="bottom" secondItem="lZv-SV-i8b" secondAttribute="bottom" id="ZsQ-ii-DMe"/>
+                            <constraint firstItem="JSY-Ba-kuD" firstAttribute="leading" secondItem="lZv-SV-i8b" secondAttribute="leading" id="q2M-AZ-o8m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SQy-Ai-bMZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Headers" id="Yga-fv-bkd"/>
+                    <connections>
+                        <outlet property="tableView" destination="JSY-Ba-kuD" id="ShA-Gw-cyt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U2G-hZ-Ijk" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1737" y="-1615"/>
+        </scene>
+        <!--Plain Table-->
+        <scene sceneID="DGJ-cm-d4o">
+            <objects>
+                <viewController id="Nni-Px-CFa" customClass="PlainTableDemoViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TVN-mX-RyT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OVl-7h-ht2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OVl-7h-ht2" firstAttribute="bottom" secondItem="TVN-mX-RyT" secondAttribute="bottom" id="39P-TX-bE3"/>
+                            <constraint firstItem="OVl-7h-ht2" firstAttribute="leading" secondItem="TVN-mX-RyT" secondAttribute="leading" id="3Mq-DZ-8mc"/>
+                            <constraint firstAttribute="trailing" secondItem="OVl-7h-ht2" secondAttribute="trailing" id="Y3t-OR-A8m"/>
+                            <constraint firstItem="OVl-7h-ht2" firstAttribute="top" secondItem="TVN-mX-RyT" secondAttribute="top" id="bxQ-vA-fzw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U2l-Kj-21B"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Plain Table" id="Fgk-s6-yAq"/>
+                    <connections>
+                        <outlet property="tableView" destination="OVl-7h-ht2" id="Ui6-9A-RxG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CzW-qC-LGK" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2545" y="-1615"/>
         </scene>
     </scenes>
     <resources>

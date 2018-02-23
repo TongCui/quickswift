@@ -11,7 +11,7 @@ import Foundation
 class TitleFooter: SectionHeaderFooterProtocol {
 
     var title: String?
-    var height: CGFloat = 30
+    var height: CGFloat?
     var identifier: String = "title_footer"
 
     func register(tableView: UITableView) {
@@ -22,8 +22,7 @@ class TitleFooter: SectionHeaderFooterProtocol {
         return nil
     }
 
-    init(title: String? = nil, height: CGFloat = 30) {
+    init(title: String? = nil) {
         self.title = title
-        self.height = height
     }
 }

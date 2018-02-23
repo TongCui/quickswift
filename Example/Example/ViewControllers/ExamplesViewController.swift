@@ -31,7 +31,14 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
                         cellItem(title: "SwitchCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.switch),
                         cellItem(title: "PlaceholderCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.placeholder),
                         cellItem(title: "OptionCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.option),
-                        ]
+                        cellItem(title: "Insert & Delete", goto: .goCellInsertDeleteVC)
+                    ]
+                },
+                TitleHeaderSectionItem(header: "tableview").append {
+                    [
+                        cellItem(title: "Headers", goto: .goHeaderVC),
+                        cellItem(title: "Plain Sections", goto: .goPlainVC)
+                    ]
                 },
                 TitleHeaderSectionItem(header: "networking").append {
                     [
@@ -43,7 +50,7 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
                     [
                         cellItem(title: "LifeCycle", goto: .goLifecycleVC),
                         cellItem(title: "NavigationBar1", goto: .goNavigationBar1VC),
-                        cellItem(title: "NavigationBar2", goto: .goNavigationBar2VC),
+                        cellItem(title: "NavigationBar2", goto: .goNavigationBar2VC)
                     ]
                 }
             ]

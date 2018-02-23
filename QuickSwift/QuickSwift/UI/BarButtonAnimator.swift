@@ -65,8 +65,13 @@ public class BarButtonAnimator {
 
     public func updateAutoLayout(on navigationBar: UINavigationBar) {
         view.translatesAutoresizingMaskIntoConstraints = false
-
-        imageRight = view.rightAnchor.constraint(equalTo: navigationBar.safeAreaLayoutGuide.rightAnchor, constant: -portraitConst.imageRightMargin)
+        let rightAnchor: NSLayoutXAxisAnchor
+        if #available(iOS 11.0, *) {
+            rightAnchor = navigationBar.safeAreaLayoutGuide.rightAnchor
+        } else {
+            rightAnchor = navigationBar.rightAnchor
+        }
+        imageRight = view.rightAnchor.constraint(equalTo: rightAnchor, constant: -portraitConst.imageRightMargin)
         imageBottom = view.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -portraitConst.imageBottomMarginLarge)
         imageHeight = view.heightAnchor.constraint(equalToConstant: portraitConst.imageSizeLarge)
         imageWidth = view.widthAnchor.constraint(equalTo: view.heightAnchor)
