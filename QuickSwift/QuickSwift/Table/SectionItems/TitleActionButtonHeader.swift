@@ -18,7 +18,7 @@ public class TitleActionButtonHeader: SectionHeaderFooterProtocol {
     public var left: CGFloat
     public var bottom: CGFloat
 
-    public var action: ()->Void
+    public var action: () -> Void
 
     lazy var container: UIView = {
         let view = UIView()

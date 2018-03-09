@@ -77,6 +77,9 @@
 		074F1D9F1FDA3A4E00303B97 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D9E1FDA3A4E00303B97 /* BoolExtensions.swift */; };
 		075B6FD31FE8E7FD00DC3FFD /* SwizzleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B6FD21FE8E7FD00DC3FFD /* SwizzleTests.swift */; };
 		075B6FD51FE8E80B00DC3FFD /* SwizzleDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B6FD41FE8E80B00DC3FFD /* SwizzleDemo.swift */; };
+		075F994D20521ED6006419B8 /* CodableExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075F994C20521ED6006419B8 /* CodableExtensionsTests.swift */; };
+		075F994F20522147006419B8 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075F994E20522147006419B8 /* DataExtensions.swift */; };
+		075F995120522668006419B8 /* DataExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075F995020522668006419B8 /* DataExtensionsTests.swift */; };
 		07656F391FE37D130058E2D9 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F381FE37D130058E2D9 /* Regex.swift */; };
 		07656F3B1FE3800B0058E2D9 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F3A1FE3800B0058E2D9 /* RegexTests.swift */; };
 		07656F3D1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F3C1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift */; };
@@ -234,6 +237,9 @@
 		074F1D9E1FDA3A4E00303B97 /* BoolExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtensions.swift; sourceTree = "<group>"; };
 		075B6FD21FE8E7FD00DC3FFD /* SwizzleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwizzleTests.swift; sourceTree = "<group>"; };
 		075B6FD41FE8E80B00DC3FFD /* SwizzleDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwizzleDemo.swift; sourceTree = "<group>"; };
+		075F994C20521ED6006419B8 /* CodableExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableExtensionsTests.swift; sourceTree = "<group>"; };
+		075F994E20522147006419B8 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
+		075F995020522668006419B8 /* DataExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensionsTests.swift; sourceTree = "<group>"; };
 		07656F381FE37D130058E2D9 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		07656F3A1FE3800B0058E2D9 /* RegexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
 		07656F3C1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensionsTests.swift; sourceTree = "<group>"; };
@@ -539,6 +545,7 @@
 				0726A2991FE1015E0081F2B8 /* URLExtensions.swift */,
 				0726A29D1FE109820081F2B8 /* FileManagerExtensions.swift */,
 				0726A29B1FE101660081F2B8 /* StringExtensions.swift */,
+				075F994E20522147006419B8 /* DataExtensions.swift */,
 				07F9788F1FE6C717000C8A75 /* UserDefaultsExtensions.swift */,
 				07F978911FE6C8C1000C8A75 /* NSObjectExtensions.swift */,
 				07D148A120201126005F630A /* UIDeviceExtensions.swift */,
@@ -604,6 +611,7 @@
 				07E013671FEB84B500609DAB /* UIViewExtensionsTests.swift */,
 				0701BE60203020130076B062 /* UIViewControllerExtensionsTests.swift */,
 				07D7ABDF1FE1297C002AE482 /* JSONTests.swift */,
+				075F995020522668006419B8 /* DataExtensionsTests.swift */,
 				07656F3C1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift */,
 				0728657120089B2800C3C368 /* BundleExtensionsTests.swift */,
 				07D7ABDD1FE1297C002AE482 /* RandomTests.swift */,
@@ -615,6 +623,7 @@
 				0712AE8C1FF4D1900053A59F /* MultiSetTests.swift */,
 				0712AE9A1FF523B40053A59F /* RuntimeTests.swift */,
 				0712AE9C1FF526DB0053A59F /* AssociatedObjectDemo.swift */,
+				075F994C20521ED6006419B8 /* CodableExtensionsTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -897,6 +906,7 @@
 				0728657420089DC800C3C368 /* PageLoader.swift in Sources */,
 				0712AECC1FFA6BF60053A59F /* TitleFooter.swift in Sources */,
 				0712AE911FF4E24A0053A59F /* TableHandler.swift in Sources */,
+				075F994F20522147006419B8 /* DataExtensions.swift in Sources */,
 				0725BF1C201B7BD400DA1E3C /* UIViewControllerExtensions.swift in Sources */,
 				0725BF102019B8BE00DA1E3C /* UIEdgeInsetsExtensions.swift in Sources */,
 				07F03DD81FCBFD9E006F79C8 /* ArrayExtensions.swift in Sources */,
@@ -919,6 +929,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07D7AC071FE300D8002AE482 /* Common.swift in Sources */,
+				075F995120522668006419B8 /* DataExtensionsTests.swift in Sources */,
 				0728656A2008928900C3C368 /* RequestFactoryDemo.swift in Sources */,
 				074F1D871FD79C1800303B97 /* TypeConvertionsTests.swift in Sources */,
 				0712AE9D1FF526DB0053A59F /* AssociatedObjectDemo.swift in Sources */,
@@ -932,6 +943,7 @@
 				0712AEBE1FF5E92D0053A59F /* EquatableExtensionsTests.swift in Sources */,
 				07DF3A2D202FE70700652032 /* UIColorExtensionsTests.swift in Sources */,
 				07032F702030161600967020 /* UIEdgeInsetsExtensionsTests.swift in Sources */,
+				075F994D20521ED6006419B8 /* CodableExtensionsTests.swift in Sources */,
 				0712AE8D1FF4D1900053A59F /* MultiSetTests.swift in Sources */,
 				07656F4B1FE51D870058E2D9 /* StyleTests.swift in Sources */,
 				07E013661FEB82C600609DAB /* UserDefaultsExtensionsTests.swift in Sources */,

@@ -12,7 +12,7 @@ public class TitleActionButtonSectionItem: SectionItemProtocol {
     public var header: SectionHeaderFooterProtocol?
     public var cellItems: [CellItemProtocol] = []
 
-    public init(header: String, actionTitle: String, height: CGFloat, action: @escaping ()->Void) {
+    public init(header: String, actionTitle: String, height: CGFloat, action: @escaping () -> Void) {
         self.header = TitleActionButtonHeader(title: header, actionTitle: actionTitle, height: height, action: action)
     }
 }

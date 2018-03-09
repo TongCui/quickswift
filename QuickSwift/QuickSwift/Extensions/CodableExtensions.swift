@@ -31,6 +31,15 @@ public extension Encodable {
     public func toJSON() throws -> [String: Any] {
         return try JSON.parse(fromData: try toData())
     }
+
+    public func save(to file: URL, handler: ((Data) -> Data)? = nil) throws {
+        var data = try toData()
+        if let handler = handler {
+           data = handler(data)
+        }
+        try data.write(to: file)
+    }
+
 }
 
 public extension Decodable {
@@ -48,7 +57,16 @@ public extension Decodable {
     }
 
     init(fromJSON json: [String: Any]) throws {
-        try self.init(fromData: json.toData())
+        let data = try JSON.dump(toData: json)
+        try self.init(fromData: data)
+    }
+
+    init(fromFile file: URL, handler: ((Data) -> Data)? = nil) throws {
+        var data = try Data(contentsOf: file)
+        if let handler = handler {
+            data = handler(data)
+        }
+        try self.init(fromData: data)
     }
 }
 
