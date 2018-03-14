@@ -44,6 +44,8 @@
                         <segue destination="l0V-RC-fP3" kind="show" identifier="go_cell_insert_delete_vc" id="ouT-sj-AcI"/>
                         <segue destination="szR-2d-Mg1" kind="show" identifier="go_header_vc" id="Gv6-aC-dbj"/>
                         <segue destination="Nni-Px-CFa" kind="show" identifier="go_plain_vc" id="Igi-VI-63u"/>
+                        <segue destination="7Ze-1u-RZr" kind="show" identifier="go_navi_search_vc" id="xQ5-Aq-m3c"/>
+                        <segue destination="KgX-5x-o7H" kind="show" identifier="go_font_styles_vc" id="cGU-bN-ObF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -323,6 +325,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CzW-qC-LGK" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2545" y="-1615"/>
+        </scene>
+        <!--Search Bar-->
+        <scene sceneID="7MZ-CA-hXA">
+            <objects>
+                <viewController id="7Ze-1u-RZr" customClass="NavigationBarSearchViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8TI-om-Kiz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="cNs-f0-tPe"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search Bar" id="DZ2-oj-XBx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lTH-oE-a26" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3607" y="-1615"/>
+        </scene>
+        <!--Plain Table-->
+        <scene sceneID="tPd-lu-VsV">
+            <objects>
+                <viewController id="KgX-5x-o7H" customClass="FontTextStylesViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8HF-Wi-rPP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oej-MX-RgH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Oej-MX-RgH" firstAttribute="leading" secondItem="8HF-Wi-rPP" secondAttribute="leading" id="Cdg-hb-wk0"/>
+                            <constraint firstAttribute="trailing" secondItem="Oej-MX-RgH" secondAttribute="trailing" id="van-2n-Lb2"/>
+                            <constraint firstItem="Oej-MX-RgH" firstAttribute="top" secondItem="8HF-Wi-rPP" secondAttribute="top" id="y4q-vm-x5f"/>
+                            <constraint firstItem="Oej-MX-RgH" firstAttribute="bottom" secondItem="8HF-Wi-rPP" secondAttribute="bottom" id="ynB-fc-sgC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WPN-Hk-6F8"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Plain Table" id="k84-mn-i9N"/>
+                    <connections>
+                        <outlet property="tableView" destination="Oej-MX-RgH" id="gCh-S3-XlC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mCS-JV-pk8" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3530" y="-880"/>
         </scene>
     </scenes>
     <resources>

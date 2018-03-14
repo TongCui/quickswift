@@ -50,7 +50,13 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
                     [
                         cellItem(title: "LifeCycle", goto: .goLifecycleVC),
                         cellItem(title: "NavigationBar1", goto: .goNavigationBar1VC),
-                        cellItem(title: "NavigationBar2", goto: .goNavigationBar2VC)
+                        cellItem(title: "NavigationBar2", goto: .goNavigationBar2VC),
+                        cellItem(title: "NavigationBar Search", goto: .goNaviSearchVC)
+                    ]
+                },
+                TitleHeaderSectionItem(header: "UI").append {
+                    [
+                        cellItem(title: "UIFontTextStyles", goto: .goFontStylesVC)
                     ]
                 }
             ]
@@ -65,7 +71,7 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
             .add(action: .cellDidSelect) { params in
                 if let viewController = params.viewController() as? ExamplesViewController {
                     viewController.performSegue(withIdentifier: segue.rawValue, sender: sender)
-                }
+            }
         }
     }
 }

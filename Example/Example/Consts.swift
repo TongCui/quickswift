@@ -19,4 +19,6 @@ enum SegueIds: String {
     case goCellInsertDeleteVC = "go_cell_insert_delete_vc"
     case goHeaderVC = "go_header_vc"
     case goPlainVC = "go_plain_vc"
+    case goNaviSearchVC = "go_navi_search_vc"
+    case goFontStylesVC = "go_font_styles_vc"
 }
