@@ -292,3 +292,14 @@ public extension TableViewAdapterProtocol {
     }
 
 }
+
+open class DefaultTableAdapter: TableViewAdapterProtocol {
+
+    open weak var tableView: UITableView?
+    open var sections: [SectionItemProtocol] = []
+
+    open lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
+    open lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
+
+    public required init() {}
+}

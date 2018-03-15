@@ -19,5 +19,5 @@ script:
   - xcodebuild -showsdks
   - xcodebuild -workspace QuickSwift.xcworkspace -scheme QuickSwift -destination "$DESTINATION" test | xcpretty
 after_success: 
-  - slather
+#  - slather
   - bash <(curl -s https://codecov.io/bash)
