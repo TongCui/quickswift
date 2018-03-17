@@ -46,6 +46,7 @@
                         <segue destination="Nni-Px-CFa" kind="show" identifier="go_plain_vc" id="Igi-VI-63u"/>
                         <segue destination="7Ze-1u-RZr" kind="show" identifier="go_navi_search_vc" id="xQ5-Aq-m3c"/>
                         <segue destination="KgX-5x-o7H" kind="show" identifier="go_font_styles_vc" id="cGU-bN-ObF"/>
+                        <segue destination="D7o-3s-InX" kind="show" identifier="go_segue_vc" id="3jV-9d-vNU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -182,6 +183,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xv3-6e-9gy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2657" y="-198"/>
+        </scene>
+        <!--Segue Demo-->
+        <scene sceneID="o0j-Tp-dKx">
+            <objects>
+                <viewController id="D7o-3s-InX" customClass="SegueDemoViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JTd-TK-VLv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOy-em-Apw">
+                                <rect key="frame" x="90.5" y="309" width="194" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Go Next Page1"/>
+                                <connections>
+                                    <action selector="goDetail1:" destination="D7o-3s-InX" eventType="touchUpInside" id="rh3-cs-gvg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmN-AC-qOM">
+                                <rect key="frame" x="90" y="387" width="194" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Go Next Page2"/>
+                                <connections>
+                                    <action selector="goDetail2:" destination="D7o-3s-InX" eventType="touchUpInside" id="2jD-Xj-m2W"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nmN-AC-qOM" firstAttribute="centerX" secondItem="iOy-em-Apw" secondAttribute="centerX" id="DhC-P6-Q6S"/>
+                            <constraint firstItem="iOy-em-Apw" firstAttribute="centerX" secondItem="JTd-TK-VLv" secondAttribute="centerX" id="IjD-WK-Kzp"/>
+                            <constraint firstItem="iOy-em-Apw" firstAttribute="centerY" secondItem="JTd-TK-VLv" secondAttribute="centerY" id="Q96-Y5-ktq"/>
+                            <constraint firstItem="nmN-AC-qOM" firstAttribute="top" secondItem="iOy-em-Apw" secondAttribute="bottom" constant="30" id="Tdd-1Z-xVK"/>
+                            <constraint firstItem="nmN-AC-qOM" firstAttribute="width" secondItem="iOy-em-Apw" secondAttribute="width" id="TfL-9D-ARk"/>
+                            <constraint firstItem="nmN-AC-qOM" firstAttribute="height" secondItem="iOy-em-Apw" secondAttribute="height" id="Wh6-N5-fb0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RRL-Az-nSK"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Segue Demo" id="TsP-Tw-bAO"/>
+                    <connections>
+                        <segue destination="koJ-fg-eSz" kind="show" identifier="go_segue_detail_1_vc" id="LPg-Oi-TPm"/>
+                        <segue destination="koJ-fg-eSz" kind="show" identifier="go_segue_detail_2_vc" id="Uvy-r9-8z1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qi1-Sk-IB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3529" y="-205"/>
+        </scene>
+        <!--Segue Detail View Controller-->
+        <scene sceneID="yJG-Le-3UO">
+            <objects>
+                <viewController id="koJ-fg-eSz" customClass="SegueDetailViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fux-6S-d2J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNa-bN-M9p">
+                                <rect key="frame" x="153.5" y="316" width="68.5" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mNa-bN-M9p" firstAttribute="centerX" secondItem="Fux-6S-d2J" secondAttribute="centerX" id="D5p-Ua-c37"/>
+                            <constraint firstItem="mNa-bN-M9p" firstAttribute="centerY" secondItem="Fux-6S-d2J" secondAttribute="centerY" id="Pv2-H2-j6n"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vd1-9X-n88"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentLabel" destination="mNa-bN-M9p" id="FOC-N2-7Qr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Cd-cT-V8i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4377" y="-208"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tPV-nC-jBg">
@@ -377,4 +454,7 @@
     <resources>
         <image name="icon_map_18" width="18" height="18"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Uvy-r9-8z1"/>
+    </inferredMetricsTieBreakers>
 </document>

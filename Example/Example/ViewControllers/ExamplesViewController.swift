@@ -51,7 +51,8 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
                         cellItem(title: "LifeCycle", goto: .goLifecycleVC),
                         cellItem(title: "NavigationBar1", goto: .goNavigationBar1VC),
                         cellItem(title: "NavigationBar2", goto: .goNavigationBar2VC),
-                        cellItem(title: "NavigationBar Search", goto: .goNaviSearchVC)
+                        cellItem(title: "NavigationBar Search", goto: .goNaviSearchVC),
+                        cellItem(title: "Segue Demo", goto: .goSegueVC)
                     ]
                 },
                 TitleHeaderSectionItem(header: "UI").append {

@@ -15,3 +15,26 @@ public extension UIViewController {
         }
     }
 }
+
+public struct SegueContext {
+    var segueIdentifier: String
+    var prepareSegue: (UIStoryboardSegue) -> Void
+}
+
+extension UIViewController {
+    public func performSegue<T>(for segueIdentifier: String, context action : @escaping (T) -> Void) {
+        let segueContext = SegueContext(segueIdentifier: segueIdentifier) { (segue) in
+            if let viewController = segue.destination as? T, segue.identifier == segueIdentifier {
+                action(viewController)
+            }
+        }
+
+        performSegue(withIdentifier: segueIdentifier, sender: segueContext)
+    }
+
+    public func prepareWithSegueContext(for segue: UIStoryboardSegue, sender: Any?) {
+        if let context = sender as? SegueContext {
+            context.prepareSegue(segue)
+        }
+    }
+}

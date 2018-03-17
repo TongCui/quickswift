@@ -21,4 +21,7 @@ enum SegueIds: String {
     case goPlainVC = "go_plain_vc"
     case goNaviSearchVC = "go_navi_search_vc"
     case goFontStylesVC = "go_font_styles_vc"
+    case goSegueVC = "go_segue_vc"
+    case goSegueDetail1VC = "go_segue_detail_1_vc"
+    case goSegueDetail2VC = "go_segue_detail_2_vc"
 }
