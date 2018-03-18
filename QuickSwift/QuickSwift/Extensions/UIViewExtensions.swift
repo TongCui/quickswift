@@ -123,7 +123,7 @@ public extension UIView {
 }
 
 extension UIView {
-    func findFirstResponder() -> UIView? {
+    public func findFirstResponder() -> UIView? {
         return findFirstResponderInView(topView: self)
     }
 
@@ -146,7 +146,7 @@ extension UIView {
         return nil
     }
 
-    func parentViewController<T>() -> T? {
+    public func parentViewController<T>() -> T? {
         var parentResponder: UIResponder? = self
 
         while let responder = parentResponder {
@@ -158,5 +158,39 @@ extension UIView {
         }
 
         return nil
+    }
+}
+
+class ViewTapGesture: UITapGestureRecognizer {
+
+}
+
+extension UIView {
+
+    private struct AssociatedKey {
+        static var tapHandler = "tapHandler"
+    }
+
+    public func addTapHandler<T: UIView>(_ handler: @escaping (T) -> Void) {
+        isUserInteractionEnabled = true
+        var gesture: UIGestureRecognizer?
+        if let oldTarget = objc_getAssociatedObject(self, &AssociatedKey.tapHandler) as? Target<T> {
+            let oldGesture = gestureRecognizers?.first { gesture in
+                gesture.view == self && gesture is ViewTapGesture
+            }
+
+            oldGesture?.removeTarget(oldTarget, action: #selector(oldTarget.send(_:)))
+            gesture = oldGesture
+        }
+
+        let target = Target<T>(handler)
+        objc_setAssociatedObject(self, &AssociatedKey.tapHandler, target, .OBJC_ASSOCIATION_RETAIN)
+
+        if let gesture = gesture {
+            gesture.addTarget(target, action: #selector(target.send(_:)))
+        } else {
+            gesture = ViewTapGesture(target: target, action: #selector(target.send(_:)))
+            addGestureRecognizer(gesture!)
+        }
     }
 }

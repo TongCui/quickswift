@@ -31,6 +31,7 @@
 		07D1489A201DEACC005F630A /* NavigationBarDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D14899201DEACC005F630A /* NavigationBarDemoViewController.swift */; };
 		07D148A0201EC81A005F630A /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1489F201EC81A005F630A /* Consts.swift */; };
 		07DFB2BE205CB5DC008C97C5 /* SegueDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DFB2BD205CB5DC008C97C5 /* SegueDemoViewController.swift */; };
+		07DFB2CA205D4194008C97C5 /* TapActionDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DFB2C9205D4194008C97C5 /* TapActionDemoViewController.swift */; };
 		07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */; };
 		07F03D971FCBFBDA006F79C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F03D951FCBFBDA006F79C8 /* Main.storyboard */; };
 		07F03D991FCBFBDA006F79C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F03D981FCBFBDA006F79C8 /* Assets.xcassets */; };
@@ -94,6 +95,7 @@
 		07D14899201DEACC005F630A /* NavigationBarDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarDemoViewController.swift; sourceTree = "<group>"; };
 		07D1489F201EC81A005F630A /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		07DFB2BD205CB5DC008C97C5 /* SegueDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueDemoViewController.swift; sourceTree = "<group>"; };
+		07DFB2C9205D4194008C97C5 /* TapActionDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapActionDemoViewController.swift; sourceTree = "<group>"; };
 		07F03D8E1FCBFBDA006F79C8 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F03D961FCBFBDA006F79C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				076AB994205768D20023D026 /* NavigationBarSearchViewController.swift */,
 				078C33A620592A7D009D563B /* FontTextStylesViewController.swift */,
 				07DFB2BD205CB5DC008C97C5 /* SegueDemoViewController.swift */,
+				07DFB2C9205D4194008C97C5 /* TapActionDemoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				07DFB2BE205CB5DC008C97C5 /* SegueDemoViewController.swift in Sources */,
 				076AB995205768D20023D026 /* NavigationBarSearchViewController.swift in Sources */,
 				0735FD89203FBFB000BE1342 /* PlainTableDemoViewController.swift in Sources */,
+				07DFB2CA205D4194008C97C5 /* TapActionDemoViewController.swift in Sources */,
 				07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */,
 				078EE9572004946D00DF554C /* SystemCellViewController.swift in Sources */,
 				0735FD87203E6F0D00BE1342 /* HeadersViewController.swift in Sources */,
