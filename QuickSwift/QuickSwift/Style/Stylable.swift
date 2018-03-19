@@ -6,7 +6,7 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public protocol Stylable {
     associatedtype Element
@@ -88,5 +88,19 @@ extension UIImageView: Stylable {
         highlightedAnimationImages = another.highlightedAnimationImages
         animationDuration = another.animationDuration
         animationRepeatCount = another.animationRepeatCount
+    }
+}
+
+// MARK: - UITableViewCell
+extension UITableViewCell: Stylable {
+    public var style: Style<UITableViewCell> { return Style(element: self) }
+
+    public func copyStyle(_ another: UITableViewCell) {
+        copyCommonView(another)
+
+        selectionStyle = another.selectionStyle
+        accessoryType = another.accessoryType
+        contentView.backgroundColor = another.backgroundColor
+        contentView.tintColor = another.tintColor
     }
 }
