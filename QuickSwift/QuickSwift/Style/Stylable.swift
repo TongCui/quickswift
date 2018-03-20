@@ -10,7 +10,7 @@ import UIKit
 
 public protocol Stylable {
     associatedtype Element
-    var style: Style<Element> { get }
+    var uiStyle: Style<Element> { get }
     func copyStyle(_ another: Element)
 }
 
@@ -24,7 +24,7 @@ extension Stylable where Self : UIView {
 
 // MARK: - UILabel
 extension UILabel: Stylable {
-    public var style: Style<UILabel> { return Style(element: self) }
+    public var uiStyle: Style<UILabel> { return Style(element: self) }
 
     public func copyStyle(_ another: UILabel) {
         copyCommonView(another)
@@ -46,7 +46,7 @@ extension UILabel: Stylable {
 
 // MARK: - UIButton
 extension UIButton: Stylable {
-    public var style: Style<UIButton> { return Style(element: self) }
+    public var uiStyle: Style<UIButton> { return Style(element: self) }
 
     public func copyStyle(_ another: UIButton) {
         copyCommonView(another)
@@ -77,7 +77,7 @@ extension UIButton: Stylable {
 
 // MARK: - UIImageView
 extension UIImageView: Stylable {
-    public var style: Style<UIImageView> { return Style(element: self) }
+    public var uiStyle: Style<UIImageView> { return Style(element: self) }
 
     public func copyStyle(_ another: UIImageView) {
         copyCommonView(another)
@@ -93,7 +93,7 @@ extension UIImageView: Stylable {
 
 // MARK: - UITableViewCell
 extension UITableViewCell: Stylable {
-    public var style: Style<UITableViewCell> { return Style(element: self) }
+    public var uiStyle: Style<UITableViewCell> { return Style(element: self) }
 
     public func copyStyle(_ another: UITableViewCell) {
         copyCommonView(another)
@@ -107,7 +107,7 @@ extension UITableViewCell: Stylable {
 
 // MARK: - UITableView
 extension UITableView: Stylable {
-    public var style: Style<UITableView> { return Style(element: self) }
+    public var uiStyle: Style<UITableView> { return Style(element: self) }
     
     public func copyStyle(_ another: UITableView) {
         copyCommonView(another)
@@ -116,7 +116,7 @@ extension UITableView: Stylable {
 
 // MARK: - UISlider
 extension UISlider: Stylable {
-    public var style: Style<UISlider> { return Style(element: self) }
+    public var uiStyle: Style<UISlider> { return Style(element: self) }
     
     public func copyStyle(_ another: UISlider) {
         copyCommonView(another)
@@ -125,7 +125,7 @@ extension UISlider: Stylable {
 
 // MARK: - UISwitch
 extension UISwitch: Stylable {
-    public var style: Style<UISwitch> { return Style(element: self) }
+    public var uiStyle: Style<UISwitch> { return Style(element: self) }
     
     public func copyStyle(_ another: UISwitch) {
         copyCommonView(another)

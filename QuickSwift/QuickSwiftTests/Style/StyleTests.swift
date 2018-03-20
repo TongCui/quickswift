@@ -31,17 +31,17 @@ class StyleTests: XCTestCase {
     }
 
     func testSyntax() {
-        label.style.with([LabelStyles.leftLabel.styleItem, LabelStyles.rightLabel.styleItem])
-        label.style.with(LabelStyles.centerLabel, LabelStyles.rightLabel)
+        label.uiStyle.with([LabelStyles.leftLabel.styleItem, LabelStyles.rightLabel.styleItem])
+        label.uiStyle.with(LabelStyles.centerLabel, LabelStyles.rightLabel)
 
-        button.style.with(ButtonStyles.greenButton, .redButton)
-        button.style.with(ButtonStyles.self, .greenButton, .redButton)
+        button.uiStyle.with(ButtonStyles.greenButton, .redButton)
+        button.uiStyle.with(ButtonStyles.self, .greenButton, .redButton)
     }
 
     func testStylable() {
-        XCTAssertNotNil(label.style)
-        XCTAssertNotNil(button.style)
-        XCTAssertNotNil(imageView.style)
+        XCTAssertNotNil(label.uiStyle)
+        XCTAssertNotNil(button.uiStyle)
+        XCTAssertNotNil(imageView.uiStyle)
     }
 
     func testStyableCopyStyle() {
@@ -60,46 +60,46 @@ class StyleTests: XCTestCase {
 
     func testStyleSame() {
         let newLabel = UILabel()
-        newLabel.style.same(with: label)
+        newLabel.uiStyle.same(with: label)
         XCTAssertEqual(newLabel.backgroundColor, .red)
 
         let newButton = UIButton()
-        newButton.style.same(with: button)
+        newButton.uiStyle.same(with: button)
         XCTAssertEqual(newButton.backgroundColor, .green)
 
         let newImageView = UIImageView()
-        newImageView.style.same(with: imageView)
+        newImageView.uiStyle.same(with: imageView)
         XCTAssertEqual(newImageView.backgroundColor, .blue)
     }
 
     func testStyleWith() {
-        label.style.with(LabelStyles.leftLabel, .redLabel)
+        label.uiStyle.with(LabelStyles.leftLabel, .redLabel)
         XCTAssertEqual(label.textAlignment, .left)
         XCTAssertEqual(label.textColor, .red)
 
-        label.style.with(LabelStyles.self, .rightLabel, .greenLabel)
+        label.uiStyle.with(LabelStyles.self, .rightLabel, .greenLabel)
         XCTAssertEqual(label.textAlignment, .right)
         XCTAssertEqual(label.textColor, .green)
 
-        button.style.with(ButtonStyles.greenButton, .redButton)
+        button.uiStyle.with(ButtonStyles.greenButton, .redButton)
         XCTAssertEqual(button.titleColor(for: .normal), .red)
-        button.style.with(ButtonStyles.redButton, .greenButton)
+        button.uiStyle.with(ButtonStyles.redButton, .greenButton)
         XCTAssertEqual(button.titleColor(for: .normal), .green)
 
-        imageView.style.with(ImageViewStyles.greenTintImageView)
+        imageView.uiStyle.with(ImageViewStyles.greenTintImageView)
         XCTAssertEqual(imageView.tintColor, .green)
 
-        imageView.style.with(ImageViewStyles.redTintImageView)
+        imageView.uiStyle.with(ImageViewStyles.redTintImageView)
         XCTAssertEqual(imageView.tintColor, .red)
     }
 
     func testStyleWithItem() {
-        label.style.with([styleItem])
+        label.uiStyle.with([styleItem])
         XCTAssertEqual(label.textAlignment, .center)
     }
 
     func testStyleUICustom() {
-        label.style.ui { (label) in
+        label.uiStyle.ui { (label) in
             label.textAlignment = .center
         }
         XCTAssertEqual(label.textAlignment, .center)
