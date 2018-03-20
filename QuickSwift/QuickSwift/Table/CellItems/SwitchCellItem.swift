@@ -6,7 +6,7 @@
 //  Copyright © 2018 LuckyTR. All rights reserved.
 //
 
-public class SwitchCellItem: CellItemProtocol {
+open class SwitchCellItem: CellItemProtocol {
     public var title: String
     public var action: (Bool) -> Void
     public var identifier: String = "switch_cell"
@@ -23,7 +23,7 @@ public class SwitchCellItem: CellItemProtocol {
         tableView.register(SwitchCell.self, forCellReuseIdentifier: identifier)
     }
 
-    public func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         if let cell = tableCell as? SwitchCell {
@@ -46,12 +46,12 @@ public class SwitchCellItem: CellItemProtocol {
     }
 }
 
-public class SwitchCell: BuiltInCell {
+open class SwitchCell: BuiltInCell {
 
     public lazy var switchLabel = UILabel()
     public lazy var `switch` = UISwitch()
 
-    public override func commonInit() {
+    open override func commonInit() {
         super.commonInit()
         contentView.addSubview(`switch`)
         contentView.addSubview(switchLabel)

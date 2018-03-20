@@ -6,7 +6,7 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-public class SystemStyleCellItem: CellItemProtocol {
+open class SystemStyleCellItem: CellItemProtocol {
     public var identifier: String
     public var settings: CellSettings = CellSettings()
     public var style: UITableViewCellStyle = .default
@@ -22,7 +22,7 @@ public class SystemStyleCellItem: CellItemProtocol {
         //  Do nothing
     }
 
-    public func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let tableCell: UITableViewCell
 
         if let cell = tableView.dequeueReusableCell(withIdentifier: identifier) {

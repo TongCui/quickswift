@@ -6,7 +6,7 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-public class LoadingCellItem: CellItemProtocol {
+open class LoadingCellItem: CellItemProtocol {
 
     public var timeout: TimeInterval = 3
     public var isLoading: Bool = false
@@ -23,7 +23,7 @@ public class LoadingCellItem: CellItemProtocol {
         tableView.register(LoadingCell.self, forCellReuseIdentifier: identifier)
     }
 
-    public func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         if let cell = tableCell as? LoadingCell {
@@ -42,11 +42,11 @@ public class LoadingCellItem: CellItemProtocol {
     }
 }
 
-public class LoadingCell: BuiltInCell {
+open class LoadingCell: BuiltInCell {
 
     public lazy var spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
-    public override func commonInit() {
+    open override func commonInit() {
         super.commonInit()
         contentView.addSubview(spinner)
 

@@ -6,7 +6,7 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-public class LocalImageCellItem: CellItemProtocol {
+open class LocalImageCellItem: CellItemProtocol {
     public var imageName: String
     public var imageHeight: UIImageView.ImageHeight
     public var identifier: String
@@ -23,7 +23,7 @@ public class LocalImageCellItem: CellItemProtocol {
         tableView.register(LocalImageCell.self, forCellReuseIdentifier: identifier)
     }
 
-    public func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         if let cell = tableCell as? LocalImageCell {
@@ -43,11 +43,11 @@ public class LocalImageCellItem: CellItemProtocol {
     }
 }
 
-public class LocalImageCell: BuiltInCell {
+open class LocalImageCell: BuiltInCell {
 
     public lazy var localImageView = UIImageView(image: nil)
 
-    public override func commonInit() {
+    open override func commonInit() {
         super.commonInit()
         contentView.addSubview(localImageView)
 

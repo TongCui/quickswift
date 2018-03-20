@@ -6,7 +6,7 @@
 //  Copyright © 2018 LuckyTR. All rights reserved.
 //
 
-public class OptionCellItem<Key: Equatable>: CellItemProtocol {
+open class OptionCellItem<Key: Equatable>: CellItemProtocol {
 
     public enum SelectionIconType: CustomStringConvertible {
         case `default`
@@ -82,7 +82,7 @@ public class OptionCellItem<Key: Equatable>: CellItemProtocol {
         tableView.register(OptionTextCell.self, forCellReuseIdentifier: identifier)
     }
 
-    public func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         if let cell = tableCell as? OptionTextCell {
@@ -127,13 +127,13 @@ public class OptionCellItem<Key: Equatable>: CellItemProtocol {
 
 }
 
-public class OptionTextCell: BuiltInCell {
+open class OptionTextCell: BuiltInCell {
 
     public lazy var iconImageView = UIImageView()
     public lazy var optionLabel = UILabel()
     public lazy var selectionImageView = UIImageView()
 
-    public override func commonInit() {
+    open override func commonInit() {
         super.commonInit()
         contentView.addSubview(iconImageView)
         contentView.addSubview(optionLabel)

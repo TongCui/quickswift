@@ -6,7 +6,7 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-public class ButtonCellItem: CellItemProtocol {
+open class ButtonCellItem: CellItemProtocol {
     public var title: String?
     public var imageName: String?
     public var action: (UIButton) -> Void
@@ -24,7 +24,7 @@ public class ButtonCellItem: CellItemProtocol {
         tableView.register(ButtonCell.self, forCellReuseIdentifier: identifier)
     }
 
-    public func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         if let cell = tableCell as? ButtonCell {
@@ -45,11 +45,11 @@ public class ButtonCellItem: CellItemProtocol {
     }
 }
 
-public class ButtonCell: BuiltInCell {
+open class ButtonCell: BuiltInCell {
 
     public lazy var button = UIButton(type: .roundedRect)
 
-    public override func commonInit() {
+    open override func commonInit() {
         super.commonInit()
         contentView.addSubview(button)
 

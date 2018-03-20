@@ -12,7 +12,7 @@ public protocol BuiltInCellCustomizable {
     func builtInCellCustomSettings()
 }
 
-public class BuiltInCell: UITableViewCell, CommonInit {
+open class BuiltInCell: UITableViewCell, CommonInit {
     public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
@@ -23,7 +23,7 @@ public class BuiltInCell: UITableViewCell, CommonInit {
         commonInit()
     }
 
-    public func commonInit() {
+    open func commonInit() {
         if let custom = self as? BuiltInCellCustomizable {
             custom.builtInCellCustomSettings()
         }

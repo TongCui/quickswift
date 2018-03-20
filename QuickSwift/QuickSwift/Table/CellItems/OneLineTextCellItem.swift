@@ -6,7 +6,7 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-public class OneLineTextCellItem: CellItemProtocol {
+open class OneLineTextCellItem: CellItemProtocol {
     public var text: String
     public var identifier: String = "oneline_cell"
     public var settings: CellSettings = CellSettings()
@@ -19,7 +19,7 @@ public class OneLineTextCellItem: CellItemProtocol {
         tableView.register(OneLineTextCell.self, forCellReuseIdentifier: identifier)
     }
 
-    public func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         if let cell = tableCell as? OneLineTextCell {
@@ -34,11 +34,11 @@ public class OneLineTextCellItem: CellItemProtocol {
 
 }
 
-public class OneLineTextCell: BuiltInCell {
+open class OneLineTextCell: BuiltInCell {
 
     public lazy var oneLineLabel = UILabel()
 
-    public override func commonInit() {
+    open override func commonInit() {
         super.commonInit()
         contentView.addSubview(oneLineLabel)
         oneLineLabel.numberOfLines = 0

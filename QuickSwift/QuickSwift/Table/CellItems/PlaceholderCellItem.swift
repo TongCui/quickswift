@@ -6,7 +6,7 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-public class PlaceholderCellItem: CellItemProtocol {
+open class PlaceholderCellItem: CellItemProtocol {
 
     public var identifier: String = "placeholder_cell"
     public var settings: CellSettings = CellSettings()
@@ -20,7 +20,7 @@ public class PlaceholderCellItem: CellItemProtocol {
         tableView.register(PlaceholderCell.self, forCellReuseIdentifier: identifier)
     }
 
-    public func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         if let cell = tableCell as? PlaceholderCell {

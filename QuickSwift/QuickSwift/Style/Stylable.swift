@@ -108,7 +108,7 @@ extension UITableViewCell: Stylable {
 // MARK: - UITableView
 extension UITableView: Stylable {
     public var uiStyle: Style<UITableView> { return Style(element: self) }
-    
+
     public func copyStyle(_ another: UITableView) {
         copyCommonView(another)
     }
@@ -117,7 +117,7 @@ extension UITableView: Stylable {
 // MARK: - UISlider
 extension UISlider: Stylable {
     public var uiStyle: Style<UISlider> { return Style(element: self) }
-    
+
     public func copyStyle(_ another: UISlider) {
         copyCommonView(another)
     }
@@ -126,9 +126,8 @@ extension UISlider: Stylable {
 // MARK: - UISwitch
 extension UISwitch: Stylable {
     public var uiStyle: Style<UISwitch> { return Style(element: self) }
-    
+
     public func copyStyle(_ another: UISwitch) {
         copyCommonView(another)
     }
 }
-
