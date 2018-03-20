@@ -104,3 +104,12 @@ extension UITableViewCell: Stylable {
         contentView.tintColor = another.tintColor
     }
 }
+
+// MARK: - UITableView
+extension UITableView: Stylable {
+    public var style: Style<UITableView> { return Style(element: self) }
+    
+    public func copyStyle(_ another: UITableView) {
+        copyCommonView(another)
+    }
+}
