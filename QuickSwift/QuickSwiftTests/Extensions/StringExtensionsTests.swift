@@ -153,4 +153,14 @@ class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("strstrstr", str.repeat(3))
         XCTAssertEqual("strstrstrstr", str.repeat(4))
     }
+
+    func testIndices() {
+        let text = "Hello world, this is a book"
+        let target = "is"
+
+        let indices = text.indicesOf(string: target)
+
+        XCTAssertEqual(indices, [15, 18])
+
+    }
 }
