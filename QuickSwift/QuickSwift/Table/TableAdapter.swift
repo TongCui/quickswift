@@ -88,6 +88,10 @@ public extension CellItemProtocol {
         }
     }
 
+    public func getDisplayingCell<T: UITableViewCell>() -> T? {
+        return settings.displayingCell as? T
+    }
+
     @discardableResult
     public func settings(_ customSettings: (Self) -> Void) -> Self {
         customSettings(self)
@@ -190,6 +194,14 @@ public extension TableViewAdapterProtocol {
         tableView.dataSource = dataSourceHandler
         tableView.delegate = delegateHandler
         self.tableView = tableView
+    }
+
+    public func hidePlainTaleBottomCells() {
+        guard let tableView = self.tableView else {
+            return
+        }
+
+        tableView.tableFooterView = UIView()
     }
 
     func cellItem(section: Int, row: Int) -> CellItemProtocol? {

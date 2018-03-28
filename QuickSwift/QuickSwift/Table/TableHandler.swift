@@ -42,7 +42,6 @@ public class TableViewDataSourceHandler: NSObject, TableDataSourceHandlerProtoco
         tableView.registerIfNeeded(forCell: cellItem)
         cellItem.settings.tableView = tableView
         cellItem.settings.indexPath = indexPath
-
         let cell = cellItem.cell(tableView: tableView, indexPath: indexPath)
         cell.update(with: cellItem.settings)
 
@@ -104,11 +103,13 @@ public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProt
 
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let params = tableParams(tableView: tableView, indexPath: indexPath, cell: cell)
+        params.cellItem?.settings.displayingCell = cell
         params.cellItem?.handler(for: .cellWillDisplay)?(params)
     }
 
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let params = tableParams(tableView: tableView, indexPath: indexPath, cell: cell)
+        params.cellItem?.settings.displayingCell = nil
         params.cellItem?.handler(for: .cellDidEndDisplaying)?(params)
     }
 

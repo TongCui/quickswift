@@ -50,7 +50,9 @@ final public class CellSettings {
     }
 
     weak var tableView: UITableView?
+    weak var displayingCell: UITableViewCell?
     var indexPath: IndexPath?
+
     var cellSeperatorStyle: UITableViewCell.SeparatorLineStyle = .default
     var cellHeight = CGFloat.automaticDimension
     var cellContentEdges = UIEdgeInsets(margin: .defaultMargin)

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Networking-->
+        <scene sceneID="RFr-xR-cgx">
+            <objects>
+                <viewController storyboardIdentifier="NetworkingViewController" id="AKo-jN-vNd" customClass="NetworkingViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nqZ-D9-jmg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="gsX-JI-5t9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gsX-JI-5t9" firstAttribute="leading" secondItem="nqZ-D9-jmg" secondAttribute="leading" id="3jt-U3-KKu"/>
+                            <constraint firstAttribute="trailing" secondItem="gsX-JI-5t9" secondAttribute="trailing" id="GWV-9P-vwh"/>
+                            <constraint firstItem="gsX-JI-5t9" firstAttribute="bottom" secondItem="nqZ-D9-jmg" secondAttribute="bottom" id="LOc-cn-wMf"/>
+                            <constraint firstItem="gsX-JI-5t9" firstAttribute="top" secondItem="nqZ-D9-jmg" secondAttribute="top" id="hIm-qK-Zxs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Ng-vm-epO"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Networking" id="VEo-3t-fvg"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="gsX-JI-5t9" id="jKC-eX-CE2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Jj-IV-hcu" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1874" y="439"/>
+        </scene>
+        <!--IPAddress Demo-->
+        <scene sceneID="8Fe-ar-WgE">
+            <objects>
+                <viewController storyboardIdentifier="IPAddressDemoViewController" id="bhg-DK-Qud" customClass="IPAddressDemoViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6iK-Kh-nHZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="AJj-XP-6PL"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="IPAddress Demo" id="SrP-29-sLY"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="unh-Kn-1pu" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2897" y="439"/>
+        </scene>
+    </scenes>
+</document>

@@ -8,12 +8,12 @@
 
 import Foundation
 
-extension NSObject {
-    var className: String {
+public extension NSObject {
+    public var classNameFull: String {
         return NSStringFromClass(type(of: self))
     }
 
-    var classNameShort: String {
+    public var className: String {
         return NSStringFromClass(type(of: self)).components(separatedBy: ".").last!
     }
 }

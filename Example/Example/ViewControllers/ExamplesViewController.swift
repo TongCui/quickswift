@@ -31,37 +31,53 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
                         cellItem(title: "SwitchCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.switch),
                         cellItem(title: "PlaceholderCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.placeholder),
                         cellItem(title: "OptionCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.option),
+                        cellItem(title: "AdapterCell", goto: .goAdapterVC),
                         cellItem(title: "Insert & Delete", goto: .goCellInsertDeleteVC)
+                        
                     ]
                 },
                 TitleHeaderSectionItem(header: "tableview").append {
                     [
-                        cellItem(title: "Headers", goto: .goHeaderVC),
-                        cellItem(title: "Plain Sections", goto: .goPlainVC)
+                        cellItem(title: "Headers", goto: HeadersViewController.typeName, storyboard: "TableDemos"),
+                        cellItem(title: "Plain Sections", goto: PlainTableDemoViewController.typeName, storyboard: "TableDemos"),
+                        cellItem(title: "Hide bottom cells", goto: PlainTableHideBottomCellsViewController.typeName, storyboard: "TableDemos")
                     ]
                 },
                 TitleHeaderSectionItem(header: "networking").append {
                     [
-                        cellItem(title: "Networking", goto: .goNetworkingVC),
-                        cellItem(title: "IPAddressDemo", goto: .goIPAddressVC)
+                        cellItem(title: "Networking", goto: NetworkingViewController.typeName, storyboard: "NetworkingDemos"),
+                        cellItem(title: "IPAddressDemo", goto: IPAddressDemoViewController.typeName, storyboard: "NetworkingDemos")
                     ]
                 },
                 TitleHeaderSectionItem(header: "view controller").append {
                     [
-                        cellItem(title: "LifeCycle", goto: .goLifecycleVC),
-                        cellItem(title: "NavigationBar1", goto: .goNavigationBar1VC),
-                        cellItem(title: "NavigationBar2", goto: .goNavigationBar2VC),
-                        cellItem(title: "NavigationBar Search", goto: .goNaviSearchVC),
-                        cellItem(title: "Segue Demo", goto: .goSegueVC),
-                        cellItem(title: "Tap Action Demo", goto: .goTapDemoVC)
+                        cellItem(title: "LifeCycle", goto: LifeCycleDemoViewController.typeName, storyboard: "VCDemos"),
+                        cellItem(title: "NavigationBar1", goto: NavigationBarDemo1ViewController.typeName, storyboard: "VCDemos"),
+                        cellItem(title: "NavigationBar2", goto: NavigationBarDemo2ViewController.typeName, storyboard: "VCDemos"),
+                        cellItem(title: "NavigationBar Search", goto: NavigationBarSearchViewController.typeName, storyboard: "VCDemos"),
+                        cellItem(title: "Segue Demo", goto: SegueDemoViewController.typeName, storyboard: "VCDemos"),
+                        cellItem(title: "Tap Action Demo", goto: TapActionDemoViewController.typeName, storyboard: "VCDemos")
                     ]
                 },
                 TitleHeaderSectionItem(header: "UI").append {
                     [
-                        cellItem(title: "UIFontTextStyles", goto: .goFontStylesVC)
+                        cellItem(title: "UIFontTextStyles", goto: FontTextStylesViewController.typeName, storyboard: "UIDemos"),
+                        cellItem(title: "StatefulView", goto: StatefulDemoViewController.typeName, storyboard: "UIDemos")
                     ]
                 }
             ]
+        }
+    }
+    
+    func cellItem(title: String, goto vc: String, storyboard: String) -> OneLineTextCellItem {
+        return OneLineTextCellItem(text: title)
+            .uiSettings { (cell) in
+                cell.accessoryType = .disclosureIndicator
+            }
+            .add(action: .cellDidSelect) { params in
+                
+                let nextVC = vc.toViewController(storyboard: storyboard)
+                params.viewController()?.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
     

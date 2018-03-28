@@ -11,6 +11,7 @@
 		0701BE61203020130076B062 /* UIViewControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0701BE60203020130076B062 /* UIViewControllerExtensionsTests.swift */; };
 		07032F702030161600967020 /* UIEdgeInsetsExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07032F6F2030161600967020 /* UIEdgeInsetsExtensionsTests.swift */; };
 		07032F72203017D000967020 /* UIImageViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07032F71203017D000967020 /* UIImageViewExtensionsTests.swift */; };
+		07116C0A206A1FFC00E00D7F /* TableAdapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07116C09206A1FFC00E00D7F /* TableAdapterCell.swift */; };
 		0712AE811FF141650053A59F /* MultiSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0712AE801FF141650053A59F /* MultiSet.swift */; };
 		0712AE8D1FF4D1900053A59F /* MultiSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0712AE8C1FF4D1900053A59F /* MultiSetTests.swift */; };
 		0712AE911FF4E24A0053A59F /* TableHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0712AE901FF4E24A0053A59F /* TableHandler.swift */; };
@@ -38,6 +39,8 @@
 		0718468B1FCFFF7000545E38 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071846891FCFFF7000545E38 /* SnapKit.framework */; };
 		0718468C1FCFFF7000545E38 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0718468A1FCFFF7000545E38 /* Alamofire.framework */; };
 		071D2F001FEB732200193763 /* CollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071D2EFF1FEB732200193763 /* CollectionExtensionsTests.swift */; };
+		071D62902068C4A8005D0F9E /* Stateful.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071D628F2068C4A8005D0F9E /* Stateful.swift */; };
+		071D62972068DA73005D0F9E /* TypeName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071D62962068DA73005D0F9E /* TypeName.swift */; };
 		072121711FF0A71200C7221B /* PlainSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072121701FF0A71200C7221B /* PlainSectionItem.swift */; };
 		0725BF05201709D500DA1E3C /* SwitchCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725BF04201709D500DA1E3C /* SwitchCellItem.swift */; };
 		0725BF0A20185A5D00DA1E3C /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0725BF0920185A5D00DA1E3C /* CGFloatExtensions.swift */; };
@@ -174,6 +177,7 @@
 		0701BE60203020130076B062 /* UIViewControllerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionsTests.swift; sourceTree = "<group>"; };
 		07032F6F2030161600967020 /* UIEdgeInsetsExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtensionsTests.swift; sourceTree = "<group>"; };
 		07032F71203017D000967020 /* UIImageViewExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensionsTests.swift; sourceTree = "<group>"; };
+		07116C09206A1FFC00E00D7F /* TableAdapterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapterCell.swift; sourceTree = "<group>"; };
 		0712AE801FF141650053A59F /* MultiSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSet.swift; sourceTree = "<group>"; };
 		0712AE8C1FF4D1900053A59F /* MultiSetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSetTests.swift; sourceTree = "<group>"; };
 		0712AE901FF4E24A0053A59F /* TableHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHandler.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 		071846891FCFFF7000545E38 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		0718468A1FCFFF7000545E38 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		071D2EFF1FEB732200193763 /* CollectionExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtensionsTests.swift; sourceTree = "<group>"; };
+		071D628F2068C4A8005D0F9E /* Stateful.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stateful.swift; sourceTree = "<group>"; };
+		071D62962068DA73005D0F9E /* TypeName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeName.swift; sourceTree = "<group>"; };
 		072121701FF0A71200C7221B /* PlainSectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainSectionItem.swift; sourceTree = "<group>"; };
 		0725BF04201709D500DA1E3C /* SwitchCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellItem.swift; sourceTree = "<group>"; };
 		0725BF0920185A5D00DA1E3C /* CGFloatExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
@@ -406,6 +412,7 @@
 				07C50F87201D6E54006B224B /* BarButtonAnimator.swift */,
 				07C50F89201D6E7A006B224B /* ViewControllerLifecycleHandler.swift */,
 				07DF3A26202C3A1500652032 /* LogListViewController.swift */,
+				071D628F2068C4A8005D0F9E /* Stateful.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -474,6 +481,7 @@
 				07E0137D1FECE3EA00609DAB /* ButtonCellItem.swift */,
 				0725BF04201709D500DA1E3C /* SwitchCellItem.swift */,
 				0725BF0D201988DC00DA1E3C /* OptionCellItem.swift */,
+				07116C09206A1FFC00E00D7F /* TableAdapterCell.swift */,
 			);
 			path = CellItems;
 			sourceTree = "<group>";
@@ -571,6 +579,7 @@
 				07E0137F1FECE4BB00609DAB /* CommonInit.swift */,
 				0712AE801FF141650053A59F /* MultiSet.swift */,
 				0712AE981FF521890053A59F /* Runtime.swift */,
+				071D62962068DA73005D0F9E /* TypeName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -876,11 +885,13 @@
 				07E013841FECF19900609DAB /* BuiltInCell.swift in Sources */,
 				07C50F8A201D6E7A006B224B /* ViewControllerLifecycleHandler.swift in Sources */,
 				07D4E235200611090069AAE3 /* Networking.swift in Sources */,
+				07116C0A206A1FFC00E00D7F /* TableAdapterCell.swift in Sources */,
 				074F1D9D1FDA39A400303B97 /* IntExtensions.swift in Sources */,
 				0725BF05201709D500DA1E3C /* SwitchCellItem.swift in Sources */,
 				0735FD8B203FC58C00BE1342 /* SectionItem.swift in Sources */,
 				0712AE971FF51D680053A59F /* UITableViewExtensions.swift in Sources */,
 				078EE9592004B70000DF554C /* UITableViewCellExtensions.swift in Sources */,
+				071D62902068C4A8005D0F9E /* Stateful.swift in Sources */,
 				0712AEA11FF542A50053A59F /* ErrorCellItem.swift in Sources */,
 				07F9789C1FE6CFD0000C8A75 /* Security.swift in Sources */,
 				07D148A220201126005F630A /* UIDeviceExtensions.swift in Sources */,
@@ -902,6 +913,7 @@
 				0725BF0A20185A5D00DA1E3C /* CGFloatExtensions.swift in Sources */,
 				0712AEBC1FF5E8820053A59F /* EquatableExtensions.swift in Sources */,
 				0712AE991FF521890053A59F /* Runtime.swift in Sources */,
+				071D62972068DA73005D0F9E /* TypeName.swift in Sources */,
 				07656F391FE37D130058E2D9 /* Regex.swift in Sources */,
 				0728657420089DC800C3C368 /* PageLoader.swift in Sources */,
 				0712AECC1FFA6BF60053A59F /* TitleFooter.swift in Sources */,

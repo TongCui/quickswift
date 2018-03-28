@@ -112,3 +112,18 @@ public extension Array where Element == String {
         try joined(separator: "\n").write(file: file, in: directory)
     }
 }
+
+// MARK: - UI
+public extension String {
+    func toStoryboard() -> UIStoryboard {
+        return UIStoryboard(name: self, bundle: nil)
+    }
+
+    func toViewController(storyboard: String) -> UIViewController {
+        return storyboard.toStoryboard().instantiateViewController(withIdentifier: self)
+    }
+
+    func toNib() -> UINib {
+        return UINib(nibName: self, bundle: nil)
+    }
+}
