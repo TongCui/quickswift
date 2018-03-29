@@ -90,6 +90,8 @@ extension TableDelegateHandlerProtocol {
 }
 
 public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProtocol {
+    var cellHeights: [IndexPath : CGFloat] = [:]
+    
     public var adapter: TableViewAdapterProtocol
     public var scrollDelegate: UIScrollViewDelegate?
     public required init(adapter: TableViewAdapterProtocol) {
@@ -105,6 +107,14 @@ public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProt
         let params = tableParams(tableView: tableView, indexPath: indexPath, cell: cell)
         params.cellItem?.settings.displayingCell = cell
         params.cellItem?.handler(for: .cellWillDisplay)?(params)
+        cellHeights[indexPath] = cell.frame.size.height
+    }
+    
+    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let height = cellHeights[indexPath] else {
+            return adapter.cellItem(indexPath: indexPath)?.cellHeight ?? .defaultCellHeight
+        }
+        return height
     }
 
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
