@@ -83,7 +83,7 @@ public extension String {
         return try JSON.parse(fromString: self)
     }
 
-    public func toArray<Value: Encodable>() throws -> [Value] {
+    public func toArray<Value: Decodable>() throws -> [Value] {
         do {
             let valueArray: [Value] = try Array(fromJSONString: self)
             return valueArray
@@ -92,7 +92,7 @@ public extension String {
         }
     }
 
-    public func toDictionary<Value: Encodable>() throws -> [String: Value] {
+    public func toDictionary<Value: Decodable>() throws -> [String: Value] {
         do {
             let valueDictionary: [String: Value] = try Dictionary(fromJSONString: self)
             return valueDictionary
@@ -101,7 +101,7 @@ public extension String {
         }
     }
 
-    public func toJSON<Value: Encodable>() throws -> [String: Value] {
+    public func toJSON<Value: Decodable>() throws -> [String: Value] {
         return try toDictionary()
     }
 }

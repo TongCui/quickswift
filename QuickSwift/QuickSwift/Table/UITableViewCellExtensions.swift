@@ -22,7 +22,7 @@ public extension UITableViewCell {
         case .default:
             break
         case .none:
-            separatorInset = UIEdgeInsets(top: 0, left: bounds.size.width, bottom: 0, right: 0)
+            separatorInset = UIEdgeInsets(top: 0, left: 2000, bottom: 0, right: 0)
         case .full:
             separatorInset = UIEdgeInsets.zero
         case .leftMargin(let left):

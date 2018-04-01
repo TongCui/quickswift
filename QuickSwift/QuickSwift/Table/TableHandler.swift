@@ -58,7 +58,7 @@ public class TableViewDataSourceHandler: NSObject, TableDataSourceHandlerProtoco
 
     // MARK: - Configuring an Index
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        let titles = adapter.sections.flatMap { $0.indexTitle }
+        let titles = adapter.sections.compactMap { $0.indexTitle }
 
         guard titles.count > 0 else {
             return nil
