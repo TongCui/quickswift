@@ -27,8 +27,8 @@ public class TableParams {
 
 final public class CellSettings {
 
-    public enum Actions: Hashable {
-        public var hashValue: Int {return self.toS().hashValue }
+    public enum Actions: Hashable, CustomStringConvertible {
+        public var hashValue: Int {return self.description.hashValue }
 
         public static func ==(lhs: CellSettings.Actions, rhs: CellSettings.Actions) -> Bool {
             return lhs.toS() == rhs.toS()
@@ -39,7 +39,7 @@ final public class CellSettings {
         case cellDidEndDisplaying
         case custom(String)
 
-        private func toS() -> String {
+        public var description: String {
             switch self {
             case .cellDidSelect: return "cellDidSelect"
             case .cellWillDisplay: return "cellWillDisplay"

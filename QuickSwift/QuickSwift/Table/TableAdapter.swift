@@ -8,8 +8,6 @@
 
 import UIKit
 
-public let defaultCellHeight: CGFloat = 44
-
 public protocol DataSourceElement: AnyObject {}
 
 public protocol TableViewRegisterable {
@@ -110,7 +108,7 @@ public extension CellItemProtocol {
         return self
     }
 
-    public func handler(for action: CellSettings.Actions) -> ((TableParams) -> Void)? {
+    func handler(for action: CellSettings.Actions) -> ((TableParams) -> Void)? {
         return settings.actions[action]
     }
 }
@@ -303,15 +301,4 @@ public extension TableViewAdapterProtocol {
 
     }
 
-}
-
-open class DefaultTableAdapter: TableViewAdapterProtocol {
-
-    open weak var tableView: UITableView?
-    open var sections: [SectionItemProtocol] = []
-
-    open lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
-    open lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
-
-    public required init() {}
 }

@@ -18,7 +18,7 @@ public extension Dictionary {
     }
 }
 
-public extension Dictionary where Value : Equatable {
+public extension Dictionary where Value: Equatable {
     public func has(value: Value) -> Bool {
         return contains { $0.1 == value }
     }
@@ -34,7 +34,7 @@ public extension Dictionary where Value : Equatable {
     }
 }
 
-public extension Dictionary where Value : Hashable {
+public extension Dictionary where Value: Hashable {
 
     public func fliped() -> [Value: Key] {
         return reduce(into: [Value : Key]()) { (result, element) in

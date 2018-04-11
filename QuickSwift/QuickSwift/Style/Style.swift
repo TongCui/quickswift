@@ -27,7 +27,7 @@ public struct Style<Element> {
     }
 }
 
-extension Style where Element : Stylable {
+extension Style where Element: Stylable {
     @discardableResult
     public func same(with another: Element.Element ) -> Style {
         self.element.copyStyle(another)

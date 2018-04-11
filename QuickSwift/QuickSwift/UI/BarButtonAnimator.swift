@@ -141,7 +141,7 @@ public protocol BarButtonAnimating {
     var barAnimator: BarButtonAnimator { get }
 }
 
-extension BarButtonAnimating where Self : LifeCycleManagedViewController {
+extension BarButtonAnimating where Self: LifeCycleManagedViewController {
     public func setupBarAnimator() {
         self.lifeCycleManager
             .addAction(.viewWillAppear) { [weak self] animated in

@@ -14,7 +14,7 @@ public protocol Stylable {
     func copyStyle(_ another: Element)
 }
 
-extension Stylable where Self : UIView {
+extension Stylable where Self: UIView {
     func copyCommonView(_ another: UIView) {
         backgroundColor = another.backgroundColor
         alpha = another.alpha

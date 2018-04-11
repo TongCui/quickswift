@@ -8,14 +8,7 @@
 
 import Foundation
 
-public class LinesAdapter: TableViewAdapterProtocol {
-
-    public weak var tableView: UITableView?
-    public var sections: [SectionItemProtocol] = []
-
-    public lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
-    public lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
-
+public class LinesAdapter: DefaultTableAdapter {
     public func append(line: String) {
         append(lines: [line])
     }
@@ -25,8 +18,6 @@ public class LinesAdapter: TableViewAdapterProtocol {
             lines.map { OneLineTextCellItem(text: $0)}
         }
     }
-
-    public required init() {}
 
     public convenience init(tableView: UITableView, sectionItem: SectionItemProtocol) {
         self.init(tableView: tableView)

@@ -23,7 +23,7 @@ public extension Collection where Index == Int {
 
 // MARK: - Math
 
-public extension Collection where Element : Numeric {
+public extension Collection where Element: Numeric {
     public func sum() -> Element {
         return self.reduce(0, +)
     }

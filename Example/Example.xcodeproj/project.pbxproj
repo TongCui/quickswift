@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070BF07B207A1D03005B4231 /* AppDemos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070BF079207A1D03005B4231 /* AppDemos.storyboard */; };
+		070BF07E207A1D38005B4231 /* InfoPlistDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070BF07D207A1D38005B4231 /* InfoPlistDemoViewController.swift */; };
+		070BF0F0207E00A6005B4231 /* RefreshTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070BF0EF207E00A6005B4231 /* RefreshTableViewController.swift */; };
 		07116C0F206A3AD300E00D7F /* VCDemos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07116C0D206A3AD300E00D7F /* VCDemos.storyboard */; };
 		07116C12206A3AEC00E00D7F /* NetworkingDemos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07116C10206A3AEC00E00D7F /* NetworkingDemos.storyboard */; };
 		07116C15206A3AFC00E00D7F /* TableDemos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07116C13206A3AFC00E00D7F /* TableDemos.storyboard */; };
@@ -87,6 +90,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		070BF07A207A1D03005B4231 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AppDemos.storyboard; sourceTree = "<group>"; };
+		070BF07D207A1D38005B4231 /* InfoPlistDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlistDemoViewController.swift; sourceTree = "<group>"; };
+		070BF0EF207E00A6005B4231 /* RefreshTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTableViewController.swift; sourceTree = "<group>"; };
 		07116C0E206A3AD300E00D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VCDemos.storyboard; sourceTree = "<group>"; };
 		07116C11206A3AEC00E00D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NetworkingDemos.storyboard; sourceTree = "<group>"; };
 		07116C14206A3AFC00E00D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TableDemos.storyboard; sourceTree = "<group>"; };
@@ -163,6 +169,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		070BF07C207A1D27005B4231 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				070BF07D207A1D38005B4231 /* InfoPlistDemoViewController.swift */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
 		07116C16206A3BAE00E00D7F /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +203,7 @@
 				07116C1F206A3BAE00E00D7F /* PlainTableDemoViewController.swift */,
 				07116C20206A3BAE00E00D7F /* HeadersViewController.swift */,
 				07116C39206B45F700E00D7F /* PlainTableHideBottomCellsViewController.swift */,
+				070BF0EF207E00A6005B4231 /* RefreshTableViewController.swift */,
 			);
 			path = table;
 			sourceTree = "<group>";
@@ -255,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				078EE9542004945C00DF554C /* ExamplesViewController.swift */,
+				070BF07C207A1D27005B4231 /* app */,
 				07116C16206A3BAE00E00D7F /* cell */,
 				07116C1B206A3BAE00E00D7F /* networking */,
 				07116C1E206A3BAE00E00D7F /* table */,
@@ -294,6 +310,7 @@
 				078EE9532004945C00DF554C /* ViewControllers */,
 				07F03D951FCBFBDA006F79C8 /* Main.storyboard */,
 				071D62912068D1B0005D0F9E /* UIDemos.storyboard */,
+				070BF079207A1D03005B4231 /* AppDemos.storyboard */,
 				07116C0D206A3AD300E00D7F /* VCDemos.storyboard */,
 				07116C10206A3AEC00E00D7F /* NetworkingDemos.storyboard */,
 				07116C13206A3AFC00E00D7F /* TableDemos.storyboard */,
@@ -446,6 +463,7 @@
 				0728658E2008AAD400C3C368 /* stub-students.json in Resources */,
 				07116C0F206A3AD300E00D7F /* VCDemos.storyboard in Resources */,
 				07F03D991FCBFBDA006F79C8 /* Assets.xcassets in Resources */,
+				070BF07B207A1D03005B4231 /* AppDemos.storyboard in Resources */,
 				071D62932068D1B0005D0F9E /* UIDemos.storyboard in Resources */,
 				0712AEB31FF5E15E0053A59F /* file.txt in Resources */,
 				07F03D971FCBFBDA006F79C8 /* Main.storyboard in Resources */,
@@ -476,6 +494,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				070BF0F0207E00A6005B4231 /* RefreshTableViewController.swift in Sources */,
 				07116C3A206B45F800E00D7F /* PlainTableHideBottomCellsViewController.swift in Sources */,
 				07116C2A206A3BAF00E00D7F /* BuiltInCellViewController.swift in Sources */,
 				07D148A0201EC81A005F630A /* Consts.swift in Sources */,
@@ -492,6 +511,7 @@
 				07116C38206A3BAF00E00D7F /* NavigationBarSearchViewController.swift in Sources */,
 				07116C2E206A3BAF00E00D7F /* NetworkingViewController.swift in Sources */,
 				07116C32206A3BAF00E00D7F /* FontTextStylesViewController.swift in Sources */,
+				070BF07E207A1D38005B4231 /* InfoPlistDemoViewController.swift in Sources */,
 				07116C2B206A3BAF00E00D7F /* CellInsertDeleteDemoViewController.swift in Sources */,
 				078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */,
 				07116C33206A3BAF00E00D7F /* StatefulDemoViewController.swift in Sources */,
@@ -534,6 +554,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		070BF079207A1D03005B4231 /* AppDemos.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				070BF07A207A1D03005B4231 /* Base */,
+			);
+			name = AppDemos.storyboard;
+			sourceTree = "<group>";
+		};
 		07116C0D206A3AD300E00D7F /* VCDemos.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -8,8 +8,6 @@
 
 import Foundation
 
-public let kTableEmptyHeight: CGFloat = 0.01
-
 public protocol TableHandlerProtocol {
     var adapter: TableViewAdapterProtocol { get }
     init(adapter: TableViewAdapterProtocol)
@@ -90,8 +88,8 @@ extension TableDelegateHandlerProtocol {
 }
 
 public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProtocol {
-    var cellHeights: [IndexPath : CGFloat] = [:]
-    
+    var cellHeights: [IndexPath: CGFloat] = [:]
+
     public var adapter: TableViewAdapterProtocol
     public var scrollDelegate: UIScrollViewDelegate?
     public required init(adapter: TableViewAdapterProtocol) {
@@ -109,7 +107,7 @@ public class TableViewDefaultDelegateHandler: NSObject, TableDelegateHandlerProt
         params.cellItem?.handler(for: .cellWillDisplay)?(params)
         cellHeights[indexPath] = cell.frame.size.height
     }
-    
+
     public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let height = cellHeights[indexPath] else {
             return adapter.cellItem(indexPath: indexPath)?.cellHeight ?? .defaultCellHeight

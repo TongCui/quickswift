@@ -64,6 +64,11 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
                         cellItem(title: "UIFontTextStyles", goto: FontTextStylesViewController.typeName, storyboard: "UIDemos"),
                         cellItem(title: "StatefulView", goto: StatefulDemoViewController.typeName, storyboard: "UIDemos")
                     ]
+                },
+                TitleHeaderSectionItem(header: "Application").append {
+                    [
+                        cellItem(title: "Info plist", goto: InfoPlistDemoViewController.typeName, storyboard: "AppDemos"),
+                    ]
                 }
             ]
         }

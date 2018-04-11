@@ -66,34 +66,69 @@ protocol PageLoader {
     var hasMore: Bool { get set }
 }
 
+extension UIRefreshControl {
+    func refreshManually(tableView: UITableView, refresh:@escaping ()->()) {
+        tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentOffset.y - frame.height), animated: true)
+        self.beginRefreshing()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            refresh()
+        }
+    }
+}
+
+extension NetworkingViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if self.refreshControl.isRefreshing {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.refresh()
+            }
+        }
+    }
+    
+}
 
 final class NetworkingViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     lazy var adapter = NetworkingAdapter(tableView: tableView)
     
+    private let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         adapter.reloadData()
-        
+        adapter.delegateHandler?.scrollDelegate = self
+        tableView.refreshControl = refreshControl
         httpStubs()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Refresh", style: .plain, target: self, action: #selector(refresh))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Refresh", style: .plain, target: self, action: #selector(refreshButtonDidPress))
+    }
+    
+    @objc private func refreshWeatherData(_ sender: Any) {
+        refresh()
     }
     
     @objc
+    func refreshButtonDidPress() {
+        refreshControl.refreshManually(tableView: tableView) {
+            self.refresh()
+        }
+    }
+    
     func refresh() {
         Alamofire.request(Requests.users).responseModel(type: DefaultResponse<[Student]>.self) { [weak self] (response) in
             if let students = response.result.value?.model {
                 students.forEach { print(try! $0.toJSONString()) }
                 self?.update(students: students)
-            } else {
+            } else {    
                 print("Loading failed \(response.result.error!)")
             }
         }
     }
     
     func update(students: [Student]) {
+        
         adapter.clear()
         
         adapter.append(section: {PlainSectionItem()} ) {
@@ -105,7 +140,12 @@ final class NetworkingViewController: UIViewController {
             }
         }
         
+        
         adapter.reloadData()
+        
+        UIView.animate(withDuration: 0.3) {
+            self.refreshControl.endRefreshing()
+        }
     }
     
     func httpStubs() {

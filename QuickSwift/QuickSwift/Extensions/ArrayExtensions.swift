@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Math
 
-public extension Array where Element : FloatingPoint {
+public extension Array where Element: FloatingPoint {
     public func average() -> Element {
         guard !isEmpty else { return 0 }
         let sum = self.sum()
@@ -69,7 +69,7 @@ public extension Array {
 
 // MARK: - Element
 
-public extension Array where Element : Equatable {
+public extension Array where Element: Equatable {
     public mutating func removeElement(_ element: Element) {
         self = filter { $0 != element }
     }
