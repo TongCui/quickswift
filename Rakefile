@@ -65,3 +65,8 @@ desc "Generate Segue Enum"
 task :segue do
   ruby 'scripts/xcode/xcode_find_segue.rb'
 end
+
+desc "Update Storyboard files"
+task :storyboard do
+  ruby 'scripts/xcode/xcode_update_storyboard.rb'
+end

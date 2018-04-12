@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require_relative "../common/tools.rb"
+
 unless ARGV.empty?
   add = ARGV[0] == "add"
 end
@@ -17,7 +19,7 @@ target_lines.split("\n").each do |line|
   end
 end
 
-def toCamelName(name)
+def to_camel_name(name)
   res = []
   excepts = ["vc", "url", "http"]
   name.split("_").each_with_index do |value, idx|
@@ -34,7 +36,7 @@ def toCamelName(name)
   res.join("")
 end
 
-content = segue_ids.map {|x| "  case #{toCamelName(x)} = \"#{x}\""}.join("\n")
+content = segue_ids.map {|x| "  case #{to_camel_name(x)} = \"#{x}\""}.join("\n")
 template = <<EOF
 
 enum SegueIds: String {
