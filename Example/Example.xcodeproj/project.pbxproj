@@ -10,6 +10,7 @@
 		070BF07B207A1D03005B4231 /* AppDemos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070BF079207A1D03005B4231 /* AppDemos.storyboard */; };
 		070BF07E207A1D38005B4231 /* InfoPlistDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070BF07D207A1D38005B4231 /* InfoPlistDemoViewController.swift */; };
 		070BF0F0207E00A6005B4231 /* RefreshTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070BF0EF207E00A6005B4231 /* RefreshTableViewController.swift */; };
+		070BF0F5207F0A14005B4231 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070BF0F4207F0A14005B4231 /* Requests.swift */; };
 		07116C0F206A3AD300E00D7F /* VCDemos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07116C0D206A3AD300E00D7F /* VCDemos.storyboard */; };
 		07116C12206A3AEC00E00D7F /* NetworkingDemos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07116C10206A3AEC00E00D7F /* NetworkingDemos.storyboard */; };
 		07116C15206A3AFC00E00D7F /* TableDemos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07116C13206A3AFC00E00D7F /* TableDemos.storyboard */; };
@@ -93,6 +94,7 @@
 		070BF07A207A1D03005B4231 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AppDemos.storyboard; sourceTree = "<group>"; };
 		070BF07D207A1D38005B4231 /* InfoPlistDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlistDemoViewController.swift; sourceTree = "<group>"; };
 		070BF0EF207E00A6005B4231 /* RefreshTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTableViewController.swift; sourceTree = "<group>"; };
+		070BF0F4207F0A14005B4231 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		07116C0E206A3AD300E00D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/VCDemos.storyboard; sourceTree = "<group>"; };
 		07116C11206A3AEC00E00D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NetworkingDemos.storyboard; sourceTree = "<group>"; };
 		07116C14206A3AFC00E00D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TableDemos.storyboard; sourceTree = "<group>"; };
@@ -175,6 +177,14 @@
 				070BF07D207A1D38005B4231 /* InfoPlistDemoViewController.swift */,
 			);
 			path = app;
+			sourceTree = "<group>";
+		};
+		070BF0F3207F0A09005B4231 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				070BF0F4207F0A14005B4231 /* Requests.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		07116C16206A3BAE00E00D7F /* cell */ = {
@@ -306,6 +316,7 @@
 			children = (
 				07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */,
 				07D1489F201EC81A005F630A /* Consts.swift */,
+				070BF0F3207F0A09005B4231 /* Networking */,
 				071D62982068DD1C005D0F9E /* Table */,
 				078EE9532004945C00DF554C /* ViewControllers */,
 				07F03D951FCBFBDA006F79C8 /* Main.storyboard */,
@@ -511,6 +522,7 @@
 				07116C38206A3BAF00E00D7F /* NavigationBarSearchViewController.swift in Sources */,
 				07116C2E206A3BAF00E00D7F /* NetworkingViewController.swift in Sources */,
 				07116C32206A3BAF00E00D7F /* FontTextStylesViewController.swift in Sources */,
+				070BF0F5207F0A14005B4231 /* Requests.swift in Sources */,
 				070BF07E207A1D38005B4231 /* InfoPlistDemoViewController.swift in Sources */,
 				07116C2B206A3BAF00E00D7F /* CellInsertDeleteDemoViewController.swift in Sources */,
 				078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */,

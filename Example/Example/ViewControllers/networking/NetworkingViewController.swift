@@ -12,43 +12,7 @@ import OHHTTPStubs
 import QuickSwift
 
 
-enum Requests: RequestFactory {
-    var host: String { return "https://localhost" }
-    
-    case users
-    case createUser
-    case readUser(username: String)
-    case updateUser(username: String, newname: String)
-    case destroyUser(username: String)
-    
-    func toRequestModel() -> RequestModel {
-        switch self {
-        case .users:
-            return RequestModel(.get, .http, host, "/users")
-        case .createUser:
-            return RequestModel(.get, .http, host, "/user/create")
-        case .readUser(let username):
-            return RequestModel(.get, .http, host, "/user/read", ["name": username])
-        case .updateUser(let username, let newname):
-            return RequestModel(.post, .http, host, "/user/update", ["old": username, "new": newname], .body)
-        case .destroyUser(let username):
-            return RequestModel(.post, .http, host, "/user/remove", ["name": username], .jsonBody)
-        }
-    }
-}
 
-struct Student: Codable {
-    var name: String
-    var age: Int
-}
-
-struct DefaultResponse<T: Codable> : Codable {
-    var model: T?
-    
-    enum CodingKeys: String, CodingKey {
-        case model = "data"
-    }
-}
 
 final class NetworkingAdapter: TableViewAdapterProtocol {
     
@@ -60,10 +24,6 @@ final class NetworkingAdapter: TableViewAdapterProtocol {
     
     required init() {}
     
-}
-
-protocol PageLoader {
-    var hasMore: Bool { get set }
 }
 
 extension UIRefreshControl {
@@ -149,7 +109,8 @@ final class NetworkingViewController: UIViewController {
     }
     
     func httpStubs() {
-        stub(condition: isPath("/users")) { _ in
+        let path = Requests.users.toRequestModel().path
+        stub(condition: isPath(path)) { _ in
             let stubPath = OHPathForFile("stub-students.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
         }

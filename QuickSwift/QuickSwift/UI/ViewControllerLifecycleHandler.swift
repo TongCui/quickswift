@@ -27,6 +27,9 @@ public extension UIViewController {
         case viewDidDisappear
         case `deinit`
         case scrollViewDidScroll
+        case scrollViewWillBeginDragging
+        case scrollViewWillEndDragging
+        case scrollViewDidEndDragging
         case viewWillTransition
 
         private func toS() -> String {
@@ -111,5 +114,17 @@ extension LifeCycleManagedViewController {
 extension LifeCycleManagedViewController: UIScrollViewDelegate {
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         lifeCycleManager.performAction(.scrollViewDidScroll, param: scrollView)
+    }
+    
+    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        lifeCycleManager.performAction(.scrollViewWillBeginDragging, param: scrollView)
+    }
+    
+    open func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        lifeCycleManager.performAction(.scrollViewWillEndDragging, param: [scrollView, velocity, targetContentOffset])
+    }
+    
+    open  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        lifeCycleManager.performAction(.scrollViewDidEndDragging, param: [scrollView, decelerate])
     }
 }
