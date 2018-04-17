@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TableView - UIKit-->
+        <scene sceneID="Wb5-c1-aWC">
+            <objects>
+                <viewController storyboardIdentifier="CellItemPattern1ViewController" id="LpQ-Jk-sqP" customClass="CellItemPattern1ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cJd-ad-KEa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="P24-6f-je3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="P24-6f-je3" firstAttribute="top" secondItem="cJd-ad-KEa" secondAttribute="top" id="5mz-rw-hT3"/>
+                            <constraint firstItem="P24-6f-je3" firstAttribute="bottom" secondItem="cJd-ad-KEa" secondAttribute="bottom" id="83L-ST-hVM"/>
+                            <constraint firstAttribute="trailing" secondItem="P24-6f-je3" secondAttribute="trailing" id="dTe-0L-YAd"/>
+                            <constraint firstItem="P24-6f-je3" firstAttribute="leading" secondItem="cJd-ad-KEa" secondAttribute="leading" id="vGR-M9-xjD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PHj-fj-BYr"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="TableView - UIKit" id="GsK-W5-1H9"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="P24-6f-je3" id="0nK-U3-vhA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nBG-xs-I8y" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="730" y="-1615"/>
+        </scene>
+        <!--TableView - DataSource-->
+        <scene sceneID="Enf-PD-OKQ">
+            <objects>
+                <viewController storyboardIdentifier="CellItemPattern2ViewController" id="MdT-zO-ezR" customClass="CellItemPattern2ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IXv-ES-4bb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Ybh-IB-i2n">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ybh-IB-i2n" firstAttribute="bottom" secondItem="IXv-ES-4bb" secondAttribute="bottom" id="QXz-Jb-5KL"/>
+                            <constraint firstItem="Ybh-IB-i2n" firstAttribute="top" secondItem="IXv-ES-4bb" secondAttribute="top" id="RpN-BJ-xWh"/>
+                            <constraint firstItem="Ybh-IB-i2n" firstAttribute="leading" secondItem="IXv-ES-4bb" secondAttribute="leading" id="pQ8-uE-mod"/>
+                            <constraint firstAttribute="trailing" secondItem="Ybh-IB-i2n" secondAttribute="trailing" id="x2H-cU-2yJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="17k-3Q-eAV"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="TableView - DataSource" id="x9J-Nl-cJg"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ybh-IB-i2n" id="cVi-Ma-DfB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ksF-Y1-OxA" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1377" y="-1615"/>
+        </scene>
+        <!--TableView - CellItem-->
+        <scene sceneID="9D8-YT-830">
+            <objects>
+                <viewController storyboardIdentifier="CellItemPattern3ViewController" id="cvn-NA-nXU" customClass="CellItemPattern3ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Jy-xT-SfI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="WPn-gg-NN0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WPn-gg-NN0" firstAttribute="bottom" secondItem="3Jy-xT-SfI" secondAttribute="bottom" id="6fl-S8-fxq"/>
+                            <constraint firstItem="WPn-gg-NN0" firstAttribute="top" secondItem="3Jy-xT-SfI" secondAttribute="top" id="8RG-sr-Vqr"/>
+                            <constraint firstAttribute="trailing" secondItem="WPn-gg-NN0" secondAttribute="trailing" id="KfA-9e-eid"/>
+                            <constraint firstItem="WPn-gg-NN0" firstAttribute="leading" secondItem="3Jy-xT-SfI" secondAttribute="leading" id="pdf-lK-c4Y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YdG-m1-cCf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="TableView - CellItem" id="O1B-gU-mxl"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="WPn-gg-NN0" id="eeJ-h0-lDm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Fu-uT-DqG" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2047" y="-1615"/>
+        </scene>
+        <!--TableView - CellItem- Adapter-->
+        <scene sceneID="0qf-N5-XyV">
+            <objects>
+                <viewController storyboardIdentifier="CellItemPattern4ViewController" id="HgX-LN-tU4" customClass="CellItemPattern4ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hbc-Vm-mn2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="37y-nV-rj9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="37y-nV-rj9" secondAttribute="trailing" id="Kqo-72-xYe"/>
+                            <constraint firstItem="37y-nV-rj9" firstAttribute="top" secondItem="hbc-Vm-mn2" secondAttribute="top" id="PwG-sT-j7O"/>
+                            <constraint firstItem="37y-nV-rj9" firstAttribute="bottom" secondItem="hbc-Vm-mn2" secondAttribute="bottom" id="eqW-b2-kk6"/>
+                            <constraint firstItem="37y-nV-rj9" firstAttribute="leading" secondItem="hbc-Vm-mn2" secondAttribute="leading" id="tu9-Fg-vNe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QK7-BV-5lG"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="TableView - CellItem- Adapter" id="HXV-vz-ELD"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="37y-nV-rj9" id="kDM-Oi-Rfm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mjd-Hb-15E" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2722" y="-1615"/>
+        </scene>
+    </scenes>
+</document>

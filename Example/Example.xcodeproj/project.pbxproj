@@ -45,6 +45,11 @@
 		0728658A2008A73D00C3C368 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 072865872008A6DC00C3C368 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0728658B2008A74200C3C368 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 072865862008A6DC00C3C368 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0728658E2008AAD400C3C368 /* stub-students.json in Resources */ = {isa = PBXBuildFile; fileRef = 0728658D2008AAD400C3C368 /* stub-students.json */; };
+		0784D47B2085FA8E00CBC85B /* CellItemPattern.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0784D47A2085FA8E00CBC85B /* CellItemPattern.storyboard */; };
+		0784D47D2085FAD000CBC85B /* CellItemPattern1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D47C2085FAD000CBC85B /* CellItemPattern1ViewController.swift */; };
+		0784D47F2085FADA00CBC85B /* CellItemPattern2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D47E2085FADA00CBC85B /* CellItemPattern2ViewController.swift */; };
+		0784D4812085FAE300CBC85B /* CellItemPattern3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D4802085FAE300CBC85B /* CellItemPattern3ViewController.swift */; };
+		0784D4832085FBCF00CBC85B /* CellItemPattern4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D4822085FBCF00CBC85B /* CellItemPattern4ViewController.swift */; };
 		078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE9542004945C00DF554C /* ExamplesViewController.swift */; };
 		07AE23D51FCEB04B00028BC4 /* QuickSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */; };
 		07D148A0201EC81A005F630A /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1489F201EC81A005F630A /* Consts.swift */; };
@@ -125,6 +130,11 @@
 		072865862008A6DC00C3C368 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Example/Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		072865872008A6DC00C3C368 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Example/Frameworks/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		0728658D2008AAD400C3C368 /* stub-students.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stub-students.json"; sourceTree = "<group>"; };
+		0784D47A2085FA8E00CBC85B /* CellItemPattern.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CellItemPattern.storyboard; sourceTree = "<group>"; };
+		0784D47C2085FAD000CBC85B /* CellItemPattern1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern1ViewController.swift; sourceTree = "<group>"; };
+		0784D47E2085FADA00CBC85B /* CellItemPattern2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern2ViewController.swift; sourceTree = "<group>"; };
+		0784D4802085FAE300CBC85B /* CellItemPattern3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern3ViewController.swift; sourceTree = "<group>"; };
+		0784D4822085FBCF00CBC85B /* CellItemPattern4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern4ViewController.swift; sourceTree = "<group>"; };
 		078EE9542004945C00DF554C /* ExamplesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesViewController.swift; sourceTree = "<group>"; };
 		07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuickSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D1489F201EC81A005F630A /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
@@ -276,6 +286,17 @@
 			path = jsons;
 			sourceTree = "<group>";
 		};
+		0784D4792085FA7400CBC85B /* CellItemPattern */ = {
+			isa = PBXGroup;
+			children = (
+				0784D47C2085FAD000CBC85B /* CellItemPattern1ViewController.swift */,
+				0784D47E2085FADA00CBC85B /* CellItemPattern2ViewController.swift */,
+				0784D4802085FAE300CBC85B /* CellItemPattern3ViewController.swift */,
+				0784D4822085FBCF00CBC85B /* CellItemPattern4ViewController.swift */,
+			);
+			path = CellItemPattern;
+			sourceTree = "<group>";
+		};
 		078EE9532004945C00DF554C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +338,7 @@
 				07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */,
 				07D1489F201EC81A005F630A /* Consts.swift */,
 				070BF0F3207F0A09005B4231 /* Networking */,
+				0784D4792085FA7400CBC85B /* CellItemPattern */,
 				071D62982068DD1C005D0F9E /* Table */,
 				078EE9532004945C00DF554C /* ViewControllers */,
 				07F03D951FCBFBDA006F79C8 /* Main.storyboard */,
@@ -325,6 +347,7 @@
 				07116C0D206A3AD300E00D7F /* VCDemos.storyboard */,
 				07116C10206A3AEC00E00D7F /* NetworkingDemos.storyboard */,
 				07116C13206A3AFC00E00D7F /* TableDemos.storyboard */,
+				0784D47A2085FA8E00CBC85B /* CellItemPattern.storyboard */,
 				07F03D981FCBFBDA006F79C8 /* Assets.xcassets */,
 				07F03D9A1FCBFBDA006F79C8 /* LaunchScreen.storyboard */,
 				07F03D9D1FCBFBDA006F79C8 /* Info.plist */,
@@ -472,6 +495,7 @@
 			files = (
 				07F03D9C1FCBFBDA006F79C8 /* LaunchScreen.storyboard in Resources */,
 				0728658E2008AAD400C3C368 /* stub-students.json in Resources */,
+				0784D47B2085FA8E00CBC85B /* CellItemPattern.storyboard in Resources */,
 				07116C0F206A3AD300E00D7F /* VCDemos.storyboard in Resources */,
 				07F03D991FCBFBDA006F79C8 /* Assets.xcassets in Resources */,
 				070BF07B207A1D03005B4231 /* AppDemos.storyboard in Resources */,
@@ -518,11 +542,15 @@
 				07116C2C206A3BAF00E00D7F /* AdapterCellViewController.swift in Sources */,
 				07116C34206A3BAF00E00D7F /* NavigationBarDemoViewController.swift in Sources */,
 				07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */,
+				0784D47F2085FADA00CBC85B /* CellItemPattern2ViewController.swift in Sources */,
+				0784D4812085FAE300CBC85B /* CellItemPattern3ViewController.swift in Sources */,
 				07116C31206A3BAF00E00D7F /* HeadersViewController.swift in Sources */,
+				0784D47D2085FAD000CBC85B /* CellItemPattern1ViewController.swift in Sources */,
 				07116C38206A3BAF00E00D7F /* NavigationBarSearchViewController.swift in Sources */,
 				07116C2E206A3BAF00E00D7F /* NetworkingViewController.swift in Sources */,
 				07116C32206A3BAF00E00D7F /* FontTextStylesViewController.swift in Sources */,
 				070BF0F5207F0A14005B4231 /* Requests.swift in Sources */,
+				0784D4832085FBCF00CBC85B /* CellItemPattern4ViewController.swift in Sources */,
 				070BF07E207A1D38005B4231 /* InfoPlistDemoViewController.swift in Sources */,
 				07116C2B206A3BAF00E00D7F /* CellInsertDeleteDemoViewController.swift in Sources */,
 				078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */,
