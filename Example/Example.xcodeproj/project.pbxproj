@@ -50,6 +50,14 @@
 		0784D47F2085FADA00CBC85B /* CellItemPattern2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D47E2085FADA00CBC85B /* CellItemPattern2ViewController.swift */; };
 		0784D4812085FAE300CBC85B /* CellItemPattern3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D4802085FAE300CBC85B /* CellItemPattern3ViewController.swift */; };
 		0784D4832085FBCF00CBC85B /* CellItemPattern4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D4822085FBCF00CBC85B /* CellItemPattern4ViewController.swift */; };
+		0784D4862086D13200CBC85B /* CellItem1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D4842086D13200CBC85B /* CellItem1Cell.swift */; };
+		0784D4872086D13200CBC85B /* CellItem1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0784D4852086D13200CBC85B /* CellItem1Cell.xib */; };
+		0784D48A2086D14100CBC85B /* CellItem2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D4882086D14000CBC85B /* CellItem2Cell.swift */; };
+		0784D48B2086D14100CBC85B /* CellItem2Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0784D4892086D14100CBC85B /* CellItem2Cell.xib */; };
+		0784D48E2086D15200CBC85B /* CellItem3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D48C2086D15200CBC85B /* CellItem3Cell.swift */; };
+		0784D48F2086D15200CBC85B /* CellItem3Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0784D48D2086D15200CBC85B /* CellItem3Cell.xib */; };
+		0784D4912086E36F00CBC85B /* DemoCellItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D4902086E36F00CBC85B /* DemoCellItems.swift */; };
+		0784D4932086E68A00CBC85B /* CellItemPattern5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D4922086E68A00CBC85B /* CellItemPattern5ViewController.swift */; };
 		078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078EE9542004945C00DF554C /* ExamplesViewController.swift */; };
 		07AE23D51FCEB04B00028BC4 /* QuickSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */; };
 		07D148A0201EC81A005F630A /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1489F201EC81A005F630A /* Consts.swift */; };
@@ -135,6 +143,14 @@
 		0784D47E2085FADA00CBC85B /* CellItemPattern2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern2ViewController.swift; sourceTree = "<group>"; };
 		0784D4802085FAE300CBC85B /* CellItemPattern3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern3ViewController.swift; sourceTree = "<group>"; };
 		0784D4822085FBCF00CBC85B /* CellItemPattern4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern4ViewController.swift; sourceTree = "<group>"; };
+		0784D4842086D13200CBC85B /* CellItem1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItem1Cell.swift; sourceTree = "<group>"; };
+		0784D4852086D13200CBC85B /* CellItem1Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellItem1Cell.xib; sourceTree = "<group>"; };
+		0784D4882086D14000CBC85B /* CellItem2Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItem2Cell.swift; sourceTree = "<group>"; };
+		0784D4892086D14100CBC85B /* CellItem2Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellItem2Cell.xib; sourceTree = "<group>"; };
+		0784D48C2086D15200CBC85B /* CellItem3Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItem3Cell.swift; sourceTree = "<group>"; };
+		0784D48D2086D15200CBC85B /* CellItem3Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellItem3Cell.xib; sourceTree = "<group>"; };
+		0784D4902086E36F00CBC85B /* DemoCellItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCellItems.swift; sourceTree = "<group>"; };
+		0784D4922086E68A00CBC85B /* CellItemPattern5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern5ViewController.swift; sourceTree = "<group>"; };
 		078EE9542004945C00DF554C /* ExamplesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesViewController.swift; sourceTree = "<group>"; };
 		07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QuickSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D1489F201EC81A005F630A /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
@@ -293,6 +309,14 @@
 				0784D47E2085FADA00CBC85B /* CellItemPattern2ViewController.swift */,
 				0784D4802085FAE300CBC85B /* CellItemPattern3ViewController.swift */,
 				0784D4822085FBCF00CBC85B /* CellItemPattern4ViewController.swift */,
+				0784D4922086E68A00CBC85B /* CellItemPattern5ViewController.swift */,
+				0784D4902086E36F00CBC85B /* DemoCellItems.swift */,
+				0784D4842086D13200CBC85B /* CellItem1Cell.swift */,
+				0784D4852086D13200CBC85B /* CellItem1Cell.xib */,
+				0784D4882086D14000CBC85B /* CellItem2Cell.swift */,
+				0784D4892086D14100CBC85B /* CellItem2Cell.xib */,
+				0784D48C2086D15200CBC85B /* CellItem3Cell.swift */,
+				0784D48D2086D15200CBC85B /* CellItem3Cell.xib */,
 			);
 			path = CellItemPattern;
 			sourceTree = "<group>";
@@ -493,10 +517,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0784D4872086D13200CBC85B /* CellItem1Cell.xib in Resources */,
 				07F03D9C1FCBFBDA006F79C8 /* LaunchScreen.storyboard in Resources */,
 				0728658E2008AAD400C3C368 /* stub-students.json in Resources */,
 				0784D47B2085FA8E00CBC85B /* CellItemPattern.storyboard in Resources */,
 				07116C0F206A3AD300E00D7F /* VCDemos.storyboard in Resources */,
+				0784D48F2086D15200CBC85B /* CellItem3Cell.xib in Resources */,
 				07F03D991FCBFBDA006F79C8 /* Assets.xcassets in Resources */,
 				070BF07B207A1D03005B4231 /* AppDemos.storyboard in Resources */,
 				071D62932068D1B0005D0F9E /* UIDemos.storyboard in Resources */,
@@ -505,6 +531,7 @@
 				07116C12206A3AEC00E00D7F /* NetworkingDemos.storyboard in Resources */,
 				07116C15206A3AFC00E00D7F /* TableDemos.storyboard in Resources */,
 				071D629C2068DD34005D0F9E /* StatefulCell.xib in Resources */,
+				0784D48B2086D14100CBC85B /* CellItem2Cell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +561,7 @@
 				07116C2A206A3BAF00E00D7F /* BuiltInCellViewController.swift in Sources */,
 				07D148A0201EC81A005F630A /* Consts.swift in Sources */,
 				071D62A22069E2C6005D0F9E /* StateFailView.swift in Sources */,
+				0784D4912086E36F00CBC85B /* DemoCellItems.swift in Sources */,
 				071D629E2069E2B3005D0F9E /* StateLoadingView.swift in Sources */,
 				071D62A02069E2BB005D0F9E /* StateEmptyView.swift in Sources */,
 				071D629B2068DD34005D0F9E /* StatefulCell.swift in Sources */,
@@ -544,9 +572,11 @@
 				07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */,
 				0784D47F2085FADA00CBC85B /* CellItemPattern2ViewController.swift in Sources */,
 				0784D4812085FAE300CBC85B /* CellItemPattern3ViewController.swift in Sources */,
+				0784D48A2086D14100CBC85B /* CellItem2Cell.swift in Sources */,
 				07116C31206A3BAF00E00D7F /* HeadersViewController.swift in Sources */,
 				0784D47D2085FAD000CBC85B /* CellItemPattern1ViewController.swift in Sources */,
 				07116C38206A3BAF00E00D7F /* NavigationBarSearchViewController.swift in Sources */,
+				0784D48E2086D15200CBC85B /* CellItem3Cell.swift in Sources */,
 				07116C2E206A3BAF00E00D7F /* NetworkingViewController.swift in Sources */,
 				07116C32206A3BAF00E00D7F /* FontTextStylesViewController.swift in Sources */,
 				070BF0F5207F0A14005B4231 /* Requests.swift in Sources */,
@@ -554,6 +584,8 @@
 				070BF07E207A1D38005B4231 /* InfoPlistDemoViewController.swift in Sources */,
 				07116C2B206A3BAF00E00D7F /* CellInsertDeleteDemoViewController.swift in Sources */,
 				078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */,
+				0784D4862086D13200CBC85B /* CellItem1Cell.swift in Sources */,
+				0784D4932086E68A00CBC85B /* CellItemPattern5ViewController.swift in Sources */,
 				07116C33206A3BAF00E00D7F /* StatefulDemoViewController.swift in Sources */,
 				07116C36206A3BAF00E00D7F /* TapActionDemoViewController.swift in Sources */,
 				07116C37206A3BAF00E00D7F /* SegueDemoViewController.swift in Sources */,

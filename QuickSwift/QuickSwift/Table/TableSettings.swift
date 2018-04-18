@@ -16,7 +16,7 @@ public class TableParams {
     public var cell: UITableViewCell?
     public var tableView: UITableView?
 
-    init(builder: (TableParams) -> Void) {
+    public init(builder: (TableParams) -> Void) {
         builder(self)
     }
 
