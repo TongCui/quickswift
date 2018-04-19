@@ -45,7 +45,6 @@
 		0728658A2008A73D00C3C368 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 072865872008A6DC00C3C368 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0728658B2008A74200C3C368 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 072865862008A6DC00C3C368 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0728658E2008AAD400C3C368 /* stub-students.json in Resources */ = {isa = PBXBuildFile; fileRef = 0728658D2008AAD400C3C368 /* stub-students.json */; };
-		0784D47B2085FA8E00CBC85B /* CellItemPattern.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0784D47A2085FA8E00CBC85B /* CellItemPattern.storyboard */; };
 		0784D47D2085FAD000CBC85B /* CellItemPattern1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D47C2085FAD000CBC85B /* CellItemPattern1ViewController.swift */; };
 		0784D47F2085FADA00CBC85B /* CellItemPattern2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D47E2085FADA00CBC85B /* CellItemPattern2ViewController.swift */; };
 		0784D4812085FAE300CBC85B /* CellItemPattern3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D4802085FAE300CBC85B /* CellItemPattern3ViewController.swift */; };
@@ -67,6 +66,8 @@
 		07F03D9C1FCBFBDA006F79C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F03D9A1FCBFBDA006F79C8 /* LaunchScreen.storyboard */; };
 		07F03DA71FCBFBDB006F79C8 /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DA61FCBFBDB006F79C8 /* ExampleTests.swift */; };
 		07F03DB21FCBFBDB006F79C8 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DB11FCBFBDB006F79C8 /* ExampleUITests.swift */; };
+		07F60E872088937300ACB524 /* CheatSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F60E852088937300ACB524 /* CheatSheet.storyboard */; };
+		07F60E8A208893BA00ACB524 /* CellItemPattern.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F60E88208893B900ACB524 /* CellItemPattern.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,7 +139,6 @@
 		072865862008A6DC00C3C368 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Example/Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		072865872008A6DC00C3C368 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Example/Frameworks/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		0728658D2008AAD400C3C368 /* stub-students.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stub-students.json"; sourceTree = "<group>"; };
-		0784D47A2085FA8E00CBC85B /* CellItemPattern.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CellItemPattern.storyboard; sourceTree = "<group>"; };
 		0784D47C2085FAD000CBC85B /* CellItemPattern1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern1ViewController.swift; sourceTree = "<group>"; };
 		0784D47E2085FADA00CBC85B /* CellItemPattern2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern2ViewController.swift; sourceTree = "<group>"; };
 		0784D4802085FAE300CBC85B /* CellItemPattern3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern3ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +166,8 @@
 		07F03DAD1FCBFBDB006F79C8 /* ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F03DB11FCBFBDB006F79C8 /* ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUITests.swift; sourceTree = "<group>"; };
 		07F03DB31FCBFBDB006F79C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07F60E862088937300ACB524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CheatSheet.storyboard; sourceTree = "<group>"; };
+		07F60E89208893B900ACB524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CellItemPattern.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +363,7 @@
 			children = (
 				07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */,
 				07D1489F201EC81A005F630A /* Consts.swift */,
+				07F60E8B208893F500ACB524 /* CheetSheet */,
 				070BF0F3207F0A09005B4231 /* Networking */,
 				0784D4792085FA7400CBC85B /* CellItemPattern */,
 				071D62982068DD1C005D0F9E /* Table */,
@@ -371,9 +374,10 @@
 				07116C0D206A3AD300E00D7F /* VCDemos.storyboard */,
 				07116C10206A3AEC00E00D7F /* NetworkingDemos.storyboard */,
 				07116C13206A3AFC00E00D7F /* TableDemos.storyboard */,
-				0784D47A2085FA8E00CBC85B /* CellItemPattern.storyboard */,
-				07F03D981FCBFBDA006F79C8 /* Assets.xcassets */,
+				07F60E852088937300ACB524 /* CheatSheet.storyboard */,
 				07F03D9A1FCBFBDA006F79C8 /* LaunchScreen.storyboard */,
+				07F60E88208893B900ACB524 /* CellItemPattern.storyboard */,
+				07F03D981FCBFBDA006F79C8 /* Assets.xcassets */,
 				07F03D9D1FCBFBDA006F79C8 /* Info.plist */,
 				0712AEAA1FF5DFE10053A59F /* Resources */,
 			);
@@ -407,6 +411,13 @@
 				07AE23D61FCEB04B00028BC4 /* QuickSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		07F60E8B208893F500ACB524 /* CheetSheet */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CheetSheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -520,17 +531,18 @@
 				0784D4872086D13200CBC85B /* CellItem1Cell.xib in Resources */,
 				07F03D9C1FCBFBDA006F79C8 /* LaunchScreen.storyboard in Resources */,
 				0728658E2008AAD400C3C368 /* stub-students.json in Resources */,
-				0784D47B2085FA8E00CBC85B /* CellItemPattern.storyboard in Resources */,
 				07116C0F206A3AD300E00D7F /* VCDemos.storyboard in Resources */,
 				0784D48F2086D15200CBC85B /* CellItem3Cell.xib in Resources */,
 				07F03D991FCBFBDA006F79C8 /* Assets.xcassets in Resources */,
 				070BF07B207A1D03005B4231 /* AppDemos.storyboard in Resources */,
 				071D62932068D1B0005D0F9E /* UIDemos.storyboard in Resources */,
 				0712AEB31FF5E15E0053A59F /* file.txt in Resources */,
+				07F60E872088937300ACB524 /* CheatSheet.storyboard in Resources */,
 				07F03D971FCBFBDA006F79C8 /* Main.storyboard in Resources */,
 				07116C12206A3AEC00E00D7F /* NetworkingDemos.storyboard in Resources */,
 				07116C15206A3AFC00E00D7F /* TableDemos.storyboard in Resources */,
 				071D629C2068DD34005D0F9E /* StatefulCell.xib in Resources */,
+				07F60E8A208893BA00ACB524 /* CellItemPattern.storyboard in Resources */,
 				0784D48B2086D14100CBC85B /* CellItem2Cell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,6 +692,22 @@
 				07F03D9B1FCBFBDA006F79C8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		07F60E852088937300ACB524 /* CheatSheet.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07F60E862088937300ACB524 /* Base */,
+			);
+			name = CheatSheet.storyboard;
+			sourceTree = "<group>";
+		};
+		07F60E88208893B900ACB524 /* CellItemPattern.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07F60E89208893B900ACB524 /* Base */,
+			);
+			name = CellItemPattern.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

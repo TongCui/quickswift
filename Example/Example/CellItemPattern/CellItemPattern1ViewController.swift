@@ -41,6 +41,7 @@ extension CellItemPattern1ViewController : UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId = "cell\(indexPath.row + 1)"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        
         switch indexPath.row {
         case 0:
             if let cell = cell as? CellItem1Cell {
