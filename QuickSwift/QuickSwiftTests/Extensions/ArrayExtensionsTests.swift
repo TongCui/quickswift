@@ -158,19 +158,19 @@ class ArrayExtensionsTests: XCTestCase {
     func testEqualOperator() {
         var array1 = [[1, 2], [3, 4], [5]]
         var array2 = [[1, 2], [3, 4], [5]]
-        XCTAssertTrue(array1 == array2)
+        XCTAssertTrue(array1.elementsEqual(array2))
 
         array1 = [[1, 2], [3, 4]]
         array2 = [[1, 2], [3, 4], [5]]
-        XCTAssertFalse(array1 == array2)
+        XCTAssertFalse(array1.elementsEqual(array2))
 
         array1 = [[1, 2], [3, 4, 5]]
         array2 = [[1, 2], [3, 4]]
-        XCTAssertFalse(array1 == array2)
+        XCTAssertFalse(array1.elementsEqual(array2))
 
         array1 = []
         array2 = []
-        XCTAssertTrue(array1 == array2)
+        XCTAssertTrue(array1.elementsEqual(array2))
     }
 
     func testArrayConditions() {
@@ -240,28 +240,6 @@ class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(lhs == rhs, true)
     }
 
-    func testArrayElementsEquality() {
-        var lhs = [[1], [2], [3], [4], [5]]
-        var rhs = [[1], [2], [3], [4], [5]]
-        XCTAssertEqual(lhs == rhs, true)
-
-        lhs = [[1], [2], [3], [4]]
-        rhs = [[1], [2], [3], [4], [5]]
-        XCTAssertEqual(lhs == rhs, false)
-
-        lhs = [[1], [2], [3], [4, 5]]
-        rhs = [[1], [2], [3], [4]]
-        XCTAssertEqual(lhs == rhs, false)
-
-        lhs = [[1], [2]]
-        rhs = []
-        XCTAssertEqual(lhs == rhs, false)
-
-        lhs = []
-        rhs = []
-        XCTAssertEqual(lhs == rhs, true)
-    }
-
     func testArrayGroupBySize() {
         var array = [Int]()
         var res = [[Int]]()
@@ -270,22 +248,22 @@ class ArrayExtensionsTests: XCTestCase {
         array = []
         res = array.group(bySize: 0)
         expected = []
-        XCTAssertTrue(res == expected)
+        XCTAssertTrue(res.elementsEqual(expected))
 
         array = [1, 2, 3, 4, 5]
         res = array.group(bySize: 0)
         expected = []
-        XCTAssertTrue(res == expected)
+        XCTAssertTrue(res.elementsEqual(expected))
 
         array = [1, 2, 3, 4, 5]
         res = array.group(bySize: 1)
         expected = [[1], [2], [3], [4], [5]]
-        XCTAssertTrue(res == expected)
+        XCTAssertTrue(res.elementsEqual(expected))
 
         array = [1, 2, 3, 4, 5]
         res = array.group(bySize: 2)
         expected = [[1, 2], [3, 4], [5]]
-        XCTAssertTrue(res == expected)
+        XCTAssertTrue(res.elementsEqual(expected))
 
         array = [1, 2, 3, 4, 5]
         res = array.group(bySize: 3)

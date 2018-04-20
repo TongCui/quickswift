@@ -43,6 +43,15 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
                         cellItem(title: "Hide bottom cells", goto: PlainTableHideBottomCellsViewController.typeName, storyboard: "TableDemos")
                     ]
                 },
+                TitleHeaderSectionItem(header: "cellitem pattern revolution").append {
+                    [
+                        cellItem(title: "UIKit", goto: CellItemPattern1ViewController.typeName, storyboard: "CellItemPattern"),
+                        cellItem(title: "Datasource", goto: CellItemPattern2ViewController.typeName, storyboard: "CellItemPattern"),
+                        cellItem(title: "CellItem", goto: CellItemPattern3ViewController.typeName, storyboard: "CellItemPattern"),
+                        cellItem(title: "CellItem & Custom Adapter", goto: CellItemPattern4ViewController.typeName, storyboard: "CellItemPattern"),
+                        cellItem(title: "CellItem & Default Adapter", goto: CellItemPattern5ViewController.typeName, storyboard: "CellItemPattern")
+                    ]
+                },
                 TitleHeaderSectionItem(header: "networking").append {
                     [
                         cellItem(title: "Networking", goto: NetworkingViewController.typeName, storyboard: "NetworkingDemos"),
@@ -69,6 +78,11 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
                     [
                         cellItem(title: "Info plist", goto: InfoPlistDemoViewController.typeName, storyboard: "AppDemos"),
                     ]
+                },
+                TitleHeaderSectionItem(header: "CheatSheet").append {
+                    [
+                        cellItem(title: "Cheat Sheet", goto: CheatSheetViewController.typeName, storyboard: "CheatSheet"),
+                        ]
                 }
             ]
         }

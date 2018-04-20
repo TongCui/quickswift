@@ -18,7 +18,7 @@ public extension OHHTTPStubs {
 func stub(request: RequestFactory, localFile: String) {
     let request = request.toRequestModel()
     let path = request.path
-    
+
     stub(condition: isPath(path)) { _ in
         let stubPath = OHPathForFileInBundle(localFile, Bundle.main)
         return fixture(filePath: stubPath!, headers: OHHTTPStubs.defaultResponseHeader())

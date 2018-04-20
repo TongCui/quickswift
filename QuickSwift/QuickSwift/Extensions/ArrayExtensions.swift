@@ -125,12 +125,6 @@ public extension Array where Element: Equatable {
         return indexs
     }
 
-    static func == (lhs: [[Element]], rhs: [[Element]]) -> Bool {
-        guard lhs.count == rhs.count else {
-            return false
-        }
-        return !zip(lhs, rhs).contains { $0.0 != $0.1 }
-    }
 }
 
 // MARK: - Group

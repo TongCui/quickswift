@@ -61,6 +61,14 @@ task :ats, [:command] do |task, args|
   ruby "./scripts/ats/ats.rb #{command}"
 end
 
+desc "Setup New ViewController"
+# rake setupvc[ViewController]
+task :setupvc, [:vc] do |task, args|
+  vc = args[:vc]
+  puts "ViewController => #{vc}"
+  ruby "./scripts/xcode/xcode_setup_new_vc.rb #{vc}"
+end
+
 desc "Generate Segue Enum"
 task :segue do
   ruby 'scripts/xcode/xcode_find_segue.rb'
