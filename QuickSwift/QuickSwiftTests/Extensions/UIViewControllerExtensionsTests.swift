@@ -20,6 +20,7 @@ class UIViewControllerExtensionsTests: XCTestCase {
 
         viewControler.setLargetTitles(false)
         XCTAssertFalse(naviController.navigationBar.prefersLargeTitles)
+
     }
 
 }
