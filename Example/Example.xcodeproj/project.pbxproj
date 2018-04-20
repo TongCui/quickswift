@@ -68,6 +68,7 @@
 		07F03DB21FCBFBDB006F79C8 /* ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F03DB11FCBFBDB006F79C8 /* ExampleUITests.swift */; };
 		07F60E872088937300ACB524 /* CheatSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F60E852088937300ACB524 /* CheatSheet.storyboard */; };
 		07F60E8A208893BA00ACB524 /* CellItemPattern.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F60E88208893B900ACB524 /* CellItemPattern.storyboard */; };
+		07F60E9220897C7700ACB524 /* CheatSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F60E9120897C7700ACB524 /* CheatSheetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		07F03DB31FCBFBDB006F79C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07F60E862088937300ACB524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CheatSheet.storyboard; sourceTree = "<group>"; };
 		07F60E89208893B900ACB524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CellItemPattern.storyboard; sourceTree = "<group>"; };
+		07F60E9120897C7700ACB524 /* CheatSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheatSheetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,7 +365,7 @@
 			children = (
 				07F03D911FCBFBDA006F79C8 /* AppDelegate.swift */,
 				07D1489F201EC81A005F630A /* Consts.swift */,
-				07F60E8B208893F500ACB524 /* CheetSheet */,
+				07F60E9020897C7700ACB524 /* CheatSheet */,
 				070BF0F3207F0A09005B4231 /* Networking */,
 				0784D4792085FA7400CBC85B /* CellItemPattern */,
 				071D62982068DD1C005D0F9E /* Table */,
@@ -413,11 +415,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		07F60E8B208893F500ACB524 /* CheetSheet */ = {
+		07F60E9020897C7700ACB524 /* CheatSheet */ = {
 			isa = PBXGroup;
 			children = (
+				07F60E9120897C7700ACB524 /* CheatSheetViewController.swift */,
 			);
-			path = CheetSheet;
+			path = CheatSheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -594,6 +597,7 @@
 				070BF0F5207F0A14005B4231 /* Requests.swift in Sources */,
 				0784D4832085FBCF00CBC85B /* CellItemPattern4ViewController.swift in Sources */,
 				070BF07E207A1D38005B4231 /* InfoPlistDemoViewController.swift in Sources */,
+				07F60E9220897C7700ACB524 /* CheatSheetViewController.swift in Sources */,
 				07116C2B206A3BAF00E00D7F /* CellInsertDeleteDemoViewController.swift in Sources */,
 				078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */,
 				0784D4862086D13200CBC85B /* CellItem1Cell.swift in Sources */,

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--UIKit-->
+        <!--Cheat Sheet-->
         <scene sceneID="R1b-m3-rk8">
             <objects>
-                <viewController storyboardIdentifier="CellItemPattern1ViewController" id="mmN-DA-tZD" customClass="CellItemPattern1ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CheatSheetViewController" id="mmN-DA-tZD" customClass="CheatSheetViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Rt-Xt-8Nl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,7 +31,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N9W-M0-5e9"/>
                     </view>
-                    <navigationItem key="navigationItem" title="UIKit" id="GhX-Tv-Fen"/>
+                    <navigationItem key="navigationItem" title="Cheat Sheet" id="GhX-Tv-Fen"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="Rom-4A-DEI" id="p8M-bX-rRH"/>

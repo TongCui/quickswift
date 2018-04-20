@@ -78,6 +78,11 @@ final class ExamplesAdapter: TableViewAdapterProtocol {
                     [
                         cellItem(title: "Info plist", goto: InfoPlistDemoViewController.typeName, storyboard: "AppDemos"),
                     ]
+                },
+                TitleHeaderSectionItem(header: "CheatSheet").append {
+                    [
+                        cellItem(title: "Cheat Sheet", goto: CheatSheetViewController.typeName, storyboard: "CheatSheet"),
+                        ]
                 }
             ]
         }
