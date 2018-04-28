@@ -7,34 +7,54 @@
 //
 
 open class OneLineTextCellItem: CellItemProtocol {
-    public var text: String
+
+    public var registerType: TableViewRegisterType = .class(OneLineTextCell.self)
     public var identifier: String = "oneline_cell"
-    public var settings: CellSettings = CellSettings()
+    public var cellConfigurator = CellConfigurator()
+    public var actionHandler = CellActionHandler()
+    public var cellDisplayingContext = CellItemDisplayingContext()
+
+    public var text: String
 
     public init(text: String) {
         self.text = text
     }
 
-    public func register(tableView: UITableView) {
-        tableView.register(OneLineTextCell.self, forCellReuseIdentifier: identifier)
-    }
-
-    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-
-        if let cell = tableCell as? OneLineTextCell {
+    open func bind(cell: UITableViewCell) {
+        if let cell = cell as? OneLineTextCell {
             cell.oneLineLabel.snp.updateConstraints { (make) in
-                make.edges.equalToSuperview().inset(cellContentEdges)
+                make.edges.equalToSuperview().inset(cellConfigurator.cellContentEdges)
             }
             cell.oneLineLabel.text = text
         }
-
-        return tableCell
     }
-
 }
 
-open class OneLineTextCell: BuiltInCell {
+open class OneLineAttributedTextCellItem: CellItemProtocol {
+
+    public var registerType: TableViewRegisterType = .class(OneLineTextCell.self)
+    public var identifier: String = "oneline_attributed_cell"
+    public var cellConfigurator = CellConfigurator()
+    public var actionHandler = CellActionHandler()
+    public var cellDisplayingContext = CellItemDisplayingContext()
+
+    public let attributedText: NSAttributedString
+
+    public init(attributedText: NSAttributedString) {
+        self.attributedText = attributedText
+    }
+
+    open func bind(cell: UITableViewCell) {
+        if let cell = cell as? OneLineTextCell {
+            cell.oneLineLabel.snp.updateConstraints { (make) in
+                make.edges.equalToSuperview().inset(cellConfigurator.cellContentEdges)
+            }
+            cell.oneLineLabel.attributedText = attributedText
+        }
+    }
+}
+
+open class OneLineTextCell: CommonInitTableCell {
 
     public lazy var oneLineLabel = UILabel()
 

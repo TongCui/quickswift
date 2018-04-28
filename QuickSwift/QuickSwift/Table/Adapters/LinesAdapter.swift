@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class LinesAdapter: DefaultTableAdapter {
+public class LinesAdapter: HeaderFooterTableAdapter {
     public func append(line: String) {
         append(lines: [line])
     }

@@ -19,7 +19,7 @@ final class CellItemPattern5ViewController: UIViewController {
         super.viewDidLoad()
         
         2.times { _ in
-            adapter.append(section: { PlainSectionItem() } ) {
+            adapter.append(section: PlainSectionItem() ) {
                 [
                     Demo1CellItem(texts: ["line1", "line2"]),
                     Demo2CellItem(texts: ["left", "right"]),

@@ -69,6 +69,16 @@
 		07F60E872088937300ACB524 /* CheatSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F60E852088937300ACB524 /* CheatSheet.storyboard */; };
 		07F60E8A208893BA00ACB524 /* CellItemPattern.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F60E88208893B900ACB524 /* CellItemPattern.storyboard */; };
 		07F60E9220897C7700ACB524 /* CheatSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F60E9120897C7700ACB524 /* CheatSheetViewController.swift */; };
+		07F60E94208D856C00ACB524 /* AutoDimentionDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F60E93208D856C00ACB524 /* AutoDimentionDemoViewController.swift */; };
+		07F60E9B208F011800ACB524 /* AutoLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F60E99208F011800ACB524 /* AutoLabelCell.swift */; };
+		07F60E9C208F011800ACB524 /* AutoLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07F60E9A208F011800ACB524 /* AutoLabelCell.xib */; };
+		07F60E9F209072BF00ACB524 /* AutoLabelExCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F60E9D209072BE00ACB524 /* AutoLabelExCell.swift */; };
+		07F60EA0209072BF00ACB524 /* AutoLabelExCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07F60E9E209072BE00ACB524 /* AutoLabelExCell.xib */; };
+		07F60EA520907FB400ACB524 /* UpdateConstraintCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F60EA320907FB400ACB524 /* UpdateConstraintCell.swift */; };
+		07F60EA620907FB400ACB524 /* UpdateConstraintCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07F60EA420907FB400ACB524 /* UpdateConstraintCell.xib */; };
+		07F60EA82091662300ACB524 /* DemoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F60EA72091662300ACB524 /* DemoHeader.swift */; };
+		07F60EAA209166A400ACB524 /* DemoHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07F60EA9209166A300ACB524 /* DemoHeader.xib */; };
+		07F60EAC20917EF900ACB524 /* CheatSheetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F60EAB20917EF900ACB524 /* CheatSheetListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +180,16 @@
 		07F60E862088937300ACB524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CheatSheet.storyboard; sourceTree = "<group>"; };
 		07F60E89208893B900ACB524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CellItemPattern.storyboard; sourceTree = "<group>"; };
 		07F60E9120897C7700ACB524 /* CheatSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheatSheetViewController.swift; sourceTree = "<group>"; };
+		07F60E93208D856C00ACB524 /* AutoDimentionDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoDimentionDemoViewController.swift; sourceTree = "<group>"; };
+		07F60E99208F011800ACB524 /* AutoLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLabelCell.swift; sourceTree = "<group>"; };
+		07F60E9A208F011800ACB524 /* AutoLabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutoLabelCell.xib; sourceTree = "<group>"; };
+		07F60E9D209072BE00ACB524 /* AutoLabelExCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLabelExCell.swift; sourceTree = "<group>"; };
+		07F60E9E209072BE00ACB524 /* AutoLabelExCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutoLabelExCell.xib; sourceTree = "<group>"; };
+		07F60EA320907FB400ACB524 /* UpdateConstraintCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConstraintCell.swift; sourceTree = "<group>"; };
+		07F60EA420907FB400ACB524 /* UpdateConstraintCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateConstraintCell.xib; sourceTree = "<group>"; };
+		07F60EA72091662300ACB524 /* DemoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoHeader.swift; sourceTree = "<group>"; };
+		07F60EA9209166A300ACB524 /* DemoHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoHeader.xib; sourceTree = "<group>"; };
+		07F60EAB20917EF900ACB524 /* CheatSheetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatSheetListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +264,15 @@
 				07116C20206A3BAE00E00D7F /* HeadersViewController.swift */,
 				07116C39206B45F700E00D7F /* PlainTableHideBottomCellsViewController.swift */,
 				070BF0EF207E00A6005B4231 /* RefreshTableViewController.swift */,
+				07F60E93208D856C00ACB524 /* AutoDimentionDemoViewController.swift */,
+				07F60E99208F011800ACB524 /* AutoLabelCell.swift */,
+				07F60E9A208F011800ACB524 /* AutoLabelCell.xib */,
+				07F60E9D209072BE00ACB524 /* AutoLabelExCell.swift */,
+				07F60E9E209072BE00ACB524 /* AutoLabelExCell.xib */,
+				07F60EA320907FB400ACB524 /* UpdateConstraintCell.swift */,
+				07F60EA420907FB400ACB524 /* UpdateConstraintCell.xib */,
+				07F60EA72091662300ACB524 /* DemoHeader.swift */,
+				07F60EA9209166A300ACB524 /* DemoHeader.xib */,
 			);
 			path = table;
 			sourceTree = "<group>";
@@ -419,6 +448,7 @@
 			isa = PBXGroup;
 			children = (
 				07F60E9120897C7700ACB524 /* CheatSheetViewController.swift */,
+				07F60EAB20917EF900ACB524 /* CheatSheetListViewController.swift */,
 			);
 			path = CheatSheet;
 			sourceTree = "<group>";
@@ -532,12 +562,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0784D4872086D13200CBC85B /* CellItem1Cell.xib in Resources */,
+				07F60EAA209166A400ACB524 /* DemoHeader.xib in Resources */,
 				07F03D9C1FCBFBDA006F79C8 /* LaunchScreen.storyboard in Resources */,
+				07F60EA0209072BF00ACB524 /* AutoLabelExCell.xib in Resources */,
 				0728658E2008AAD400C3C368 /* stub-students.json in Resources */,
 				07116C0F206A3AD300E00D7F /* VCDemos.storyboard in Resources */,
 				0784D48F2086D15200CBC85B /* CellItem3Cell.xib in Resources */,
 				07F03D991FCBFBDA006F79C8 /* Assets.xcassets in Resources */,
 				070BF07B207A1D03005B4231 /* AppDemos.storyboard in Resources */,
+				07F60EA620907FB400ACB524 /* UpdateConstraintCell.xib in Resources */,
 				071D62932068D1B0005D0F9E /* UIDemos.storyboard in Resources */,
 				0712AEB31FF5E15E0053A59F /* file.txt in Resources */,
 				07F60E872088937300ACB524 /* CheatSheet.storyboard in Resources */,
@@ -546,6 +579,7 @@
 				07116C15206A3AFC00E00D7F /* TableDemos.storyboard in Resources */,
 				071D629C2068DD34005D0F9E /* StatefulCell.xib in Resources */,
 				07F60E8A208893BA00ACB524 /* CellItemPattern.storyboard in Resources */,
+				07F60E9C208F011800ACB524 /* AutoLabelCell.xib in Resources */,
 				0784D48B2086D14100CBC85B /* CellItem2Cell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,6 +605,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07F60E94208D856C00ACB524 /* AutoDimentionDemoViewController.swift in Sources */,
 				070BF0F0207E00A6005B4231 /* RefreshTableViewController.swift in Sources */,
 				07116C3A206B45F800E00D7F /* PlainTableHideBottomCellsViewController.swift in Sources */,
 				07116C2A206A3BAF00E00D7F /* BuiltInCellViewController.swift in Sources */,
@@ -584,6 +619,7 @@
 				07116C30206A3BAF00E00D7F /* PlainTableDemoViewController.swift in Sources */,
 				07116C2C206A3BAF00E00D7F /* AdapterCellViewController.swift in Sources */,
 				07116C34206A3BAF00E00D7F /* NavigationBarDemoViewController.swift in Sources */,
+				07F60EA520907FB400ACB524 /* UpdateConstraintCell.swift in Sources */,
 				07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */,
 				0784D47F2085FADA00CBC85B /* CellItemPattern2ViewController.swift in Sources */,
 				0784D4812085FAE300CBC85B /* CellItemPattern3ViewController.swift in Sources */,
@@ -597,9 +633,11 @@
 				070BF0F5207F0A14005B4231 /* Requests.swift in Sources */,
 				0784D4832085FBCF00CBC85B /* CellItemPattern4ViewController.swift in Sources */,
 				070BF07E207A1D38005B4231 /* InfoPlistDemoViewController.swift in Sources */,
+				07F60E9F209072BF00ACB524 /* AutoLabelExCell.swift in Sources */,
 				07F60E9220897C7700ACB524 /* CheatSheetViewController.swift in Sources */,
 				07116C2B206A3BAF00E00D7F /* CellInsertDeleteDemoViewController.swift in Sources */,
 				078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */,
+				07F60EAC20917EF900ACB524 /* CheatSheetListViewController.swift in Sources */,
 				0784D4862086D13200CBC85B /* CellItem1Cell.swift in Sources */,
 				0784D4932086E68A00CBC85B /* CellItemPattern5ViewController.swift in Sources */,
 				07116C33206A3BAF00E00D7F /* StatefulDemoViewController.swift in Sources */,
@@ -607,6 +645,8 @@
 				07116C37206A3BAF00E00D7F /* SegueDemoViewController.swift in Sources */,
 				07116C35206A3BAF00E00D7F /* LifeCycleDemoViewController.swift in Sources */,
 				07116C2D206A3BAF00E00D7F /* SystemCellViewController.swift in Sources */,
+				07F60EA82091662300ACB524 /* DemoHeader.swift in Sources */,
+				07F60E9B208F011800ACB524 /* AutoLabelCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

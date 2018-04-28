@@ -31,6 +31,12 @@ open class OptionCellItem<Key: Equatable>: CellItemProtocol {
         }
     }
 
+    public var registerType: TableViewRegisterType = .class(OptionTextCell.self)
+    public var identifier: String
+    public var cellConfigurator = CellConfigurator()
+    public var actionHandler = CellActionHandler()
+    public var cellDisplayingContext = CellItemDisplayingContext()
+
     public private(set) var key: Key
     public private(set) var text: String
     public private(set) var image: UIImage?
@@ -39,11 +45,10 @@ open class OptionCellItem<Key: Equatable>: CellItemProtocol {
 
     public var textIconSpace: CGFloat = .defaultMargin
     public var isSelected: Bool
+    public weak var sectionItem: SectionItemProtocol?
 
-    public var identifier: String = ""
-    public var settings: CellSettings = CellSettings()
-
-    public init(key: Key, text: String, image: UIImage? = nil, isMultiSelectable: Bool = false, selectionIconType: SelectionIconType = .default, optionDidSelected: @escaping (Key) -> Void) {
+    public init(key: Key, text: String, sectionItem: SectionItemProtocol, image: UIImage? = nil, isMultiSelectable: Bool = false, selectionIconType: SelectionIconType = .default, optionDidSelected: @escaping (Key) -> Void) {
+        self.sectionItem = sectionItem
         self.identifier = "option_cell_image\(image.isNil.toI())_\(selectionIconType) "
         self.key = key
         self.text = text
@@ -51,9 +56,9 @@ open class OptionCellItem<Key: Equatable>: CellItemProtocol {
         self.isMultiSelectable = isMultiSelectable
         self.isSelected = false
         self.selectionIconType = selectionIconType
-        cellHeight = .automaticDimension
+        cellConfigurator.cellHeight = .automaticDimension
         add(action: .cellDidSelect) { [unowned self] (params) in
-            if let sectionItem = params.sectionItem, let cell = params.cell {
+            if let sectionItem = self.sectionItem, let cell = params.cell {
                 self.updateSelections(section: sectionItem)
                 if cell.selectionStyle == .none {
                     params.tableView?.reloadData()
@@ -78,14 +83,8 @@ open class OptionCellItem<Key: Equatable>: CellItemProtocol {
         }
     }
 
-    public func register(tableView: UITableView) {
-        tableView.register(OptionTextCell.self, forCellReuseIdentifier: identifier)
-    }
-
-    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-
-        if let cell = tableCell as? OptionTextCell {
+    open func bind(cell: UITableViewCell) {
+        if let cell = cell as? OptionTextCell {
             cell.optionLabel.text = text
             if let image = self.image {
                 cell.iconImageView.isHidden = false
@@ -97,14 +96,12 @@ open class OptionCellItem<Key: Equatable>: CellItemProtocol {
             } else {
                 cell.iconImageView.isHidden = true
                 cell.optionLabel.snp.makeConstraints { (make) in
-                    make.leading.equalToSuperview().offset(cellContentEdges.left)
+                    make.leading.equalToSuperview().offset(cellConfigurator.cellContentEdges.left)
                 }
             }
 
             setSelectionIcon(cell: cell)
         }
-
-        return tableCell
     }
 
     func setSelectionIcon(cell: OptionTextCell) {
@@ -127,7 +124,7 @@ open class OptionCellItem<Key: Equatable>: CellItemProtocol {
 
 }
 
-open class OptionTextCell: BuiltInCell {
+open class OptionTextCell: CommonInitTableCell {
 
     public lazy var iconImageView = UIImageView()
     public lazy var optionLabel = UILabel()

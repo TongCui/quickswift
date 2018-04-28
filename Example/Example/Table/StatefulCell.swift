@@ -10,16 +10,20 @@ import UIKit
 import QuickSwift
 
 final class StatefulCellItem: CellItemProtocol {
+    
+    var registerType: TableViewRegisterType = .nib(StatefulCell.typeName.toNib())
     var identifier: String = "stateful_cell"
-    var settings: CellSettings = CellSettings()
+    var cellConfigurator = CellConfigurator()
+    var actionHandler = CellActionHandler()
+    var cellDisplayingContext = CellItemDisplayingContext()
+    
     var state: StatefulState
     var idx: Int
     
     init(idx: Int) {
         self.idx = idx % 10
         self.state = .loading
-        
-        
+    
         add(action: .cellDidSelect) { (params) in
             if let cell = params.cell as? StatefulCell, let idx = StatefulState.all.index(of: self.state) {
                 let nextState = StatefulState.all[(idx + 1) % StatefulState.all.count]
@@ -37,7 +41,7 @@ final class StatefulCellItem: CellItemProtocol {
         DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(1.2, 3.2)) { [weak self] in
             
             let result = Bool.random()
-            let cell: StatefulCell? = self?.getDisplayingCell()
+            let cell = self?.cellDisplayingContext.cell as? StatefulCell
             let newState: StatefulState
             if result {
                 newState = .success
@@ -51,57 +55,43 @@ final class StatefulCellItem: CellItemProtocol {
         }
     }
     
-    func updateCellLayout() {
-        
-        if let _ = self.getDisplayingCell() {
-            self.tableView?.beginUpdates()
-            self.tableView?.endUpdates()
-        } else {
-//            print("Ignore updating \( indexPath?.description ?? "None" )")
-        }
-        
-        
-    }
-    
-    func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        
-        if let cell = tableCell as? StatefulCell {
+    func bind(cell: UITableViewCell) {
+        if let cell = cell as? StatefulCell {
             
             cell.setStateTransition(for: .loading) { [weak self] view in
                 cell.shopDescription.text = "State is Loading"
                 if let targetView = view as? StateLoadingView {
                     targetView.spinner.startAnimating()
                 }
-                self?.updateCellLayout()
+                self?.setNeedsUpdateCellHeight()
                 self?.mockLoad()
             }
             
-            cell.setStateTransition(for: .empty) { [weak self]view in
+            cell.setStateTransition(for: .empty) { [weak self] view in
                 cell.shopDescription.text = "State is Empty"
                 
                 if let targetView = view as? StateEmptyView {
-                    targetView.contentLabel.text = "Empty Content \(indexPath)"
+                    targetView.contentLabel.text = "Empty Content"
                 }
-                self?.updateCellLayout()
+                self?.setNeedsUpdateCellHeight()
             }
             
-            cell.setStateTransition(for: .fail) { [weak self]view in
+            cell.setStateTransition(for: .fail) { [weak self] view in
                 cell.shopDescription.text = "State is Fail"
                 if let targetView = view as? StateFailView {
-                    targetView.titleLabel.text = "Fail Title \(indexPath)"
-                    targetView.detailLabel.text = "Fail Title \(indexPath)"
+                    targetView.titleLabel.text = "Fail Title"
+                    targetView.detailLabel.text = "Fail Detail"
                 }
-                self?.updateCellLayout()
+                self?.setNeedsUpdateCellHeight()
             }
             
             cell.setStateTransition(for: .success) { [weak self]view in
                 cell.shopDescription.text = (1...(self!.idx + 1)).map{ "Shop description line \($0)" }.joined(separator: "\n")
                 if let targetView = view as? StateFailView {
-                    targetView.titleLabel.text = "Fail Title \(indexPath)"
-                    targetView.detailLabel.text = "Fail Title \(indexPath)"
+                    targetView.titleLabel.text = "Fail Title"
+                    targetView.detailLabel.text = "Fail Detail"
                 }
-                self?.updateCellLayout()
+                self?.setNeedsUpdateCellHeight()
             }
             
             
@@ -110,10 +100,7 @@ final class StatefulCellItem: CellItemProtocol {
             cell.topRight.text = "Date\(idx)"
             
         }
-        
-        return tableCell
     }
-    
 }
 
 

@@ -11,8 +11,23 @@ open class DefaultTableAdapter: TableViewAdapterProtocol {
     open weak var tableView: UITableView?
     open var sections: [SectionItemProtocol] = []
 
-    open lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
-    open lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
+    open lazy var dataSourceProvider: TableDataSourceProvider = BasicDataSourceProvider { [unowned self] in self.sections }
+    open lazy var delegateProvider: TableDelegateProvider = BasicTableDelegateProvider { [unowned self] in self.sections }
 
-    public required init() {}
+    public required init() {
+
+    }
+}
+
+open class HeaderFooterTableAdapter: TableViewAdapterProtocol {
+
+    open weak var tableView: UITableView?
+    open var sections: [SectionItemProtocol] = []
+
+    open lazy var dataSourceProvider: TableDataSourceProvider = HeaderFooterDataSourceProvider { [unowned self] in self.sections }
+    open lazy var delegateProvider: TableDelegateProvider = HeaderFooterDelegateHandler { [unowned self] in self.sections }
+
+    public required init() {
+
+    }
 }

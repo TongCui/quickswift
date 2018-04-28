@@ -6,7 +6,7 @@
 //  Copyright © 2018 LuckyTR. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public extension UITableViewCell {
     enum SeparatorLineStyle {
@@ -30,10 +30,5 @@ public extension UITableViewCell {
         case .margins(let left, let right):
             separatorInset = UIEdgeInsets(top: 0, left: left, bottom: 0, right: right)
         }
-    }
-
-    func update(with settings: CellSettings) {
-        settings.cellUISettings?(self)
-        setSeparatorLineStyle(settings.cellSeperatorStyle)
     }
 }

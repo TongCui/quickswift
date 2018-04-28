@@ -6,6 +6,8 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
+import UIKit
+
 extension UITableView {
     private struct AssociatedKey {
         static var cellIds = "cellIds"
@@ -30,22 +32,32 @@ extension UITableView {
         }
     }
 
-    func registerIfNeeded(forCell registerable: TableViewRegisterable) {
+    func registerCellIfNeeded(_ registerable: TableViewRegisterable) {
         guard !cellIds.contains(registerable.identifier) else {
             return
         }
 
         cellIds.append(registerable.identifier)
-        registerable.register(tableView: self)
+
+        switch registerable.registerType {
+        case .none:                     break
+        case .class(let anyClass):      register(anyClass, forCellReuseIdentifier: registerable.identifier)
+        case .nib(let nib):             register(nib, forCellReuseIdentifier: registerable.identifier)
+        }
     }
 
-    func registerIfNeeded(forHeaderFooter registerable: TableViewRegisterable) {
+    func registerHeaderFooterIfNeeded(_ registerable: TableViewRegisterable) {
         guard !headerFooterIds.contains(registerable.identifier) else {
             return
         }
 
         headerFooterIds.append(registerable.identifier)
-        registerable.register(tableView: self)
+
+        switch registerable.registerType {
+        case .none:                     break
+        case .class(let anyClass):      register(anyClass, forHeaderFooterViewReuseIdentifier: registerable.identifier)
+        case .nib(let nib):             register(nib, forHeaderFooterViewReuseIdentifier: registerable.identifier)
+        }
     }
 
     public func reloadData(_ completion: @escaping () -> Void) {

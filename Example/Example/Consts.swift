@@ -9,6 +9,7 @@
 import Foundation
 
 enum SegueIds: String {
+    case goCheatSheetVC = "go_cheat_sheet_vc"
     case goSystemCellVC = "go_system_cell_vc"
     case goBuiltinCellVC = "go_builtin_cell_vc"
     case goCellInsertDeleteVC = "go_cell_insert_delete_vc"

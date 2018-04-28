@@ -8,15 +8,10 @@
 
 import QuickSwift
 
-final class CellOperationsAdapter: TableViewAdapterProtocol {
-    
-    weak var tableView: UITableView?
-    var sections: [SectionItemProtocol] = []
-    
-    lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
-    lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
+final class CellOperationsAdapter: HeaderFooterTableAdapter {
     
     required init() {
+        super.init()
         
         let operationSection = TitleHeaderSectionItem(header: "Operation")
         operationSection.append {
@@ -37,16 +32,11 @@ final class CellOperationsAdapter: TableViewAdapterProtocol {
             ]
         }
         
-        append {
-            [
-                operationSection,
-                contentSection
-            ]
-        }
+        append(sectionItems: [operationSection, contentSection])
     }
     
     func buttonCellItem(title: String, color: UIColor, action: @escaping (UIButton) -> Void ) -> ButtonCellItem {
-        return ButtonCellItem(title: title, action: action).uiSettings { (cell) in
+        return ButtonCellItem(title: title, action: action).customUI { (cell) in
             if let cell = cell as? ButtonCell {
                 cell.button.setTitleColor(color, for: .normal)
             }

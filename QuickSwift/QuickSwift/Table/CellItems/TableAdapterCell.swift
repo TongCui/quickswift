@@ -9,40 +9,37 @@
 import UIKit
 
 open class TableAdapterCellItem: CellItemProtocol {
+    public var registerType: TableViewRegisterType = .class(TableAdapterCell.self)
     public var identifier: String = "table_adapter_cell"
-    public var settings: CellSettings = CellSettings()
+    public var cellConfigurator = CellConfigurator()
+    public var actionHandler = CellActionHandler()
+    public var cellDisplayingContext = CellItemDisplayingContext()
+
     public var adapter: TableViewAdapterProtocol
 
     public init(adapter: TableViewAdapterProtocol) {
         self.adapter = adapter
     }
 
-    public func register(tableView: UITableView) {
-        tableView.register(TableAdapterCell.self, forCellReuseIdentifier: identifier)
-    }
-
-    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-
-        if let cell = tableCell as? TableAdapterCell {
+    open func bind(cell: UITableViewCell) {
+        if let cell = cell as? TableAdapterCell {
 
             adapter.link(tableView: cell.contentTableView)
             adapter.hidePlainTaleBottomCells()
             cell.contentTableView.backgroundColor = UIColor.red.withAlphaComponent(0.3)
-//            cell.contentTableView.isScrollEnabled = false
+            //            cell.contentTableView.isScrollEnabled = false
             adapter.reloadData()
 
             cell.contentTableView.snp.updateConstraints { (make) in
                 make.height.equalTo(cell.contentTableView.contentSize.height)
             }
 
-            print("\(indexPath))  ContentSize : \(cell.contentTableView.contentSize) - ContentOffset: \(cell.contentTableView.contentOffset) ")
+            print("ContentSize : \(cell.contentTableView.contentSize) - ContentOffset: \(cell.contentTableView.contentOffset) ")
         }
-        return tableCell
     }
 }
 
-open class TableAdapterCell: BuiltInCell {
+open class TableAdapterCell: CommonInitTableCell {
 
     public lazy var contentTableView = UITableView(frame: CGRect.zero, style: .plain)
 

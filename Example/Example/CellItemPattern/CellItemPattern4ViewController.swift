@@ -9,15 +9,12 @@
 import QuickSwift
 
 
-final class CellItemPattern4Adapter: TableViewAdapterProtocol {
-    var sections: [SectionItemProtocol] = []
-    var tableView: UITableView?
-    lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
-    lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
+final class CellItemPattern4Adapter: DefaultTableAdapter {
     
-    init() {
+    required init() {
+        super.init()
         2.times { _ in
-            append(section: { PlainSectionItem() } ) {
+            append(section: PlainSectionItem() ) {
                 [
                     Demo1CellItem(texts: ["line1", "line2"]),
                     Demo2CellItem(texts: ["left", "right"]),

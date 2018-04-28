@@ -9,15 +9,11 @@
 import UIKit
 import QuickSwift
 
-final class FontStylesAdapter: TableViewAdapterProtocol {
-    
-    weak var tableView: UITableView?
-    var sections: [SectionItemProtocol] = []
-    
-    lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
-    lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
+final class FontStylesAdapter: DefaultTableAdapter {
     
     required init() {
+        super.init()
+
         let sectionItem = PlainSectionItem()
         
         let fontStyles: [(UIFontTextStyle, String)] = [
@@ -34,8 +30,9 @@ final class FontStylesAdapter: TableViewAdapterProtocol {
             (.title3, "The font used for third level hierarchical headings.")
         ]
         
-        let cellItems = fontStyles.map { (style, comment) in
-            OneLineTextCellItem(text: "\(style)\n----\n\(comment)").uiSettings { (cell) in
+        let cellItems = fontStyles.map { (arg) -> CellItemProtocol in
+            let (style, comment) = arg
+            return OneLineTextCellItem(text: "\(style)\n----\n\(comment)").customUI { (cell) in
                 if let cell = cell as? OneLineTextCell {
                     cell.oneLineLabel.font = UIFont.preferredFont(forTextStyle: style)
                 }

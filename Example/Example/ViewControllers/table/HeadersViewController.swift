@@ -10,15 +10,10 @@ import UIKit
 
 import QuickSwift
 
-final class HeadersCellAdapter: TableViewAdapterProtocol {
-    
-    weak var tableView: UITableView?
-    var sections: [SectionItemProtocol] = []
-    
-    lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
-    lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
+final class HeadersCellAdapter: HeaderFooterTableAdapter {
     
     required init() {
+        super.init()
         let plainHeader = PlainSectionItem()
         plainHeader.append(OneLineTextCellItem(text: "PlainSectionItem"))
         
@@ -43,7 +38,8 @@ final class HeadersCellAdapter: TableViewAdapterProtocol {
         
         titleActionHeader.append(OneLineTextCellItem(text: "TitleActionButtonSectionItem"))
         
-        append {
+        
+        append(sectionItems:
             [
                 plainHeader,
                 titleHeader,
@@ -52,7 +48,8 @@ final class HeadersCellAdapter: TableViewAdapterProtocol {
                 titleFooterHeaderTall,
                 titleActionHeader
             ]
-        }
+        )
+
     }
     
     

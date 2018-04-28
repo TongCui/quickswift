@@ -19,9 +19,9 @@ final class InfoPlistDemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adapter.append(section: {PlainSectionItem()}) {
+        adapter.append(section: PlainSectionItem()) {
             InfoPlist.all.map { info in
-                SystemStyleCellItem(style: .value1).uiSettings { (cell) in
+                SystemStyleCellItem(style: .value1).customUI { (cell) in
                     cell.textLabel?.text = info.rawValue
                     cell.detailTextLabel?.text = info.value
                 }

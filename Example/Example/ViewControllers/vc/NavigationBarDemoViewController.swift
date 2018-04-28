@@ -23,7 +23,7 @@ final class NavigationBarDemo1ViewController: LogListViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        adapter.delegateHandler?.scrollDelegate = self
+        adapter.delegateProvider.scrollDelegate = self
         (1..<30).forEach { append(line: "\($0)). Line \($0)") }
     }
     
@@ -63,7 +63,7 @@ final class NavigationBarDemo2ViewController: LogListViewController, BarButtonAn
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        adapter.delegateHandler?.scrollDelegate = self
+        adapter.delegateProvider.scrollDelegate = self
         (1..<30).forEach { append(line: "\($0)). Line \($0)") }
         setupBarAnimator()
     }

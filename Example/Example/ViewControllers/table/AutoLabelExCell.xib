@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="125" id="MBU-8P-sXq" customClass="AutoLabelExCell" customModule="Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="125"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MBU-8P-sXq" id="0ho-Lm-Vvl">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="124.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEp-Dw-3bl">
+                        <rect key="frame" x="15" y="15" width="290" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="rug-Fh-xOu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frk-u9-3ew">
+                        <rect key="frame" x="15" y="51" width="290" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7Y-v8-bB2">
+                        <rect key="frame" x="15" y="51" width="290" height="21"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwF-um-rgC">
+                                <rect key="frame" x="0.0" y="0.0" width="290" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zwF-um-rgC" firstAttribute="top" secondItem="a7Y-v8-bB2" secondAttribute="top" id="9EQ-oa-TvJ"/>
+                            <constraint firstItem="zwF-um-rgC" firstAttribute="leading" secondItem="a7Y-v8-bB2" secondAttribute="leading" id="ai8-xf-ov2"/>
+                            <constraint firstAttribute="trailing" secondItem="zwF-um-rgC" secondAttribute="trailing" id="j60-e9-ryi"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2D-uj-nEF">
+                        <rect key="frame" x="15" y="87" width="290" height="22.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Frk-u9-3ew" firstAttribute="top" secondItem="AEp-Dw-3bl" secondAttribute="bottom" constant="15" id="5oV-VI-Y4O"/>
+                    <constraint firstItem="AEp-Dw-3bl" firstAttribute="leading" secondItem="0ho-Lm-Vvl" secondAttribute="leading" constant="15" id="D2U-Mq-VWD"/>
+                    <constraint firstItem="a7Y-v8-bB2" firstAttribute="top" secondItem="AEp-Dw-3bl" secondAttribute="bottom" constant="15" id="Gn1-KE-w4i"/>
+                    <constraint firstAttribute="trailing" secondItem="S2D-uj-nEF" secondAttribute="trailing" constant="15" id="INI-x7-CBz"/>
+                    <constraint firstAttribute="bottom" secondItem="S2D-uj-nEF" secondAttribute="bottom" constant="15" id="KIf-Gc-kKu"/>
+                    <constraint firstItem="a7Y-v8-bB2" firstAttribute="leading" secondItem="0ho-Lm-Vvl" secondAttribute="leading" constant="15" id="Ko2-Gi-H1T"/>
+                    <constraint firstItem="Frk-u9-3ew" firstAttribute="leading" secondItem="0ho-Lm-Vvl" secondAttribute="leading" constant="15" id="Pmc-Ky-Kok"/>
+                    <constraint firstAttribute="trailing" secondItem="a7Y-v8-bB2" secondAttribute="trailing" constant="15" id="RcW-Fn-7IL"/>
+                    <constraint firstItem="S2D-uj-nEF" firstAttribute="top" secondItem="Frk-u9-3ew" secondAttribute="bottom" constant="15" id="UNM-ol-QYx"/>
+                    <constraint firstAttribute="trailing" secondItem="Frk-u9-3ew" secondAttribute="trailing" constant="15" id="WEl-bh-Dbf"/>
+                    <constraint firstItem="AEp-Dw-3bl" firstAttribute="top" secondItem="0ho-Lm-Vvl" secondAttribute="top" constant="15" id="ahA-ep-iG8"/>
+                    <constraint firstItem="S2D-uj-nEF" firstAttribute="top" secondItem="a7Y-v8-bB2" secondAttribute="bottom" constant="15" id="mdZ-n3-xBa"/>
+                    <constraint firstAttribute="trailing" secondItem="AEp-Dw-3bl" secondAttribute="trailing" constant="15" id="qxs-15-5CG"/>
+                    <constraint firstItem="S2D-uj-nEF" firstAttribute="leading" secondItem="0ho-Lm-Vvl" secondAttribute="leading" constant="15" id="ypQ-Uf-vNk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="mhv-mD-9un"/>
+            <connections>
+                <outlet property="label1" destination="AEp-Dw-3bl" id="Bci-QG-aQd"/>
+                <outlet property="label2" destination="zwF-um-rgC" id="Qot-eI-7df"/>
+                <outlet property="label3" destination="S2D-uj-nEF" id="ph8-er-PRV"/>
+                <outlet property="labelSize" destination="Frk-u9-3ew" id="CpK-sO-Rpe"/>
+            </connections>
+            <point key="canvasLocation" x="-59" y="-38.5"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -18,7 +18,7 @@ final class PlainTableHideBottomCellsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adapter.append(section: {PlainSectionItem()}) {
+        adapter.append(section: PlainSectionItem()) {
             (0...5).map { OneLineTextCellItem(text: "Line \($0)") }
         }
         

@@ -1,18 +1,14 @@
 //
-//  BuiltInCell.swift
+//  CommonInitTableCell.swift
 //  QuickSwift
 //
 //  Created by tcui on 22/12/2017.
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-import SnapKit
+import UIKit
 
-public protocol BuiltInCellCustomizable {
-    func builtInCellCustomSettings()
-}
-
-open class BuiltInCell: UITableViewCell, CommonInit {
+open class CommonInitTableCell: UITableViewCell {
     public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
@@ -24,8 +20,6 @@ open class BuiltInCell: UITableViewCell, CommonInit {
     }
 
     open func commonInit() {
-        if let custom = self as? BuiltInCellCustomizable {
-            custom.builtInCellCustomSettings()
-        }
+
     }
 }

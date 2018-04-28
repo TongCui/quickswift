@@ -8,31 +8,23 @@
 
 open class PlaceholderCellItem: CellItemProtocol {
 
+    public var registerType: TableViewRegisterType = .class(PlaceholderCell.self)
     public var identifier: String = "placeholder_cell"
-    public var settings: CellSettings = CellSettings()
+    public var cellConfigurator = CellConfigurator()
+    public var actionHandler = CellActionHandler()
+    public var cellDisplayingContext = CellItemDisplayingContext()
 
     public init(height: CGFloat) {
-        cellHeight = height
-        cellSeparatorStyle = .none
+        cellConfigurator.cellHeight = height
+        cellConfigurator.cellSeperatorStyle = .none
     }
 
-    public func register(tableView: UITableView) {
-        tableView.register(PlaceholderCell.self, forCellReuseIdentifier: identifier)
-    }
-
-    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-
-        if let cell = tableCell as? PlaceholderCell {
-            cell.selectionStyle = .none
-        }
-
-        return tableCell
+    open func bind(cell: UITableViewCell) {
+        cell.selectionStyle = .none
     }
 }
 
-public class PlaceholderCell: BuiltInCell {
-
+public class PlaceholderCell: CommonInitTableCell {
     public override func commonInit() {
         super.commonInit()
     }

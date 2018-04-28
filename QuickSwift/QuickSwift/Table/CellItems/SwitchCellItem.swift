@@ -7,26 +7,24 @@
 //
 
 open class SwitchCellItem: CellItemProtocol {
+    public var registerType: TableViewRegisterType = .class(SwitchCell.self)
+    public var identifier: String = "switch_cell"
+    public var cellConfigurator = CellConfigurator()
+    public var actionHandler = CellActionHandler()
+    public var cellDisplayingContext = CellItemDisplayingContext()
+
     public var title: String
     public var action: (Bool) -> Void
-    public var identifier: String = "switch_cell"
-    public var settings: CellSettings = CellSettings()
     public var isOn: Bool = false
 
     public init(title: String, action:@escaping (Bool) -> Void) {
         self.title = title
         self.action = action
-        cellHeight = .defaultCellHeight
+        cellConfigurator.cellHeight = .defaultCellHeight
     }
 
-    public func register(tableView: UITableView) {
-        tableView.register(SwitchCell.self, forCellReuseIdentifier: identifier)
-    }
-
-    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-
-        if let cell = tableCell as? SwitchCell {
+    open func bind(cell: UITableViewCell) {
+        if let cell = cell as? SwitchCell {
             cell.selectionStyle = .none
             cell.switchLabel.text = title
             cell.switch.isOn = isOn
@@ -34,19 +32,18 @@ open class SwitchCellItem: CellItemProtocol {
                 self?.isOn = theSwitch.isOn
                 self?.action(theSwitch.isOn)
             }
+            let edges = cellConfigurator.cellContentEdges
             cell.switch.snp.updateConstraints { make in
-                make.trailing.equalToSuperview().offset(-cellContentEdges.right)
+                make.trailing.equalToSuperview().offset(-edges.right)
             }
             cell.switchLabel.snp.updateConstraints { make in
-                make.leading.equalToSuperview().offset(cellContentEdges.left)
+                make.leading.equalToSuperview().offset(edges.left)
             }
         }
-
-        return tableCell
     }
 }
 
-open class SwitchCell: BuiltInCell {
+open class SwitchCell: CommonInitTableCell {
 
     public lazy var switchLabel = UILabel()
     public lazy var `switch` = UISwitch()
