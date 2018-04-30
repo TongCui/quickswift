@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => "https://github.com/TongCui/quickswift.git", :branch => "master" }
   # s.source   = { :git => "https://github.com/TongCui/quickswift.git" }
   s.source_files = "QuickSwift/QuickSwift/**/*.swift"
-  s.dependency 'Alamofire', '~> 4.7.1'
-  s.dependency "SnapKit", "~> 4.0.0"
+  s.dependency 'Alamofire'
+  s.dependency 'SnapKit'
+  s.dependency 'OHHTTPStubs/Swift'
 end
