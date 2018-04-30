@@ -16,7 +16,7 @@ open class PlaceholderCellItem: CellItemProtocol {
 
     public init(height: CGFloat) {
         cellConfigurator.cellHeight = height
-        cellConfigurator.cellSeperatorStyle = .none
+        cellConfigurator.cellSeparatorStyle = .none
     }
 
     open func bind(cell: UITableViewCell) {

@@ -44,17 +44,13 @@ public extension TableViewAdapterProtocol {
         link(tableView: tableView)
     }
 
-    private func reloadTableView() {
-        tableView?.reloadData()
-    }
-
     public func reloadData() {
-        reloadTableView()
+        tableView?.reloadData()
     }
 
     public func clear() {
         sections.removeAll()
-        reloadTableView()
+        tableView?.reloadData()
     }
 
     public func link(tableView: UITableView) {

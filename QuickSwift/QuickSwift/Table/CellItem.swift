@@ -73,13 +73,13 @@ final public class CellActionHandler {
 /// Cell ui-related settings, cell height, seperator style, etc.
 final public class CellConfigurator {
 
-    public var cellSeperatorStyle: UITableViewCell.SeparatorLineStyle = .default
+    public var cellSeparatorStyle: UITableViewCell.SeparatorLineStyle = .default
     public var cellHeight = CGFloat.automaticDimension
     public var cellContentEdges = UIEdgeInsets(margin: .defaultMargin)
     public var cellCustomUISettings: ((UITableViewCell) -> Void)?
 
     public func configue(cell: UITableViewCell) {
-        cell.setSeparatorLineStyle(cellSeperatorStyle)
+        cell.setSeparatorLineStyle(cellSeparatorStyle)
         cellCustomUISettings?(cell)
     }
 
