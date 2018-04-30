@@ -29,7 +29,7 @@ final class AdapterCellAdapter: HeaderFooterTableAdapter {
                 self?.reloadData()
                 self?.parent?.reloadData()
             }
-            addMoreCellItem.cellConfigurator.cellSeperatorStyle = .none
+            addMoreCellItem.cellConfigurator.cellSeparatorStyle = .none
             
             section.append(addMoreCellItem)
             
