@@ -7,28 +7,27 @@
 //
 
 open class LocalImageCellItem: CellItemProtocol {
+    public var registerType: TableViewRegisterType = .class(LocalImageCell.self)
+    public var identifier: String
+    public var cellConfigurator = CellConfigurator()
+    public var actionHandler = CellActionHandler()
+    public var cellDisplayingContext = CellItemDisplayingContext()
+
     public var imageName: String
     public var imageHeight: UIImageView.ImageHeight
-    public var identifier: String
-    public var settings: CellSettings = CellSettings()
 
     public init(imageName: String, imageHeight: UIImageView.ImageHeight) {
         self.identifier = "local_image_cell_\(imageHeight)"
         self.imageName = imageName
         self.imageHeight = imageHeight
-        cellHeight = .automaticDimension
     }
 
-    public func register(tableView: UITableView) {
-        tableView.register(LocalImageCell.self, forCellReuseIdentifier: identifier)
-    }
-
-    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-
-        if let cell = tableCell as? LocalImageCell {
+    open func bind(cell: UITableViewCell) {
+        if let cell = cell as? LocalImageCell {
             cell.selectionStyle = .none
             cell.localImageView.image = UIImage(named: imageName)
+            let cellContentEdges = cellConfigurator.cellContentEdges
+
             cell.localImageView.snp.makeConstraints { (make) in
                 make.top.equalToSuperview().offset(cellContentEdges.top)
                 make.leading.equalToSuperview().offset(cellContentEdges.left)
@@ -38,12 +37,10 @@ open class LocalImageCellItem: CellItemProtocol {
 
             cell.localImageView.updateAutolayout(imageHeight: imageHeight)
         }
-
-        return tableCell
     }
 }
 
-open class LocalImageCell: BuiltInCell {
+open class LocalImageCell: CommonInitTableCell {
 
     public lazy var localImageView = UIImageView(image: nil)
 

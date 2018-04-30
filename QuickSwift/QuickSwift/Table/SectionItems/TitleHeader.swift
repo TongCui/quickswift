@@ -6,21 +6,17 @@
 //  Copyright © 2018 LuckyTR. All rights reserved.
 //
 
-class TitleHeader: SectionHeaderFooterProtocol {
+open class TitleHeaderFooter: SectionHeaderFooterProtocol {
+    public var registerType: TableViewRegisterType = .none
+    public var identifier: String = "title_header"
+    public var title: String?
+    public var height: CGFloat?
 
-    var title: String?
-    var height: CGFloat?
-    var identifier: String = "title_header"
-
-    func register(tableView: UITableView) {
-        tableView.register(TitleHeader.self, forHeaderFooterViewReuseIdentifier: identifier)
-    }
-
-    func view(tableView: UITableView, section: Int) -> UIView? {
-        return nil
-    }
-
-    init(title: String?) {
+    public init(title: String?) {
         self.title = title
+    }
+
+    open func render(view: UITableViewHeaderFooterView) {
+
     }
 }

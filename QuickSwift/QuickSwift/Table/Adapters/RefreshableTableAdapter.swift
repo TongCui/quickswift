@@ -17,14 +17,14 @@ extension RefreshableTableAdapterContainer where Self: UIViewController {
     }
 }
 
-open class RefreshableTableAdapter: DefaultTableAdapter {
+open class RefreshableTableAdapter: HeaderFooterTableAdapter {
 
     open var refreshAction: (() -> Void)?
     open lazy var refreshControl = UIRefreshControl()
     open var container: RefreshableTableAdapterContainer? {
         didSet {
             container?.tableView.refreshControl = refreshControl
-            delegateHandler?.scrollDelegate = container
+            delegateProvider.scrollDelegate = container
         }
     }
 

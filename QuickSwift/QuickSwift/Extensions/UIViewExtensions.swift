@@ -146,7 +146,7 @@ extension UIView {
         return nil
     }
 
-    public func parentViewController<T>() -> T? {
+    public func parentViewController<T: UIViewController>() -> T? {
         var parentResponder: UIResponder? = self
 
         while let responder = parentResponder {

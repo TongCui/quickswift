@@ -9,108 +9,106 @@
 import UIKit
 import QuickSwift
 
-final class ExamplesAdapter: TableViewAdapterProtocol {
-    
-    weak var tableView: UITableView?
-    var sections: [SectionItemProtocol] = []
-    
-    lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
-    lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
+final class ExamplesAdapter: HeaderFooterTableAdapter {
     
     required init() {
+        super.init()
         
-        self.append {
+        append(section: TitleHeaderSectionItem(header: "tableview")) { [unowned self] in
             [
-                TitleHeaderSectionItem(header: "tableview").append {
-                    [
-                        cellItem(title: "SystemDefaultCell", goto: .goSystemCellVC),
-                        cellItem(title: "OneLineTextCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.oneLineText),
-                        cellItem(title: "LoadingCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.loading),
-                        cellItem(title: "ButtonCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.button),
-                        cellItem(title: "LocalImageCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.localImage),
-                        cellItem(title: "SwitchCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.switch),
-                        cellItem(title: "PlaceholderCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.placeholder),
-                        cellItem(title: "OptionCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.option),
-                        cellItem(title: "AdapterCell", goto: .goAdapterVC),
-                        cellItem(title: "Insert & Delete", goto: .goCellInsertDeleteVC)
-                        
-                    ]
-                },
-                TitleHeaderSectionItem(header: "tableview").append {
-                    [
-                        cellItem(title: "Headers", goto: HeadersViewController.typeName, storyboard: "TableDemos"),
-                        cellItem(title: "Plain Sections", goto: PlainTableDemoViewController.typeName, storyboard: "TableDemos"),
-                        cellItem(title: "Hide bottom cells", goto: PlainTableHideBottomCellsViewController.typeName, storyboard: "TableDemos")
-                    ]
-                },
-                TitleHeaderSectionItem(header: "cellitem pattern revolution").append {
-                    [
-                        cellItem(title: "UIKit", goto: CellItemPattern1ViewController.typeName, storyboard: "CellItemPattern"),
-                        cellItem(title: "Datasource", goto: CellItemPattern2ViewController.typeName, storyboard: "CellItemPattern"),
-                        cellItem(title: "CellItem", goto: CellItemPattern3ViewController.typeName, storyboard: "CellItemPattern"),
-                        cellItem(title: "CellItem & Custom Adapter", goto: CellItemPattern4ViewController.typeName, storyboard: "CellItemPattern"),
-                        cellItem(title: "CellItem & Default Adapter", goto: CellItemPattern5ViewController.typeName, storyboard: "CellItemPattern")
-                    ]
-                },
-                TitleHeaderSectionItem(header: "networking").append {
-                    [
-                        cellItem(title: "Networking", goto: NetworkingViewController.typeName, storyboard: "NetworkingDemos"),
-                        cellItem(title: "IPAddressDemo", goto: IPAddressDemoViewController.typeName, storyboard: "NetworkingDemos")
-                    ]
-                },
-                TitleHeaderSectionItem(header: "view controller").append {
-                    [
-                        cellItem(title: "LifeCycle", goto: LifeCycleDemoViewController.typeName, storyboard: "VCDemos"),
-                        cellItem(title: "NavigationBar1", goto: NavigationBarDemo1ViewController.typeName, storyboard: "VCDemos"),
-                        cellItem(title: "NavigationBar2", goto: NavigationBarDemo2ViewController.typeName, storyboard: "VCDemos"),
-                        cellItem(title: "NavigationBar Search", goto: NavigationBarSearchViewController.typeName, storyboard: "VCDemos"),
-                        cellItem(title: "Segue Demo", goto: SegueDemoViewController.typeName, storyboard: "VCDemos"),
-                        cellItem(title: "Tap Action Demo", goto: TapActionDemoViewController.typeName, storyboard: "VCDemos")
-                    ]
-                },
-                TitleHeaderSectionItem(header: "UI").append {
-                    [
-                        cellItem(title: "UIFontTextStyles", goto: FontTextStylesViewController.typeName, storyboard: "UIDemos"),
-                        cellItem(title: "StatefulView", goto: StatefulDemoViewController.typeName, storyboard: "UIDemos")
-                    ]
-                },
-                TitleHeaderSectionItem(header: "Application").append {
-                    [
-                        cellItem(title: "Info plist", goto: InfoPlistDemoViewController.typeName, storyboard: "AppDemos"),
-                    ]
-                },
-                TitleHeaderSectionItem(header: "CheatSheet").append {
-                    [
-                        cellItem(title: "Cheat Sheet", goto: CheatSheetViewController.typeName, storyboard: "CheatSheet"),
-                        ]
-                }
+                self.cellItem(title: "SystemDefaultCell", goto: .goSystemCellVC),
+                self.cellItem(title: "OneLineTextCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.oneLineText),
+                self.cellItem(title: "LoadingCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.loading),
+                self.cellItem(title: "ButtonCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.button),
+                self.cellItem(title: "LocalImageCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.localImage),
+                self.cellItem(title: "SwitchCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.switch),
+                self.cellItem(title: "PlaceholderCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.placeholder),
+                self.cellItem(title: "OptionCell", goto: .goBuiltinCellVC, sender: BuiltInCellType.option),
+                self.cellItem(title: "AdapterCell", goto: .goAdapterVC),
+                self.cellItem(title: "Insert & Delete", goto: .goCellInsertDeleteVC)
             ]
         }
+        
+        append(section: TitleHeaderSectionItem(header: "tableview")) { [unowned self] in
+            [
+                self.cellItem(title: "Headers", goto: HeadersViewController.typeName, storyboard: "TableDemos"),
+                self.cellItem(title: "Plain Sections", goto: PlainTableDemoViewController.typeName, storyboard: "TableDemos"),
+                self.cellItem(title: "Hide bottom cells", goto: PlainTableHideBottomCellsViewController.typeName, storyboard: "TableDemos"),
+                self.cellItem(title: "Auto Dimention", goto: AutoDimentionDemoViewController.typeName, storyboard: "TableDemos")
+            ]
+        }
+        
+        append(section: TitleHeaderSectionItem(header: "cellitem pattern revolution")) { [unowned self] in
+            [
+                self.cellItem(title: "UIKit", goto: CellItemPattern1ViewController.typeName, storyboard: "CellItemPattern"),
+                self.cellItem(title: "Datasource", goto: CellItemPattern2ViewController.typeName, storyboard: "CellItemPattern"),
+                self.cellItem(title: "CellItem", goto: CellItemPattern3ViewController.typeName, storyboard: "CellItemPattern"),
+                self.cellItem(title: "CellItem & Custom Adapter", goto: CellItemPattern4ViewController.typeName, storyboard: "CellItemPattern"),
+                self.cellItem(title: "CellItem & Default Adapter", goto: CellItemPattern5ViewController.typeName, storyboard: "CellItemPattern")
+            ]
+        }
+        
+        append(section: TitleHeaderSectionItem(header: "networking")) { [unowned self] in
+            [
+                self.cellItem(title: "Networking", goto: NetworkingViewController.typeName, storyboard: "NetworkingDemos"),
+                self.cellItem(title: "IPAddressDemo", goto: IPAddressDemoViewController.typeName, storyboard: "NetworkingDemos")
+            ]
+        }
+        
+        append(section: TitleHeaderSectionItem(header: "view controller")) { [unowned self] in
+            [
+                self.cellItem(title: "LifeCycle", goto: LifeCycleDemoViewController.typeName, storyboard: "VCDemos"),
+                self.cellItem(title: "NavigationBar1", goto: NavigationBarDemo1ViewController.typeName, storyboard: "VCDemos"),
+                self.cellItem(title: "NavigationBar2", goto: NavigationBarDemo2ViewController.typeName, storyboard: "VCDemos"),
+                self.cellItem(title: "NavigationBar Search", goto: NavigationBarSearchViewController.typeName, storyboard: "VCDemos"),
+                self.cellItem(title: "Segue Demo", goto: SegueDemoViewController.typeName, storyboard: "VCDemos"),
+                self.cellItem(title: "Tap Action Demo", goto: TapActionDemoViewController.typeName, storyboard: "VCDemos")
+            ]
+        }
+        
+        append(section: TitleHeaderSectionItem(header: "UI")) { [unowned self] in
+            [
+                self.cellItem(title: "UIFontTextStyles", goto: FontTextStylesViewController.typeName, storyboard: "UIDemos"),
+                self.cellItem(title: "StatefulView", goto: StatefulDemoViewController.typeName, storyboard: "UIDemos")
+            ]
+        }
+        
+        append(section: TitleHeaderSectionItem(header: "Application")) { [unowned self] in
+            [
+                self.cellItem(title: "Info plist", goto: InfoPlistDemoViewController.typeName, storyboard: "AppDemos")
+            ]
+        }
+        
+        append(section: TitleHeaderSectionItem(header: "CheatSheet")) { [unowned self] in
+            [
+                self.cellItem(title: "Cheat Sheet", goto: CheatSheetListViewController.typeName, storyboard: "CheatSheet")
+            ]
+        }
+        
     }
     
     func cellItem(title: String, goto vc: String, storyboard: String) -> OneLineTextCellItem {
         return OneLineTextCellItem(text: title)
-            .uiSettings { (cell) in
+            .customUI { (cell) in
                 cell.accessoryType = .disclosureIndicator
             }
             .add(action: .cellDidSelect) { params in
                 
                 let nextVC = vc.toViewController(storyboard: storyboard)
-                params.viewController()?.navigationController?.pushViewController(nextVC, animated: true)
+                params.tableView?.parentViewController()?.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
     
     func cellItem(title: String, goto segue: SegueIds, sender: Any? = nil) -> OneLineTextCellItem {
         return OneLineTextCellItem(text: title)
-            .uiSettings { (cell) in
+            .customUI { (cell) in
                 cell.accessoryType = .disclosureIndicator
             }
             .add(action: .cellDidSelect) { params in
-                if let viewController = params.viewController() as? ExamplesViewController {
-                    viewController.performSegue(withIdentifier: segue.rawValue, sender: sender)
-            }
+                params.tableView?.parentViewController()?.performSegue(withIdentifier: segue.rawValue, sender: sender)
         }
     }
+    
 }
 
 final class ExamplesViewController: UIViewController, UIScrollViewDelegate {
@@ -120,10 +118,6 @@ final class ExamplesViewController: UIViewController, UIScrollViewDelegate {
     lazy var adapter = ExamplesAdapter(tableView: tableView)
     
     override func viewDidLoad() {
-        if let handler = adapter.delegateHandler as? TableViewDefaultDelegateHandler {
-            handler.scrollDelegate = self
-        }
-        
         super.viewDidLoad()
         adapter.reloadData()
         
@@ -131,10 +125,6 @@ final class ExamplesViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

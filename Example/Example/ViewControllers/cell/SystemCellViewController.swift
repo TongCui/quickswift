@@ -9,19 +9,13 @@
 import UIKit
 import QuickSwift
 
-final class SystemCellAdapter: TableViewAdapterProtocol {
-    
-    weak var tableView: UITableView?
-    var sections: [SectionItemProtocol] = []
-    
-    lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
-    lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
-    
+final class SystemCellAdapter: HeaderFooterTableAdapter {
     required init() {
+        super.init()
         let selectionStyles: [(UITableViewCellSelectionStyle, String)] = [(.none, ".none"), (.blue, ".blue"), (.gray, ".gray"), (.default, ".default")]
-        append(section: { TitleHeaderSectionItem(header: "Default Cell (SelectionStyle)") }) {
+        append(section: TitleHeaderSectionItem(header: "Default Cell (SelectionStyle)") ) {
             selectionStyles.map { (style, name) in
-                SystemStyleCellItem(style: .default).uiSettings { (cell) in
+                SystemStyleCellItem(style: .default).customUI { (cell) in
                     cell.textLabel?.text = "Default Style (\(name))"
                     cell.selectionStyle = style
                 }
@@ -29,9 +23,9 @@ final class SystemCellAdapter: TableViewAdapterProtocol {
         }
         
         let accessoryTypes: [(UITableViewCellAccessoryType, String)] = [(.none, ".none"), (.disclosureIndicator, ".disclosureIndicator"), (.detailDisclosureButton, ".detailDisclosureButton"), (.checkmark, ".checkmark"), (.detailButton, ".detailButton")]
-        append(section: { TitleHeaderSectionItem(header: "Default Cell (AccessoryType)") }) {
+        append(section: TitleHeaderSectionItem(header: "Default Cell (AccessoryType)") ) {
             accessoryTypes.map { (type, name) in
-                SystemStyleCellItem(style: .default).uiSettings { (cell) in
+                SystemStyleCellItem(style: .default).customUI { (cell) in
                     cell.textLabel?.text = "Default Style (\(name))"
                     cell.accessoryType = type
                 }
@@ -39,9 +33,9 @@ final class SystemCellAdapter: TableViewAdapterProtocol {
         }
         
         let colors = [(UIColor.red, ".red"), (UIColor.green, ".green"), (UIColor.blue, ".blue")]
-        append(section: { TitleHeaderSectionItem(header: "Default Cell (BackgroundColor)") }) {
+        append(section: TitleHeaderSectionItem(header: "Default Cell (BackgroundColor)") ) {
             colors.map { (color, name) in
-                SystemStyleCellItem(style: .default).uiSettings { (cell) in
+                SystemStyleCellItem(style: .default).customUI { (cell) in
                     cell.textLabel?.text = "Default Style (\(name))"
                     cell.contentView.backgroundColor = color.withAlphaComponent(0.3)
                 }
@@ -49,27 +43,27 @@ final class SystemCellAdapter: TableViewAdapterProtocol {
         }
         
         
-        append(section: { TitleHeaderSectionItem(header: "Value1 Cell") }) {
+        append(section: TitleHeaderSectionItem(header: "Value1 Cell") ) {
             [
-                SystemStyleCellItem(style: .value1).uiSettings { (cell) in
+                SystemStyleCellItem(style: .value1).customUI { (cell) in
                     cell.textLabel?.text = "Value1 Style(text)"
                     cell.detailTextLabel?.text = "(detail)"
                 }
             ]
         }
         
-        append(section: { TitleHeaderSectionItem(header: "Value2 Cell") }) {
+        append(section: TitleHeaderSectionItem(header: "Value2 Cell") ) {
             [
-                SystemStyleCellItem(style: .value2).uiSettings { (cell) in
+                SystemStyleCellItem(style: .value2).customUI { (cell) in
                     cell.textLabel?.text = "Value2 Style(text)"
                     cell.detailTextLabel?.text = "(detail)"
                 }
             ]
         }
         
-        append(section: { TitleHeaderSectionItem(header: "Subtitle Cell") }) {
+        append(section: TitleHeaderSectionItem(header: "Subtitle Cell") ) {
             [
-                SystemStyleCellItem(style: .subtitle).uiSettings { (cell) in
+                SystemStyleCellItem(style: .subtitle).customUI { (cell) in
                     cell.textLabel?.text = "Value2 Style(text)"
                     cell.detailTextLabel?.text = "(detail)"
                 }

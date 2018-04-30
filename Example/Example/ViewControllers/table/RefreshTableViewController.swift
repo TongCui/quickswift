@@ -20,7 +20,7 @@ final class RefreshTableDemo1ViewController: LifeCycleManagedViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        adapter.append(section: {PlainSectionItem()}) {
+        adapter.append(section: PlainSectionItem()) {
             (0..<10).map { OneLineTextCellItem(text: "Line \($0)") }
         }
         adapter.reloadData()
@@ -35,7 +35,7 @@ final class RefreshTableDemo2ViewController: LifeCycleManagedViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        adapter.append(section: {PlainSectionItem()}) {
+        adapter.append(section: PlainSectionItem()) {
             (0..<10).map { OneLineTextCellItem(text: "Line \($0)") }
         }
         adapter.reloadData()

@@ -52,13 +52,15 @@ extension CellItemPattern3ViewController : UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellItem = dataSource[indexPath.section][indexPath.row]
-        return cellItem.cell(tableView: tableView, indexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellItem.identifier, for: indexPath)
+        cellItem.bind(cell: cell)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let cellItem = dataSource[indexPath.section][indexPath.row]
         let params = TableParams { _ in }
-        cellItem.handler(for: .cellDidSelect)?(params)
+        cellItem.actionHandler.getHandler(for: .cellDidSelect)?(params)
     }
 }

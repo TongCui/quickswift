@@ -12,20 +12,6 @@ import OHHTTPStubs
 import QuickSwift
 
 
-
-
-final class NetworkingAdapter: TableViewAdapterProtocol {
-    
-    weak var tableView: UITableView?
-    var sections: [SectionItemProtocol] = []
-    
-    lazy var dataSourceHandler: TableDataSourceHandlerProtocol? = TableViewDataSourceHandler(adapter: self)
-    lazy var delegateHandler: TableDelegateHandlerProtocol? = TableViewDefaultDelegateHandler(adapter: self)
-    
-    required init() {}
-    
-}
-
 extension UIRefreshControl {
     func refreshManually(tableView: UITableView, refresh:@escaping ()->()) {
         tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentOffset.y - frame.height), animated: true)
@@ -51,14 +37,14 @@ extension NetworkingViewController: UIScrollViewDelegate {
 final class NetworkingViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    lazy var adapter = NetworkingAdapter(tableView: tableView)
+    lazy var adapter = DefaultTableAdapter(tableView: tableView)
     
     private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         adapter.reloadData()
-        adapter.delegateHandler?.scrollDelegate = self
+        adapter.delegateProvider.scrollDelegate = self
         tableView.refreshControl = refreshControl
         httpStubs()
         
@@ -91,7 +77,7 @@ final class NetworkingViewController: UIViewController {
         
         adapter.clear()
         
-        adapter.append(section: {PlainSectionItem()} ) {
+        adapter.append(section: PlainSectionItem() ) {
             students.map { student -> OneLineTextCellItem in
                 let ageMessage = "My name is \(student.name), my age is \(student.age)"
                 return OneLineTextCellItem(text: "Student: \(student.name)").add(action: .cellDidSelect) { _ in

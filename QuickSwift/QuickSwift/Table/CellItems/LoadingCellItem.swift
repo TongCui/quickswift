@@ -8,25 +8,23 @@
 
 open class LoadingCellItem: CellItemProtocol {
 
+    public var registerType: TableViewRegisterType = .class(LoadingCell.self)
+    public var identifier: String = "loading_cell"
+    public var cellConfigurator = CellConfigurator()
+    public var actionHandler = CellActionHandler()
+    public var cellDisplayingContext = CellItemDisplayingContext()
+
     public var timeout: TimeInterval = 3
     public var isLoading: Bool = false
-    public var identifier: String = "loading_cell"
-    public var settings: CellSettings = CellSettings()
     public var loadingAction: () -> Void
 
     public init(loadingAction:@escaping () -> Void ) {
         self.loadingAction = loadingAction
-        cellHeight = .defaultCellHeight
+        cellConfigurator.cellHeight = .defaultCellHeight
     }
 
-    public func register(tableView: UITableView) {
-        tableView.register(LoadingCell.self, forCellReuseIdentifier: identifier)
-    }
-
-    open func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-
-        if let cell = tableCell as? LoadingCell {
+    open func bind(cell: UITableViewCell) {
+        if let cell = cell as? LoadingCell {
             cell.selectionStyle = .none
             cell.spinner.startAnimating()
             if !isLoading {
@@ -37,12 +35,10 @@ open class LoadingCellItem: CellItemProtocol {
                 isLoading = true
             }
         }
-
-        return tableCell
     }
 }
 
-open class LoadingCell: BuiltInCell {
+open class LoadingCell: CommonInitTableCell {
 
     public lazy var spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 

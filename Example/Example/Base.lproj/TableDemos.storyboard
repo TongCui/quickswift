@@ -137,5 +137,37 @@
             </objects>
             <point key="canvasLocation" x="4052" y="-1615"/>
         </scene>
+        <!--AutoDimention-->
+        <scene sceneID="Bge-vw-fAT">
+            <objects>
+                <viewController storyboardIdentifier="AutoDimentionDemoViewController" id="TE8-NV-Est" customClass="AutoDimentionDemoViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wtk-ZJ-ASo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zje-2Y-m0f">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zje-2Y-m0f" firstAttribute="top" secondItem="Wtk-ZJ-ASo" secondAttribute="top" id="FEO-zL-ope"/>
+                            <constraint firstItem="zje-2Y-m0f" firstAttribute="leading" secondItem="Wtk-ZJ-ASo" secondAttribute="leading" id="Ix3-vm-vqd"/>
+                            <constraint firstItem="zje-2Y-m0f" firstAttribute="bottom" secondItem="Wtk-ZJ-ASo" secondAttribute="bottom" id="XHN-Op-7IU"/>
+                            <constraint firstAttribute="trailing" secondItem="zje-2Y-m0f" secondAttribute="trailing" id="tyU-gv-imZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2kL-8v-RBy"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="AutoDimention" id="R5J-8j-dPg"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="zje-2Y-m0f" id="sZ9-5s-ZeO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9TO-df-lkj" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4714" y="-1615"/>
+        </scene>
     </scenes>
 </document>

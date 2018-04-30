@@ -8,12 +8,12 @@
 
 import QuickSwift
 
-final class StatefulDemoAdapter: DefaultTableAdapter {
+final class StatefulDemoAdapter: HeaderFooterTableAdapter {
     required init() {
         super.init()
         
         (1...101).forEach { (idx) in
-            append(section: {TitleHeaderSectionItem(header: "Demo \(idx)")}) {
+            append(section: TitleHeaderSectionItem(header: "Demo \(idx)") ) {
                 [
                     StatefulCellItem(idx: idx)
                 ]

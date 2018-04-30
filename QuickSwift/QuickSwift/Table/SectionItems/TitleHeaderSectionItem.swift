@@ -13,7 +13,7 @@ public class TitleHeaderSectionItem: SectionItemProtocol {
     public var cellItems: [CellItemProtocol] = []
 
     public init(header: String, height: CGFloat? = nil) {
-        self.header = TitleHeader(title: header)
+        self.header = TitleHeaderFooter(title: header)
         self.header?.height = height
     }
 }

@@ -8,7 +8,7 @@
 
 import QuickSwift
 
-final class AdapterCellAdapter: DefaultTableAdapter {
+final class AdapterCellAdapter: HeaderFooterTableAdapter {
     final class ContentAdapter: DefaultTableAdapter {
         var parent: TableViewAdapterProtocol?
         
@@ -29,7 +29,8 @@ final class AdapterCellAdapter: DefaultTableAdapter {
                 self?.reloadData()
                 self?.parent?.reloadData()
             }
-            addMoreCellItem.cellSeparatorStyle = .none
+            addMoreCellItem.cellConfigurator.cellSeperatorStyle = .none
+            
             section.append(addMoreCellItem)
             
             append(sectionItem: section)
@@ -39,7 +40,7 @@ final class AdapterCellAdapter: DefaultTableAdapter {
     required init() {
         super.init()
         (1...10).forEach { idx in
-            append(section: {TitleHeaderSectionItem(header: "Table Section \(idx)")} ) {
+            append(section: TitleHeaderSectionItem(header: "Table Section \(idx)") ) {
                 [
                     TableAdapterCellItem(adapter: ContentAdapter(count: idx, parent: self))
                 ]

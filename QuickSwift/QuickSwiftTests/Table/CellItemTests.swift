@@ -31,5 +31,4 @@ class CellItemTests: XCTestCase {
 
     }
 
-
 }

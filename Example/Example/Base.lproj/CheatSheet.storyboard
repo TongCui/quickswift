@@ -12,14 +12,14 @@
         <!--Cheat Sheet-->
         <scene sceneID="R1b-m3-rk8">
             <objects>
-                <viewController storyboardIdentifier="CheatSheetViewController" id="mmN-DA-tZD" customClass="CheatSheetViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CheatSheetListViewController" id="mmN-DA-tZD" customClass="CheatSheetListViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Rt-Xt-8Nl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Rom-4A-DEI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rom-4A-DEI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -35,11 +35,44 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="Rom-4A-DEI" id="p8M-bX-rRH"/>
+                        <segue destination="ZZp-64-dfb" kind="show" identifier="go_cheat_sheet_vc" id="dPi-bl-GvE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Drs-zP-ycS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="730" y="-1615"/>
+            <point key="canvasLocation" x="-265" y="-1637"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="2Yb-87-gOL">
+            <objects>
+                <viewController storyboardIdentifier="CheatSheetViewController" id="ZZp-64-dfb" customClass="CheatSheetViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2RZ-4C-fbD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DmP-Ed-mX9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DmP-Ed-mX9" secondAttribute="trailing" id="6BR-2i-EuQ"/>
+                            <constraint firstItem="DmP-Ed-mX9" firstAttribute="bottom" secondItem="2RZ-4C-fbD" secondAttribute="bottom" id="HBg-DF-MoL"/>
+                            <constraint firstItem="DmP-Ed-mX9" firstAttribute="leading" secondItem="2RZ-4C-fbD" secondAttribute="leading" id="bds-09-UIk"/>
+                            <constraint firstItem="DmP-Ed-mX9" firstAttribute="top" secondItem="2RZ-4C-fbD" secondAttribute="top" id="iSh-WL-z3L"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xmB-it-XnJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail" id="oWX-Ug-upy"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="DmP-Ed-mX9" id="P2j-a7-cAn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FI8-Fa-kmE" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="470" y="-1638"/>
         </scene>
     </scenes>
 </document>

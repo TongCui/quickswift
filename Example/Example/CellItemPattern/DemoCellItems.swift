@@ -9,9 +9,13 @@
 import QuickSwift
 
 class Demo1CellItem: CellItemProtocol {
-    let texts: [String]
+    var registerType: TableViewRegisterType = .nib(CellItem1Cell.typeName.toNib())
     var identifier: String = "cell1"
-    var settings = CellSettings()
+    var cellConfigurator = CellConfigurator()
+    var actionHandler = CellActionHandler()
+    var cellDisplayingContext = CellItemDisplayingContext()
+    
+    let texts: [String]
     
     init(texts: [String]) {
         self.texts = texts
@@ -20,24 +24,22 @@ class Demo1CellItem: CellItemProtocol {
         }
     }
     
-    func register(tableView: UITableView) {
-        tableView.register(CellItem1Cell.typeName.toNib(), forCellReuseIdentifier: identifier)
-    }
-    
-    func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        if let cell = tableCell as? CellItem1Cell {
+    func bind(cell: UITableViewCell) {
+        if let cell = cell as? CellItem1Cell {
             cell.label1.text = texts.first!
             cell.label2.text = texts.last!
         }
-        return tableCell
     }
 }
 
 class Demo2CellItem: CellItemProtocol {
-    let texts: [String]
+    var registerType: TableViewRegisterType = .nib(CellItem2Cell.typeName.toNib())
     var identifier: String = "cell2"
-    var settings = CellSettings()
+    var cellConfigurator = CellConfigurator()
+    var actionHandler = CellActionHandler()
+    var cellDisplayingContext = CellItemDisplayingContext()
+    
+    let texts: [String]
     
     init(texts: [String]) {
         self.texts = texts
@@ -46,24 +48,22 @@ class Demo2CellItem: CellItemProtocol {
         }
     }
     
-    func register(tableView: UITableView) {
-        tableView.register(CellItem1Cell.typeName.toNib(), forCellReuseIdentifier: identifier)
-    }
-    
-    func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        if let cell = tableCell as? CellItem2Cell {
+    func bind(cell: UITableViewCell) {
+        if let cell = cell as? CellItem2Cell {
             cell.label1.text = texts.first!
             cell.label2.text = texts.last!
         }
-        return tableCell
     }
 }
 
 class Demo3CellItem: CellItemProtocol {
-    let texts: [String]
+    var registerType: TableViewRegisterType = .nib(CellItem3Cell.typeName.toNib())
     var identifier: String = "cell3"
-    var settings = CellSettings()
+    var cellConfigurator = CellConfigurator()
+    var actionHandler = CellActionHandler()
+    var cellDisplayingContext = CellItemDisplayingContext()
+
+    let texts: [String]
     
     init(texts: [String]) {
         self.texts = texts
@@ -72,16 +72,10 @@ class Demo3CellItem: CellItemProtocol {
         }
     }
     
-    func register(tableView: UITableView) {
-        tableView.register(CellItem3Cell.typeName.toNib(), forCellReuseIdentifier: identifier)
-    }
-    
-    func cell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        let tableCell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        if let cell = tableCell as? CellItem3Cell {
+    func bind(cell: UITableViewCell) {
+        if let cell = cell as? CellItem3Cell {
             cell.label1.text = texts.first!
             cell.label2.text = texts.last!
         }
-        return tableCell
     }
 }
