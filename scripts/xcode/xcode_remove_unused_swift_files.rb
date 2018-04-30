@@ -26,7 +26,7 @@ puts unused_files
 puts "========================"
 
 unused_files.each do |file|
-  target_file = find_files file
+  target_file = find_files(file).first
   puts "Deleting #{target_file}..."
   %x[ rm #{target_file} ]
 
