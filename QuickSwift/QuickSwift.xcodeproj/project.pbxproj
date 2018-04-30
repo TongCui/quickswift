@@ -77,6 +77,7 @@
 		074F1D9B1FD94E6C00303B97 /* DictionaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D9A1FD94E6C00303B97 /* DictionaryExtensionsTests.swift */; };
 		074F1D9D1FDA39A400303B97 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D9C1FDA39A400303B97 /* IntExtensions.swift */; };
 		074F1D9F1FDA3A4E00303B97 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074F1D9E1FDA3A4E00303B97 /* BoolExtensions.swift */; };
+		0756E47220970470001D2C04 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0728655E2008885D00C3C368 /* OHHTTPStubs.framework */; };
 		075B6FD31FE8E7FD00DC3FFD /* SwizzleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B6FD21FE8E7FD00DC3FFD /* SwizzleTests.swift */; };
 		075B6FD51FE8E80B00DC3FFD /* SwizzleDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075B6FD41FE8E80B00DC3FFD /* SwizzleDemo.swift */; };
 		075F994D20521ED6006419B8 /* CodableExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075F994C20521ED6006419B8 /* CodableExtensionsTests.swift */; };
@@ -347,6 +348,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0756E47220970470001D2C04 /* OHHTTPStubs.framework in Frameworks */,
 				0718468B1FCFFF7000545E38 /* SnapKit.framework in Frameworks */,
 				0718468C1FCFFF7000545E38 /* Alamofire.framework in Frameworks */,
 			);
@@ -857,11 +859,13 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 			);
 			name = "[Carthage] Copy Frameworks";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapKit.framework",
+				"$(DERIVED_FILE_DIR)/$(FRAMEWORKS_FOLDER_PATH)/OHHTTPStubs.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
