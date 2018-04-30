@@ -5,7 +5,7 @@
 //  Created by tcui on 9/3/2018.
 //  Copyright © 2018 LuckyTR. All rights reserved.
 //
-
+/*
 import XCTest
 @testable import QuickSwift
 
@@ -47,7 +47,6 @@ class CodableExtensionsTests: XCTestCase {
         XCTAssertNotNil(try? Model0(fromFile: file2) { data in data.simpleDecrypted(offset: 200)})
     }
 
-    /*
     func testCustomModel() {
         let model: Model3 = Model3(date: Date(timeIntervalSince1970: 0))
         let data = try! model.toData()
@@ -65,6 +64,5 @@ class CodableExtensionsTests: XCTestCase {
         XCTAssertNotNil(try? Model3(fromFile: file1))
         XCTAssertNotNil(try? Model3(fromFile: file2) { data in data.simpleDecrypted(offset: 200)})
     }
-    */
-
 }
+*/
