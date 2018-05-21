@@ -81,7 +81,8 @@ final class ExamplesAdapter: HeaderFooterTableAdapter {
         
         append(section: TitleHeaderSectionItem(header: "CheatSheet")) { [unowned self] in
             [
-                self.cellItem(title: "Cheat Sheet", goto: CheatSheetListViewController.typeName, storyboard: "CheatSheet")
+                self.cellItem(title: "Cheat Sheet", goto: CheatSheetListViewController.typeName, storyboard: "CheatSheet"),
+                self.cellItem(title: "Nice Links", goto: LinksViewController.typeName, storyboard: "CheatSheet"),
             ]
         }
         

@@ -45,6 +45,8 @@
 		0728658A2008A73D00C3C368 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 072865872008A6DC00C3C368 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0728658B2008A74200C3C368 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 072865862008A6DC00C3C368 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0728658E2008AAD400C3C368 /* stub-students.json in Resources */ = {isa = PBXBuildFile; fileRef = 0728658D2008AAD400C3C368 /* stub-students.json */; };
+		0756E47F20995F3D001D2C04 /* LinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0756E47E20995F3D001D2C04 /* LinksViewController.swift */; };
+		0756E48120995F4B001D2C04 /* WebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0756E48020995F4B001D2C04 /* WebPageViewController.swift */; };
 		0784D47D2085FAD000CBC85B /* CellItemPattern1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D47C2085FAD000CBC85B /* CellItemPattern1ViewController.swift */; };
 		0784D47F2085FADA00CBC85B /* CellItemPattern2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D47E2085FADA00CBC85B /* CellItemPattern2ViewController.swift */; };
 		0784D4812085FAE300CBC85B /* CellItemPattern3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D4802085FAE300CBC85B /* CellItemPattern3ViewController.swift */; };
@@ -150,6 +152,8 @@
 		072865862008A6DC00C3C368 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Example/Frameworks/Alamofire.framework; sourceTree = "<group>"; };
 		072865872008A6DC00C3C368 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Example/Frameworks/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		0728658D2008AAD400C3C368 /* stub-students.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stub-students.json"; sourceTree = "<group>"; };
+		0756E47E20995F3D001D2C04 /* LinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksViewController.swift; sourceTree = "<group>"; };
+		0756E48020995F4B001D2C04 /* WebPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageViewController.swift; sourceTree = "<group>"; };
 		0784D47C2085FAD000CBC85B /* CellItemPattern1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern1ViewController.swift; sourceTree = "<group>"; };
 		0784D47E2085FADA00CBC85B /* CellItemPattern2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern2ViewController.swift; sourceTree = "<group>"; };
 		0784D4802085FAE300CBC85B /* CellItemPattern3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern3ViewController.swift; sourceTree = "<group>"; };
@@ -449,6 +453,8 @@
 			children = (
 				07F60E9120897C7700ACB524 /* CheatSheetViewController.swift */,
 				07F60EAB20917EF900ACB524 /* CheatSheetListViewController.swift */,
+				0756E47E20995F3D001D2C04 /* LinksViewController.swift */,
+				0756E48020995F4B001D2C04 /* WebPageViewController.swift */,
 			);
 			path = CheatSheet;
 			sourceTree = "<group>";
@@ -619,11 +625,13 @@
 				07116C30206A3BAF00E00D7F /* PlainTableDemoViewController.swift in Sources */,
 				07116C2C206A3BAF00E00D7F /* AdapterCellViewController.swift in Sources */,
 				07116C34206A3BAF00E00D7F /* NavigationBarDemoViewController.swift in Sources */,
+				0756E47F20995F3D001D2C04 /* LinksViewController.swift in Sources */,
 				07F60EA520907FB400ACB524 /* UpdateConstraintCell.swift in Sources */,
 				07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */,
 				0784D47F2085FADA00CBC85B /* CellItemPattern2ViewController.swift in Sources */,
 				0784D4812085FAE300CBC85B /* CellItemPattern3ViewController.swift in Sources */,
 				0784D48A2086D14100CBC85B /* CellItem2Cell.swift in Sources */,
+				0756E48120995F4B001D2C04 /* WebPageViewController.swift in Sources */,
 				07116C31206A3BAF00E00D7F /* HeadersViewController.swift in Sources */,
 				0784D47D2085FAD000CBC85B /* CellItemPattern1ViewController.swift in Sources */,
 				07116C38206A3BAF00E00D7F /* NavigationBarSearchViewController.swift in Sources */,
