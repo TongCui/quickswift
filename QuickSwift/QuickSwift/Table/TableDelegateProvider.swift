@@ -111,7 +111,14 @@ public extension BasicTableDelegateProvider {
 open class HeaderFooterDelegateHandler: BasicTableDelegateProvider {
     // MARK: - Modifying the Header and Footer of Sections
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let header = getSectionItem(section: section)?.header, let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: header.identifier) else {
+
+        guard let header = getSectionItem(section: section)?.header else {
+            return nil
+        }
+        
+        tableView.registerHeaderFooterIfNeeded(header)
+        
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: header.identifier) else {
             return nil
         }
 
@@ -124,10 +131,16 @@ open class HeaderFooterDelegateHandler: BasicTableDelegateProvider {
     }
 
     public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        guard let footer = getSectionItem(section: section)?.header, let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: footer.identifier) else {
+        guard let footer = getSectionItem(section: section)?.footer else {
             return nil
         }
+        
+        tableView.registerHeaderFooterIfNeeded(footer)
 
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: footer.identifier) else {
+            return nil
+        }
+        
         footer.render(view: view)
         return view
     }
