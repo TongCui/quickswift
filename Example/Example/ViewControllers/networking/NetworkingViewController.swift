@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 import OHHTTPStubs
 import QuickSwift
 
@@ -63,7 +62,7 @@ final class NetworkingViewController: UIViewController {
     }
     
     func refresh() {
-        Alamofire.request(Requests.users).responseModel(type: DefaultResponse<[Student]>.self) { [weak self] (response) in
+        Requests.users.alamofire.responseModel(type: DefaultResponse<[Student]>.self) { [weak self] (response) in
             if let students = response.result.value?.model {
                 students.forEach { print(try! $0.toJSONString()) }
                 self?.update(students: students)
