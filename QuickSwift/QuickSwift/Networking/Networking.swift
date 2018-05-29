@@ -75,7 +75,7 @@ open class TTLManager {
 }
 
 public extension RequestModelConvertible {
-    var alamofire: DataRequest {
+    public var alamofire: DataRequest {
         return Alamofire.request(toRequestModel())
     }
 }
