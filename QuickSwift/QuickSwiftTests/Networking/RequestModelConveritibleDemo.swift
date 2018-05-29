@@ -1,5 +1,5 @@
 //
-//  RequestFactoryDemo.swift
+//  RequestModelConvertibleDemo.swift
 //  QuickSwiftTests
 //
 //  Created by tcui on 12/1/2018.
@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 @testable import QuickSwift
 
-enum Requests: RequestFactory {
+enum Requests: RequestModelConvertible {
     var host: String { return "https://localhost" }
 
     case createUser

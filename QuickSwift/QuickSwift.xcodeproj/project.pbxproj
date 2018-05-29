@@ -59,7 +59,7 @@
 		0728656420088B9100C3C368 /* OHHTTPStubs.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0728655E2008885D00C3C368 /* OHHTTPStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0728656620088C8200C3C368 /* stub.json in Resources */ = {isa = PBXBuildFile; fileRef = 0728656520088C8100C3C368 /* stub.json */; };
 		0728656820088F6100C3C368 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0728656720088F6100C3C368 /* BundleExtensions.swift */; };
-		0728656A2008928900C3C368 /* RequestFactoryDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072865692008928900C3C368 /* RequestFactoryDemo.swift */; };
+		0728656A2008928900C3C368 /* RequestModelConveritibleDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072865692008928900C3C368 /* RequestModelConveritibleDemo.swift */; };
 		0728656C200893BD00C3C368 /* stub-persons.json in Resources */ = {isa = PBXBuildFile; fileRef = 0728656B200893BD00C3C368 /* stub-persons.json */; };
 		0728656E2008994400C3C368 /* OAuth2Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0728656D2008994400C3C368 /* OAuth2Handler.swift */; };
 		0728657220089B2800C3C368 /* BundleExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0728657120089B2800C3C368 /* BundleExtensionsTests.swift */; };
@@ -237,7 +237,7 @@
 		0728655E2008885D00C3C368 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		0728656520088C8100C3C368 /* stub.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stub.json; sourceTree = "<group>"; };
 		0728656720088F6100C3C368 /* BundleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensions.swift; sourceTree = "<group>"; };
-		072865692008928900C3C368 /* RequestFactoryDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryDemo.swift; sourceTree = "<group>"; };
+		072865692008928900C3C368 /* RequestModelConveritibleDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModelConveritibleDemo.swift; sourceTree = "<group>"; };
 		0728656B200893BD00C3C368 /* stub-persons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stub-persons.json"; sourceTree = "<group>"; };
 		0728656D2008994400C3C368 /* OAuth2Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Handler.swift; sourceTree = "<group>"; };
 		0728657120089B2800C3C368 /* BundleExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensionsTests.swift; sourceTree = "<group>"; };
@@ -402,7 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				0728655B20072D5800C3C368 /* NetworkingTests.swift */,
-				072865692008928900C3C368 /* RequestFactoryDemo.swift */,
+				072865692008928900C3C368 /* RequestModelConveritibleDemo.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -1002,7 +1002,7 @@
 			files = (
 				07D7AC071FE300D8002AE482 /* Common.swift in Sources */,
 				075F995120522668006419B8 /* DataExtensionsTests.swift in Sources */,
-				0728656A2008928900C3C368 /* RequestFactoryDemo.swift in Sources */,
+				0728656A2008928900C3C368 /* RequestModelConveritibleDemo.swift in Sources */,
 				074F1D871FD79C1800303B97 /* TypeConvertionsTests.swift in Sources */,
 				0712AE9D1FF526DB0053A59F /* AssociatedObjectDemo.swift in Sources */,
 				0701BE61203020130076B062 /* UIViewControllerExtensionsTests.swift in Sources */,

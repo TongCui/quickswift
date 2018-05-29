@@ -9,7 +9,7 @@
 import Alamofire
 import QuickSwift
 
-enum Requests: RequestFactory {
+enum Requests: RequestModelConvertible {
     var host: String { return "https://localhost" }
     
     case users

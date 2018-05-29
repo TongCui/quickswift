@@ -15,7 +15,7 @@ public extension OHHTTPStubs {
     }
 }
 
-func stub(request: RequestFactory, localFile: String) {
+func stub(request: RequestModelConvertible, localFile: String) {
     let request = request.toRequestModel()
     let path = request.path
 

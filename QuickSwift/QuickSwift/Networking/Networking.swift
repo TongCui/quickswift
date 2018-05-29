@@ -28,12 +28,12 @@ public enum URLScheme {
     case https
 }
 
-public protocol RequestFactory: URLRequestConvertible {
+public protocol RequestModelConvertible: URLRequestConvertible {
     var host: String {get}
     func toRequestModel() -> RequestModel
 }
 
-public extension RequestFactory {
+public extension RequestModelConvertible {
     public func asURLRequest() throws -> URLRequest {
         return try toRequestModel().toURLRequest()
     }
