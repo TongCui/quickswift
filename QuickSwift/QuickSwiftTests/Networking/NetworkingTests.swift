@@ -45,17 +45,17 @@ class NetworkingTests: XCTestCase {
     func testRequestModel() {
         var request: DataRequest
 
-        request = Alamofire.request(Requests.createUser)
+        request = Requests.createUser.alamofire
         XCTAssertEqual(request.request?.url?.absoluteString, "https://localhost/user/create")
 
-        request = Alamofire.request(Requests.readUser(username: "a"))
+        request = Requests.readUser(username: "a").alamofire
         XCTAssertEqual(request.request?.url?.absoluteString, "https://localhost/user/read?name=a")
 
-        request = Alamofire.request(Requests.updateUser(username: "a", newname: "b"))
+        request = Requests.updateUser(username: "a", newname: "b").alamofire
         XCTAssertEqual(request.request?.url?.absoluteString, "https://localhost/user/update")
         XCTAssertEqual(try! request.request!.httpBody!.toUtf8S(), "new=b&old=a")
 
-        request = Alamofire.request(Requests.destroyUser(username: "a"))
+        request = Requests.destroyUser(username: "a").alamofire
         XCTAssertEqual(request.request?.url?.absoluteString, "https://localhost/user/remove")
         XCTAssertEqual(try! request.request!.httpBody!.toUtf8S(), "{\"name\":\"a\"}")
 
@@ -84,6 +84,20 @@ class NetworkingTests: XCTestCase {
                 print("Error: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func testRequestTTL() {
+        let key = "test"
+        let ttl: TimeInterval = 2
+        let result = ["key": 100]
+        
+        XCTAssertFalse(TTLManager.shared.isAlive(key))
+        TTLManager.shared.checkin(key, ttl: ttl, result: result)
+        XCTAssertTrue(TTLManager.shared.isAlive(key))
+        XCTAssertEqual(result, TTLManager.shared.lastResult(key))
+        
+        sleep(3)
+        XCTAssertFalse(TTLManager.shared.isAlive(key))
     }
 
 }

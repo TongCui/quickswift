@@ -1,5 +1,5 @@
 //
-//  RequestFactoryDemo.swift
+//  RequestModelConvertibleDemo.swift
 //  QuickSwiftTests
 //
 //  Created by tcui on 12/1/2018.
@@ -10,13 +10,14 @@ import Foundation
 import Alamofire
 @testable import QuickSwift
 
-enum Requests: RequestFactory {
+enum Requests: RequestModelConvertible {
     var host: String { return "https://localhost" }
 
     case createUser
     case readUser(username: String)
     case updateUser(username: String, newname: String)
     case destroyUser(username: String)
+    case remoteInfo
 
     func toRequestModel() -> RequestModel {
         switch self {
@@ -28,6 +29,8 @@ enum Requests: RequestFactory {
             return RequestModel(.post, .http, host, "/user/update", ["old": username, "new": newname], .body)
         case .destroyUser(let username):
             return RequestModel(.post, .http, host, "/user/remove", ["name": username], .jsonBody)
+        case .remoteInfo:
+            return RequestModel(.get, .http, host, "/remote")
         }
     }
 }

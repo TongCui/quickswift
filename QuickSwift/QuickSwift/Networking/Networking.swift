@@ -28,18 +28,60 @@ public enum URLScheme {
     case https
 }
 
-public protocol RequestFactory: URLRequestConvertible {
+public protocol RequestModelConvertible {
     var host: String {get}
     func toRequestModel() -> RequestModel
 }
 
-public extension RequestFactory {
-    public func asURLRequest() throws -> URLRequest {
-        return try toRequestModel().toURLRequest()
+open class TTLManager {
+    private struct TTLInfo {
+        let ttl: TimeInterval
+        let updateDate: Date
+        let result: Any?
+        
+        init(ttl: TimeInterval, result: Any?) {
+            self.ttl = ttl
+            self.updateDate = Date()
+            self.result = result
+        }
+    }
+    
+    public static let shared = TTLManager()
+    private var ttlInfos: [String: TTLInfo]
+    
+    private init() {
+        ttlInfos = [:]
+    }
+    
+    public func isAlive(_ key: String) -> Bool {
+        guard let ttlInfo = ttlInfos[key] else {
+            return false
+        }
+        
+        return Date().timeIntervalSince(ttlInfo.updateDate) <= ttlInfo.ttl
+    }
+    
+    public func checkin(_ key: String, ttl: TimeInterval, result: Any?) {
+        ttlInfos[key] = TTLInfo(ttl: ttl, result: result)
+    }
+    
+    public func lastResult<T>(_ key: String) -> T? {
+        guard let ttlInfo = ttlInfos[key], let result = ttlInfo.result as? T else {
+            return nil
+        }
+        
+        return result
     }
 }
 
-public struct RequestModel {
+public extension RequestModelConvertible {
+    var alamofire: DataRequest {
+        return Alamofire.request(toRequestModel())
+    }
+}
+
+public struct RequestModel: URLRequestConvertible {
+    
     public var method: HTTPMethod
     public var scheme: URLScheme
     public var path: String
@@ -63,13 +105,6 @@ public struct RequestModel {
         self.encodingType = encodingType
     }
 
-    public func toURLRequest() throws -> URLRequest {
-        let url = try host.asURL()
-        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
-        urlRequest.httpMethod = method.rawValue
-        return try parameterEncoding().encode(urlRequest, with: params)
-    }
-
     public func parameterEncoding() -> ParameterEncoding {
         switch encodingType {
         case .queryString:          return URLEncoding.queryString
@@ -77,51 +112,14 @@ public struct RequestModel {
         case .jsonBody:             return JSONEncoding.default
         }
     }
-
-}
-
-public extension Request {
-    public static func serializeResponseModel<T: Codable>(
-        response: HTTPURLResponse?,
-        data: Data?,
-        error: Error?)
-        -> Result<T> {
-            guard error == nil else { return .failure(error!) }
-
-            guard let validData = data, validData.count > 0 else {
-                return .failure(AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength))
-            }
-
-            do {
-                let model = try T(fromData: validData)
-                return .success(model)
-            } catch {
-                return .failure(AFError.responseSerializationFailed(reason: .jsonSerializationFailed(error: error)))
-            }
-    }
-}
-
-public extension DataRequest {
-
-    public static func modelResponseSerializer<T: Codable>()
-        -> DataResponseSerializer<T> {
-            return DataResponseSerializer { _, response, data, error in
-                return Request.serializeResponseModel(response: response, data: data, error: error) as Result<T>
-            }
+    
+    public func asURLRequest() throws -> URLRequest {
+        let url = try host.asURL()
+        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        urlRequest.httpMethod = method.rawValue
+        return try parameterEncoding().encode(urlRequest, with: params)
     }
 
-    @discardableResult
-    public func responseModel<T: Codable>(
-        queue: DispatchQueue? = nil,
-        type: T.Type,
-        completionHandler: @escaping (DataResponse<T>) -> Void)
-        -> Self {
-            return response(
-                queue: queue,
-                responseSerializer: DataRequest.modelResponseSerializer(),
-                completionHandler: completionHandler
-            )
-    }
 }
 
 public struct Networking {
