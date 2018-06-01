@@ -47,7 +47,7 @@ open class TitleActionButtonHeader: SectionHeaderFooterProtocol {
     public var left: CGFloat
     public var bottom: CGFloat
     public var action: () -> Void
-    
+
     private var headerTitle: String?
 
     init(title: String?, actionTitle: String, height: CGFloat?, action: @escaping () -> Void) {
@@ -61,21 +61,21 @@ open class TitleActionButtonHeader: SectionHeaderFooterProtocol {
 
     open func render(view: UITableViewHeaderFooterView) {
         if let view = view as? TitleActionButtonHeaderView {
-            
+
             view.titleLabel.snp.makeConstraints { (make) in
                 make.leading.equalToSuperview().offset(left)
                 make.bottom.equalToSuperview().offset(-bottom)
             }
-            
+
             view.actionButton.snp.makeConstraints { (make) in
                 make.trailing.equalToSuperview().offset(-left)
                 make.bottom.equalToSuperview().offset(-bottom)
                 make.leading.equalTo(view.titleLabel.snp.trailing).offset(5)
             }
-            
+
             view.actionButton.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
             view.actionButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-            
+
             view.titleLabel.text = headerTitle
             view.actionButton.setTitle(actionTitle, for: .normal)
             view.actionButton.addHandler(for: .touchUpInside) {[weak self] (button) in

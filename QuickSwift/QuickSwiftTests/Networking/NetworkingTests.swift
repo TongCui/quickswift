@@ -85,17 +85,17 @@ class NetworkingTests: XCTestCase {
             }
         }
     }
-    
+
     func testRequestTTL() {
         let key = "test"
         let ttl: TimeInterval = 2
         let result = ["key": 100]
-        
+
         XCTAssertFalse(TTLManager.shared.isAlive(key))
         TTLManager.shared.checkin(key, ttl: ttl, result: result)
         XCTAssertTrue(TTLManager.shared.isAlive(key))
         XCTAssertEqual(result, TTLManager.shared.lastResult(key))
-        
+
         sleep(3)
         XCTAssertFalse(TTLManager.shared.isAlive(key))
     }

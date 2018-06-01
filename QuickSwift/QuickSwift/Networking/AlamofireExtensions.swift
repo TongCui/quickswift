@@ -8,7 +8,6 @@
 
 import Alamofire
 
-
 public extension Alamofire.Request {
     public static func serializeResponseModel<T: Codable>(
         response: HTTPURLResponse?,
@@ -16,11 +15,11 @@ public extension Alamofire.Request {
         error: Error?)
         -> Alamofire.Result<T> {
             guard error == nil else { return .failure(error!) }
-            
+
             guard let validData = data, validData.count > 0 else {
                 return .failure(Alamofire.AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength))
             }
-            
+
             do {
                 let model = try T(fromData: validData)
                 return .success(model)
@@ -31,14 +30,14 @@ public extension Alamofire.Request {
 }
 
 public extension Alamofire.DataRequest {
-    
+
     public static func modelResponseSerializer<T: Codable>()
         -> Alamofire.DataResponseSerializer<T> {
             return Alamofire.DataResponseSerializer { _, response, data, error in
                 return Alamofire.Request.serializeResponseModel(response: response, data: data, error: error) as Result<T>
             }
     }
-    
+
     @discardableResult
     public func responseModel<T: Codable>(
         queue: DispatchQueue? = nil,
