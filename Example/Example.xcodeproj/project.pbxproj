@@ -47,6 +47,13 @@
 		0728658E2008AAD400C3C368 /* stub-students.json in Resources */ = {isa = PBXBuildFile; fileRef = 0728658D2008AAD400C3C368 /* stub-students.json */; };
 		0756E47F20995F3D001D2C04 /* LinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0756E47E20995F3D001D2C04 /* LinksViewController.swift */; };
 		0756E48120995F4B001D2C04 /* WebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0756E48020995F4B001D2C04 /* WebPageViewController.swift */; };
+		075EE16220BFF1A300A2614E /* CustomSegue1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EE16120BFF1A300A2614E /* CustomSegue1ViewController.swift */; };
+		075EE16420BFF2F800A2614E /* CrossFadeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EE16320BFF2F800A2614E /* CrossFadeSegue.swift */; };
+		075EE16620BFF32B00A2614E /* CustomSegue2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EE16520BFF32B00A2614E /* CustomSegue2ViewController.swift */; };
+		075EE16820BFF33600A2614E /* CustomSegue3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EE16720BFF33600A2614E /* CustomSegue3ViewController.swift */; };
+		075EE16A20C0F4DC00A2614E /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EE16920C0F4DC00A2614E /* ScaleSegue.swift */; };
+		075EE16C20C12F6C00A2614E /* VerticalSwipeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EE16B20C12F6C00A2614E /* VerticalSwipeSegue.swift */; };
+		075EE16E20C12FF300A2614E /* CustomSegue4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075EE16D20C12FF300A2614E /* CustomSegue4ViewController.swift */; };
 		0784D47D2085FAD000CBC85B /* CellItemPattern1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D47C2085FAD000CBC85B /* CellItemPattern1ViewController.swift */; };
 		0784D47F2085FADA00CBC85B /* CellItemPattern2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D47E2085FADA00CBC85B /* CellItemPattern2ViewController.swift */; };
 		0784D4812085FAE300CBC85B /* CellItemPattern3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784D4802085FAE300CBC85B /* CellItemPattern3ViewController.swift */; };
@@ -154,6 +161,13 @@
 		0728658D2008AAD400C3C368 /* stub-students.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "stub-students.json"; sourceTree = "<group>"; };
 		0756E47E20995F3D001D2C04 /* LinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksViewController.swift; sourceTree = "<group>"; };
 		0756E48020995F4B001D2C04 /* WebPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageViewController.swift; sourceTree = "<group>"; };
+		075EE16120BFF1A300A2614E /* CustomSegue1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue1ViewController.swift; sourceTree = "<group>"; };
+		075EE16320BFF2F800A2614E /* CrossFadeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossFadeSegue.swift; sourceTree = "<group>"; };
+		075EE16520BFF32B00A2614E /* CustomSegue2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue2ViewController.swift; sourceTree = "<group>"; };
+		075EE16720BFF33600A2614E /* CustomSegue3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue3ViewController.swift; sourceTree = "<group>"; };
+		075EE16920C0F4DC00A2614E /* ScaleSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleSegue.swift; sourceTree = "<group>"; };
+		075EE16B20C12F6C00A2614E /* VerticalSwipeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSwipeSegue.swift; sourceTree = "<group>"; };
+		075EE16D20C12FF300A2614E /* CustomSegue4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegue4ViewController.swift; sourceTree = "<group>"; };
 		0784D47C2085FAD000CBC85B /* CellItemPattern1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern1ViewController.swift; sourceTree = "<group>"; };
 		0784D47E2085FADA00CBC85B /* CellItemPattern2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern2ViewController.swift; sourceTree = "<group>"; };
 		0784D4802085FAE300CBC85B /* CellItemPattern3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemPattern3ViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +312,13 @@
 				07116C27206A3BAF00E00D7F /* TapActionDemoViewController.swift */,
 				07116C28206A3BAF00E00D7F /* SegueDemoViewController.swift */,
 				07116C29206A3BAF00E00D7F /* NavigationBarSearchViewController.swift */,
+				075EE16120BFF1A300A2614E /* CustomSegue1ViewController.swift */,
+				075EE16520BFF32B00A2614E /* CustomSegue2ViewController.swift */,
+				075EE16720BFF33600A2614E /* CustomSegue3ViewController.swift */,
+				075EE16D20C12FF300A2614E /* CustomSegue4ViewController.swift */,
+				075EE16320BFF2F800A2614E /* CrossFadeSegue.swift */,
+				075EE16920C0F4DC00A2614E /* ScaleSegue.swift */,
+				075EE16B20C12F6C00A2614E /* VerticalSwipeSegue.swift */,
 			);
 			path = vc;
 			sourceTree = "<group>";
@@ -612,27 +633,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				07F60E94208D856C00ACB524 /* AutoDimentionDemoViewController.swift in Sources */,
+				075EE16E20C12FF300A2614E /* CustomSegue4ViewController.swift in Sources */,
 				070BF0F0207E00A6005B4231 /* RefreshTableViewController.swift in Sources */,
 				07116C3A206B45F800E00D7F /* PlainTableHideBottomCellsViewController.swift in Sources */,
 				07116C2A206A3BAF00E00D7F /* BuiltInCellViewController.swift in Sources */,
+				075EE16620BFF32B00A2614E /* CustomSegue2ViewController.swift in Sources */,
 				07D148A0201EC81A005F630A /* Consts.swift in Sources */,
 				071D62A22069E2C6005D0F9E /* StateFailView.swift in Sources */,
 				0784D4912086E36F00CBC85B /* DemoCellItems.swift in Sources */,
 				071D629E2069E2B3005D0F9E /* StateLoadingView.swift in Sources */,
+				075EE16A20C0F4DC00A2614E /* ScaleSegue.swift in Sources */,
 				071D62A02069E2BB005D0F9E /* StateEmptyView.swift in Sources */,
 				071D629B2068DD34005D0F9E /* StatefulCell.swift in Sources */,
 				07116C2F206A3BAF00E00D7F /* IPAddressDemoViewController.swift in Sources */,
 				07116C30206A3BAF00E00D7F /* PlainTableDemoViewController.swift in Sources */,
+				075EE16420BFF2F800A2614E /* CrossFadeSegue.swift in Sources */,
 				07116C2C206A3BAF00E00D7F /* AdapterCellViewController.swift in Sources */,
 				07116C34206A3BAF00E00D7F /* NavigationBarDemoViewController.swift in Sources */,
 				0756E47F20995F3D001D2C04 /* LinksViewController.swift in Sources */,
 				07F60EA520907FB400ACB524 /* UpdateConstraintCell.swift in Sources */,
+				075EE16820BFF33600A2614E /* CustomSegue3ViewController.swift in Sources */,
 				07F03D921FCBFBDA006F79C8 /* AppDelegate.swift in Sources */,
 				0784D47F2085FADA00CBC85B /* CellItemPattern2ViewController.swift in Sources */,
 				0784D4812085FAE300CBC85B /* CellItemPattern3ViewController.swift in Sources */,
 				0784D48A2086D14100CBC85B /* CellItem2Cell.swift in Sources */,
 				0756E48120995F4B001D2C04 /* WebPageViewController.swift in Sources */,
 				07116C31206A3BAF00E00D7F /* HeadersViewController.swift in Sources */,
+				075EE16220BFF1A300A2614E /* CustomSegue1ViewController.swift in Sources */,
 				0784D47D2085FAD000CBC85B /* CellItemPattern1ViewController.swift in Sources */,
 				07116C38206A3BAF00E00D7F /* NavigationBarSearchViewController.swift in Sources */,
 				0784D48E2086D15200CBC85B /* CellItem3Cell.swift in Sources */,
@@ -642,6 +669,7 @@
 				0784D4832085FBCF00CBC85B /* CellItemPattern4ViewController.swift in Sources */,
 				070BF07E207A1D38005B4231 /* InfoPlistDemoViewController.swift in Sources */,
 				07F60E9F209072BF00ACB524 /* AutoLabelExCell.swift in Sources */,
+				075EE16C20C12F6C00A2614E /* VerticalSwipeSegue.swift in Sources */,
 				07F60E9220897C7700ACB524 /* CheatSheetViewController.swift in Sources */,
 				07116C2B206A3BAF00E00D7F /* CellInsertDeleteDemoViewController.swift in Sources */,
 				078EE9552004945C00DF554C /* ExamplesViewController.swift in Sources */,

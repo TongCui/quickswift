@@ -62,6 +62,7 @@ final class ExamplesAdapter: HeaderFooterTableAdapter {
                 self.cellItem(title: "NavigationBar2", goto: NavigationBarDemo2ViewController.typeName, storyboard: "VCDemos"),
                 self.cellItem(title: "NavigationBar Search", goto: NavigationBarSearchViewController.typeName, storyboard: "VCDemos"),
                 self.cellItem(title: "Segue Demo", goto: SegueDemoViewController.typeName, storyboard: "VCDemos"),
+                self.cellItem(title: "Custom Segue", goto: CustomSegue1ViewController.typeName, storyboard: "VCDemos"),
                 self.cellItem(title: "Tap Action Demo", goto: TapActionDemoViewController.typeName, storyboard: "VCDemos")
             ]
         }

@@ -115,9 +115,9 @@ open class HeaderFooterDelegateHandler: BasicTableDelegateProvider {
         guard let header = getSectionItem(section: section)?.header else {
             return nil
         }
-        
+
         tableView.registerHeaderFooterIfNeeded(header)
-        
+
         guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: header.identifier) else {
             return nil
         }
@@ -134,13 +134,13 @@ open class HeaderFooterDelegateHandler: BasicTableDelegateProvider {
         guard let footer = getSectionItem(section: section)?.footer else {
             return nil
         }
-        
+
         tableView.registerHeaderFooterIfNeeded(footer)
 
         guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: footer.identifier) else {
             return nil
         }
-        
+
         footer.render(view: view)
         return view
     }

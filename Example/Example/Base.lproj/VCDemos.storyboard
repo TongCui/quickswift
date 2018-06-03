@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -123,17 +123,77 @@
                     <navigationItem key="navigationItem" title="Segue Demo" id="0lJ-hD-tIY"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <segue destination="lDu-rf-pOf" kind="show" identifier="go_segue_detail_1_vc" id="0N6-TH-bLg">
-                            <nil key="action"/>
-                        </segue>
-                        <segue destination="lDu-rf-pOf" kind="show" identifier="go_segue_detail_2_vc" id="yRS-c2-uyu">
-                            <nil key="action"/>
-                        </segue>
+                        <segue destination="lDu-rf-pOf" kind="show" identifier="go_segue_detail_1_vc" id="0N6-TH-bLg"/>
+                        <segue destination="lDu-rf-pOf" kind="show" identifier="go_segue_detail_2_vc" id="yRS-c2-uyu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BWJ-RU-7I8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2647" y="541"/>
+        </scene>
+        <!--Custom Segue1 View Controller-->
+        <scene sceneID="MFP-NX-ytM">
+            <objects>
+                <viewController storyboardIdentifier="CustomSegue1ViewController" id="dNw-9n-ChL" customClass="CustomSegue1ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NOe-wY-msI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ViewController 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eG-sW-ymB">
+                                <rect key="frame" x="69" y="120" width="237" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHf-QU-OFi">
+                                <rect key="frame" x="170" y="437" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="back:" destination="dNw-9n-ChL" eventType="touchUpInside" id="u1J-hS-ona"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MjW-ta-dE9">
+                                <rect key="frame" x="101" y="497" width="173" height="30"/>
+                                <state key="normal" title="Scale to ViewController 2"/>
+                                <connections>
+                                    <segue destination="4j1-UW-SAP" kind="custom" identifier="scale" customClass="ScaleSegue" customModule="Example" customModuleProvider="target" id="0EB-CB-Suk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUz-IJ-Fai">
+                                <rect key="frame" x="103" y="557" width="169" height="30"/>
+                                <state key="normal" title="Fade to ViewController 3"/>
+                                <connections>
+                                    <segue destination="Sbp-g8-Fvj" kind="custom" identifier="cross_fade" customClass="CrossFadeSegue" customModule="Example" customModuleProvider="target" id="iXk-K4-ZtB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="MjW-ta-dE9" firstAttribute="centerX" secondItem="JHf-QU-OFi" secondAttribute="centerX" id="9Rz-UN-a3h"/>
+                            <constraint firstItem="8eG-sW-ymB" firstAttribute="centerX" secondItem="NOe-wY-msI" secondAttribute="centerX" id="BmT-L7-cGZ"/>
+                            <constraint firstAttribute="bottom" secondItem="JHf-QU-OFi" secondAttribute="bottom" constant="200" id="FQp-kC-p7O"/>
+                            <constraint firstItem="MjW-ta-dE9" firstAttribute="top" secondItem="JHf-QU-OFi" secondAttribute="bottom" constant="30" id="JT1-Bm-bRh"/>
+                            <constraint firstItem="JHf-QU-OFi" firstAttribute="centerX" secondItem="8eG-sW-ymB" secondAttribute="centerX" id="QmK-di-1Sn"/>
+                            <constraint firstItem="iUz-IJ-Fai" firstAttribute="top" secondItem="MjW-ta-dE9" secondAttribute="bottom" constant="30" id="Wxg-V4-yQV"/>
+                            <constraint firstItem="8eG-sW-ymB" firstAttribute="top" secondItem="NOe-wY-msI" secondAttribute="top" constant="120" id="gBk-j5-IqO"/>
+                            <constraint firstItem="iUz-IJ-Fai" firstAttribute="centerX" secondItem="MjW-ta-dE9" secondAttribute="centerX" id="yAf-wt-eYu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xQw-VN-4MY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="wDY-A9-SHa" appends="YES" id="3GQ-3d-sck"/>
+                        </connections>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Loz-Gs-Ftp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="wDY-A9-SHa">
+                    <connections>
+                        <segue destination="D7I-6p-bim" kind="custom" identifier="swipe" customClass="VerticalSwipeSegue" customModule="Example" customModuleProvider="target" id="V33-9o-DV4"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2553" y="1713"/>
         </scene>
         <!--Segue Detail View Controller-->
         <scene sceneID="Rea-Hy-1Ma">
@@ -255,6 +315,154 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xh0-AC-fDz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4167" y="540"/>
+        </scene>
+        <!--Custom Segue2 View Controller-->
+        <scene sceneID="VoU-ei-HMb">
+            <objects>
+                <viewController storyboardIdentifier="CustomSegue2ViewController" id="4j1-UW-SAP" customClass="CustomSegue2ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DWB-zj-pX5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ViewController 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISQ-jM-nOo">
+                                <rect key="frame" x="67" y="120" width="241" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxn-i5-55p">
+                                <rect key="frame" x="170" y="437" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="PlV-iy-avV" kind="unwind" identifier="scale_unwind" customClass="ScaleUnwindSegue" customModule="Example" customModuleProvider="target" unwindAction="prepareForUnwindWithSegue:" id="gwj-43-mXi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5d-Lp-bE9">
+                                <rect key="frame" x="119" y="577" width="136" height="30"/>
+                                <state key="normal" title="This is a test button"/>
+                                <connections>
+                                    <action selector="test:" destination="4j1-UW-SAP" eventType="touchUpInside" id="1C0-yd-KYK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ISQ-jM-nOo" firstAttribute="centerX" secondItem="DWB-zj-pX5" secondAttribute="centerX" id="6F9-Od-LgK"/>
+                            <constraint firstItem="ISQ-jM-nOo" firstAttribute="top" secondItem="DWB-zj-pX5" secondAttribute="top" constant="120" id="MJT-Nf-sNE"/>
+                            <constraint firstItem="a5d-Lp-bE9" firstAttribute="centerX" secondItem="kxn-i5-55p" secondAttribute="centerX" id="dNK-2C-rvD"/>
+                            <constraint firstItem="kxn-i5-55p" firstAttribute="centerX" secondItem="ISQ-jM-nOo" secondAttribute="centerX" id="hq8-0x-n1D"/>
+                            <constraint firstAttribute="bottom" secondItem="kxn-i5-55p" secondAttribute="bottom" constant="200" id="nfl-ha-sly"/>
+                            <constraint firstAttribute="bottom" secondItem="a5d-Lp-bE9" secondAttribute="bottom" constant="60" id="w0q-hB-gNH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hjy-AP-rwt"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tHf-28-eFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PlV-iy-avV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3388" y="1411"/>
+        </scene>
+        <!--Custom Segue3 View Controller-->
+        <scene sceneID="PHC-xr-1Zh">
+            <objects>
+                <viewController storyboardIdentifier="CustomSegue3ViewController" id="Sbp-g8-Fvj" customClass="CustomSegue3ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OAS-UH-9LG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ViewController 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNv-xl-noc">
+                                <rect key="frame" x="67" y="120" width="242" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZn-HF-LLa">
+                                <rect key="frame" x="170.5" y="437" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BNz-VX-oLD" kind="unwind" identifier="cross_fade_unwind" customClass="CrossFadeUnwindSegue" customModule="Example" customModuleProvider="target" unwindAction="prepareForUnwindWithSegue:" id="9kZ-Ve-SWD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFb-RI-ehu">
+                                <rect key="frame" x="119.5" y="577" width="136" height="30"/>
+                                <state key="normal" title="This is a test button"/>
+                                <connections>
+                                    <action selector="test:" destination="Sbp-g8-Fvj" eventType="touchUpInside" id="66P-h5-Wox"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cNv-xl-noc" firstAttribute="top" secondItem="OAS-UH-9LG" secondAttribute="top" constant="120" id="1ID-1g-Vbq"/>
+                            <constraint firstItem="OFb-RI-ehu" firstAttribute="centerX" secondItem="OZn-HF-LLa" secondAttribute="centerX" id="1kx-8b-PU6"/>
+                            <constraint firstAttribute="bottom" secondItem="OFb-RI-ehu" secondAttribute="bottom" constant="60" id="5Eu-fc-9Mg"/>
+                            <constraint firstItem="OZn-HF-LLa" firstAttribute="centerX" secondItem="cNv-xl-noc" secondAttribute="centerX" id="DI8-rS-mRo"/>
+                            <constraint firstItem="cNv-xl-noc" firstAttribute="centerX" secondItem="OAS-UH-9LG" secondAttribute="centerX" id="KWI-fQ-9rm"/>
+                            <constraint firstAttribute="bottom" secondItem="OZn-HF-LLa" secondAttribute="bottom" constant="200" id="T43-et-vkU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Z27-bT-AyX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bpO-MO-jn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BNz-VX-oLD" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3388" y="2094"/>
+        </scene>
+        <!--Custom Segue4 View Controller-->
+        <scene sceneID="854-cC-2Hs">
+            <objects>
+                <viewController storyboardIdentifier="CustomSegue4ViewController" id="D7I-6p-bim" customClass="CustomSegue4ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="haP-oB-zPg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ViewController 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JoA-0H-afB">
+                                <rect key="frame" x="66" y="120" width="243" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgR-4l-48g">
+                                <rect key="frame" x="170.5" y="437" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="Lu9-yg-hIc" kind="unwind" identifier="swipe_unwind" customClass="VerticalSwipeUnwindSegue" customModule="Example" customModuleProvider="target" unwindAction="prepareForUnwindWithSegue:" id="rO9-Im-M1g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPT-2E-cT3">
+                                <rect key="frame" x="119.5" y="577" width="136" height="30"/>
+                                <state key="normal" title="This is a test button"/>
+                                <connections>
+                                    <action selector="test:" destination="D7I-6p-bim" eventType="touchUpInside" id="QjU-5p-UJV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="pPT-2E-cT3" firstAttribute="centerX" secondItem="YgR-4l-48g" secondAttribute="centerX" id="Bsd-Qk-EvG"/>
+                            <constraint firstItem="JoA-0H-afB" firstAttribute="top" secondItem="haP-oB-zPg" secondAttribute="top" constant="120" id="Px4-35-MnQ"/>
+                            <constraint firstItem="YgR-4l-48g" firstAttribute="centerX" secondItem="JoA-0H-afB" secondAttribute="centerX" id="R8Y-J8-ucS"/>
+                            <constraint firstAttribute="bottom" secondItem="YgR-4l-48g" secondAttribute="bottom" constant="200" id="SG8-Pt-Di5"/>
+                            <constraint firstAttribute="bottom" secondItem="pPT-2E-cT3" secondAttribute="bottom" constant="60" id="SMr-hp-NuI"/>
+                            <constraint firstItem="JoA-0H-afB" firstAttribute="centerX" secondItem="haP-oB-zPg" secondAttribute="centerX" id="a4E-BW-ocL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5Qq-Xd-hZ6"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="gVk-bf-FR1" appends="YES" id="5qk-JL-qds"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c5h-Wf-zHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Lu9-yg-hIc" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="down" id="gVk-bf-FR1">
+                    <connections>
+                        <segue destination="Lu9-yg-hIc" kind="unwind" identifier="swipe_unwind_gesture" customClass="VerticalSwipeUnwindSegue" customModule="Example" customModuleProvider="target" unwindAction="prepareForUnwindWithSegue:" id="HNv-gd-hw1"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2553" y="2459"/>
         </scene>
     </scenes>
     <resources>

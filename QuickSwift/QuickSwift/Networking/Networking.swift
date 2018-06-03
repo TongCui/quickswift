@@ -38,38 +38,38 @@ open class TTLManager {
         let ttl: TimeInterval
         let updateDate: Date
         let result: Any?
-        
+
         init(ttl: TimeInterval, result: Any?) {
             self.ttl = ttl
             self.updateDate = Date()
             self.result = result
         }
     }
-    
+
     public static let shared = TTLManager()
     private var ttlInfos: [String: TTLInfo]
-    
+
     private init() {
         ttlInfos = [:]
     }
-    
+
     public func isAlive(_ key: String) -> Bool {
         guard let ttlInfo = ttlInfos[key] else {
             return false
         }
-        
+
         return Date().timeIntervalSince(ttlInfo.updateDate) <= ttlInfo.ttl
     }
-    
+
     public func checkin(_ key: String, ttl: TimeInterval, result: Any?) {
         ttlInfos[key] = TTLInfo(ttl: ttl, result: result)
     }
-    
+
     public func lastResult<T>(_ key: String) -> T? {
         guard let ttlInfo = ttlInfos[key], let result = ttlInfo.result as? T else {
             return nil
         }
-        
+
         return result
     }
 }
@@ -81,7 +81,7 @@ public extension RequestModelConvertible {
 }
 
 public struct RequestModel: URLRequestConvertible {
-    
+
     public var method: HTTPMethod
     public var scheme: URLScheme
     public var path: String
@@ -112,7 +112,7 @@ public struct RequestModel: URLRequestConvertible {
         case .jsonBody:             return JSONEncoding.default
         }
     }
-    
+
     public func asURLRequest() throws -> URLRequest {
         let url = try host.asURL()
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
