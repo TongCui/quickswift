@@ -72,7 +72,7 @@ open class OptionCellItem<Key: Equatable>: CellItemProtocol {
 
     private func updateSelections(section: SectionItemProtocol) {
         if isMultiSelectable {
-            isSelected = isSelected.toggled
+            isSelected = !isSelected
         } else {
             section.cellItems.forEach { (cellItem) in
                 if let cellItem = cellItem as? OptionCellItem {
