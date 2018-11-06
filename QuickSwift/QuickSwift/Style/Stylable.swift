@@ -105,6 +105,17 @@ extension UITableViewCell: Stylable {
     }
 }
 
+// MARK: - UITableView
+extension UITableView: Stylable {
+    
+    public var uiStyle: QuickSwift.Style<UITableView> { return QuickSwift.Style(element: self) }
+    
+    public func copyStyle(_ another: UITableView) {
+        copyCommonView(another)
+    }
+    
+}
+
 // MARK: - UISlider
 extension UISlider: Stylable {
     public var uiStyle: Style<UISlider> { return Style(element: self) }
