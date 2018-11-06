@@ -16,7 +16,7 @@ public class Regex {
     }
 
     public func match(input: String) -> Bool {
-        let matches = internalExpression.matches(in: input, options: [], range: NSMakeRange(0, input.count))
+        let matches = internalExpression.matches(in: input, options: [], range: NSRange(location: 0, length: input.count))
         return matches.count > 0
     }
 }

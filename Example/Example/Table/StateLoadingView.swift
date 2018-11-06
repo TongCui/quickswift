@@ -10,7 +10,7 @@ import UIKit
 
 class StateLoadingView: UIView {
 
-    var spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    var spinner = UIActivityIndicatorView(style: .gray)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

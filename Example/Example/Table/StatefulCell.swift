@@ -121,7 +121,7 @@ final class StatefulCell: UITableViewCell, Statefuled {
         
         selectionStyle = .none
         
-        stateEdgeInsets = UIEdgeInsetsMake(topLeft.bottom + 2, .defaultMargin, .defaultMargin, .defaultMargin)
+        stateEdgeInsets = UIEdgeInsets(top: topLeft.bottom + 2, left: .defaultMargin, bottom: .defaultMargin, right: .defaultMargin)
         setStateSuccessViews([shopImageView, shopDescription])
         setStateView(for: .empty, view: StateEmptyView(frame: .zero))
         setStateView(for: .loading, view: StateLoadingView(frame: .zero))

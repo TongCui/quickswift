@@ -11,7 +11,7 @@ import OHHTTPStubs
 
 public extension OHHTTPStubs {
     static func defaultResponseHeader() -> [String: String] {
-        return ["Content-Type":"application/json"]
+        return ["Content-Type": "application/json"]
     }
 }
 

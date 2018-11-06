@@ -150,8 +150,8 @@ class TypeConvertionsTests: XCTestCase {
         XCTAssertEqual(["1", "2", "3"], try input.toArray())
 
         input = "{\"1\":\"100\",\"2\":\"200\"}"
-        XCTAssertEqual(["1":"100", "2":"200"], try input.toJSONObject())
-        XCTAssertEqual(["1":"100", "2":"200"], try input.toDictionary())
+        XCTAssertEqual(["1": "100", "2": "200"], try input.toJSONObject())
+        XCTAssertEqual(["1": "100", "2": "200"], try input.toDictionary())
 
         //  Error
         input = "[1, \"2\", \"3\"]"
@@ -181,8 +181,8 @@ class TypeConvertionsTests: XCTestCase {
         XCTAssertEqual(["1", "2", "3"], try input.toUtf8Data().toArray())
 
         input = "{\"1\":\"100\",\"2\":\"200\"}"
-        XCTAssertEqual(["1":"100", "2":"200"], try input.toUtf8Data().toJSONObject())
-        XCTAssertEqual(["1":"100", "2":"200"], try input.toUtf8Data().toDictionary())
+        XCTAssertEqual(["1": "100", "2": "200"], try input.toUtf8Data().toJSONObject())
+        XCTAssertEqual(["1": "100", "2": "200"], try input.toUtf8Data().toDictionary())
 
         //  Error
         input = "[1, \"2\", \"3\"]"

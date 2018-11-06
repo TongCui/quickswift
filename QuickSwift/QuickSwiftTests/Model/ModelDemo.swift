@@ -94,7 +94,7 @@ struct TestComplexModel: Codable {
         doubleValue = 1.2
         intArrayValue = [1, 2]
         stringArrayValue = ["1", "2"]
-        intDictionary = [1:1, 2:2]
-        strDictionary = ["1":1, "2":2]
+        intDictionary = [1: 1, 2: 2]
+        strDictionary = ["1": 1, "2": 2]
     }
 }

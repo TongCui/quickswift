@@ -12,7 +12,7 @@ import QuickSwift
 final class SystemCellAdapter: HeaderFooterTableAdapter {
     required init() {
         super.init()
-        let selectionStyles: [(UITableViewCellSelectionStyle, String)] = [(.none, ".none"), (.blue, ".blue"), (.gray, ".gray"), (.default, ".default")]
+        let selectionStyles: [(UITableViewCell.SelectionStyle, String)] = [(.none, ".none"), (.blue, ".blue"), (.gray, ".gray"), (.default, ".default")]
         append(section: TitleHeaderSectionItem(header: "Default Cell (SelectionStyle)") ) {
             selectionStyles.map { (style, name) in
                 SystemStyleCellItem(style: .default).customUI { (cell) in
@@ -22,7 +22,7 @@ final class SystemCellAdapter: HeaderFooterTableAdapter {
             }
         }
         
-        let accessoryTypes: [(UITableViewCellAccessoryType, String)] = [(.none, ".none"), (.disclosureIndicator, ".disclosureIndicator"), (.detailDisclosureButton, ".detailDisclosureButton"), (.checkmark, ".checkmark"), (.detailButton, ".detailButton")]
+        let accessoryTypes: [(UITableViewCell.AccessoryType, String)] = [(.none, ".none"), (.disclosureIndicator, ".disclosureIndicator"), (.detailDisclosureButton, ".detailDisclosureButton"), (.checkmark, ".checkmark"), (.detailButton, ".detailButton")]
         append(section: TitleHeaderSectionItem(header: "Default Cell (AccessoryType)") ) {
             accessoryTypes.map { (type, name) in
                 SystemStyleCellItem(style: .default).customUI { (cell) in

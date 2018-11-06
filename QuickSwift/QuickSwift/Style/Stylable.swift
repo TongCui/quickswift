@@ -70,7 +70,7 @@ extension UIButton: Stylable {
         }
     }
 
-    func states() -> [UIControlState] {
+    func states() -> [UIControl.State] {
         return [.normal, .highlighted, .disabled, .selected]
     }
 }
@@ -102,15 +102,6 @@ extension UITableViewCell: Stylable {
         accessoryType = another.accessoryType
         contentView.backgroundColor = another.backgroundColor
         contentView.tintColor = another.tintColor
-    }
-}
-
-// MARK: - UITableView
-extension UITableView: Stylable {
-    public var uiStyle: Style<UITableView> { return Style(element: self) }
-
-    public func copyStyle(_ another: UITableView) {
-        copyCommonView(another)
     }
 }
 

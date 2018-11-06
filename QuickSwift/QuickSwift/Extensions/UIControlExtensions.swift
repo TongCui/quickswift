@@ -32,7 +32,7 @@ private struct UIControlPropertyKeys {
 }
 
 extension UIControl {
-    public func addHandler<T: UIControl>(for controlEvents: UIControlEvents, handler: @escaping (T) -> Void) {
+    public func addHandler<T: UIControl>(for controlEvents: UIControl.Event, handler: @escaping (T) -> Void) {
         if let oldTarget = objc_getAssociatedObject(self, &UIControlPropertyKeys.controlHandler) as? Target<T> {
             self.removeTarget(oldTarget, action: #selector(oldTarget.send(_:)), for: controlEvents)
         }

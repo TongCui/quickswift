@@ -18,7 +18,7 @@ class CrossFadeSegue: UIStoryboardSegue {
         toVC.view.center = fromVC.view.center
         fromVC.view.superview?.addSubview(toVC.view)
         
-        UIView.transition(from: fromVC.view, to: toVC.view, duration: duration, options: UIViewAnimationOptions.transitionCrossDissolve) { (finished) in
+        UIView.transition(from: fromVC.view, to: toVC.view, duration: duration, options: UIView.AnimationOptions.transitionCrossDissolve) { (finished) in
             fromVC.navigationController?.pushViewController(toVC, animated: false)
         }
     }
@@ -34,7 +34,7 @@ class CrossFadeUnwindSegue: UIStoryboardSegue {
         toVC.view.center = fromVC.view.center
         fromVC.view.superview?.addSubview(toVC.view)
         
-        UIView.transition(from: fromVC.view, to: toVC.view, duration: duration, options: UIViewAnimationOptions.transitionCrossDissolve) { (finished) in
+        UIView.transition(from: fromVC.view, to: toVC.view, duration: duration, options: UIView.AnimationOptions.transitionCrossDissolve) { (finished) in
             fromVC.navigationController?.popViewController(animated: false)
         }
     }

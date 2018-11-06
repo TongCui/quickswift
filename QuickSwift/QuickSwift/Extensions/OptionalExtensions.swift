@@ -10,7 +10,7 @@ extension Optional {
     var isNil: Bool {
         switch self {
         case .none: return true
-        case .some(_): return false
+        case .some: return false
         }
     }
 }

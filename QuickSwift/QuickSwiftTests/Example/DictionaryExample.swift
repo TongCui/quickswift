@@ -17,8 +17,8 @@ class DictionaryExample: XCTestCase {
 
     func testDictionaryIterating() {
         let dict = [
-            1:"100",
-            2:"200"
+            1: "100",
+            2: "200"
         ]
         for (key, value) in dict {
             print("# \(key) ) \(value)")

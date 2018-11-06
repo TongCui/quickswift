@@ -42,7 +42,7 @@ public struct JSON {
     }
 
     public static func parse<T>(fromString string: String) throws -> T {
-        return try parse(fromData : string.toUtf8Data())
+        return try parse(fromData: string.toUtf8Data())
     }
 
     public static func parse<T>(fromData data: Data) throws -> T {

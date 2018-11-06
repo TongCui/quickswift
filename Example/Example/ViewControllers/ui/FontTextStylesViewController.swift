@@ -16,7 +16,7 @@ final class FontStylesAdapter: DefaultTableAdapter {
 
         let sectionItem = PlainSectionItem()
         
-        let fontStyles: [(UIFontTextStyle, String)] = [
+        let fontStyles: [(UIFont.TextStyle, String)] = [
             (.body, "The font used for body text."),
             (.callout, "The font used for callouts."),
             (.caption1, "The font used for standard captions."),

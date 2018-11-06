@@ -40,7 +40,7 @@ open class LoadingCellItem: CellItemProtocol {
 
 open class LoadingCell: CommonInitTableCell {
 
-    public lazy var spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    public lazy var spinner = UIActivityIndicatorView(style: .gray)
 
     open override func commonInit() {
         super.commonInit()

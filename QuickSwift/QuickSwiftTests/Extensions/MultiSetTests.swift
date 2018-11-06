@@ -65,8 +65,8 @@ class MultiSetTests: XCTestCase {
         anotherBag.remove("note")
         XCTAssertTrue(bag == anotherBag)
 
-        bag = ["book":1, "water":2, "note":1]
-        anotherBag = ["book":1, "water":2]
+        bag = ["book": 1, "water": 2, "note": 1]
+        anotherBag = ["book": 1, "water": 2]
         XCTAssertFalse(bag == anotherBag)
     }
 
@@ -110,7 +110,7 @@ class MultiSetTests: XCTestCase {
     }
 
     func testDictionaryLiteral() {
-        bag = ["book": 3, "water":10]
+        bag = ["book": 3, "water": 10]
         XCTAssertEqual(bag["book"], 3)
         XCTAssertEqual(bag["water"], 10)
     }

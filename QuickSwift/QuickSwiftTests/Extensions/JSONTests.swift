@@ -14,10 +14,10 @@ class JSONTests: XCTestCase {
 
     let intArray = [1, 2, 3]
     let stringArray = ["1", "2", "3"]
-    let intKeyDictionary = [1:"100", 2:"200"]
-    let stringKeyDictionary = ["1":"100", "2":"200"]
-    let complexArray: [Any] = [1, "string", [1, 2], ["k":"v"]]
-    let complexDictionary: [String: Any] = ["1":["k":"v"], "2":[1, 2, 3], "3":1, "4":"name"]
+    let intKeyDictionary = [1: "100", 2: "200"]
+    let stringKeyDictionary = ["1": "100", "2": "200"]
+    let complexArray: [Any] = [1, "string", [1, 2], ["k": "v"]]
+    let complexDictionary: [String: Any] = ["1": ["k": "v"], "2": [1, 2, 3], "3": 1, "4": "name"]
 
     func testValid() {
         XCTAssertTrue(JSON.isValid(any: intArray))

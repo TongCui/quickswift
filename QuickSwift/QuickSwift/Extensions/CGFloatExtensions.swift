@@ -14,5 +14,5 @@ public extension CGFloat {
     public static var tableHeaderDefaultHeight: CGFloat { return 30 }
     public static var tableZero: CGFloat { return 0.01 }
     public static var defaultBorderWidth: CGFloat { return 0.5 }
-    public static var automaticDimension: CGFloat { return UITableViewAutomaticDimension }
+    public static var automaticDimension: CGFloat { return UITableView.automaticDimension }
 }

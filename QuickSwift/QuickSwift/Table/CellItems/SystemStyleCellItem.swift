@@ -14,7 +14,7 @@ open class SystemStyleCellItem: CellItemProtocol {
     public var actionHandler = CellActionHandler()
     public var cellDisplayingContext = CellItemDisplayingContext()
 
-    public init(style: UITableViewCellStyle) {
+    public init(style: UITableViewCell.CellStyle) {
         self.identifier = "system_style_cell_\(style.rawValue) "
 
         switch style {
@@ -32,7 +32,7 @@ open class SystemStyleCellItem: CellItemProtocol {
 }
 
 open class SystemStyleDefaultCell: UITableViewCell {
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
     }
 
@@ -42,7 +42,7 @@ open class SystemStyleDefaultCell: UITableViewCell {
 }
 
 open class SystemStyleValue1Cell: UITableViewCell {
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
     }
 
@@ -52,7 +52,7 @@ open class SystemStyleValue1Cell: UITableViewCell {
 }
 
 open class SystemStyleValue2Cell: UITableViewCell {
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .value2, reuseIdentifier: reuseIdentifier)
     }
 
@@ -62,7 +62,7 @@ open class SystemStyleValue2Cell: UITableViewCell {
 }
 
 open class SystemStyleSubTitleCell: UITableViewCell {
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     }
 

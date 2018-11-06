@@ -104,35 +104,35 @@ public extension TableViewAdapterProtocol {
 
 /** Animations */
 public extension TableViewAdapterProtocol {
-    public func append(cellItem: CellItemProtocol, animated: UITableViewRowAnimation = .none) {
+    public func append(cellItem: CellItemProtocol, animated: UITableView.RowAnimation = .none) {
         sections.last?.append(cellItem)
     }
 
-    public func append(cellItems: [CellItemProtocol], animated: UITableViewRowAnimation = .none) {
+    public func append(cellItems: [CellItemProtocol], animated: UITableView.RowAnimation = .none) {
 
     }
 
-    public func insert(cellItem: CellItemProtocol, at indexPath: IndexPath, animated: UITableViewRowAnimation = .none) {
+    public func insert(cellItem: CellItemProtocol, at indexPath: IndexPath, animated: UITableView.RowAnimation = .none) {
 
     }
 
-    public func insert(cellItems: [CellItemProtocol], at indexPath: IndexPath, animated: UITableViewRowAnimation = .none) {
+    public func insert(cellItems: [CellItemProtocol], at indexPath: IndexPath, animated: UITableView.RowAnimation = .none) {
 
     }
 
-    public func remove(cellItem: CellItemProtocol, animated: UITableViewRowAnimation = .none) {
+    public func remove(cellItem: CellItemProtocol, animated: UITableView.RowAnimation = .none) {
 
     }
 
-    public func remove(cellItems: [CellItemProtocol], animated: UITableViewRowAnimation = .none) {
+    public func remove(cellItems: [CellItemProtocol], animated: UITableView.RowAnimation = .none) {
 
     }
 
-    public func remove(at indexPath: IndexPath, animated: UITableViewRowAnimation = .none) {
+    public func remove(at indexPath: IndexPath, animated: UITableView.RowAnimation = .none) {
 
     }
 
-    public func remove(at indexPaths: [IndexPath], animated: UITableViewRowAnimation = .none) {
+    public func remove(at indexPaths: [IndexPath], animated: UITableView.RowAnimation = .none) {
 
     }
 

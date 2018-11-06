@@ -14,8 +14,8 @@ public extension UIImage {
 }
 
 public extension UIImage {
-    func toJPEG() -> Data? { return UIImageJPEGRepresentation(self, 1) }
-    func toPNG() -> Data? { return UIImagePNGRepresentation(self)}
+    func toJPEG() -> Data? { return jpegData(compressionQuality: 1) }
+    func toPNG() -> Data? { return pngData() }
     func toTemplateImage() -> UIImage { return withRenderingMode(.alwaysTemplate)}
 }
 

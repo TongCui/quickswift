@@ -24,7 +24,7 @@ class NetworkingTests: XCTestCase {
     func testAlamofireAndStub() {
         stub(condition: isPath("/teststub")) { _ in
             let stubPath = OHPathForFile("stub.json", type(of: self))
-            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+            return fixture(filePath: stubPath!, headers: ["Content-Type": "application/json"])
         }
 
         let expect = expectation(description: "Waiting for response")
@@ -64,7 +64,7 @@ class NetworkingTests: XCTestCase {
     func testResponseModel() {
         stub(condition: isPath("/persons")) { _ in
             let stubPath = OHPathForFile("stub-persons.json", type(of: self))
-            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+            return fixture(filePath: stubPath!, headers: ["Content-Type": "application/json"])
         }
 
         let expect = expectation(description: "Waiting for response")

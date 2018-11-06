@@ -284,13 +284,13 @@ class ArrayExtensionsTests: XCTestCase {
     func testArrayGroupByKey() {
         let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-        var res = [String:[Int]]()
-        var expected = [String:[Int]]()
+        var res = [String: [Int]]()
+        var expected = [String: [Int]]()
 
         //  TODO
 
         res = array.group { ($0 % 2 == 0) ?  "even" : "odd" }
-        expected = ["even":[2, 4, 6, 8, 10], "odd":[1, 3, 5, 7, 9]]
+        expected = ["even": [2, 4, 6, 8, 10], "odd": [1, 3, 5, 7, 9]]
         print("\(res) \(expected)")
 
         res = array.group { element in
@@ -301,7 +301,7 @@ class ArrayExtensionsTests: XCTestCase {
             default: return ""
             }
         }
-        expected = ["0":[3, 6, 9], "1":[1, 4, 7, 10], "2":[2, 5, 8]]
+        expected = ["0": [3, 6, 9], "1": [1, 4, 7, 10], "2": [2, 5, 8]]
         print("\(res) \(expected)")
     }
 

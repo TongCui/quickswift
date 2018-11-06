@@ -50,7 +50,7 @@ open class BasicTableDelegateProvider: NSObject, TableDelegateProvider {
 
     public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let height = cellHeights[indexPath] else {
-            return self.tableView(tableView, heightForRowAt:indexPath)
+            return self.tableView(tableView, heightForRowAt: indexPath)
         }
         return height
     }
@@ -127,7 +127,7 @@ open class HeaderFooterDelegateHandler: BasicTableDelegateProvider {
     }
 
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return getSectionItem(section: section)?.header?.height ?? defaultHeaderHeight(tableView:tableView, section:section)
+        return getSectionItem(section: section)?.header?.height ?? defaultHeaderHeight(tableView: tableView, section: section)
     }
 
     public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

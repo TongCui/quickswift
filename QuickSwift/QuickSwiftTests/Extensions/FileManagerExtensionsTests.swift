@@ -68,7 +68,7 @@ class FileManagerExtensionsTests: XCTestCase {
     }
 
     func testURLs() {
-        try! FileManager.touch(fileName: "file", in : .documentDirectory)
+        try! FileManager.touch(fileName: "file", in: .documentDirectory)
         XCTAssertEqual(FileManager.files(in: .documentDirectory), ["file"])
     }
 
@@ -84,17 +84,17 @@ class FileManagerExtensionsTests: XCTestCase {
     }
 
     func testClear() {
-        XCTAssertEqual(FileManager.fileURLs(in : .documentDirectory).count, 0)
+        XCTAssertEqual(FileManager.fileURLs(in: .documentDirectory).count, 0)
         1.upto(5) { idx in
-            try! FileManager.touch(fileName: "\(idx).txt", in : .documentDirectory)
+            try! FileManager.touch(fileName: "\(idx).txt", in: .documentDirectory)
         }
-        let files = FileManager.fileURLs(in : .documentDirectory).map { try! $0.path.fileName.toI() }.sorted()
+        let files = FileManager.fileURLs(in: .documentDirectory).map { try! $0.path.fileName.toI() }.sorted()
         XCTAssertEqual(files, [1, 2, 3, 4, 5])
     }
 
     func testRemove() {
         let file = "a.txt"
-        try! FileManager.touch(fileName: file, in : .documentDirectory)
+        try! FileManager.touch(fileName: file, in: .documentDirectory)
         XCTAssertTrue(FileManager.fileExists(fileName: file, in: .documentDirectory))
         try! FileManager.remove(fileName: file, in: .documentDirectory)
         XCTAssertFalse(FileManager.fileExists(fileName: file, in: .documentDirectory))

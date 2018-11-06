@@ -56,7 +56,7 @@ public class BarButtonAnimator {
         view.alpha = 0
         if let navigationBar = viewController.navigationController?.navigationBar {
             navigationBar.addSubview(view)
-            updateAutoLayout(on:navigationBar)
+            updateAutoLayout(on: navigationBar)
 
             navigationBar.setNeedsLayout()
             navigationBar.layoutIfNeeded()
@@ -98,7 +98,7 @@ public class BarButtonAnimator {
     }
 
     public func showImage(_ show: Bool, _ animated: Bool) {
-        UIView.animate(withDuration:animated ? 0.12 : 0) {
+        UIView.animate(withDuration: animated ? 0.12 : 0) {
             self.view.alpha = show ? 1.0 : 0.0
         }
     }
