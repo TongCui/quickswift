@@ -86,8 +86,8 @@
 		07656F3B1FE3800B0058E2D9 /* RegexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F3A1FE3800B0058E2D9 /* RegexTests.swift */; };
 		07656F3D1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F3C1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift */; };
 		07656F411FE3AB2D0058E2D9 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F401FE3AB2D0058E2D9 /* StringExtensionsTests.swift */; };
-		07656F441FE4C82F0058E2D9 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F431FE4C82F0058E2D9 /* Style.swift */; };
-		07656F461FE4C8360058E2D9 /* Stylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F451FE4C8360058E2D9 /* Stylable.swift */; };
+		07656F441FE4C82F0058E2D9 /* UIStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F431FE4C82F0058E2D9 /* UIStyle.swift */; };
+		07656F461FE4C8360058E2D9 /* UIStylable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F451FE4C8360058E2D9 /* UIStylable.swift */; };
 		07656F4B1FE51D870058E2D9 /* StyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07656F4A1FE51D870058E2D9 /* StyleTests.swift */; };
 		07721DF42094008F005B6386 /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07721DEB2094008E005B6386 /* TableDataSource.swift */; };
 		07721DF52094008F005B6386 /* CellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07721DEC2094008E005B6386 /* CellItem.swift */; };
@@ -261,8 +261,8 @@
 		07656F3A1FE3800B0058E2D9 /* RegexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexTests.swift; sourceTree = "<group>"; };
 		07656F3C1FE3A2820058E2D9 /* FileManagerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensionsTests.swift; sourceTree = "<group>"; };
 		07656F401FE3AB2D0058E2D9 /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
-		07656F431FE4C82F0058E2D9 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		07656F451FE4C8360058E2D9 /* Stylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylable.swift; sourceTree = "<group>"; };
+		07656F431FE4C82F0058E2D9 /* UIStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyle.swift; sourceTree = "<group>"; };
+		07656F451FE4C8360058E2D9 /* UIStylable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStylable.swift; sourceTree = "<group>"; };
 		07656F4A1FE51D870058E2D9 /* StyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleTests.swift; sourceTree = "<group>"; };
 		07721DEB2094008E005B6386 /* TableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
 		07721DEC2094008E005B6386 /* CellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellItem.swift; sourceTree = "<group>"; };
@@ -415,8 +415,8 @@
 		07656F421FE4C8160058E2D9 /* Style */ = {
 			isa = PBXGroup;
 			children = (
-				07656F431FE4C82F0058E2D9 /* Style.swift */,
-				07656F451FE4C8360058E2D9 /* Stylable.swift */,
+				07656F431FE4C82F0058E2D9 /* UIStyle.swift */,
+				07656F451FE4C8360058E2D9 /* UIStylable.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -914,7 +914,7 @@
 				07D7ABDA1FE1259C002AE482 /* Prime.swift in Sources */,
 				079445AD1FE79023007E3F0A /* Swizzle.swift in Sources */,
 				07E0137E1FECE3EA00609DAB /* ButtonCellItem.swift in Sources */,
-				07656F461FE4C8360058E2D9 /* Stylable.swift in Sources */,
+				07656F461FE4C8360058E2D9 /* UIStylable.swift in Sources */,
 				07F978921FE6C8C1000C8A75 /* NSObjectExtensions.swift in Sources */,
 				07E9ADE91FDFC95500F3A6B0 /* JSON.swift in Sources */,
 				0712AE811FF141650053A59F /* MultiSet.swift in Sources */,
@@ -985,7 +985,7 @@
 				07DF3A27202C3A1500652032 /* LogListViewController.swift in Sources */,
 				07F9788C1FE6C439000C8A75 /* CollectionExtensions.swift in Sources */,
 				07E9ADEA1FDFC95500F3A6B0 /* Random.swift in Sources */,
-				07656F441FE4C82F0058E2D9 /* Style.swift in Sources */,
+				07656F441FE4C82F0058E2D9 /* UIStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

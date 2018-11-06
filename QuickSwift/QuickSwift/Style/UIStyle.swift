@@ -6,7 +6,7 @@
 //  Copyright © 2017 LuckyTR. All rights reserved.
 //
 
-public struct Style<Element> {
+public struct UIStyle<Element> {
 
     let element: Element
 
@@ -15,35 +15,35 @@ public struct Style<Element> {
     }
 
     @discardableResult
-    public func with(_ styles: [StyleItem<Element>]) -> Style {
+    public func with(_ styles: [StyleItem<Element>]) -> UIStyle {
         styles.forEach { $0.apply(on: element) }
         return self
     }
 
     @discardableResult
-    public func ui(_ custom: (Element) -> Void) -> Style {
+    public func ui(_ custom: (Element) -> Void) -> UIStyle {
         custom(element)
         return self
     }
 }
 
-extension Style where Element: Stylable {
+extension UIStyle where Element: UIStylable {
     @discardableResult
-    public func same(with another: Element.Element ) -> Style {
+    public func same(with another: Element.Element ) -> UIStyle {
         self.element.copyStyle(another)
         return self
     }
 }
 
-extension Style {
+extension UIStyle {
     @discardableResult
-    public func with<T: StyleFactory>(_ styles: T...) -> Style where T.Element == Element {
+    public func with<T: StyleFactory>(_ styles: T...) -> UIStyle where T.Element == Element {
         styles.forEach { $0.styleItem.apply(on: element) }
         return self
     }
 
     @discardableResult
-    public func with<T: StyleFactory>(_ type: T.Type, _ styles: T...) -> Style where T.Element == Element {
+    public func with<T: StyleFactory>(_ type: T.Type, _ styles: T...) -> UIStyle where T.Element == Element {
         styles.forEach { $0.styleItem.apply(on: element) }
         return self
     }

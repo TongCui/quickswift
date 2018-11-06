@@ -53,9 +53,9 @@ class MultiSetTests: XCTestCase {
     func testDescription() {
         print(bag)
         debugPrint(bag)
-        
-        XCTAssertNotNil(bag.description);
-        XCTAssertNotNil(bag.debugDescription);
+
+        XCTAssertNotNil(bag.description)
+        XCTAssertNotNil(bag.debugDescription)
     }
 
     func testEqual() {
